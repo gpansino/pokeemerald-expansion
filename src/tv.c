@@ -956,21 +956,13 @@ void GabbyAndTyBeforeInterview(void)
     else
         gSaveBlock1Ptr->gabbyAndTyData.playerUsedHealingItem = FALSE;
 
-    if (!gBattleResults.usedMasterBall)
+    for (i = 0; i < POKEBALL_COUNT; i++)
     {
-        for (i = 0; i < POKEBALL_COUNT - 1; i++)
+        if (gBattleResults.catchAttempts[i])
         {
-            if (gBattleResults.catchAttempts[i])
-            {
-                gSaveBlock1Ptr->gabbyAndTyData.playerThrewABall = TRUE;
-                break;
-            }
+            gSaveBlock1Ptr->gabbyAndTyData.playerThrewABall = TRUE;
+            break;
         }
-    }
-    else
-    {
-        // Player threw a Master Ball at Gabby and Ty
-        gSaveBlock1Ptr->gabbyAndTyData.playerThrewABall = TRUE;
     }
 
     TakeGabbyAndTyOffTheAir();
@@ -1129,28 +1121,20 @@ void TryPutPokemonTodayOnAir(void)
             sCurTVShowSlot = FindFirstEmptyRecordMixTVShowSlot(gSaveBlock1Ptr->tvShows);
             if (sCurTVShowSlot != -1 && IsRecordMixShowAlreadySpawned(TVSHOW_POKEMON_TODAY_CAUGHT, FALSE) != TRUE)
             {
-                for (i = 0; i < POKEBALL_COUNT - 1; i++)
+                for (i = 0; i < POKEBALL_COUNT; i++)
                     ballsUsed += gBattleResults.catchAttempts[i];
 
-                if (ballsUsed != 0 || gBattleResults.usedMasterBall)
+                if (ballsUsed != 0)
                 {
                     ballsUsed = 0;
                     show = &gSaveBlock1Ptr->tvShows[sCurTVShowSlot];
                     show->pokemonToday.kind = TVSHOW_POKEMON_TODAY_CAUGHT;
                     show->pokemonToday.active = FALSE; // NOTE: Show is not active until passed via Record Mix.
-                    if (gBattleResults.usedMasterBall)
-                    {
-                        ballsUsed = 1;
-                        itemLastUsed = ITEM_MASTER_BALL;
-                    }
-                    else
-                    {
-                        for (i = 0; i < POKEBALL_COUNT - 1; i++)
-                            ballsUsed += gBattleResults.catchAttempts[i];
-                        if (ballsUsed > 255)
-                            ballsUsed = 255;
-                        itemLastUsed = gLastUsedItem;
-                    }
+                    for (i = 0; i < POKEBALL_COUNT; i++)
+                        ballsUsed += gBattleResults.catchAttempts[i];
+                    if (ballsUsed > 255)
+                        ballsUsed = 255;
+                    itemLastUsed = gLastUsedItem;
                     show->pokemonToday.nBallsUsed = ballsUsed;
                     show->pokemonToday.ball = itemLastUsed;
                     StringCopy(show->pokemonToday.playerName, gSaveBlock2Ptr->playerName);
@@ -1192,7 +1176,7 @@ static void TryPutPokemonTodayFailedOnTheAir(void)
 
     if (!rbernoulli(1, 1))
     {
-        for (i = 0, ballsUsed = 0; i < POKEBALL_COUNT - 1; i++)
+        for (i = 0, ballsUsed = 0; i < POKEBALL_COUNT; i++)
             ballsUsed += gBattleResults.catchAttempts[i];
         if (ballsUsed > 255)
             ballsUsed = 255;
@@ -2058,7 +2042,7 @@ static void SecretBaseVisit_CalculatePartyData(TVShow *show)
         {
             sTV_SecretBaseVisitMonsTemp[numPokemon].level = GetMonData(&gPlayerParty[i], MON_DATA_LEVEL);
             sTV_SecretBaseVisitMonsTemp[numPokemon].species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES);
-            
+
             // Check all the Pokémon's moves, then randomly select one to save
             numMoves = 0;
             move = GetMonData(&gPlayerParty[i], MON_DATA_MOVE1);
@@ -2093,7 +2077,7 @@ static void SecretBaseVisit_CalculatePartyData(TVShow *show)
     for (i = 0, sum = 0; i < numPokemon; i++)
         sum += sTV_SecretBaseVisitMonsTemp[i].level;
 
-    // Using the data calculated above, save the data to talk about on the show 
+    // Using the data calculated above, save the data to talk about on the show
     // (average level, and one randomly selected species / move)
     show->secretBaseVisit.avgLevel = sum / numPokemon;
     j = Random() % numPokemon;
@@ -2133,11 +2117,8 @@ void TryPutBreakingNewsOnAir(void)
         show->breakingNews.kind = TVSHOW_BREAKING_NEWS;
         show->breakingNews.active = FALSE; // NOTE: Show is not active until passed via Record Mix.
         balls = 0;
-        for (i = 0; i < POKEBALL_COUNT - 1; i++)
+        for (i = 0; i < POKEBALL_COUNT; i++)
             balls += gBattleResults.catchAttempts[i];
-
-        if (gBattleResults.usedMasterBall)
-            balls++;
         show->breakingNews.location = gMapHeader.regionMapSectionId;
         StringCopy(show->breakingNews.playerName, gSaveBlock2Ptr->playerName);
         show->breakingNews.poke1Species = gBattleResults.playerMon1Species;
@@ -2167,10 +2148,7 @@ void TryPutBreakingNewsOnAir(void)
         switch (show->breakingNews.outcome)
         {
         case 0:
-            if (gBattleResults.usedMasterBall)
-                show->breakingNews.caughtMonBall = ITEM_MASTER_BALL;
-            else
-                show->breakingNews.caughtMonBall = gBattleResults.caughtMonBall;
+            show->breakingNews.caughtMonBall = gBattleResults.caughtMonBall;
             show->breakingNews.balls = balls;
             break;
         case 1:
@@ -2643,7 +2621,7 @@ void DoPokeNews(void)
             // News event is upcoming, make comment about countdown to event
             u16 dayCountdown = gSaveBlock1Ptr->pokeNews[i].dayCountdown;
             ConvertIntToDecimalStringN(gStringVar1, dayCountdown, STR_CONV_MODE_LEFT_ALIGN, 1);
-            
+
             // Mark as inactive so the countdown TV airing doesn't repeat
             // Will be flagged as "upcoming" again by UpdatePokeNewsCountdown
             gSaveBlock1Ptr->pokeNews[i].state = POKENEWS_STATE_INACTIVE;
@@ -2848,7 +2826,7 @@ static bool8 IsRecordMixShowAlreadySpawned(u8 kind, bool8 delete)
 static void SortPurchasesByQuantity(void)
 {
     u8 i, j;
-    
+
     for (i = 0; i < SMARTSHOPPER_NUM_ITEMS - 1; i++)
     {
         for (j = i + 1; j < SMARTSHOPPER_NUM_ITEMS; j++)
@@ -3450,7 +3428,7 @@ void ReceiveTvShowsData(void *src, u32 size, u8 playersLinkId)
     TVShow (*rmBuffer2)[MAX_LINK_PLAYERS][TV_SHOWS_COUNT];
     TVShow (*rmBuffer)[MAX_LINK_PLAYERS][TV_SHOWS_COUNT];
 
-    rmBuffer2 = malloc(MAX_LINK_PLAYERS * TV_SHOWS_COUNT * sizeof(TVShow));
+    rmBuffer2 = Alloc(MAX_LINK_PLAYERS * TV_SHOWS_COUNT * sizeof(TVShow));
     if (rmBuffer2 != NULL)
     {
         for (i = 0; i < MAX_LINK_PLAYERS; i++)
@@ -3488,7 +3466,7 @@ void ReceiveTvShowsData(void *src, u32 size, u8 playersLinkId)
         CompactTVShowArray(gSaveBlock1Ptr->tvShows);
         DeactivateShowsWithUnseenSpecies();
         DeactivateGameCompleteShowsIfNotUnlocked();
-        free(rmBuffer2);
+        Free(rmBuffer2);
     }
 }
 
@@ -3835,7 +3813,7 @@ void ReceivePokeNewsData(void *src, u32 size, u8 playersLinkId)
     PokeNews (*rmBuffer2)[MAX_LINK_PLAYERS][POKE_NEWS_COUNT];
     PokeNews (*rmBuffer)[MAX_LINK_PLAYERS][POKE_NEWS_COUNT];
 
-    rmBuffer2 = malloc(MAX_LINK_PLAYERS * POKE_NEWS_COUNT * sizeof(PokeNews));
+    rmBuffer2 = Alloc(MAX_LINK_PLAYERS * POKE_NEWS_COUNT * sizeof(PokeNews));
     if (rmBuffer2 != NULL)
     {
         for (i = 0; i < MAX_LINK_PLAYERS; i++)
@@ -3861,7 +3839,7 @@ void ReceivePokeNewsData(void *src, u32 size, u8 playersLinkId)
         }
         ClearInvalidPokeNews();
         ClearPokeNewsIfGameNotComplete();
-        free(rmBuffer2);
+        Free(rmBuffer2);
     }
 }
 
@@ -3966,7 +3944,7 @@ static void TranslateShowNames(TVShow *show, u32 language)
     int i;
     TVShow **shows;
 
-    shows = calloc(11, sizeof(TVShow *));
+    shows = AllocZeroed(sizeof(TVShow *) * 11);
     for (i = 0; i < LAST_TVSHOW_IDX; i++)
     {
         switch (show[i].common.kind)
@@ -4023,7 +4001,7 @@ static void TranslateShowNames(TVShow *show, u32 language)
             break;
         }
     }
-    free(shows);
+    Free(shows);
 }
 
 void SanitizeTVShowsForRuby(TVShow *shows)
