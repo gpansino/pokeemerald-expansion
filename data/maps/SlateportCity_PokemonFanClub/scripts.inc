@@ -192,8 +192,8 @@ SlateportCity_PokemonFanClub_EventScript_EeveeWoman::
 	setvar VAR_TEMP_1, SPECIES_EEVEE
 	bufferspeciesname STR_VAR_1, SPECIES_EEVEE
 	givemon SPECIES_EEVEE, 10, ITEM_DRAGON_FANG
-	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, SlateportCity_PokemonFanClub_EventScript_ReceiveParty
-	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, SlateportCity_PokemonFanClub_EventScript_ReceivePC
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, SlateportCity_PokemonFanClub_EventScript_ReceiveEeveeParty
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, SlateportCity_PokemonFanClub_EventScript_ReceiveEeveePC
 	goto Common_EventScript_NoMoreRoomForPokemon
 	end
 
@@ -201,36 +201,36 @@ SlateportCity_PokemonFanClub_EventScript_TookEevee::
 	msgbox SlateportCity_PokemonFanClub_Text_EeveeTaken, MSGBOX_NPC
 	end
 
-SlateportCity_PokemonFanClub_EventScript_ReceiveParty::
-	call SlateportCity_PokemonFanClub_EventScript_ReceivedFanfare
+SlateportCity_PokemonFanClub_EventScript_ReceiveEeveeParty::
+	call SlateportCity_PokemonFanClub_EventScript_ReceivedEeveeFanfare
 	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, SlateportCity_PokemonFanClub_EventScript_TakeCare
+	goto_if_eq VAR_RESULT, NO, SlateportCity_PokemonFanClub_EventScript_TakeCareEevee
 	call Common_EventScript_GetGiftMonPartySlot
 	call Common_EventScript_NameReceivedPartyMon
-	goto SlateportCity_PokemonFanClub_EventScript_TakeCare
+	goto SlateportCity_PokemonFanClub_EventScript_TakeCareEevee
 	end
 
-PetalburgCity_House1_EventScript_ReceivePC::
-	call SlateportCity_PokemonFanClub_EventScript_ReceivedFanfare
+SlateportCity_PokemonFanClub_EventScript_ReceiveEeveePC::
+	call SlateportCity_PokemonFanClub_EventScript_ReceivedEeveeFanfare
 	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, SlateportCity_PokemonFanClub_EventScript_SendToPC
+	goto_if_eq VAR_RESULT, NO, SlateportCity_PokemonFanClub_EventScript_SendEeveeToPC
 	call Common_EventScript_NameReceivedBoxMon
-	goto SlateportCity_PokemonFanClub_EventScript_SendToPC
+	goto SlateportCity_PokemonFanClub_EventScript_SendEeveeToPC
 	end
 
-SlateportCity_PokemonFanClub_EventScript_SendToPC::
+SlateportCity_PokemonFanClub_EventScript_SendEeveeToPC::
 	call Common_EventScript_TransferredToPC
-	goto SlateportCity_PokemonFanClub_EventScript_TakeCare
+	goto SlateportCity_PokemonFanClub_EventScript_TakeCareEevee
 	end
 
-SlateportCity_PokemonFanClub_EventScript_ReceivedFanfare::
+SlateportCity_PokemonFanClub_EventScript_ReceivedEeveeFanfare::
 	playfanfare MUS_OBTAIN_ITEM
 	message SlateportCity_PokemonFanClub_Text_PlayerReceived
 	waitmessage
 	waitfanfare
 	return
 
-PetalburgCity_House1_EventScript_TakeCare::
+SlateportCity_PokemonFanClub_EventScript_TakeCareEevee::
 	msgbox SlateportCity_PokemonFanClub_Text_TakeCareEevee, MSGBOX_DEFAULT
 	setflag FLAG_RECEIVED_EEVEE
 	release

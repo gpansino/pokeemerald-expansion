@@ -827,7 +827,7 @@ static const struct MenuAction MultichoiceList_BabyQuiz9[] = {
 static const struct MenuAction MultichoiceList_GameCornerPokemon[] = {
     {gText_GameCornerEeveeAndPrice},
     {gText_GameCornerPorygonAndPrice}
-}
+};
 
 static const struct MenuAction MultichoiceList_Exit[] =
 {
