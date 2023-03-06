@@ -122,6 +122,16 @@
 #define MULTI_SLATEPORT_TENT_RULES         111
 #define MULTI_FALLARBOR_TENT_RULES         112
 #define MULTI_TAG_MATCH_TYPE               113
+#define MULTI_BABY_QUIZ_1                  114
+#define MULTI_BABY_QUIZ_2                  115
+#define MULTI_BABY_QUIZ_3                  116
+#define MULTI_BABY_QUIZ_4                  117
+#define MULTI_BABY_QUIZ_5                  118
+#define MULTI_BABY_QUIZ_6                  119
+#define MULTI_BABY_QUIZ_7                  120
+#define MULTI_BABY_QUIZ_8                  121
+#define MULTI_BABY_QUIZ_9                  122
+#define MULTI_GAME_CORNER_POKEMON          123
 
 // Lilycove SS Tidal Multichoice Selections
 #define SSTIDAL_SELECTION_SLATEPORT        0

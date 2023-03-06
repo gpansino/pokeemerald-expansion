@@ -186,6 +186,56 @@ SlateportCity_PokemonFanClub_EventScript_MeetChairman::
 	setflag FLAG_MET_SLATEPORT_FANCLUB_CHAIRMAN
 	return
 
+SlateportCity_PokemonFanClub_EventScript_EeveeWoman::
+	goto_if_set FLAG_RECEIVED_EEVEE, SlateportCity_PokemonFanClub_EventScript_TookEevee
+	msgbox SlateportCity_PokemonFanClub_Text_GiveEevee, MSGBOX_NPC
+	setvar VAR_TEMP_1, SPECIES_EEVEE
+	bufferspeciesname STR_VAR_1, SPECIES_EEVEE
+	givemon SPECIES_EEVEE, 10, ITEM_DRAGON_FANG
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, SlateportCity_PokemonFanClub_EventScript_ReceiveParty
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, SlateportCity_PokemonFanClub_EventScript_ReceivePC
+	goto Common_EventScript_NoMoreRoomForPokemon
+	end
+
+SlateportCity_PokemonFanClub_EventScript_TookEevee::
+	msgbox SlateportCity_PokemonFanClub_Text_EeveeTaken, MSGBOX_NPC
+	end
+
+SlateportCity_PokemonFanClub_EventScript_ReceiveParty::
+	call SlateportCity_PokemonFanClub_EventScript_ReceivedFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, SlateportCity_PokemonFanClub_EventScript_TakeCare
+	call Common_EventScript_GetGiftMonPartySlot
+	call Common_EventScript_NameReceivedPartyMon
+	goto SlateportCity_PokemonFanClub_EventScript_TakeCare
+	end
+
+PetalburgCity_House1_EventScript_ReceivePC::
+	call SlateportCity_PokemonFanClub_EventScript_ReceivedFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, SlateportCity_PokemonFanClub_EventScript_SendToPC
+	call Common_EventScript_NameReceivedBoxMon
+	goto SlateportCity_PokemonFanClub_EventScript_SendToPC
+	end
+
+SlateportCity_PokemonFanClub_EventScript_SendToPC::
+	call Common_EventScript_TransferredToPC
+	goto SlateportCity_PokemonFanClub_EventScript_TakeCare
+	end
+
+SlateportCity_PokemonFanClub_EventScript_ReceivedFanfare::
+	playfanfare MUS_OBTAIN_ITEM
+	message SlateportCity_PokemonFanClub_Text_PlayerReceived
+	waitmessage
+	waitfanfare
+	return
+
+PetalburgCity_House1_EventScript_TakeCare::
+	msgbox SlateportCity_PokemonFanClub_Text_TakeCareEevee, MSGBOX_DEFAULT
+	setflag FLAG_RECEIVED_EEVEE
+	release
+	end
+
 SlateportCity_PokemonFanClub_EventScript_SootheBellWoman::
 	lock
 	faceplayer
@@ -398,3 +448,39 @@ SlateportCity_PokemonFanClub_Text_Zigzagoon:
 SlateportCity_PokemonFanClub_Text_Azumarill:
 	.string "AZUMARILL: Marimari?$"
 
+SlateportCity_PokemonFanClub_Text_GiveEevee:
+	.string "I love POKéMON! My friend and I use\n"
+	.string "POKéMON to communicate with each\p"
+	.string "Using the mail and items attached\n"
+	.string "to them.\p"
+	.string "!! I know!!\p"
+	.string "We can use POKéMON to celebrate our\n"
+	.string "new friendship!\p"
+	.string "This POKéMON is a favorite of mine\n"
+	.string "and many trainers! Enjoy!$"
+
+SlateportCity_PokemonFanClub_Text_PlayerReceived:
+	.string "{PLAYER} received {STR_VAR_1}!$"
+
+SlateportCity_PokemonFanClub_Text_TakeCareEevee:
+	.string "EEVEE is a POKéMON that can evolve\n"
+	.string "many different ways!\p"
+	.string "EEVEE evolves into LEAFEON with\n"
+	.string "a LEAF STONE, GLACEON with a DUSK\l"
+	.string "STONE, ESPEON with a SUN STONE,\l"
+	.string "UMBREON with a MOON STONE,\l"
+	.string "FLAREON with a FIRE STONE,\l"
+	.string "VAPOREON with a WATER STONE,\l"
+	.string "JOLTEON with a THUNDER STONE,\l"
+	.string "SYLVEON with a SHINY STONE,\l"
+	.string "and DRAKEON with something...\p"
+	.string "Blehhh... That was a mouthful.\p"
+	.string "Sorry for talking your ear off!\n"
+	.string "Take care of EEVEE!$"
+
+SlateportCity_PokemonFanClub_Text_EeveeTaken:
+	.string "Hey! I hope you are treating EEVEE\n"
+	.string "well!\p"
+	.string "Oh! Don't worry about returning the\n"
+	.string "favor! Just consider us friends\l"
+	.string "forever!$"
