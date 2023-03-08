@@ -14112,11 +14112,11 @@ static void Cmd_callterrainattack(void)
 u16 GetNaturePowerMove(void)
 {
     if (gFieldStatuses & STATUS_FIELD_MISTY_TERRAIN)
-        return MOVE_MOONBLAST;
+        return MOVE_PLAY_ROUGH;
     else if (gFieldStatuses & STATUS_FIELD_ELECTRIC_TERRAIN)
         return MOVE_THUNDERBOLT;
     else if (gFieldStatuses & STATUS_FIELD_GRASSY_TERRAIN)
-        return MOVE_ENERGY_BALL;
+        return MOVE_GIGA_DRAIN;
     else if (gFieldStatuses & STATUS_FIELD_PSYCHIC_TERRAIN)
         return MOVE_PSYCHIC;
     else if (sNaturePowerMoves == MOVE_NONE)

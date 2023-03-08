@@ -10341,6 +10341,8 @@ u8 GetBattleMoveSplit(u32 moveId)
 #else
     if (IS_MOVE_STATUS(moveId))
         return SPLIT_STATUS;
+    else if (moveId == MOVE_CRABHAMMER)
+        return SPLIT_PHYSICAL
     else if (gBattleMoves[moveId].type < TYPE_MYSTERY)
         return SPLIT_PHYSICAL;
     else
