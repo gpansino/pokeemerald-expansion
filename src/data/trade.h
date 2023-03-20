@@ -984,12 +984,12 @@ static const union AffineAnimCmd *const sAffineAnims_CrossingMonPics[] =
 
 static const struct InGameTrade sIngameTrades[] =
 {
-    [INGAME_TRADE_SEEDOT] =
+    [INGAME_TRADE_MEOWTH] =
     {
-        .nickname = _("DOTS"),
-        .species = SPECIES_SEEDOT,
-        .ivs = {5, 4, 5, 4, 4, 4},
-        .abilityNum = 1,
+        .nickname = _("ARTHUR"),
+        .species = SPECIES_MEOWTH,
+        .ivs = {40, 4, 5, 4, 4, 4},
+        .abilityNum = 5,
         .otId = 38726,
         .conditions = {30, 5, 5, 5, 5},
         .personality = 0x84,
@@ -998,7 +998,7 @@ static const struct InGameTrade sIngameTrades[] =
         .otName = _("KOBE"),
         .otGender = MALE,
         .sheen = 10,
-        .requestedSpecies = SPECIES_RALTS
+        .requestedSpecies = SPECIES_SKITTY
     },
     [INGAME_TRADE_PLUSLE] =
     {
@@ -1032,7 +1032,7 @@ static const struct InGameTrade sIngameTrades[] =
         .sheen = 10,
         .requestedSpecies = SPECIES_BAGON
     },
-    [INGAME_TRADE_MEOWTH] =
+    [INGAME_TRADE_MEOWTHO] =
     {
         .nickname = _("MEOWOW"),
         .species = SPECIES_MEOWTH,
@@ -1047,7 +1047,157 @@ static const struct InGameTrade sIngameTrades[] =
         .otGender = FEMALE,
         .sheen = 10,
         .requestedSpecies = SPECIES_SKITTY
-    }
+    },
+    [INGAME_TRADE_MEOWTH_ALOLA] =
+    {
+        .nickname = _("MEOWTH"),
+        .species = SPECIES_MEOWTH_ALOLAN,
+        .ivs = {40, 0, 0, 0, 0, 0},
+        .abilityNum = 5,
+        .otId = 73812,
+        .conditions = {10,10,10,10,10},
+        .personality = 0x8B,
+        .heldItem = ITEM_NONE,
+        .otName = _("KAILUA"),
+        .otGender = FEMALE,
+        .sheen = 10,
+        .requestedSpecies = SPECIES_MEOWTH
+    },
+    [INGAME_TRADE_GEODUDE_ALOLA] =
+    {
+        .nickname = _("GEODUDE"),
+        .species = SPECIES_GEODUDE_ALOLAN,
+        .ivs = {40, 0, 0, 0, 0, 0},
+        .abilityNum = 5,
+        .otId = 73812,
+        .conditions = {10,10,10,10,10},
+        .personality = 0x8B,
+        .heldItem = ITEM_NONE,
+        .otName = _("KAILUA"),
+        .otGender = FEMALE,
+        .sheen = 10,
+        .requestedSpecies = SPECIES_GEODUDE
+    },
+    [INGAME_TRADE_SANDSHREW_ALOLA] =
+    {
+        .nickname = _("SANDSHREW"),
+        .species = SPECIES_SANDSHREW_ALOLAN,
+        .ivs = {40, 0, 0, 0, 0, 0},
+        .abilityNum = 5,
+        .otId = 73812,
+        .conditions = {10,10,10,10,10},
+        .personality = 0x8B,
+        .heldItem = ITEM_NONE,
+        .otName = _("KAILUA"),
+        .otGender = FEMALE,
+        .sheen = 10,
+        .requestedSpecies = SPECIES_SANDSHREW
+    },
+    [INGAME_TRADE_VULPIX_ALOLA] =
+    {
+        .nickname = _("VULPIX"),
+        .species = SPECIES_VULPIX_ALOLAN,
+        .ivs = {40, 0, 0, 0, 0, 0},
+        .abilityNum = 5,
+        .otId = 73812,
+        .conditions = {10,10,10,10,10},
+        .personality = 0x8B,
+        .heldItem = ITEM_NONE,
+        .otName = _("KAILUA"),
+        .otGender = FEMALE,
+        .sheen = 10,
+        .requestedSpecies = SPECIES_VULPIX
+    },
+    [INGAME_TRADE_RATTATA_ALOLA] =
+    {
+        .nickname = _("RATTATA"),
+        .species = SPECIES_RATTATA_ALOLAN,
+        .ivs = {40, 0, 0, 0, 0, 0},
+        .abilityNum = 5,
+        .otId = 73812,
+        .conditions = {10,10,10,10,10},
+        .personality = 0x8B,
+        .heldItem = ITEM_NONE,
+        .otName = _("KAILUA"),
+        .otGender = FEMALE,
+        .sheen = 10,
+        .requestedSpecies = SPECIES_RATTATA
+    },
+    [INGAME_TRADE_DIGLETT_ALOLA] =
+    {
+        .nickname = _("DIGLETT"),
+        .species = SPECIES_DIGLETT_ALOLAN,
+        .ivs = {40, 0, 0, 0, 0, 0},
+        .abilityNum = 5,
+        .otId = 73812,
+        .conditions = {10,10,10,10,10},
+        .personality = 0x8B,
+        .heldItem = ITEM_NONE,
+        .otName = _("KAILUA"),
+        .otGender = FEMALE,
+        .sheen = 10,
+        .requestedSpecies = SPECIES_DIGLETT
+    },
+    [INGAME_TRADE_GRIMER_ALOLA] =
+    {
+        .nickname = _("GRIMER"),
+        .species = SPECIES_GRIMER_ALOLAN,
+        .ivs = {40, 0, 0, 0, 0, 0},
+        .abilityNum = 5,
+        .otId = 73812,
+        .conditions = {10,10,10,10,10},
+        .personality = 0x8B,
+        .heldItem = ITEM_NONE,
+        .otName = _("KAILUA"),
+        .otGender = FEMALE,
+        .sheen = 10,
+        .requestedSpecies = SPECIES_GRIMER
+    },
+    [INGAME_TRADE_RAICHU_ALOLA] =
+    {
+        .nickname = _("RAICHU"),
+        .species = SPECIES_RAICHU_ALOLAN,
+        .ivs = {40, 0, 0, 0, 0, 0},
+        .abilityNum = 5,
+        .otId = 73812,
+        .conditions = {10,10,10,10,10},
+        .personality = 0x8B,
+        .heldItem = ITEM_NONE,
+        .otName = _("KAILUA"),
+        .otGender = FEMALE,
+        .sheen = 10,
+        .requestedSpecies = SPECIES_RAICHU
+    },
+    [INGAME_TRADE_EXEGGUTOR_ALOLA] =
+    {
+        .nickname = _("EXEGGUTOR"),
+        .species = SPECIES_EXEGGUTOR_ALOLAN,
+        .ivs = {40, 0, 0, 0, 0, 0},
+        .abilityNum = 5,
+        .otId = 73812,
+        .conditions = {10,10,10,10,10},
+        .personality = 0x8B,
+        .heldItem = ITEM_NONE,
+        .otName = _("KAILUA"),
+        .otGender = FEMALE,
+        .sheen = 10,
+        .requestedSpecies = SPECIES_EXEGGUTOR
+    },
+    [INGAME_TRADE_MAROWAK_ALOLA] =
+    {
+        .nickname = _("MAROWAK"),
+        .species = SPECIES_MAROWAK_ALOLAN,
+        .ivs = {40, 0, 0, 0, 0, 0},
+        .abilityNum = 5,
+        .otId = 73812,
+        .conditions = {10,10,10,10,10},
+        .personality = 0x8B,
+        .heldItem = ITEM_NONE,
+        .otName = _("KAILUA"),
+        .otGender = FEMALE,
+        .sheen = 10,
+        .requestedSpecies = SPECIES_MAROWAK
+    },
 };
 
 static const u16 sIngameTradeMail[][MAIL_WORDS_COUNT + 1] =

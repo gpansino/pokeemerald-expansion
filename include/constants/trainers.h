@@ -385,6 +385,7 @@
 #define TRAINER_MON_HP_SPDEF   5
 #define TRAINER_MON_PHYS       6
 #define TRAINER_MON_SPEC       7
+#define TRAINER_MON_OFFENSES   8
 
 #define TRAINER_MON_FEMALE     1
 #define TRAINER_MON_MALE       2

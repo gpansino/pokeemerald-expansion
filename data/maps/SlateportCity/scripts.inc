@@ -18,6 +18,7 @@
 .set LOCALID_GRUNT_9, 31
 .set LOCALID_GRUNT_11, 33
 .set LOCALID_SCOTT, 35
+.set LOCALID_ALOLAN, 36
 
 @ Note: LOCALID_SLATEPORT_ENERGY_GURU is a local id for this map used elsewhere. It's defined in event_objects.h
 
@@ -247,6 +248,109 @@ SlateportCity_EventScript_RichBoySternInterview::
 SlateportCity_EventScript_FatMan::
 	goto_if_eq VAR_SLATEPORT_CITY_STATE, 1, SlateportCity_EventScript_FatManSternInterview
 	msgbox SlateportCity_Text_BushedHikingFromMauville, MSGBOX_NPC
+	end
+
+SlateportCity_EventScript_AlolanGirl::
+	lock
+	faceplayer
+	msgbox SlateportCity_Text_AlolanGirl, MSGBOX_NPC
+	multichoice 0, 0, MULTI_ALOLAN, TRUE
+	switch VAR_RESULT
+	case 0, SlateportCity_EventScript_TradeRattata
+	case 1, SlateportCity_EventScript_TradeSandshrew
+	case 2, SlateportCity_EventScript_TradeVulpix
+	case 3, SlateportCity_EventScript_TradeDiglett
+	case 4, SlateportCity_EventScript_TradeMeowth
+	case 5, SlateportCity_EventScript_TradeGeodude
+	case 6, SlateportCity_EventScript_TradeGrimer
+	case 7, SlateportCity_EventScript_TradeRaichu
+	case 8, SlateportCity_EventScript_TradeExeggutor
+	goto SlateportCity_EventScript_TradeMarowak
+	end
+
+SlateportCity_EventScript_TradeRattata::
+	setvar VAR_0x8008, INGAME_TRADE_RATTATA_ALOLA
+	bufferspeciesname STR_VAR_2, SPECIES_RATTATA_ALOLAN
+	goto SlateportCity_EventScript_Trader
+
+SlateportCity_EventScript_TradeSandshrew::
+	setvar VAR_0x8008, INGAME_TRADE_SANDSHREW_ALOLA
+	bufferspeciesname STR_VAR_2, SPECIES_SANDSHREW_ALOLAN
+	goto SlateportCity_EventScript_Trader
+
+SlateportCity_EventScript_TradeVulpix::
+	setvar VAR_0x8008, INGAME_TRADE_VULPIX_ALOLA
+	bufferspeciesname STR_VAR_2, SPECIES_VULPIX_ALOLAN
+	goto SlateportCity_EventScript_Trader
+
+SlateportCity_EventScript_TradeDiglett::
+	setvar VAR_0x8008, INGAME_TRADE_DIGLETT_ALOLA
+	bufferspeciesname STR_VAR_2, SPECIES_DIGLETT_ALOLAN
+	goto SlateportCity_EventScript_Trader
+
+SlateportCity_EventScript_TradeMeowth::
+	setvar VAR_0x8008, INGAME_TRADE_MEOWTH_ALOLA
+	bufferspeciesname STR_VAR_2, SPECIES_MEOWTH_ALOLAN
+	goto SlateportCity_EventScript_Trader
+
+SlateportCity_EventScript_TradeGeodude::
+	setvar VAR_0x8008, INGAME_TRADE_GEODUDE_ALOLA
+	bufferspeciesname STR_VAR_2, SPECIES_GEODUDE_ALOLAN
+	goto SlateportCity_EventScript_Trader
+
+SlateportCity_EventScript_TradeGrimer::
+	setvar VAR_0x8008, INGAME_TRADE_GRIMER_ALOLA
+	bufferspeciesname STR_VAR_2, SPECIES_GRIMER_ALOLAN
+	goto SlateportCity_EventScript_Trader
+
+SlateportCity_EventScript_TradeRaichu::
+	setvar VAR_0x8008, INGAME_TRADE_RAICHU_ALOLA
+	bufferspeciesname STR_VAR_2, SPECIES_RAICHU_ALOLAN
+	goto SlateportCity_EventScript_Trader
+
+SlateportCity_EventScript_TradeExeggutor::
+	setvar VAR_0x8008, INGAME_TRADE_EXEGGUTOR_ALOLA
+	bufferspeciesname STR_VAR_2, SPECIES_EXEGGUTOR_ALOLAN
+	goto SlateportCity_EventScript_Trader
+
+SlateportCity_EventScript_TradeMarowak::
+	setvar VAR_0x8008, INGAME_TRADE_MAROWAK_ALOLA
+	bufferspeciesname STR_VAR_2, SPECIES_MAROWAK_ALOLAN
+	goto SlateportCity_EventScript_Trader
+
+SlateportCity_EventScript_Trader::
+	copyvar VAR_0x8004, VAR_0x8008
+	specialvar VAR_RESULT, GetInGameTradeSpeciesInfo
+	copyvar VAR_0x8009, VAR_RESULT
+	bufferspeciesname STR_VAR_1, VAR_0x8009
+	msgbox SlateportCity_Text_IllTradeIfYouWant, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, SlateportCity_EventScript_DeclineTrade
+	special ChoosePartyMon
+	waitstate
+	copyvar VAR_0x800A, VAR_0x8004
+	goto_if_eq VAR_0x8004, PARTY_NOTHING_CHOSEN, SlateportCity_EventScript_DeclineTrade
+	copyvar VAR_0x8005, VAR_0x800A
+	specialvar VAR_RESULT, GetTradeSpecies
+	copyvar VAR_0x800B, VAR_RESULT
+	goto_if_ne VAR_RESULT, VAR_0x8009, SlateportCity_EventScript_NotRequestedMon
+	copyvar VAR_0x8004, VAR_0x8008
+	copyvar VAR_0x8005, VAR_0x800A
+	special CreateInGameTradePokemon
+	special DoInGameTradeScene
+	waitstate
+	msgbox SlateportCity_Text_PleaseBeGoodToMyPokemon, MSGBOX_DEFAULT
+	release
+	end
+
+SlateportCity_EventScript_DeclineTrade::
+	msgbox SlateportCity_Text_YouDontWantToThatsOkay, MSGBOX_DEFAULT
+	release
+	end
+
+SlateportCity_EventScript_NotRequestedMon::
+	bufferspeciesname STR_VAR_1, VAR_0x8009
+	msgbox RustboroCity_House1_Text_DoesntLookLikeMonToMe, MSGBOX_DEFAULT
+	release
 	end
 
 SlateportCity_EventScript_FatManSternInterview::
@@ -950,6 +1054,11 @@ SlateportCity_EventScript_BerryCrushRankingsSign::
 	releaseall
 	end
 
+SlateportCity_EventScript_Kailani::
+	trainerbattle_single TRAINER_KAILANI, SlateportCity_Text_KailaniIntro, SlateportCity_Text_KailaniDefeat
+	msgbox SlateportCity_Text_KailaniPostBattle, MSGBOX_AUTOCLOSE
+	end
+
 SlateportCity_Text_EnergyGuruSellWhatYouNeed:
 	.string "I'm the ENERGY GURU! I'll go for it and\n"
 	.string "sell you what you need!$"
@@ -1383,3 +1492,51 @@ SlateportCity_Text_TakingBattleTentChallenge:
 	.string "After all, a tough TRAINER is\n"
 	.string "the perfect fit for the BATTLE TENT!\p"
 	.string "Give it your best effort!$"
+
+SlateportCity_Text_AlolanGirl:
+	.string "Alola!\p"
+	.string "? Oh, sorry! That's the traditional\n"
+	.string "greeting from my home region the \l"
+	.string "ALOLA region!\p"
+	.string "I've come from far away to complete my\n"
+	.string "POKéDEX in the HOENN region\p"
+	.string "If you have the HOENN forms of any of\n"
+	.string "the following POKéMON, I'd be happy to\l"
+	.string "trade ALOLA variants for them:\p"
+	.string "RATTATA, SANDSHREW, VULPIX, DIGLETT,\n"
+	.string "MEOWTH, GEODUDE, GRIMER, RAICHU, \l"
+	.string "EXEGGUTOR, or MAROWAK\p$"
+	.string "Do you have one of those POKéMON to\n"
+	.string "trade?$"
+
+SlateportCity_Text_IllTradeIfYouWant:
+	.string "Are you sure you'd like to trade your\n"
+	.string "{STR_VAR_1} for my {STR_VAR_2}?$"
+
+SlateportCity_Text_PleaseBeGoodToMyPokemon:
+	.string "Nice! I appreciate the help! Please \n"
+	.string "take good care of my {STR_VAR_2}$"
+
+SlateportCity_Text_YouDontWantToThatsOkay:
+	.string "You don't want to trade?\n"
+	.string "Kinda lame....$"
+
+SlateportCity_Text_DoesntLookLikeMonToMe:
+	.string "What?? This isn't a {STR_VAR_1}?\n"
+	.string "If you don't have one, then no deal!$"
+
+SlateportCity_Text_KailaniIntro:
+	.string "Alola!\n"
+	.string "Let's see which region is better!$"
+
+SlateportCity_Text_KailaniDefeat:	
+	.string "This doesn't mean anything. My \n"
+	.string "POKéMON were just tired from the\l"
+	.string "trip.$"
+
+SlateportCity_Text_KailaniPostBattle:	
+	.string "I love seeing all the cool POKéMON\n"
+	.string "from HOENN!/p"
+	.string "I hope one day you'll be able to\n"
+	.string "visit ALOLA!$"
+

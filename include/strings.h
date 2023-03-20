@@ -3060,5 +3060,15 @@ extern const u8 gText_BabyQuiz9_2[];
 extern const u8 gText_BabyQuiz9_3[];
 extern const u8 gText_GameCornerEeveeAndPrice[];
 extern const u8 gText_GameCornerPorygonAndPrice[];
+extern const u8 gText_AlolanRattata[];
+extern const u8 gText_AlolanRaichu[];
+extern const u8 gText_AlolanSandshrew[];
+extern const u8 gText_AlolanVulpix[];
+extern const u8 gText_AlolanDiglett[];
+extern const u8 gText_AlolanMeowth[];
+extern const u8 gText_AlolanGrimer[];
+extern const u8 gText_AlolanGeodude[];
+extern const u8 gText_AlolanExeggutor[];
+extern const u8 gText_AlolanMarowak[];
 
 #endif // GUARD_STRINGS_H

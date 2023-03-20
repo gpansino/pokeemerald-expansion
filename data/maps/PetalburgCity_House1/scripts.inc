@@ -230,6 +230,8 @@ PetalburgCity_House1_EventScript_TakeCareTyrogue::
 	end
 
 PetalburgCity_House1_EventScript_StartQuiz::
+	lock
+	faceplayer
 	goto_if_set FLAG_RECEIVED_BABY, PetalburgCity_House1_EventScript_TookBaby
 	msgbox PetalburgCity_House1_Text_StartQuiz, MSGBOX_DEFAULT
 	multichoice 0, 0, MULTI_BABY_QUIZ_1, TRUE
@@ -240,6 +242,7 @@ PetalburgCity_House1_EventScript_StartQuiz::
 
 PetalburgCity_House1_EventScript_TookBaby::
 	msgbox PetalburgCity_House1_Text_BabyTaken, MSGBOX_NPC
+	release
 	end
 
 PetalburgCity_House1_EventScript_Answer_1::

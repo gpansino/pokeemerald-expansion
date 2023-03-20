@@ -311,25 +311,25 @@ static const s8 sCenterToCornerVecXs[8] ={-32, -16, -16, -32, -32};
 
 const u8 gTypeNames[NUMBER_OF_MON_TYPES][TYPE_NAME_LENGTH + 1] =
 {
-    [TYPE_NORMAL] = _("Normal"),
-    [TYPE_FIGHTING] = _("Fight"),
-    [TYPE_FLYING] = _("Flying"),
-    [TYPE_POISON] = _("Poison"),
-    [TYPE_GROUND] = _("Ground"),
-    [TYPE_ROCK] = _("Rock"),
-    [TYPE_BUG] = _("Bug"),
-    [TYPE_GHOST] = _("Ghost"),
-    [TYPE_STEEL] = _("Steel"),
+    [TYPE_NORMAL] = _("NORMAL"),
+    [TYPE_FIGHTING] = _("FIGHT"),
+    [TYPE_FLYING] = _("FLYING"),
+    [TYPE_POISON] = _("POISON"),
+    [TYPE_GROUND] = _("GROUND"),
+    [TYPE_ROCK] = _("ROCK"),
+    [TYPE_BUG] = _("BUG"),
+    [TYPE_GHOST] = _("GHOST"),
+    [TYPE_STEEL] = _("STEEL"),
     [TYPE_MYSTERY] = _("???"),
-    [TYPE_FIRE] = _("Fire"),
-    [TYPE_WATER] = _("Water"),
-    [TYPE_GRASS] = _("Grass"),
-    [TYPE_ELECTRIC] = _("Electr"),
-    [TYPE_PSYCHIC] = _("Psychc"),
-    [TYPE_ICE] = _("Ice"),
-    [TYPE_DRAGON] = _("Dragon"),
-    [TYPE_DARK] = _("Dark"),
-    [TYPE_FAIRY] = _("Fairy"),
+    [TYPE_FIRE] = _("FIRE"),
+    [TYPE_WATER] = _("WATER"),
+    [TYPE_GRASS] = _("GRASS"),
+    [TYPE_ELECTRIC] = _("ELECTR"),
+    [TYPE_PSYCHIC] = _("PSYCHC"),
+    [TYPE_ICE] = _("ICE"),
+    [TYPE_DRAGON] = _("DRAGON"),
+    [TYPE_DARK] = _("DARK"),
+    [TYPE_FAIRY] = _("FAIRY"),
 };
 
 // This is a factor in how much money you get for beating a trainer.
@@ -2030,7 +2030,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
                   if ((difficulty == TRAINER_MAX) || (build == TRAINER_MON_HP_DEF) || (build == TRAINER_MON_HP_SPDEF))
                       SetMonData(&party[i], MON_DATA_HP_EV, &amount);
 
-                  if ((difficulty == TRAINER_MAX) || (build == TRAINER_MON_SPEED_PHYS) || (build == TRAINER_MON_PHYS))
+                  if ((difficulty == TRAINER_MAX) || (build == TRAINER_MON_SPEED_PHYS) || (build == TRAINER_MON_PHYS) || (build == TRAINER_MON_OFFENSES))
                       SetMonData(&party[i], MON_DATA_ATK_EV, &amount);
 
                   if ((difficulty == TRAINER_MAX) || (build == TRAINER_MON_HP_DEF) || (build == TRAINER_MON_DEFENSES) || (build == TRAINER_MON_PHYS))
@@ -2039,7 +2039,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
                   if ((difficulty == TRAINER_MAX) || (build == TRAINER_MON_SPEED_PHYS) || (build == TRAINER_MON_SPEED_SPEC))
                       SetMonData(&party[i], MON_DATA_SPEED_EV, &amount);
 
-                  if ((difficulty == TRAINER_MAX) || (build == TRAINER_MON_SPEED_SPEC) || (build == TRAINER_MON_SPEC))
+                  if ((difficulty == TRAINER_MAX) || (build == TRAINER_MON_SPEED_SPEC) || (build == TRAINER_MON_SPEC) || (build == TRAINER_MON_OFFENSES))
                       SetMonData(&party[i], MON_DATA_SPATK_EV, &amount);
 
                   if ((difficulty == TRAINER_MAX) || (build == TRAINER_MON_HP_SPDEF) || (build == TRAINER_MON_SPEC))
@@ -2656,7 +2656,7 @@ static void SpriteCB_MoveWildMonToRight(struct Sprite *sprite)
 {
     if ((gIntroSlideFlags & 1) == 0)
     {
-        sprite->x2 += 2;
+        sprite->x2 += 8;
         if (sprite->x2 == 0)
         {
             sprite->callback = SpriteCB_WildMonShowHealthbox;
@@ -2827,7 +2827,7 @@ static void SpriteCB_BattleSpriteSlideLeft(struct Sprite *sprite)
 {
     if (!(gIntroSlideFlags & 1))
     {
-        sprite->x2 -= 2;
+        sprite->x2 -= 8;
         if (sprite->x2 == 0)
         {
             sprite->callback = SpriteCB_Idle;

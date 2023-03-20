@@ -829,6 +829,19 @@ static const struct MenuAction MultichoiceList_GameCornerPokemon[] = {
     {gText_GameCornerPorygonAndPrice}
 };
 
+static const struct MenuAction MultichoiceList_Alolan[] = {
+    {gText_AlolanRattata},
+    {gText_AlolanSandshrew},
+    {gText_AlolanVulpix},
+    {gText_AlolanDiglett},
+    {gText_AlolanMeowth},
+    {gText_AlolanGeodude},
+    {gText_AlolanGrimer},
+    {gText_AlolanRaichu},
+    {gText_AlolanExeggutor},
+    {gText_AlolanMarowak}
+};
+
 static const struct MenuAction MultichoiceList_Exit[] =
 {
     {gText_Exit},
@@ -966,6 +979,7 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_BABY_QUIZ_8]                = MULTICHOICE(MultichoiceList_BabyQuiz8),
     [MULTI_BABY_QUIZ_9]                = MULTICHOICE(MultichoiceList_BabyQuiz9),
     [MULTI_GAME_CORNER_POKEMON]        = MULTICHOICE(MultichoiceList_GameCornerPokemon),
+    [MULTI_ALOLAN]                     = MULTICHOICE(MultichoiceList_Alolan),
 };
 
 const u8 *const gStdStrings[] =
