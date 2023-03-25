@@ -205,12 +205,12 @@ static void BattleIntroSlide1(u8 taskId)
                     gBattle_BG1_Y -= 1;
             }
         }
-
+    
         if (gBattle_WIN0V & 0xFF00)
             gBattle_WIN0V -= 0x3FC;
 
         if (gTasks[taskId].data[2])
-            gTasks[taskId].data[2] -= 2;
+            gTasks[taskId].data[2] -= 8;
 
         // Scanline settings have already been set in CB2_InitBattleInternal()
         for (i = 0; i < 80; i++)
@@ -319,7 +319,7 @@ static void BattleIntroSlide2(u8 taskId)
             gBattle_WIN0V -= 0x3FC;
 
         if (gTasks[taskId].data[2])
-            gTasks[taskId].data[2] -= 2;
+            gTasks[taskId].data[2] -= 8;
 
         // Scanline settings have already been set in CB2_InitBattleInternal()
         for (i = 0; i < 80; i++)
@@ -407,7 +407,7 @@ static void BattleIntroSlide3(u8 taskId)
             gBattle_WIN0V -= 0x3FC;
 
         if (gTasks[taskId].data[2])
-            gTasks[taskId].data[2] -= 2;
+            gTasks[taskId].data[2] -= 8;
 
         // Scanline settings have already been set in CB2_InitBattleInternal()
         for (i = 0; i < 80; i++)

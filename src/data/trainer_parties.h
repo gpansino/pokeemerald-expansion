@@ -180,31 +180,31 @@ static const struct TrainerMon sParty_Declan[] = {
 static const struct TrainerMon sParty_GruntRusturfTunnel[] = {
     {
     .iv = 40,
-    .lvl = 9,
+    .lvl = 11,
     .species = SPECIES_ARON,
     .ability = ABILITY_SLOT_2,
-    .moves = {MOVE_TACKLE, MOVE_HARDEN, MOVE_MUD_SLAP, MOVE_ENDEAVOR}
+    .moves = {MOVE_HEADBUTT, MOVE_HARDEN, MOVE_MUD_SLAP, MOVE_ENDEAVOR}
     },
     {
     .iv = 40,
-    .lvl = 13,
+    .lvl = 15,
     .species = SPECIES_POOCHYENA,
     .ability = ABILITY_SLOT_1,
     .moves = {MOVE_TACKLE, MOVE_HOWL, MOVE_SAND_ATTACK, MOVE_BITE}
     },
     {
     .iv = 40,
-    .lvl = 10,
+    .lvl = 12,
     .species = SPECIES_MANKEY,
     .ability = ABILITY_SLOT_1,
-    .moves = {MOVE_SCRATCH, MOVE_LEER, MOVE_LOW_KICK, MOVE_NONE}
+    .moves = {MOVE_SCRATCH, MOVE_LEER, MOVE_LOW_KICK, MOVE_KARATE_CHOP}
     },
     {
     .iv = 40,
-    .lvl = 11,
+    .lvl = 13,
     .species = SPECIES_RATTATA,
     .ability = ABILITY_SLOT_2,
-    .moves = {MOVE_TACKLE, MOVE_TAIL_WHIP, MOVE_QUICK_ATTACK, MOVE_ENDURE}
+    .moves = {MOVE_HYPER_FANG, MOVE_TAIL_WHIP, MOVE_QUICK_ATTACK, MOVE_ENDURE}
     }
 };
 
@@ -8809,7 +8809,8 @@ static const struct TrainerMon sParty_Janice[] = {
     .iv = 10,
     .lvl = 9,
     .species = SPECIES_SILCOON,
-    .ability = ABILITY_SLOT_1
+    .ability = ABILITY_SLOT_1,
+    .moves = {MOVE_HARDEN, MOVE_STRING_SHOT, MOVE_POISON_STING, MOVE_TACKLE}
     }
 };
 
@@ -8998,7 +8999,7 @@ static const struct TrainerMon sParty_Jose[] = {
     .iv = 50,
     .lvl = 8,
     .species = SPECIES_LEDYBA,
-    .moves = {MOVE_TACKLE, MOVE_SUPERSONIC, MOVE_AERIAL_ACE, MOVE_NONE},
+    .moves = {MOVE_TACKLE, MOVE_SUPERSONIC, MOVE_PSYBEAM, MOVE_ENCORE},
     .ability = ABILITY_SLOT_2,
     },
     {
@@ -10300,7 +10301,7 @@ static const struct TrainerMon sParty_Dawson[] = {
 static const struct TrainerMon sParty_Sarah[] = {
     {
     .iv = 0,
-    .lvl = 12,
+    .lvl = 11,
     .species = SPECIES_CHIKORITA,
     .ability = ABILITY_SLOT_1,
     .heldItem = ITEM_PECHA_BERRY

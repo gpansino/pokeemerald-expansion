@@ -4209,6 +4209,8 @@ static const struct LevelUpMove sSmeargleLevelUpLearnset[] = {
 
 static const struct LevelUpMove sTyrogueLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_TACKLE),
+    LEVEL_UP_MOVE( 1, MOVE_REVENGE),
+        LEVEL_UP_MOVE(12, MOVE_REVENGE),
     LEVEL_UP_END
 };
 

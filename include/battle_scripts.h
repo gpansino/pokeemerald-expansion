@@ -453,6 +453,8 @@ extern const u8 BattleScript_IceFaceNullsDamage[];
 extern const u8 BattleScript_BattlerFormChangeWithStringEnd3[];
 extern const u8 BattleScript_DampPreventsAftermath[];
 
+extern const u8 BattleScript_ThunderArmorActivates[];
+
 // zmoves
 extern const u8 BattleScript_ZMoveActivateDamaging[];
 extern const u8 BattleScript_ZMoveActivateStatus[];

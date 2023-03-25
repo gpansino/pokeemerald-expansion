@@ -2834,6 +2834,13 @@ static s16 AI_DoubleBattle(u8 battlerAtk, u8 battlerDef, u16 move, s16 score)
                     }
                     RETURN_SCORE_MINUS(10);
                     break;
+                case ABILITY_THUNDER_ARMOR:
+                    if (moveType == TYPE_ELECTRIC && GetMoveDamageResult(move) == MOVE_POWER_WEAK)
+                    {
+                        RETURN_SCORE_PLUS(1);   // only mon with this ability is weak to electric so only make it okay if we do very little damage
+                    }
+                    RETURN_SCORE_MINUS(10);
+                    break;
                 case ABILITY_FLASH_FIRE:
                     if (moveType == TYPE_FIRE
                       && HasMoveWithType(battlerAtkPartner, TYPE_FIRE)

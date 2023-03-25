@@ -5326,6 +5326,15 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u16 ability, u8 special, u16 move
                 effect++;
             }
             break;
+        case ABILITY_THUNDER_ARMOR:
+            if (IsBattlerAlive(battler)
+             && moveType == TYPE_ELECTRIC)
+            {
+                BattleScriptPushCursor();
+                gBattlescriptCurrInstr = BattleScript_ThunderArmorActivates;
+                effect++;
+            }
+            break;
         case ABILITY_STAMINA:
             if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
              && TARGET_TURN_DAMAGED
@@ -8052,13 +8061,20 @@ u8 IsMonDisobedient(void)
             return 0;
 
         obedienceLevel = 10;
-
+        if (FlagGet(FLAG_BADGE01_GET))
+            obedienceLevel = 20;
         if (FlagGet(FLAG_BADGE02_GET))
+            obedienceLevel = 25;
+        if (FlagGet(FLAG_BADGE03_GET))
             obedienceLevel = 30;
         if (FlagGet(FLAG_BADGE04_GET))
-            obedienceLevel = 50;
+            obedienceLevel = 35;
+        if (FlagGet(FLAG_BADGE05_GET))
+            obedienceLevel = 40;
         if (FlagGet(FLAG_BADGE06_GET))
-            obedienceLevel = 70;
+            obedienceLevel = 45;
+        if (FlagGet(FLAG_BADGE07_GET))
+            obedienceLevel = 50;
     }
 
 #if B_OBEDIENCE_MECHANICS >= GEN_8

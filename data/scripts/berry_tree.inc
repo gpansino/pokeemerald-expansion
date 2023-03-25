@@ -149,16 +149,19 @@ BerryTree_EventScript_WantToWater::
 	goto_if_eq VAR_RESULT, FALSE, BerryTree_EventScript_DontWater
 	special ObjectEventInteractionGetBerryName
 	msgbox BerryTree_Text_WantToWater, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, YES, BerryTree_EventScript_WaterBerry
+	goto_if_eq VAR_RESULT, YES, BerryTree_EventScript_CheckWailmerPail
 	goto_if_eq VAR_RESULT, NO, BerryTree_EventScript_DontWater
-
 BerryTree_EventScript_DontWater::
 	releaseall
 	end
 
+
 BerryTree_EventScript_ItemUseWailmerPail::
 	special ObjectEventInteractionGetBerryTreeData
 	lockall
+BerryTree_EventScript_CheckWailmerPail::
+	special DecrementWaterPail
+	goto_if_eq VAR_RESULT, 0, BerryTree_EventScript_RanOutOfWater
 BerryTree_EventScript_WaterBerry::
 	special ObjectEventInteractionGetBerryName
 	message BerryTree_Text_WateredTheBerry
@@ -167,6 +170,28 @@ BerryTree_EventScript_WaterBerry::
 	special DoWateringBerryTreeAnim
 	waitstate
 	message BerryTree_Text_PlantIsDelighted
+	waitmessage
+	waitbuttonpress
+	special GetWaterInPail
+	buffernumberstring STR_VAR_1, VAR_RESULT 
+	message BerryTree_Text_WaterLeft
+	waitmessage
+	waitbuttonpress
+	releaseall
+	end
+BerryTree_EventScript_RanOutOfWater::
+	message BerryTree_Text_NoWater
+	waitmessage
+	waitbuttonpress
+	releaseall
+	end
+
+BerryTree_EventScript_ItemUseFillWailmerPail::
+	message BerryTree_Text_FilledWater
+	waitmessage
+	waitbuttonpress
+	buffernumberstring STR_VAR_1, 3
+	message BerryTree_Text_WaterLeft
 	waitmessage
 	waitbuttonpress
 	releaseall
@@ -249,3 +274,14 @@ BerryTree_Text_PlantIsDelighted:
 
 BerryTree_Text_ExclamationPoint:
 	.string "!$"
+
+BerryTree_Text_NoWater:
+	.string "The WAILMER PAIL is out of water!$"
+
+BerryTree_Text_WaterLeft:
+	.string "The WAILMER PAIL has enough to water\n"
+	.string "{STR_VAR_1} more times.$"
+
+BerryTree_Text_FilledWater:
+	.string "Filled WAILMER PAIL with water.$"
+	

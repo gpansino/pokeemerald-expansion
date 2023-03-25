@@ -4,6 +4,7 @@
 #include "event_object_movement.h"
 #include "event_scripts.h"
 #include "field_control_avatar.h"
+#include "field_player_avatar.h"
 #include "fieldmap.h"
 #include "item.h"
 #include "item_menu.h"
@@ -1495,20 +1496,29 @@ struct BerryTree *GetBerryTreeInfo(u8 id)
 bool32 ObjectEventInteractionWaterBerryTree(void)
 {
     struct BerryTree *tree = GetBerryTreeInfo(GetObjectEventBerryTreeId(gSelectedObjectEvent));
+    const struct Berry *berry = GetBerryInfo(tree->berry);
 
     switch (tree->stage)
     {
     case BERRY_STAGE_PLANTED:
-        tree->watered1 = TRUE;
+        tree->watered1 += 1;
+        if(tree->watered1 >= berry->stageDuration)
+            BerryTreeGrow(tree);
         break;
     case BERRY_STAGE_SPROUTED:
-        tree->watered2 = TRUE;
+        tree->watered2 += 1;
+        if(tree->watered2 >= berry->stageDuration)
+            BerryTreeGrow(tree);
         break;
     case BERRY_STAGE_TALLER:
-        tree->watered3 = TRUE;
+        tree->watered3 += 1;
+        if(tree->watered3 >= berry->stageDuration)
+            BerryTreeGrow(tree);
         break;
     case BERRY_STAGE_FLOWERING:
-        tree->watered4 = TRUE;
+        tree->watered4 += 1;
+        if(tree->watered4 >= berry->stageDuration)
+            BerryTreeGrow(tree);
         break;
     default:
         return FALSE;
@@ -1582,7 +1592,7 @@ void BerryTreeTimeUpdate(s32 minutes)
 
         if (tree->berry && tree->stage && !tree->stopGrowth)
         {
-            if (minutes >= GetStageDurationByBerryType(tree->berry) * 71)
+            if (minutes >= GetStageDurationByBerryType(tree->berry) * 4260)
             {
                 *tree = gBlankBerryTree;
             }
@@ -1598,7 +1608,7 @@ void BerryTreeTimeUpdate(s32 minutes)
                         break;
                     }
                     time -= tree->minutesUntilNextStage;
-                    tree->minutesUntilNextStage = GetStageDurationByBerryType(tree->berry);
+                    tree->minutesUntilNextStage = GetStageDurationByBerryType(tree->berry) * 60;
                     if (!BerryTreeGrow(tree))
                         break;
                     if (tree->stage == BERRY_STAGE_BERRIES)
@@ -1615,7 +1625,7 @@ void PlantBerryTree(u8 id, u8 berry, u8 stage, bool8 allowGrowth)
 
     *tree = gBlankBerryTree;
     tree->berry = berry;
-    tree->minutesUntilNextStage = GetStageDurationByBerryType(berry);
+    tree->minutesUntilNextStage = GetStageDurationByBerryType(berry) * 60;
     tree->stage = stage;
     if (stage == BERRY_STAGE_BERRIES)
     {
@@ -1684,13 +1694,13 @@ static u8 BerryTreeGetNumStagesWatered(struct BerryTree *tree)
 {
     u8 count = 0;
 
-    if (tree->watered1)
+    if (tree->watered1 > 0)
         count++;
-    if (tree->watered2)
+    if (tree->watered2 > 0)
         count++;
-    if (tree->watered3)
+    if (tree->watered3 > 0)
         count++;
-    if (tree->watered4)
+    if (tree->watered4 > 0)
         count++;
     return count;
 }
@@ -1749,7 +1759,7 @@ static u8 GetBerryCountByBerryTreeId(u8 id)
 
 static u16 GetStageDurationByBerryType(u8 berry)
 {
-    return GetBerryInfo(berry)->stageDuration * 60;
+    return GetBerryInfo(berry)->stageDuration;
 }
 
 void ObjectEventInteractionGetBerryTreeData(void)
@@ -1848,4 +1858,39 @@ void SetBerryTreesSeen(void)
                 AllowBerryTreeGrowth(gObjectEvents[i].trainerRange_berryTreeId);
         }
     }
+}
+
+u8 DecrementWaterPail(void)
+{
+    if(gSaveBlock1Ptr->pailWater > 0){
+        gSaveBlock1Ptr->pailWater -= 1;
+        gSpecialVar_Result = gSaveBlock1Ptr->pailWater;
+    }
+    else {
+        gSpecialVar_Result = 0;
+    }
+}
+
+u8 GetWaterInPail(void)
+{
+    if(gSaveBlock1Ptr->pailWater > 0){
+        gSpecialVar_Result = gSaveBlock1Ptr->pailWater - 1;
+    }
+    else {
+        gSpecialVar_Result = 0;
+    }
+}
+
+u8 FillPail(void)
+{
+    gSaveBlock1Ptr->pailWater = 4;
+}
+
+u8 TryToFillWater(void)
+{
+    
+    if (IsPlayerFacingSurfableFishableWater())
+        return TRUE;
+    else
+        return FALSE;
 }
