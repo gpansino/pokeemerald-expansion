@@ -3071,5 +3071,6 @@ extern const u8 gText_AlolanGeodude[];
 extern const u8 gText_AlolanExeggutor[];
 extern const u8 gText_AlolanMarowak[];
 extern const u8 gText_FillPail[];
+extern const u8 gText_PokenavMute[];
 
 #endif // GUARD_STRINGS_H

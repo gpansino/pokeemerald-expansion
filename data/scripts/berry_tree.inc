@@ -187,6 +187,8 @@ BerryTree_EventScript_RanOutOfWater::
 	end
 
 BerryTree_EventScript_ItemUseFillWailmerPail::
+	special DoWateringBerryTreeAnim
+	waitstate
 	message BerryTree_Text_FilledWater
 	waitmessage
 	waitbuttonpress
@@ -284,4 +286,5 @@ BerryTree_Text_WaterLeft:
 
 BerryTree_Text_FilledWater:
 	.string "Filled WAILMER PAIL with water.$"
+
 	

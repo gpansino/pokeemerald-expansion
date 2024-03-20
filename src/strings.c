@@ -1865,3 +1865,4 @@ const u8 gText_AlolanGrimer[] = _("GRIMER");
 const u8 gText_AlolanExeggutor[] = _("EXEGGUTOR");
 const u8 gText_AlolanMarowak[] = _("MAROWAK");
 const u8 gText_FillPail[] = _("Filled WAILMER PAIL with water.");
+const u8 gText_PokenavMute[] = _("Mute/Unmute POKéNAV");

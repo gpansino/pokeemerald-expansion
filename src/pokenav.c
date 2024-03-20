@@ -49,7 +49,7 @@ static void Task_RunLoopedTask(u8);
 static void Task_Pokenav(u8);
 static void CB2_InitPokenavForTutorial(void);
 
-const struct PokenavCallbacks PokenavMenuCallbacks[15] =
+const struct PokenavCallbacks PokenavMenuCallbacks[16] =
 {
     [POKENAV_MAIN_MENU - POKENAV_MENU_IDS_START] =
     {
@@ -104,6 +104,16 @@ const struct PokenavCallbacks PokenavMenuCallbacks[15] =
     [POKENAV_MAIN_MENU_CURSOR_ON_RIBBONS - POKENAV_MENU_IDS_START] =
     {
         .init = PokenavCallback_Init_MainMenuCursorOnRibbons,
+        .callback = GetMenuHandlerCallback,
+        .open = OpenPokenavMenuNotInitial,
+        .createLoopTask = CreateMenuHandlerLoopedTask,
+        .isLoopTaskActive = IsMenuHandlerLoopedTaskActive,
+        .free1 = FreeMenuHandlerSubstruct1,
+        .free2 = FreeMenuHandlerSubstruct2,
+    },
+    [POKENAV_MAIN_MENU_CURSOR_ON_MUTE - POKENAV_MENU_IDS_START] =
+    {
+        .init = PokenavCallback_Init_MainMenuCursorOnMute,
         .callback = GetMenuHandlerCallback,
         .open = OpenPokenavMenuNotInitial,
         .createLoopTask = CreateMenuHandlerLoopedTask,
@@ -230,7 +240,8 @@ bool32 IsLoopedTaskActive(u32 taskId)
     if (gTasks[primaryId].isActive
         && (gTasks[primaryId].func == Task_RunLoopedTask || gTasks[primaryId].func == Task_RunLoopedTask_LinkMode)
         && gTasks[primaryId].data[3] == secondaryId)
-        return TRUE;
+        {  
+        return TRUE;}
     else
         return FALSE;
 }
@@ -435,7 +446,6 @@ static void Task_Pokenav(u8 taskId)
 {
     u32 menuId;
     s16 *data = gTasks[taskId].data;
-
     switch (tState)
     {
     case 0:

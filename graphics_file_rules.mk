@@ -679,6 +679,12 @@ $(PKNAVOPTIONSGFXDIR)/options.4bpp: $(PKNAVOPTIONSGFXDIR)/hoenn_map.4bpp \
 $(PKNAVGFXDIR)/header.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -num_tiles 53 -Wnum_tiles
 
+$(PKNAVGFXDIR)/pokenav_on.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -num_tiles 12 -Wnum_tiles
+
+$(PKNAVGFXDIR)/pokenav_mute.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -num_tiles 12 -Wnum_tiles
+
 $(PKNAVGFXDIR)/device_outline.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -num_tiles 53 -Wnum_tiles
 
