@@ -287,4 +287,3 @@ BerryTree_Text_WaterLeft:
 BerryTree_Text_FilledWater:
 	.string "Filled WAILMER PAIL with water.$"
 
-	
