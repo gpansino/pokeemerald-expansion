@@ -974,6 +974,7 @@ void LoadMute(void){
         spriteId = CreateSprite(&sPokenavAudioIconTemplate, 190, 11, 0);
         menu->audioIcon = &gSprites[spriteId];
     }
+
 }
 
 void ToggleMute(void){
@@ -981,20 +982,25 @@ void ToggleMute(void){
     u8 spriteId;
     struct Pokenav_MainMenu *menu = GetSubstructPtr(POKENAV_SUBSTRUCT_MAIN_MENU);
 
+    PlaySE(SE_ROTATING_GATE);
     if(FlagGet(FLAG_MATCH_CALL_MUTE)){
-        FreeSpritePalette(menu->audioIcon);
-        Pokenav_AllocAndLoadPalettes(sAudioIconPalettes);
-        menu->palettes = ~1 & ~(0x10000 << IndexOfSpritePaletteTag(1));
+        //FreeSpritePalette(menu->audioIcon);
         DestroySprite(menu->audioIcon);
+        LoadPalette(sAudioIconPalettes->data, OBJ_PLTT_ID(1), sizeof(sAudioIconPalettes));
+        //PokenavCopyPalette(menu->audioIcon, menu-> audioIcon, sizeof(sAudioIconPalettes), 0, 1, sAudioIconPalettes->data);
+        //menu->palettes = ~1 & ~(0x10000 << IndexOfSpritePaletteTag(1));
         spriteId = CreateSprite(&sPokenavAudioIconTemplate, 190, 11, 0);
+        gSprites[spriteId].oam.paletteNum = 1;
         menu->audioIcon = &gSprites[spriteId];
     }
     else{
-        FreeSpritePalette(menu->audioIcon);
-        Pokenav_AllocAndLoadPalettes(sMuteIconPalettes);
-        menu->palettes = ~1 & ~(0x10000 << IndexOfSpritePaletteTag(1));
+        //FreeSpritePalette(menu->audioIcon);
         DestroySprite(menu->audioIcon);
+        LoadPalette(sMuteIconPalettes->data, OBJ_PLTT_ID(1), sizeof(sMuteIconPalettes));
+        //PokenavCopyPalette(menu->audioIcon, menu-> audioIcon, sizeof(sAudioIconPalettes), 0, 1, sAudioIconPalettes->data);
+        //menu->palettes = ~1 & ~(0x10000 << IndexOfSpritePaletteTag(1));
         spriteId = CreateSprite(&sPokenavMuteIconTemplate, 190, 11, 0);
+        gSprites[spriteId].oam.paletteNum = 1;
         menu->audioIcon = &gSprites[spriteId];
     }
 
