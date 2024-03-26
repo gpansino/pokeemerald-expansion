@@ -3612,38 +3612,27 @@ static const struct TrainerMon sParty_Brawly1[] = {
     .lvl = 17,
     .species = SPECIES_RIOLU,
     .ability = ABILITY_SLOT_1,
-    .build = TRAINER_MON_OFFENSES,
     .heldItem = ITEM_NONE,
-    .moves = {MOVE_BITE, MOVE_METAL_CLAW, MOVE_ICE_PUNCH, MOVE_THUNDER_PUNCH}
+    .moves = {MOVE_BITE, MOVE_METAL_CLAW, MOVE_KARATE_CHOP, MOVE_THUNDER_PUNCH}
     },
     {
-    .iv = 100,
-    .lvl = 16,
-    .species = SPECIES_COMBUSKEN,
-    .ability = ABILITY_SLOT_1,
-    .heldItem = ITEM_NONE,
-    .moves = {MOVE_FOCUS_ENERGY, MOVE_EMBER, MOVE_DOUBLE_KICK, MOVE_SCRATCH}
-    },
-    {
-    .iv = 100,
-    .lvl = 16,
+    .iv = 0,
+    .lvl = 15,
     .species = SPECIES_MANKEY,
     .ability = ABILITY_SLOT_1,
     .heldItem = ITEM_NONE,
-    .hiddenPower = 6,//bug
-    .moves = {MOVE_HIDDEN_POWER, MOVE_LOW_KICK, MOVE_DIG, MOVE_BULK_UP}
+    .moves = {MOVE_DIG, MOVE_LOW_KICK, MOVE_SCRATCH, MOVE_BULK_UP}
     },
     {
-    .iv = 100,
-    .lvl = 17,
+    .iv = 0,
+    .lvl = 15,
     .ability = ABILITY_SLOT_1,
     .species = SPECIES_MEDITITE,
     .heldItem = ITEM_NONE,
-    .moves = {MOVE_BRICK_BREAK, MOVE_LIGHT_SCREEN, MOVE_REFLECT, MOVE_BULK_UP}
+    .moves = {MOVE_ROCK_SMASH, MOVE_LIGHT_SCREEN, MOVE_REFLECT, MOVE_BULK_UP}
     },
-
     {
-    .iv = 200,
+    .iv = 0,
     .lvl = 19,
     .species = SPECIES_MAKUHITA,
     .ability = ABILITY_SLOT_1,
@@ -3656,10 +3645,10 @@ static const struct TrainerMon sParty_Wattson1[] = {
     {
     .iv = 200,
     .lvl = 19,
-    .species = SPECIES_JOLTEON,
+    .species = SPECIES_ELECTRODE,
     .heldItem = ITEM_CHESTO_BERRY,
     .ability = ABILITY_SLOT_1,
-    .moves = {MOVE_THUNDER_WAVE, MOVE_SHOCK_WAVE, MOVE_SAND_ATTACK, MOVE_CHARM}
+    .moves = {MOVE_THUNDER_WAVE, MOVE_SHOCK_WAVE, MOVE_EXPLOSION, MOVE_LIGHT_SCREEN}
     },
     {
     .iv = 200,
@@ -3667,7 +3656,7 @@ static const struct TrainerMon sParty_Wattson1[] = {
     .species = SPECIES_ELECTABUZZ,
     .heldItem = ITEM_SITRUS_BERRY,
     .ability = ABILITY_SLOT_1,
-    .moves = {MOVE_THUNDER_WAVE, MOVE_THUNDER_PUNCH, MOVE_LIGHT_SCREEN, MOVE_FIRE_PUNCH}
+    .moves = {MOVE_THUNDER_WAVE, MOVE_THUNDER_PUNCH, MOVE_BARRIER, MOVE_FIRE_PUNCH}
     },
     {
     .iv = 200,
@@ -13504,5 +13493,36 @@ static const struct TrainerMon sParty_Kailani[] = {
     .species = SPECIES_VULPIX_ALOLAN,
     .ability = ABILITY_SLOT_1,
     .moves = {MOVE_POWDER_SNOW, MOVE_QUICK_ATTACK, MOVE_TAIL_WHIP, MOVE_DISABLE}
+    },
+};
+
+static const struct TrainerMon sParty_StevenGranite[] = {
+    {
+    .iv = 0,
+    .lvl = 16,
+    .species = SPECIES_BELDUM,
+    .ability = ABILITY_SLOT_1,
+    .moves = {MOVE_TAKE_DOWN, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .iv = 0,
+    .lvl = 16,
+    .species = SPECIES_BELDUM,
+    .ability = ABILITY_SLOT_1,
+    .moves = {MOVE_TAKE_DOWN, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .iv = 0,
+    .lvl = 16,
+    .species = SPECIES_BELDUM,
+    .ability = ABILITY_SLOT_1,
+    .moves = {MOVE_TAKE_DOWN, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .iv = 0,
+    .lvl = 16,
+    .species = SPECIES_BELDUM,
+    .ability = ABILITY_SLOT_1,
+    .moves = {MOVE_TAKE_DOWN, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 };

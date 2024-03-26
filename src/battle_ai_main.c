@@ -5103,9 +5103,20 @@ static s16 AI_HPAware(u8 battlerAtk, u8 battlerDef, u16 move, s16 score)
             case EFFECT_BELLY_DRUM:
                 score -= 2;
                 break;
+            case EFFECT_RESTORE_HP:
+            case EFFECT_REST:
+            case EFFECT_MORNING_SUN:
+            case EFFECT_SYNTHESIS:
+            case EFFECT_MOONLIGHT:
+            case EFFECT_SHORE_UP:
+            case EFFECT_SOFTBOILED:
+            case EFFECT_ROOST:
+                score += 2;
+                break;
             default:
                 break;
             }
+        
         }
         else
         {
@@ -5138,7 +5149,37 @@ static s16 AI_HPAware(u8 battlerAtk, u8 battlerDef, u16 move, s16 score)
             case EFFECT_SANDSTORM:
             case EFFECT_HAIL:
             case EFFECT_RAIN_DANCE:
+            case EFFECT_ATTACK_UP:
+            case EFFECT_DEFENSE_UP:
+            case EFFECT_SPEED_UP:
+            case EFFECT_SPECIAL_ATTACK_UP:
+            case EFFECT_SPECIAL_DEFENSE_UP:
+            case EFFECT_ACCURACY_UP:
+            case EFFECT_EVASION_UP:
+            case EFFECT_ATTACK_UP_2:
+            case EFFECT_DEFENSE_UP_2:
+            case EFFECT_SPEED_UP_2:
+            case EFFECT_SPECIAL_ATTACK_UP_2:
+            case EFFECT_SPECIAL_DEFENSE_UP_2:
+            case EFFECT_ACCURACY_UP_2:
+            case EFFECT_EVASION_UP_2:
+            case EFFECT_COSMIC_POWER:
+            case EFFECT_BULK_UP:
+            case EFFECT_CALM_MIND:
+            case EFFECT_DRAGON_DANCE:
+            case EFFECT_DEFENSE_UP_3:
+            case EFFECT_SPECIAL_ATTACK_UP_3:
                 score -= 2;
+                break;
+            case EFFECT_RESTORE_HP:
+            case EFFECT_REST:
+            case EFFECT_MORNING_SUN:
+            case EFFECT_SYNTHESIS:
+            case EFFECT_MOONLIGHT:
+            case EFFECT_SHORE_UP:
+            case EFFECT_SOFTBOILED:
+            case EFFECT_ROOST:
+                score += 6;
                 break;
             default:
                 break;
