@@ -124,6 +124,18 @@ const u8 gRaticatePokedexText[] = _(
     "rocks and logs. It may even chew on the\n"
     "walls of houses.");
 
+const u8 gARattataPokedexText[] = _(
+    "This variant of Rattata is entirely\n"
+    "nocturnal. It is said to have picked up\n"
+    "this sleep habit due to a large diurnal\n"
+    "predator in its native region.");
+
+const u8 gARaticatePokedexText[] = _(
+    "This variant of Raticate is a gormand.\n"
+    "It commands a legion of Rattata whose\n"
+    "sole job it is to collect food for Raticate.\n"
+    "It nests near restaurants it likes.");
+
 const u8 gSpearowPokedexText[] = _(
     "Its loud cry can be heard over half a mile\n"
     "away. If its high, keening cry is heard\n"
@@ -160,6 +172,12 @@ const u8 gRaichuPokedexText[] = _(
     "it occasionally discharges excess energy\n"
     "and calms itself down.");
 
+const u8 gARaichuPokedexText[] = _(
+    "This variant of Raichu is said to have\n"
+    "adapted due to a specialized diet from\n"
+    "a sweet food made within its native region.\n"
+    "Psychic energy is stored within its tail.");
+
 const u8 gSandshrewPokedexText[] = _(
     "When it curls up in a ball, it can make any\n"
     "attack bounce off harmlessly. Its hide has\n"
@@ -171,6 +189,18 @@ const u8 gSandslashPokedexText[] = _(
     "enemy attacks. It also curls up to prevent\n"
     "heatstroke during the daytime when\n"
     "temperatures rise sharply.");
+
+const u8 gASandshrewPokedexText[] = _(
+    "This variant of Sandshrew made its home in\n"
+    "snowy mountains after frequently getting\n"
+    "lost in its original habitat. It can slide\n"
+    "on its stomach at bullet like speeds.");
+
+const u8 gASandslashPokedexText[] = _(
+    "This variant of Raticate has sharp spikes\n"
+    "along its spikes covered in ice. It has\n"
+    "developed large claws that allow it to\n"
+    "plow snow and climb frozen terrain.");
 
 const u8 gNidoranFPokedexText[] = _(
     "Its highly toxic barbs are thought to have\n"
@@ -231,6 +261,18 @@ const u8 gNinetalesPokedexText[] = _(
     "nine tails embody an enchanted power.\n"
     "A long-lived Ninetales will have fur that\n"
     "shines like gold.");
+
+const u8 gAVulpixPokedexText[] = _(
+    "This variant of Vulpix adapted due to its\n"
+    "preferred habitat, mountains, being snow-\n"
+    "covered in its native region. It exhales\n"
+    "air colder than -58 degrees Fahrenheit.");
+
+const u8 gANinetalesPokedexText[] = _(
+    "This variant of Ninetales is considered\n"
+    "a benevolent deity who guides those lost\n"
+    "in the tundra home. In actuality, it is\n"
+    "trying to get them to hurry up and leave.");
 
 const u8 gJigglypuffPokedexText[] = _(
     "Nothing can avoid falling asleep hearing a\n"
@@ -310,6 +352,18 @@ const u8 gDugtrioPokedexText[] = _(
     "They work cooperatively to burrow\n"
     "endlessly through the ground.");
 
+const u8 gADiglettPokedexText[] = _(
+    "This variant of Diglett has sprouted three\n"
+    "steel whiskers due to soil it consumes\n"
+    "consisting of a high iron content. It is\n"
+    "powerful enough to break volcanic rock.");
+
+const u8 gADugtrioPokedexText[] = _(
+    "This variant of Dugtrio has long hair-like\n"
+    "strands of metal that it uses for protection.\n"
+    "It was once thought to be a feminine deity\n"
+    "and its fallen hairs brought bad luck.");
+
 const u8 gMeowthPokedexText[] = _(
     "Meowth withdraw their sharp claws into\n"
     "their paws to silently sneak about.\n"
@@ -321,6 +375,24 @@ const u8 gPersianPokedexText[] = _(
     "movements to determine what is in its\n"
     "vicinity. It becomes docile if grabbed\n"
     "by the whiskers.");
+
+const u8 gAMeowthPokedexText[] = _(
+    "This variant of Meowth was brought to\n"
+    "a tropical region from a royal family\n"
+    "and went feral. It is extremely prideful\n"
+    "and stubborn yet is popular with women.");
+
+const u8 gGMeowthPokedexText[] = _(
+    "This variant of Meowth lived with\n"
+    "hardened seafaring folk so long its\n"
+    "hair grew and strengthened into iron.\n"
+    "Darker coins on its head show power.");
+
+const u8 gAPersianPokedexText[] = _(
+    "This variant of Persian has a round\n"
+    "chubby face that indicates wealth. In\n"
+    "battle, it is deceitful and merciless,\n"
+    "torturing those it defeats.");
 
 const u8 gPsyduckPokedexText[] = _(
     "When its headache intensifies, it starts\n"
@@ -460,6 +532,24 @@ const u8 gGolemPokedexText[] = _(
     "its hide and grows larger. The shed hide\n"
     "crumbles and returns to the soil.");
 
+const u8 gAGeodudePokedexText[] = _(
+    "This variant of Geodude originally lived\n"
+    "in an area prone to frequent thunderstorms.\n"
+    "Due to this, it has developed magnetic\n"
+    "properties and lives near electricity.");
+
+const u8 gAGravelerPokedexText[] = _(
+    "This variant of Graveler is very quick-\n"
+    "tempered. They get in fights over food,\n"
+    "headbutting each other savagely. These\n"
+    "attacks flash and boom like thunder.");
+
+const u8 gAGolemPokedexText[] = _(
+    "This variant of Golem fires electrically\n"
+    "charged boulders from its back. It and its\n"
+    "projectiles discharge enough electricity\n"
+    "to cause numbness and fainting.");
+
 const u8 gPonytaPokedexText[] = _(
     "A Ponyta is very weak at birth. It can\n"
     "barely stand up. Its legs become stronger\n"
@@ -472,6 +562,18 @@ const u8 gRapidashPokedexText[] = _(
     "serious, its fiery manes flare and blaze\n"
     "as it gallops its way up to 150 mph.");
 
+const u8 gGPonytaPokedexText[] = _(
+    "Thsi variant of Ponyta is admired so\n"
+    "much for its healing qualities it was\n"
+    "hunted to near extinction and is now rare.\n"
+    "If it senses evil in someone, it runs.");
+
+const u8 gGRapidashPokedexText[] = _(
+    "This variant of Rapidash is very skittish\n"
+    "but equally powerful and rare. It uses\n"
+    "its magic to not only disappear and fly\n"
+    "but also cut through anything in its path.");
+
 const u8 gSlowpokePokedexText[] = _(
     "It catches prey by dipping its tail in\n"
     "water at the side of a river. But it often\n"
@@ -483,6 +585,18 @@ const u8 gSlowbroPokedexText[] = _(
     "with a bite. As a result, the tail can't be\n"
     "used for fishing anymore. This forces it\n"
     "to reluctantly swim and catch prey.");
+
+const u8 gGSlowpokePokedexText[] = _(
+    "This variant of Slowpoke has developed a\n"
+    "poison tolerance due to its diet in its\n"
+    "native region. It fishes with its spicy\n"
+    "offputting tail, a foolish strategy.");
+
+const u8 gGSlowbroPokedexText[] = _(
+    "A Shellder has bitten onto the arm of\n"
+    "this variant of Slowbro. This released a\n"
+    "toxin built up within it that now flows\n"
+    "through the Shellder like a water gun.");
 
 const u8 gMagnemitePokedexText[] = _(
     "The units at its sides are extremely\n"
@@ -501,6 +615,12 @@ const u8 gFarfetchdPokedexText[] = _(
     "Apparently, there are good sticks and bad\n"
     "sticks. This Pokémon occasionally fights\n"
     "with others over choice sticks.");
+
+const u8 gGFarfetchdPokedexText[] = _(
+    "Stalks of leeks grow bigger in the region\n"
+    "this variant of Farfetch'd hails from. The\n"
+    "strength gained from carrying these leeks\n"
+    "all day has made them into strong figthers.");
 
 const u8 gDoduoPokedexText[] = _(
     "Even while eating or sleeping, one of the\n"
@@ -537,6 +657,18 @@ const u8 gMukPokedexText[] = _(
     "In the summertime, the toxic substances\n"
     "in its body intensify, making Muk reek like\n"
     "putrid kitchen garbage.");
+
+const u8 gAGrimerPokedexText[] = _(
+    "This variant of Grimer developed its look\n"
+    "from eating a specific type and high \n"
+    "density of trash from its native region.\n"
+    "It stores toxins as stones on its body.");
+
+const u8 gAMukPokedexText[] = _(
+    "This variant of Muk has hundreds of\n"
+    "toxins combining in its body, producing\n"
+    "its bright and diverse coloration.\n"
+    "Shockingly, this Muk does not smell.");
 
 const u8 gShellderPokedexText[] = _(
     "At night, it burrows a hole in the seafloor\n"
@@ -622,6 +754,12 @@ const u8 gExeggutorPokedexText[] = _(
     "sunlight. It is said that when the heads\n"
     "fall, they group to form an Exeggcute.");
 
+const u8 gAExeggutorPokedexText[] = _(
+    "This variant of Exeggutor has grown taller\n"
+    "in the harsh sunlight of the tropics\n"
+    "This is its original form, developing\n"
+    "psychic powers as it lost height.");
+
 const u8 gCubonePokedexText[] = _(
     "It pines for the mother it will never see\n"
     "again. Seeing a likeness of its mother in\n"
@@ -633,6 +771,12 @@ const u8 gMarowakPokedexText[] = _(
     "that has grown tough by overcoming the\n"
     "grief of losing its mother. Its tempered\n"
     "and hardened spirit is not easily broken.");
+
+const u8 gAMarowakPokedexText[] = _(
+    "This variant of Marowak dances and lights\n"
+    "flames to draw strength from its passed\n"
+    "loved ones. This gives it much bravery\n"
+    "and strength but weakenes it emotionally.");
 
 const u8 gHitmonleePokedexText[] = _(
     "Its legs freely stretch and contract.\n"
@@ -663,6 +807,12 @@ const u8 gWeezingPokedexText[] = _(
     "process, the highest grade of perfume can\n"
     "be extracted. To Weezing, gases emanating\n"
     "from garbage are the ultimate feast.");
+
+const u8 gGWeezingPokedexText[] = _(
+    "This variant of Weezing was born from\n"
+    "feeding on large amounts of gas from a\n"
+    "polluted habitat. Its takes in large\n"
+    "amounts of smoke through its smokestacks.");
 
 const u8 gRhyhornPokedexText[] = _(
     "Once it starts running, it doesn't stop.\n"
@@ -735,6 +885,12 @@ const u8 gMrMimePokedexText[] = _(
     "convince others that something unseeable\n"
     "actually exists. Once believed, the\n"
     "imaginary object does become real.");
+
+const u8 gGMrMimePokedexText[] = _(
+    "This variant of Mr. Mime has taken to\n"
+    "the common entertainment in its region:\n"
+    "tap-dancing. Cold climates allow it to\n"
+    "manipulate ice to tap dance anywhere.");
 
 const u8 gScytherPokedexText[] = _(
     "Its blindingly fast speed adds to the\n"
@@ -879,6 +1035,24 @@ const u8 gMoltresPokedexText[] = _(
     "that can control fire. If injured, it is said\n"
     "to dip its body in the molten magma of\n"
     "a volcano to burn and heal itself.");
+
+const u8 gGArticunoPokedexText[] = _(
+    "This variant of Articuno feasts on berries\n"
+    "from an all powerful tree and has developed\n"
+    "psychic powers. With this, it can stop any\n"
+    "foe in its tracks, but cannot control ice.");
+
+const u8 gGZapdosPokedexText[] = _(
+    "This variant of Zapdos has developed an\n"
+    "incredible speed from its diet. Its coat\n"
+    "makes a crackling sound like thunder as it\n"
+    "runs, yet it has no power over electricity.");
+
+const u8 gGMoltresPokedexText[] = _(
+    "This variant of Moltres has no power over\n"
+    "fire, but is said to have gained the name\n"
+    "from locals for its all-consuming and \n"
+    "disastrous aura gained in its region.");
 
 const u8 gDratiniPokedexText[] = _(
     "A Dratini continually molts and sloughs\n"
@@ -1198,6 +1372,12 @@ const u8 gSlowkingPokedexText[] = _(
     "However, it apparently forgets everything\n"
     "if the Shellder on its head comes off.");
 
+const u8 gGSlowkingPokedexText[] = _(
+    "This variant of Slowking was bitten on the\n"
+    "head by a Shellder. This released toxins\n"
+    "into Shellder, increasing its intelligence\n"
+    "and allowing it to take control.");
+
 const u8 gMisdreavusPokedexText[] = _(
     "A Misdreavus frightens people with a\n"
     "creepy, sobbing cry. It apparently uses\n"
@@ -1335,6 +1515,12 @@ const u8 gCorsolaPokedexText[] = _(
     "If the sea becomes polluted, the beautiful\n"
     "coral stalks become discolored and crumble\n"
     "away in tatters.");
+
+const u8 gGCorsolaPokedexText[] = _(
+    "Global climate change has heated the\n"
+    "native environment of this variant of\n"
+    "Corsola. Healthy algae growing on it has\n"
+    "passed, causing it to turn white.");
 
 const u8 gRemoraidPokedexText[] = _(
     "A Remoraid uses its abdominal muscles\n"
@@ -1587,6 +1773,18 @@ const u8 gLinoonePokedexText[] = _(
     "in a straight line. When it spots pond-\n"
     "dwelling prey underwater, it quickly leaps\n"
     "in and catches it with its sharp claws.");
+
+const u8 gGZigzagoonPokedexText[] = _(
+    "This variant of Zigzagoon is much more\n"
+    "aggressive than its HOENN counterpart. It\n"
+    "is thought this may be due to its native\n"
+    "region consisting of more docile POKéMON.");
+
+const u8 gGLinoonePokedexText[] = _(
+    "This variant of Linoone taunts opponents\n"
+    "with its long tongue. It is very combative,\n"
+    "often challenging stronger POKéMON. It is\n"
+    "not stronger than Hoennian Linoone.");
 
 const u8 gWurmplePokedexText[] = _(
     "It sticks to tree branches and eats\n"
