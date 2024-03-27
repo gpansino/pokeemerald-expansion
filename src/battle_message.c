@@ -435,13 +435,13 @@ static const u8 sText_ExclamationMark3[] = _("!");
 static const u8 sText_ExclamationMark4[] = _("!");
 static const u8 sText_ExclamationMark5[] = _("!");
 static const u8 sText_HP[] = _("HP");
-static const u8 sText_Attack[] = _("attack");
-static const u8 sText_Defense[] = _("defense");
-static const u8 sText_Speed[] = _("speed");
-static const u8 sText_SpAttack[] = _("sp. attack");
-static const u8 sText_SpDefense[] = _("sp. defense");
-static const u8 sText_Accuracy[] = _("accuracy");
-static const u8 sText_Evasiveness[] = _("evasiveness");
+static const u8 sText_Attack[] = _("ATTACK");
+static const u8 sText_Defense[] = _("DEFENSE");
+static const u8 sText_Speed[] = _("SPEED");
+static const u8 sText_SpAttack[] = _("SP. ATTACK");
+static const u8 sText_SpDefense[] = _("SP. DEFENSE");
+static const u8 sText_Accuracy[] = _("ACCURACY");
+static const u8 sText_Evasiveness[] = _("EVASIVENESS");
 
 const u8 *const gStatNamesTable[NUM_BATTLE_STATS] =
 {

@@ -2241,7 +2241,7 @@
 		.endif
 		.endif
 	.endif
-	waitmessage B_WAIT_TIME_LONG
+	waitmessage B_WAIT_TIME_MED
 	.endm
 
 	.macro jumpifemergencyexited battler:req, jumpInstr:req

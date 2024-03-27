@@ -7447,34 +7447,9 @@ static u32 GetTrainerMoneyToGive(u16 trainerId)
     }
     else
     {
-        switch (gTrainers[trainerId].partyFlags)
-        {
-        case 0:
-            {
-                const struct TrainerMonNoItemDefaultMoves *party = gTrainers[trainerId].party.NoItemDefaultMoves;
-                lastMonLevel = party[gTrainers[trainerId].partySize - 1].lvl;
-            }
-            break;
-        case F_TRAINER_PARTY_CUSTOM_MOVESET:
-            {
-                const struct TrainerMonNoItemCustomMoves *party = gTrainers[trainerId].party.NoItemCustomMoves;
-                lastMonLevel = party[gTrainers[trainerId].partySize - 1].lvl;
-            }
-            break;
-        case F_TRAINER_PARTY_HELD_ITEM:
-            {
-                const struct TrainerMonItemDefaultMoves *party = gTrainers[trainerId].party.ItemDefaultMoves;
-                lastMonLevel = party[gTrainers[trainerId].partySize - 1].lvl;
-            }
-            break;
-        case F_TRAINER_PARTY_CUSTOM_MOVESET | F_TRAINER_PARTY_HELD_ITEM:
-            {
-                const struct TrainerMonItemCustomMoves *party = gTrainers[trainerId].party.ItemCustomMoves;
-                lastMonLevel = party[gTrainers[trainerId].partySize - 1].lvl;
-            }
-            break;
-        }
-
+        const struct TrainerMon *party = gTrainers[trainerId].party.TrainerMon;
+        lastMonLevel = party[gTrainers[trainerId].partySize - 1].lvl;
+ 
         for (; gTrainerMoneyTable[i].classId != 0xFF; i++)
         {
             if (gTrainerMoneyTable[i].classId == gTrainers[trainerId].trainerClass)
@@ -14230,11 +14205,11 @@ static void Cmd_callterrainattack(void)
 u16 GetNaturePowerMove(void)
 {
     if (gFieldStatuses & STATUS_FIELD_MISTY_TERRAIN)
-        return MOVE_MOONBLAST;
+        return MOVE_PLAY_ROUGH;
     else if (gFieldStatuses & STATUS_FIELD_ELECTRIC_TERRAIN)
         return MOVE_THUNDERBOLT;
     else if (gFieldStatuses & STATUS_FIELD_GRASSY_TERRAIN)
-        return MOVE_ENERGY_BALL;
+        return MOVE_GIGA_DRAIN;
     else if (gFieldStatuses & STATUS_FIELD_PSYCHIC_TERRAIN)
         return MOVE_PSYCHIC;
     else if (sNaturePowerMoves == MOVE_NONE)

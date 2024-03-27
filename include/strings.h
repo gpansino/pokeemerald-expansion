@@ -3031,4 +3031,46 @@ extern const u8 gText_BoxName[];
 extern const u8 gText_PkmnsNickname[];
 extern const u8 gText_TellHimTheWords[];
 
+//my strings
+extern const u8 gText_BabyQuiz1_1[];
+extern const u8 gText_BabyQuiz1_2[];
+extern const u8 gText_BabyQuiz2_1[];
+extern const u8 gText_BabyQuiz2_2[];
+extern const u8 gText_BabyQuiz2_3[];
+extern const u8 gText_BabyQuiz3_1[];
+extern const u8 gText_BabyQuiz3_2[];
+extern const u8 gText_BabyQuiz3_3[];
+extern const u8 gText_BabyQuiz4_1[];
+extern const u8 gText_BabyQuiz4_2[];
+extern const u8 gText_BabyQuiz4_3[];
+extern const u8 gText_BabyQuiz5_1[];
+extern const u8 gText_BabyQuiz5_2[];
+extern const u8 gText_BabyQuiz5_3[];
+extern const u8 gText_BabyQuiz6_1[];
+extern const u8 gText_BabyQuiz6_2[];
+extern const u8 gText_BabyQuiz6_3[];
+extern const u8 gText_BabyQuiz7_1[];
+extern const u8 gText_BabyQuiz7_2[];
+extern const u8 gText_BabyQuiz7_3[];
+extern const u8 gText_BabyQuiz8_1[];
+extern const u8 gText_BabyQuiz8_2[];
+extern const u8 gText_BabyQuiz8_3[];
+extern const u8 gText_BabyQuiz9_1[];
+extern const u8 gText_BabyQuiz9_2[];
+extern const u8 gText_BabyQuiz9_3[];
+extern const u8 gText_GameCornerEeveeAndPrice[];
+extern const u8 gText_GameCornerPorygonAndPrice[];
+extern const u8 gText_AlolanRattata[];
+extern const u8 gText_AlolanRaichu[];
+extern const u8 gText_AlolanSandshrew[];
+extern const u8 gText_AlolanVulpix[];
+extern const u8 gText_AlolanDiglett[];
+extern const u8 gText_AlolanMeowth[];
+extern const u8 gText_AlolanGrimer[];
+extern const u8 gText_AlolanGeodude[];
+extern const u8 gText_AlolanExeggutor[];
+extern const u8 gText_AlolanMarowak[];
+extern const u8 gText_FillPail[];
+extern const u8 gText_PokenavMute[];
+
 #endif // GUARD_STRINGS_H

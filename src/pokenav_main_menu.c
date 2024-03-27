@@ -13,6 +13,9 @@
 #include "menu.h"
 #include "dma3.h"
 
+#define TAG_AUDIO 0x1000
+#define TAG_MUTE 0x1001
+
 struct Pokenav_MainMenu
 {
     void (*loopTask)(u32);
@@ -22,6 +25,7 @@ struct Pokenav_MainMenu
     u32 helpBarWindowId;
     u32 palettes;
     struct Sprite *spinningPokenav;
+    struct Sprite *audioIcon;
     struct Sprite *leftHeaderSprites[2];
     struct Sprite *submenuLeftHeaderSprites[2];
     u8 tilemapBuffer[BG_SCREEN_SIZE];
@@ -51,11 +55,18 @@ static u32 LoopedTask_SlideMenuHeaderUp(s32);
 static u32 LoopedTask_SlideMenuHeaderDown(s32);
 static void DrawHelpBar(u32);
 static void SpriteCB_SpinningPokenav(struct Sprite *);
+static void SpriteCB_AudioIcon(struct Sprite *sprite);
 static u32 LoopedTask_InitPokenavMenu(s32);
 
 static const u16 sSpinningPokenav_Pal[] = INCBIN_U16("graphics/pokenav/nav_icon.gbapal");
 static const u32 sSpinningPokenav_Gfx[] = INCBIN_U32("graphics/pokenav/nav_icon.4bpp.lz");
 static const u32 sBlueLightCopy[] = INCBIN_U32("graphics/pokenav/blue_light.4bpp.lz"); // Unused copy of sMatchCallBlueLightTiles
+
+static const u16 gPokenavAudio_Pal[] = INCBIN_U16("graphics/pokenav/pokenav_on.gbapal");
+static const u32 gPokenavAudio_Gfx[] = INCBIN_U32("graphics/pokenav/pokenav_on.4bpp.lz");
+static const u16 gPokenavMute_Pal[] = INCBIN_U16("graphics/pokenav/pokenav_mute.gbapal");
+static const u32 gPokenavMute_Gfx[] = INCBIN_U32("graphics/pokenav/pokenav_mute.4bpp.lz");
+
 
 const struct BgTemplate gPokenavMainMenuBgTemplates[] =
 {
@@ -119,6 +130,42 @@ static const struct SpritePalette sSpinningNavgearPalettes[] =
     {
         .data = sSpinningPokenav_Pal,
         .tag = 0,
+    },
+    {}
+};
+
+static const struct CompressedSpriteSheet sAudioSpriteSheet[] =
+{
+    {
+        .data = gPokenavAudio_Gfx,
+        .size = 0x0200, 
+        .tag = TAG_AUDIO,
+    }
+};
+
+const struct SpritePalette sAudioIconPalettes[] =
+{
+    {
+        .data = gPokenavAudio_Pal,
+        .tag = TAG_AUDIO
+    },
+    {}
+};
+
+static const struct CompressedSpriteSheet sMuteSpriteSheet[] =
+{
+    {
+        .data = gPokenavMute_Gfx,
+        .size = 0x0200, 
+        .tag = TAG_MUTE,
+    }
+};
+
+const struct SpritePalette sMuteIconPalettes[] =
+{
+    {
+        .data = gPokenavMute_Pal,
+        .tag = TAG_MUTE
     },
     {}
 };
@@ -228,6 +275,56 @@ static const union AnimCmd *const sSpinningPokenavAnimTable[] =
     sSpinningPokenavAnims
 };
 
+static const struct OamData sAudioIconSpriteOam =
+{
+    .y = 0,
+    .affineMode = ST_OAM_AFFINE_OFF,
+    .objMode = ST_OAM_OBJ_NORMAL,
+    .bpp = ST_OAM_4BPP,
+    .shape = SPRITE_SHAPE(32x32),
+    .x = 0,
+    .size = SPRITE_SIZE(32x32),
+    .tileNum = 10,
+    .priority = 0,
+    .paletteNum = 9,
+};
+
+static const struct SpriteTemplate sPokenavAudioIconTemplate =
+{
+    .tileTag = TAG_AUDIO,
+    .paletteTag = TAG_AUDIO,
+    .oam = &sAudioIconSpriteOam,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = SpriteCB_AudioIcon
+};
+
+static const struct OamData sMuteIconSpriteOam =
+{
+    .y = 0,
+    .affineMode = ST_OAM_AFFINE_OFF,
+    .objMode = ST_OAM_OBJ_NORMAL,
+    .bpp = ST_OAM_4BPP,
+    .shape = SPRITE_SHAPE(32x32),
+    .x = 0,
+    .size = SPRITE_SIZE(32x32),
+    .tileNum = 10,
+    .priority = 0,
+    .paletteNum = 10,
+};
+
+static const struct SpriteTemplate sPokenavMuteIconTemplate =
+{
+    .tileTag = TAG_MUTE,
+    .paletteTag = TAG_MUTE,
+    .oam = &sMuteIconSpriteOam,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = SpriteCB_AudioIcon
+};
+
 static const struct SpriteTemplate sSpinningPokenavSpriteTemplate =
 {
     .tileTag = 0,
@@ -248,7 +345,7 @@ static const struct OamData sOamData_LeftHeader =
     .shape = SPRITE_SHAPE(64x32),
     .x = 0,
     .size = SPRITE_SIZE(64x32),
-    .tileNum = 0,
+    .tileNum = 10,
     .priority = 1,
     .paletteNum = 0,
 };
@@ -590,6 +687,7 @@ static void InitPokenavMainMenuResources(void)
     menu->palettes = ~1 & ~(0x10000 << IndexOfSpritePaletteTag(0));
     spriteId = CreateSprite(&sSpinningPokenavSpriteTemplate, 220, 12, 0);
     menu->spinningPokenav = &gSprites[spriteId];
+    LoadMute();
 }
 
 static void CleanupPokenavMainMenuResources(void)
@@ -597,11 +695,18 @@ static void CleanupPokenavMainMenuResources(void)
     struct Pokenav_MainMenu *menu = GetSubstructPtr(POKENAV_SUBSTRUCT_MAIN_MENU);
 
     DestroySprite(menu->spinningPokenav);
+    DestroySprite(menu->audioIcon);
     FreeSpriteTilesByTag(0);
     FreeSpritePaletteByTag(0);
 }
 
 static void SpriteCB_SpinningPokenav(struct Sprite *sprite)
+{
+    // If the background starts scrolling, follow it.
+    sprite->y2 = (GetBgY(0) / 256u) * -1;
+}
+
+static void SpriteCB_AudioIcon(struct Sprite *sprite)
 {
     // If the background starts scrolling, follow it.
     sprite->y2 = (GetBgY(0) / 256u) * -1;
@@ -846,4 +951,51 @@ static void SpriteCB_MoveLeftHeader(struct Sprite *sprite)
         sprite->x = sprite->data[7];
         sprite->callback = SpriteCallbackDummy;
     }
+}
+
+
+void LoadMute(void){
+        
+    u8 spriteId;
+    struct Pokenav_MainMenu *menu = GetSubstructPtr(POKENAV_SUBSTRUCT_MAIN_MENU);
+
+    LoadCompressedSpriteSheet(&sAudioSpriteSheet[0]);
+    LoadCompressedSpriteSheet(&sMuteSpriteSheet[0]);
+    if(FlagGet(FLAG_MATCH_CALL_MUTE)){
+        Pokenav_AllocAndLoadPalettes(sMuteIconPalettes);
+        menu->palettes = ~1 & ~(0x10000 << IndexOfSpritePaletteTag(1));
+        spriteId = CreateSprite(&sPokenavMuteIconTemplate, 190, 11, 0);
+        menu->audioIcon = &gSprites[spriteId];
+    }
+    else{
+
+        Pokenav_AllocAndLoadPalettes(sAudioIconPalettes);
+        menu->palettes = ~1 & ~(0x10000 << IndexOfSpritePaletteTag(1));
+        spriteId = CreateSprite(&sPokenavAudioIconTemplate, 190, 11, 0);
+        menu->audioIcon = &gSprites[spriteId];
+    }
+
+}
+
+void ToggleMute(void){
+
+    u8 spriteId;
+    struct Pokenav_MainMenu *menu = GetSubstructPtr(POKENAV_SUBSTRUCT_MAIN_MENU);
+
+    PlaySE(SE_ROTATING_GATE);
+    if(FlagGet(FLAG_MATCH_CALL_MUTE)){
+        DestroySprite(menu->audioIcon);
+        LoadPalette(sAudioIconPalettes->data, OBJ_PLTT_ID(1), sizeof(sAudioIconPalettes));
+        spriteId = CreateSprite(&sPokenavAudioIconTemplate, 190, 11, 0);
+        gSprites[spriteId].oam.paletteNum = 1;
+        menu->audioIcon = &gSprites[spriteId];
+    }
+    else{
+        DestroySprite(menu->audioIcon);
+        LoadPalette(sMuteIconPalettes->data, OBJ_PLTT_ID(1), sizeof(sMuteIconPalettes));
+        spriteId = CreateSprite(&sPokenavMuteIconTemplate, 190, 11, 0);
+        gSprites[spriteId].oam.paletteNum = 1;
+        menu->audioIcon = &gSprites[spriteId];
+    }
+
 }

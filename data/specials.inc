@@ -536,3 +536,7 @@ gSpecials::
 	def_special TrySetBattleTowerLinkType
 	def_special SetTotemBoost
 	def_special TrySpecialOverworldEvo
+
+	def_special GetWaterInPail
+	def_special FillPail
+	def_special DecrementWaterPail

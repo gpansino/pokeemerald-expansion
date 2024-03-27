@@ -16,6 +16,7 @@
 #include "scanline_effect.h"
 #include "constants/songs.h"
 #include "constants/rgb.h"
+#include "debug.h"
 
 #define GFXTAG_BLUE_LIGHT 1
 #define GFXTAG_OPTIONS    3
@@ -61,6 +62,7 @@ static u32 LoopedTask_ReturnToConditionMenu(s32);
 static u32 LoopedTask_SelectRibbonsNoWinners(s32);
 static u32 LoopedTask_ReShowDescription(s32);
 static u32 LoopedTask_OpenPokenavFeature(s32);
+static u32 LoopedTask_MutePokenav(s32);
 static void LoadPokenavOptionPalettes(void);
 static void FreeAndDestroyMainMenuSprites(void);
 static void CreateMenuOptionSprites(void);
@@ -146,7 +148,8 @@ static const LoopedTask sMenuHandlerLoopTaskFuncs[] =
     [POKENAV_MENU_FUNC_RETURN_TO_CONDITION]   = LoopedTask_ReturnToConditionMenu,
     [POKENAV_MENU_FUNC_NO_RIBBON_WINNERS]     = LoopedTask_SelectRibbonsNoWinners,
     [POKENAV_MENU_FUNC_RESHOW_DESCRIPTION]    = LoopedTask_ReShowDescription,
-    [POKENAV_MENU_FUNC_OPEN_FEATURE]          = LoopedTask_OpenPokenavFeature
+    [POKENAV_MENU_FUNC_OPEN_FEATURE]          = LoopedTask_OpenPokenavFeature,
+    [POKENAV_MENU_FUNC_MUTE]                  = LoopedTask_MutePokenav,
 };
 
 static const struct CompressedSpriteSheet sPokenavOptionsSpriteSheets[] =
@@ -187,14 +190,16 @@ static const u16 sOptionsLabelGfx_Beauty[]    = {0x100, PALTAG_OPTIONS_BLUE - PA
 static const u16 sOptionsLabelGfx_Cute[]      = {0x120, PALTAG_OPTIONS_PINK - PALTAG_OPTIONS_START};
 static const u16 sOptionsLabelGfx_Smart[]     = {0x140, PALTAG_OPTIONS_DEFAULT - PALTAG_OPTIONS_START};
 static const u16 sOptionsLabelGfx_Tough[]     = {0x160, PALTAG_OPTIONS_DEFAULT - PALTAG_OPTIONS_START};
-static const u16 sOptionsLabelGfx_Cancel[]    = {0x180, PALTAG_OPTIONS_BEIGE - PALTAG_OPTIONS_START};
+static const u16 sOptionsLabelGfx_Cancel[]    = {0x180, PALTAG_OPTIONS_DEFAULT - PALTAG_OPTIONS_START};
+
 
 struct
 {
     u16 yStart;
     u16 deltaY;
     const u16 *gfx[MAX_POKENAV_MENUITEMS];
-} static const sPokenavMenuOptionLabelGfx[POKENAV_MENU_TYPE_COUNT] =
+} 
+static const sPokenavMenuOptionLabelGfx[POKENAV_MENU_TYPE_COUNT] =
 {
     [POKENAV_MENU_TYPE_DEFAULT] =
     {
@@ -271,7 +276,7 @@ static const u8 *const sPageDescriptions[] =
     [POKENAV_MENUITEM_CONDITION]               = gText_CheckPokemonInDetail,
     [POKENAV_MENUITEM_MATCH_CALL]              = gText_CallRegisteredTrainer,
     [POKENAV_MENUITEM_RIBBONS]                 = gText_CheckObtainedRibbons,
-    [POKENAV_MENUITEM_SWITCH_OFF]              = gText_PutAwayPokenav,
+    [POKENAV_MENUITEM_MUTE]                    = gText_PokenavMute,
     [POKENAV_MENUITEM_CONDITION_PARTY]         = gText_CheckPartyPokemonInDetail,
     [POKENAV_MENUITEM_CONDITION_SEARCH]        = gText_CheckAllPokemonInDetail,
     [POKENAV_MENUITEM_CONDITION_CANCEL]        = gText_ReturnToPokenavMenu,
@@ -403,7 +408,6 @@ bool32 OpenPokenavMenuNotInitial(void)
 static struct Pokenav_MenuGfx * OpenPokenavMenu(void)
 {
     struct Pokenav_MenuGfx * gfx = AllocSubstruct(POKENAV_SUBSTRUCT_MENU_GFX, sizeof(struct Pokenav_MenuGfx));
-
     if (gfx != NULL)
     {
         gfx->numIconsBlending = 0;
@@ -448,7 +452,7 @@ static bool32 GetCurrentLoopedTaskActive(void)
 static u32 LoopedTask_OpenMenu(s32 state)
 {
     struct Pokenav_MenuGfx * gfx = GetSubstructPtr(POKENAV_SUBSTRUCT_MENU_GFX);
-
+    s32 menuType = GetPokenavMenuType();
     switch (state)
     {
     case 0:
@@ -1222,7 +1226,7 @@ static void PrintCurrentOptionDescription(void)
 {
     struct Pokenav_MenuGfx * gfx = GetSubstructPtr(POKENAV_SUBSTRUCT_MENU_GFX);
     int menuItem = GetCurrentMenuItemId();
-    const u8 *desc = sPageDescriptions[menuItem];
+    const u8 *desc =sPageDescriptions[menuItem];
     u32 width = GetStringWidth(FONT_NORMAL, desc, -1);
     FillWindowPixelBuffer(gfx->optionDescWindowId, PIXEL_FILL(6));
     AddTextPrinterParameterized3(gfx->optionDescWindowId, FONT_NORMAL, (192 - width) / 2, 1, sOptionDescTextColors, 0, desc);
@@ -1368,4 +1372,10 @@ static void SetMenuOptionGlow(void)
 void ResetBldCnt_(void)
 {
     ResetBldCnt();
+}
+
+static u32 LoopedTask_MutePokenav(s32 state){
+    ToggleMute();
+    FlagToggle(FLAG_MATCH_CALL_MUTE);
+    return LT_FINISH;
 }

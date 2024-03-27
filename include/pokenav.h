@@ -4,6 +4,7 @@
 #include "bg.h"
 #include "main.h"
 #include "pokemon_storage_system.h"
+#include "event_data.h"
 
 typedef u32 (*LoopedTask)(s32 state);
 
@@ -121,6 +122,7 @@ enum
     POKENAV_CONDITION_MENU,                     // The first Condition screen where the player selects Party or Search
     POKENAV_CONDITION_SEARCH_MENU,              // The Condition search menu where the player selects a search parameter
     POKENAV_MAIN_MENU_CURSOR_ON_MATCH_CALL,
+    POKENAV_MAIN_MENU_CURSOR_ON_MUTE,
     POKENAV_MAIN_MENU_CURSOR_ON_RIBBONS,
     POKENAV_REGION_MAP,
     POKENAV_CONDITION_GRAPH_PARTY,              // The Condition graph screen when Party has been selected
@@ -131,6 +133,7 @@ enum
     POKENAV_RIBBONS_MON_LIST,                   // The list of Pokémon with ribbons
     POKENAV_RIBBONS_SUMMARY_SCREEN,             // The ribbon summary screen shown when a Pokémon has been selected
     POKENAV_RIBBONS_RETURN_TO_MON_LIST,         // Exited the summary screen back to the ribbon list
+    POKENAV_MUTE
 };
 
 enum
@@ -151,7 +154,7 @@ enum
     POKENAV_MENUITEM_CONDITION,
     POKENAV_MENUITEM_MATCH_CALL,
     POKENAV_MENUITEM_RIBBONS,
-    POKENAV_MENUITEM_SWITCH_OFF,
+    POKENAV_MENUITEM_MUTE,
     POKENAV_MENUITEM_CONDITION_PARTY,
     POKENAV_MENUITEM_CONDITION_SEARCH,
     POKENAV_MENUITEM_CONDITION_CANCEL,
@@ -164,7 +167,7 @@ enum
 };
 
 // Max menu options (condition search uses 6)
-#define MAX_POKENAV_MENUITEMS 6
+#define MAX_POKENAV_MENUITEMS 7
 
 enum
 {
@@ -246,6 +249,7 @@ enum RegionMapFuncIds
     POKENAV_MENU_FUNC_NO_RIBBON_WINNERS,
     POKENAV_MENU_FUNC_RESHOW_DESCRIPTION,
     POKENAV_MENU_FUNC_OPEN_FEATURE,
+    POKENAV_MENU_FUNC_MUTE,
 };
 
 enum
@@ -381,6 +385,8 @@ u32 PokenavMainMenuLoopedTaskIsActive(void);
 bool32 WaitForPokenavShutdownFade(void);
 void SetActiveMenuLoopTasks(void *func1, void *func2);
 void ShutdownPokenav(void);
+void LoadMute(void);
+void ToggleMute(void);
 
 // pokenav_menu_handler.c
 bool32 PokenavCallback_Init_MainMenuCursorOnMap(void);
@@ -388,6 +394,7 @@ bool32 PokenavCallback_Init_MainMenuCursorOnMatchCall(void);
 bool32 PokenavCallback_Init_MainMenuCursorOnRibbons(void);
 bool32 PokenavCallback_Init_ConditionMenu(void);
 bool32 PokenavCallback_Init_ConditionSearchMenu(void);
+bool32 PokenavCallback_Init_MainMenuCursorOnMute(void);
 u32 GetMenuHandlerCallback(void);
 void FreeMenuHandlerSubstruct1(void);
 int GetPokenavMenuType(void);

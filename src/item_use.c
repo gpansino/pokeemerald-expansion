@@ -75,6 +75,8 @@ static void Task_CloseCantUseKeyItemMessage(u8);
 static void SetDistanceOfClosestHiddenItem(u8, s16, s16);
 static void CB2_OpenPokeblockFromBag(void);
 static void ItemUseOnFieldCB_Honey(u8 taskId);
+static void ItemUseOnFieldCB_FillWater(u8 taskId);
+void DisplayFilledPailMessage(u8 taskId);
 
 // EWRAM variables
 EWRAM_DATA static void(*sItemUseOnFieldCB)(u8 taskId) = NULL;
@@ -714,6 +716,11 @@ void ItemUseOutOfBattle_WailmerPail(u8 taskId)
         sItemUseOnFieldCB = ItemUseOnFieldCB_WailmerPailBerry;
         SetUpItemUseOnFieldCallback(taskId);
     }
+    else if (TryToFillWater() == TRUE)
+    {   
+        sItemUseOnFieldCB = ItemUseOnFieldCB_FillWater;
+        SetUpItemUseOnFieldCallback(taskId);
+    }
     else
     {
         DisplayDadsAdviceCannotUseItemMessage(taskId, gTasks[taskId].tUsingRegisteredKeyItem);
@@ -1289,3 +1296,13 @@ void ItemUseOutOfBattle_CannotUse(u8 taskId)
 }
 
 #undef tUsingRegisteredKeyItem
+
+
+void ItemUseOnFieldCB_FillWater(u8 taskId)
+{
+    LockPlayerFieldControls();
+    FillPail();
+    ScriptContext_SetupScript(BerryTree_EventScript_ItemUseFillWailmerPail);
+    UnlockPlayerFieldControls();
+    DestroyTask(taskId);
+}

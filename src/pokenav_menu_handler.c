@@ -47,14 +47,14 @@ static const u8 sMenuItems[][MAX_POKENAV_MENUITEMS] =
     {
         POKENAV_MENUITEM_MAP,
         POKENAV_MENUITEM_CONDITION,
-        [2 ... MAX_POKENAV_MENUITEMS - 1] = POKENAV_MENUITEM_SWITCH_OFF
+        [2 ... MAX_POKENAV_MENUITEMS - 1] = POKENAV_MENUITEM_MUTE
     },
     [POKENAV_MENU_TYPE_UNLOCK_MC] =
     {
         POKENAV_MENUITEM_MAP,
         POKENAV_MENUITEM_CONDITION,
         POKENAV_MENUITEM_MATCH_CALL,
-        [3 ... MAX_POKENAV_MENUITEMS - 1] = POKENAV_MENUITEM_SWITCH_OFF
+        [3 ... MAX_POKENAV_MENUITEMS - 1] = POKENAV_MENUITEM_MUTE
     },
     [POKENAV_MENU_TYPE_UNLOCK_MC_RIBBONS] =
     {
@@ -62,14 +62,14 @@ static const u8 sMenuItems[][MAX_POKENAV_MENUITEMS] =
         POKENAV_MENUITEM_CONDITION,
         POKENAV_MENUITEM_MATCH_CALL,
         POKENAV_MENUITEM_RIBBONS,
-        [4 ... MAX_POKENAV_MENUITEMS - 1] = POKENAV_MENUITEM_SWITCH_OFF
+        [4 ... MAX_POKENAV_MENUITEMS - 1] = POKENAV_MENUITEM_MUTE
     },
     [POKENAV_MENU_TYPE_CONDITION] =
     {
         POKENAV_MENUITEM_CONDITION_PARTY,
         POKENAV_MENUITEM_CONDITION_SEARCH,
         POKENAV_MENUITEM_CONDITION_CANCEL,
-        [3 ... MAX_POKENAV_MENUITEMS - 1] = POKENAV_MENUITEM_SWITCH_OFF
+        [3 ... MAX_POKENAV_MENUITEMS - 1] = POKENAV_MENUITEM_MUTE
     },
     [POKENAV_MENU_TYPE_CONDITION_SEARCH] =
     {
@@ -136,6 +136,18 @@ bool32 PokenavCallback_Init_MainMenuCursorOnRibbons(void)
     menu->currMenuItem = POKENAV_MENUITEM_RIBBONS;
     SetMenuInputHandler(menu);
     return TRUE;
+}
+
+bool32 PokenavCallback_Init_MainMenuCursorOnMute(void)
+{
+    struct Pokenav_Menu *menu = AllocSubstruct(POKENAV_SUBSTRUCT_MAIN_MENU_HANDLER, sizeof(struct Pokenav_Menu));
+    if (!menu)
+        return FALSE;
+    menu->menuType = GetPokenavMainMenuType();
+    menu->cursorPos = POKENAV_MENUITEM_MUTE;
+    menu->currMenuItem = POKENAV_MENUITEM_MUTE;
+    SetMenuInputHandler(menu);
+    return TRUE;    
 }
 
 bool32 PokenavCallback_Init_ConditionMenu(void)
@@ -246,8 +258,8 @@ static u32 HandleMainMenuInput(struct Pokenav_Menu *menu)
                 menu->callback = HandleCantOpenRibbonsInput;
                 return POKENAV_MENU_FUNC_NO_RIBBON_WINNERS;
             }
-        case POKENAV_MENUITEM_SWITCH_OFF:
-            return POKENAV_MENU_FUNC_EXIT;
+        case POKENAV_MENUITEM_MUTE:
+            return POKENAV_MENU_FUNC_MUTE;
         }
     }
 
@@ -296,7 +308,7 @@ static u32 HandleMainMenuInputEndTutorial(struct Pokenav_Menu *menu)
     if (JOY_NEW(A_BUTTON))
     {
         u32 menuItem = sMenuItems[menu->menuType][menu->cursorPos];
-        if (menuItem != POKENAV_MENUITEM_MATCH_CALL && menuItem != POKENAV_MENUITEM_SWITCH_OFF)
+        if (menuItem != POKENAV_MENUITEM_MATCH_CALL)
         {
             PlaySE(SE_FAILURE);
             return POKENAV_MENU_FUNC_NONE;

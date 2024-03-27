@@ -457,6 +457,8 @@ extern const u8 BattleScript_LunarDanceActivates[];
 extern const u8 BattleScript_ShellTrapSetUp[];
 extern const u8 BattleScript_CouldntFullyProtect[];
 
+extern const u8 BattleScript_ThunderArmorActivates[];
+
 // zmoves
 extern const u8 BattleScript_ZMoveActivateDamaging[];
 extern const u8 BattleScript_ZMoveActivateStatus[];

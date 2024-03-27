@@ -771,6 +771,77 @@ static const struct MenuAction MultichoiceList_TagMatchType[] =
     {gText_Exit},
 };
 
+static const struct MenuAction MultichoiceList_BabyQuiz1[] = {
+    {gText_BabyQuiz1_1},
+    {gText_BabyQuiz1_2},
+};  
+
+static const struct MenuAction MultichoiceList_BabyQuiz2[] = {
+    {gText_BabyQuiz2_1},
+    {gText_BabyQuiz2_2},
+    {gText_BabyQuiz2_3}
+}; 
+
+static const struct MenuAction MultichoiceList_BabyQuiz3[] = {
+    {gText_BabyQuiz3_1},
+    {gText_BabyQuiz3_2},
+    {gText_BabyQuiz3_3}
+}; 
+
+static const struct MenuAction MultichoiceList_BabyQuiz4[] = {
+    {gText_BabyQuiz4_1},
+    {gText_BabyQuiz4_2},
+    {gText_BabyQuiz4_3}
+}; 
+
+static const struct MenuAction MultichoiceList_BabyQuiz5[] = {
+    {gText_BabyQuiz5_1},
+    {gText_BabyQuiz5_2},
+    {gText_BabyQuiz5_3}
+}; 
+
+static const struct MenuAction MultichoiceList_BabyQuiz6[] = {
+    {gText_BabyQuiz6_1},
+    {gText_BabyQuiz6_2},
+    {gText_BabyQuiz6_3}
+}; 
+
+static const struct MenuAction MultichoiceList_BabyQuiz7[] = {
+    {gText_BabyQuiz7_1},
+    {gText_BabyQuiz7_2},
+    {gText_BabyQuiz7_3}
+}; 
+
+static const struct MenuAction MultichoiceList_BabyQuiz8[] = {
+    {gText_BabyQuiz8_1},
+    {gText_BabyQuiz8_2},
+    {gText_BabyQuiz8_3}
+}; 
+
+static const struct MenuAction MultichoiceList_BabyQuiz9[] = {
+    {gText_BabyQuiz9_1},
+    {gText_BabyQuiz9_2},
+    {gText_BabyQuiz9_3}
+};
+
+static const struct MenuAction MultichoiceList_GameCornerPokemon[] = {
+    {gText_GameCornerEeveeAndPrice},
+    {gText_GameCornerPorygonAndPrice}
+};
+
+static const struct MenuAction MultichoiceList_Alolan[] = {
+    {gText_AlolanRattata},
+    {gText_AlolanSandshrew},
+    {gText_AlolanVulpix},
+    {gText_AlolanDiglett},
+    {gText_AlolanMeowth},
+    {gText_AlolanGeodude},
+    {gText_AlolanGrimer},
+    {gText_AlolanRaichu},
+    {gText_AlolanExeggutor},
+    {gText_AlolanMarowak}
+};
+
 static const struct MenuAction MultichoiceList_Exit[] =
 {
     {gText_Exit},
@@ -898,6 +969,17 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_SLATEPORT_TENT_RULES]       = MULTICHOICE(MultichoiceList_SlateportTentRules),
     [MULTI_FALLARBOR_TENT_RULES]       = MULTICHOICE(MultichoiceList_FallarborTentRules),
     [MULTI_TAG_MATCH_TYPE]             = MULTICHOICE(MultichoiceList_TagMatchType),
+    [MULTI_BABY_QUIZ_1]                = MULTICHOICE(MultichoiceList_BabyQuiz1),
+    [MULTI_BABY_QUIZ_2]                = MULTICHOICE(MultichoiceList_BabyQuiz2),
+    [MULTI_BABY_QUIZ_3]                = MULTICHOICE(MultichoiceList_BabyQuiz3),
+    [MULTI_BABY_QUIZ_4]                = MULTICHOICE(MultichoiceList_BabyQuiz4),
+    [MULTI_BABY_QUIZ_5]                = MULTICHOICE(MultichoiceList_BabyQuiz5),
+    [MULTI_BABY_QUIZ_6]                = MULTICHOICE(MultichoiceList_BabyQuiz6),
+    [MULTI_BABY_QUIZ_7]                = MULTICHOICE(MultichoiceList_BabyQuiz7),
+    [MULTI_BABY_QUIZ_8]                = MULTICHOICE(MultichoiceList_BabyQuiz8),
+    [MULTI_BABY_QUIZ_9]                = MULTICHOICE(MultichoiceList_BabyQuiz9),
+    [MULTI_GAME_CORNER_POKEMON]        = MULTICHOICE(MultichoiceList_GameCornerPokemon),
+    [MULTI_ALOLAN]                     = MULTICHOICE(MultichoiceList_Alolan),
 };
 
 const u8 *const gStdStrings[] =

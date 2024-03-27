@@ -68,10 +68,10 @@ struct BerryTree
     u16 minutesUntilNextStage;
     u8 berryYield;
     u8 regrowthCount:4;
-    u8 watered1:1;
-    u8 watered2:1;
-    u8 watered3:1;
-    u8 watered4:1;
+    u8 watered1:5;
+    u8 watered2:5;
+    u8 watered3:5;
+    u8 watered4:5;
 };
 
 #endif // GUARD_GLOBAL_BERRY_H
