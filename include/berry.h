@@ -1,7 +1,6 @@
 #ifndef GUARD_BERRY_H
 #define GUARD_BERRY_H
 
-void ClearEnigmaBerries(void);
 void SetEnigmaBerry(u8 *src);
 bool32 IsEnigmaBerryValid(void);
 const struct Berry *GetBerryInfo(u8 berry);
@@ -19,15 +18,18 @@ u8 ItemIdToBerryType(u16 item);
 void GetBerryNameByBerryType(u8 berry, u8 *string);
 void ResetBerryTreeSparkleFlag(u8 id);
 void Bag_ChooseBerry(void);
+void Bag_ChooseMulch(void);
 void ObjectEventInteractionGetBerryTreeData(void);
 void ObjectEventInteractionPlantBerryTree(void);
 void ObjectEventInteractionPickBerryTree(void);
 void ObjectEventInteractionRemoveBerryTree(void);
+void ObjectEventInteractionApplyMulch(void);
 bool8 PlayerHasBerries(void);
 void SetBerryTreesSeen(void);
 extern bool8 TryToFillWater(void);
-extern u8 FillPail(void);
-u8 GetWaterInPail(void);
+extern void FillPail(void);
+void GetWaterInPail(void);
+bool32 BerryTreeGrow(struct BerryTree *tree);
 
 extern const struct Berry gBerries[];
 
