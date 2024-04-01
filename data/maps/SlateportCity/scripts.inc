@@ -1056,7 +1056,8 @@ SlateportCity_EventScript_BerryCrushRankingsSign::
 
 SlateportCity_EventScript_Kailani::
 	trainerbattle_single TRAINER_KAILANI, SlateportCity_Text_KailaniIntro, SlateportCity_Text_KailaniDefeat
-	msgbox SlateportCity_Text_KailaniPostBattle, MSGBOX_AUTOCLOSE
+	msgbox SlateportCity_Text_KailaniPostBattle, MSGBOX_DEFAULT
+	releaseall
 	end
 
 SlateportCity_Text_EnergyGuruSellWhatYouNeed:

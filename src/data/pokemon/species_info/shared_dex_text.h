@@ -1,9 +1,4 @@
 // Gen 1 families
-const u8 gRaticateAlolanPokedexText[] = _(
-    "It forms a group of Rattata, which it \n"
-    "assumes command of. Each group\n"
-    "has its own territory, and disputes\n"
-    "over food happen often.");
 
 const u8 gPichuPokedexText[] = _(
     "It is still inept at retaining electricity.\n"
@@ -19,26 +14,26 @@ const u8 gPikachuPokedexText[] = _(
 
 const u8 gMarowakAlolanPokedexText[] = _(
     "The cursed flames that light up the bone\n"
-    "carried by this Pokémon are said\n"
+    "carried by this POKÉMON are said\n"
     "to cause both mental and physical\n"
     "pain that will never fade.");
 
 const u8 gEeveePokedexText[] = _(
-    "An Eevee has an unstable genetic makeup\n"
+    "An EEVEE has an unstable genetic makeup\n"
     "that suddenly mutates due to its\n"
     "environment. Radiation from various\n"
-    "Stones causes this Pokémon to evolve.");
+    "Stones causes this POKÉMON to evolve.");
 
 // Gen 2 families
 const u8 gUnownPokedexText[] = _(
-    "This Pokémon is shaped like ancient text\n"
+    "This POKÉMON is shaped like ancient text\n"
     "characters. Although research is ongoing,\n"
     "it is a mystery as to which came first,\n"
     "the ancient writings or the various Unown.");
 
 // Gen 3 families
 const u8 gDeoxysNormalPokedexText[] = _(
-    "Deoxys emerged from a virus that came\n"
+    "DEOXYS emerged from a virus that came\n"
     "from space. It is highly intelligent and\n"
     "can shoot lasers from the crystalline\n"
     "organ on its chest.");

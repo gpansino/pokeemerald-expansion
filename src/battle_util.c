@@ -3807,7 +3807,7 @@ static void ShouldChangeFormInWeather(u32 battler)
 {
     int i;
     int side = GetBattlerSide(battler);
-    struct Pokemon *party = GetSideParty(side);
+    //struct Pokemon *party = GetSideParty(side);
 
     for (i = 0; i < PARTY_SIZE; i++)
     {

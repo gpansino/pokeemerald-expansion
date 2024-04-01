@@ -3006,14 +3006,14 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FLYING),
         .abilities = { ABILITY_KEEN_EYE, ABILITY_TANGLED_FEET, ABILITY_BIG_PECKS },
         .bodyColor = BODY_COLOR_BLACK,
-        .speciesName = _("Chatot"),
+        .speciesName = _("CHATOT"),
         .cryId = CRY_CHATOT,
         .natDexNum = NATIONAL_DEX_CHATOT,
-        .categoryName = _("Music Note"),
+        .categoryName = _("MUSIC NOTE"),
         .height = 5,
         .weight = 19,
         .description = COMPOUND_STRING(
-            "It mimics the cries of other Pokémon to\n"
+            "It mimics the cries of other POKÉMON to\n"
             "trick them into thinking it's one of them.\n"
             "This way they won't attack it. It can\n"
             "also learn and speak human words."),
@@ -3350,15 +3350,15 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
         .abilities = { ABILITY_STEADFAST, ABILITY_INNER_FOCUS, ABILITY_PRANKSTER },
         .bodyColor = BODY_COLOR_BLUE,
-        .speciesName = _("Riolu"),
+        .speciesName = _("RIOLU"),
         .cryId = CRY_RIOLU,
         .natDexNum = NATIONAL_DEX_RIOLU,
-        .categoryName = _("Emanation"),
+        .categoryName = _("EMANATION"),
         .height = 7,
         .weight = 202,
         .description = COMPOUND_STRING(
             "It can discern the physical and emotional\n"
-            "states of people, Pokémon, and other\n"
+            "states of people, POKÉMON, and other\n"
             "natural things from the shape of their\n"
             "aura waves."),
         .pokemonScale = 365,
@@ -3404,16 +3404,16 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD, EGG_GROUP_HUMAN_LIKE),
         .abilities = { ABILITY_STEADFAST, ABILITY_INNER_FOCUS, ABILITY_JUSTIFIED },
         .bodyColor = BODY_COLOR_BLUE,
-        .speciesName = _("Lucario"),
+        .speciesName = _("LUCARIO"),
         .cryId = CRY_LUCARIO,
         .natDexNum = NATIONAL_DEX_LUCARIO,
-        .categoryName = _("Aura"),
+        .categoryName = _("AURA"),
         .height = 12,
         .weight = 540,
         .description = COMPOUND_STRING(
             "It understands human speech.\n"
             "It is said that no foe can remain invisible\n"
-            "to Lucario, since it can detect Auras.\n"
+            "to LUCARIO, since it can detect Auras.\n"
             "Even foes it could not otherwise see."),
         .pokemonScale = 282,
         .pokemonOffset = 4,
@@ -3460,10 +3460,10 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD, EGG_GROUP_HUMAN_LIKE),
         .abilities = { ABILITY_ADAPTABILITY, ABILITY_ADAPTABILITY, ABILITY_ADAPTABILITY },
         .bodyColor = BODY_COLOR_BLUE,
-        .speciesName = _("Lucario"),
+        .speciesName = _("LUCARIO"),
         .cryId = CRY_LUCARIO_MEGA,
         .natDexNum = NATIONAL_DEX_LUCARIO,
-        .categoryName = _("Aura"),
+        .categoryName = _("AURA"),
         .height = 13,
         .weight = 575,
         .description = COMPOUND_STRING(
@@ -5055,17 +5055,17 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
         .abilities = { ABILITY_SLOW_START, ABILITY_NONE, ABILITY_NONE },
         .bodyColor = BODY_COLOR_WHITE,
-        .speciesName = _("Regigigas"),
+        .speciesName = _("REGIGIGAS"),
         .cryId = CRY_REGIGIGAS,
         .natDexNum = NATIONAL_DEX_REGIGIGAS,
-        .categoryName = _("Colossal"),
+        .categoryName = _("COLOSSAL"),
         .height = 37,
         .weight = 4200,
         .description = COMPOUND_STRING(
             "There is an enduring legend that\n"
-            "states this Pokémon shaped Regirock,\n"
-            "Regice, and Registeel out of clay, ice,\n"
-            "and magma."),
+            "states this Pokémon shaped its\n"
+            "children out of clay, ice, magma\n"
+            "electricity, and draconic crystals."),
         .pokemonScale = 256,
         .pokemonOffset = 2,
         .trainerScale = 610,

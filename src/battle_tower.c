@@ -3020,7 +3020,6 @@ static void FillPartnerParty(u16 trainerId)
     u32 friendship;
     u16 monId;
     u32 otID;
-    u8 setIVs[NUM_STATS];
 #ifdef BATTLE_ENGINE
     u8 trainerName[(PLAYER_NAME_LENGTH * 3) + 1];
     s32 ball = -1;

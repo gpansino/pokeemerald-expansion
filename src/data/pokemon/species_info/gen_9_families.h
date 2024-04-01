@@ -2536,15 +2536,15 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_GRASS),
         .abilities = { ABILITY_MYCELIUM_MIGHT, ABILITY_NONE, ABILITY_NONE },
         .bodyColor = BODY_COLOR_YELLOW,
-        .speciesName = _("Toedscool"),
+        .speciesName = _("TOEDSCOOL"),
         .cryId = CRY_TOEDSCOOL,
         .natDexNum = NATIONAL_DEX_TOEDSCOOL,
-        .categoryName = _("Woodear"),
+        .categoryName = _("WOODEAR"),
         .height = 9,
         .weight = 330,
         .description = COMPOUND_STRING(
-            "Though it looks like Tentacool,\n"
-            "Toedscool is a completely different\n"
+            "Though it looks like TENTACOOL,\n"
+            "TOEDSCOOL is a completely different\n"
             "species. Its legs may be thin, but it\n"
             "can run at a speed of 30 mph."),
         .pokemonScale = 356,
@@ -2589,14 +2589,14 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_GRASS),
         .abilities = { ABILITY_MYCELIUM_MIGHT, ABILITY_NONE, ABILITY_NONE },
         .bodyColor = BODY_COLOR_BLACK,
-        .speciesName = _("Toedscruel"),
+        .speciesName = _("TOEDSCRUEL"),
         .cryId = CRY_TOEDSCRUEL,
         .natDexNum = NATIONAL_DEX_TOEDSCRUEL,
-        .categoryName = _("Woodear"),
+        .categoryName = _("WOODEAR"),
         .height = 19,
         .weight = 580,
         .description = COMPOUND_STRING(
-            "These Pokémon gather into groups\n"
+            "These POKÉMON gather into groups\n"
             "and form colonies deep within\n"
             "forests. They absolutely hate it when\n"
             "strangers approach."),
@@ -3178,14 +3178,14 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_WATER_3),
         .abilities = { ABILITY_GOOEY, ABILITY_RATTLED, ABILITY_SAND_VEIL },
         .bodyColor = BODY_COLOR_WHITE,
-        .speciesName = _("Wiglett"),
+        .speciesName = _("WIGLETT"),
         .cryId = CRY_WIGLETT,
         .natDexNum = NATIONAL_DEX_WIGLETT,
-        .categoryName = _("Garden Eel"),
+        .categoryName = _("GARDEN EEL"),
         .height = 12,
         .weight = 18,
         .description = COMPOUND_STRING(
-            "This Pokémon can pick up the scent\n"
+            "This POKÉMON can pick up the scent\n"
             "of a Veluza just over 65 feet away\n"
             "and will hide itself in the sand."),
         .pokemonScale = 356,
@@ -3230,16 +3230,16 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_WATER_3),
         .abilities = { ABILITY_GOOEY, ABILITY_RATTLED, ABILITY_SAND_VEIL },
         .bodyColor = BODY_COLOR_RED,
-        .speciesName = _("Wugtrio"),
+        .speciesName = _("WUGTRIO"),
         .cryId = CRY_WUGTRIO,
         .natDexNum = NATIONAL_DEX_WUGTRIO,
-        .categoryName = _("Garden Eel"),
+        .categoryName = _("GARDEN EEL"),
         .height = 12,
         .weight = 54,
         .description = COMPOUND_STRING(
-            "A variety of fish Pokémon, Wugtrio\n"
+            "A variety of fish Pokémon, WUGTRIO\n"
             "was once considered to be a\n"
-            "regional form of Dugtrio."),
+            "regional form of DUGTRIO."),
         .pokemonScale = 356,
         .pokemonOffset = 17,
         .trainerScale = 256,
@@ -4361,16 +4361,16 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
         .abilities = { ABILITY_PROTOSYNTHESIS, ABILITY_NONE, ABILITY_NONE },
         .bodyColor = BODY_COLOR_PURPLE,
-        .speciesName = _("Great Tusk"),
+        .speciesName = _("GREAT TUSK"),
         .cryId = CRY_GREAT_TUSK,
         .natDexNum = NATIONAL_DEX_GREAT_TUSK,
-        .categoryName = _("Paradox"),
+        .categoryName = _("PARADOX"),
         .height = 22,
         .weight = 3200,
         .description = COMPOUND_STRING(
-            "Sightings of this Pokémon have\n"
+            "Sightings of this POKÉMON have\n"
             "occurred in recent years. The name\n"
-            "Great Tusk was taken from a creature\n"
+            "GREAT TUSK was taken from a creature\n"
             "listed in a certain book."),
         .pokemonScale = 356,
         .pokemonOffset = 17,
@@ -4416,15 +4416,15 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
         .abilities = { ABILITY_PROTOSYNTHESIS, ABILITY_NONE, ABILITY_NONE },
         .bodyColor = BODY_COLOR_PINK,
-        .speciesName = _("ScreamTail"),
+        .speciesName = _("SCREAMTAIL"),
         .cryId = CRY_SCREAM_TAIL,
         .natDexNum = NATIONAL_DEX_SCREAM_TAIL,
-        .categoryName = _("Paradox"),
+        .categoryName = _("PARADOX"),
         .height = 12,
         .weight = 80,
         .description = COMPOUND_STRING(
             "There has been only one reported\n"
-            "sighting of this Pokémon. It\n"
+            "sighting of this POKÉMON. It\n"
             "resembles a mysterious creature depicted\n"
             "in an old expedition journal."),
         .pokemonScale = 356,
@@ -4471,10 +4471,10 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
         .abilities = { ABILITY_PROTOSYNTHESIS, ABILITY_NONE, ABILITY_NONE },
         .bodyColor = BODY_COLOR_WHITE,
-        .speciesName = _("BruteBonet"),
+        .speciesName = _("BRUTEBONET"),
         .cryId = CRY_BRUTE_BONNET,
         .natDexNum = NATIONAL_DEX_BRUTE_BONNET,
-        .categoryName = _("Paradox"),
+        .categoryName = _("PARADOX"),
         .height = 12,
         .weight = 210,
         .description = COMPOUND_STRING(
@@ -4528,10 +4528,10 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
         .abilities = { ABILITY_PROTOSYNTHESIS, ABILITY_NONE, ABILITY_NONE },
         .bodyColor = BODY_COLOR_GRAY,
-        .speciesName = _("FluttrMane"),
+        .speciesName = _("FLUTTRMANE"),
         .cryId = CRY_FLUTTER_MANE,
         .natDexNum = NATIONAL_DEX_FLUTTER_MANE,
-        .categoryName = _("Paradox"),
+        .categoryName = _("PARADOX"),
         .height = 14,
         .weight = 40,
         .description = COMPOUND_STRING(
@@ -4638,14 +4638,14 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
         .abilities = { ABILITY_PROTOSYNTHESIS, ABILITY_NONE, ABILITY_NONE },
         .bodyColor = BODY_COLOR_GRAY,
-        .speciesName = _("SndyShocks"),
+        .speciesName = _("SNDYSHOCKS"),
         .cryId = CRY_SANDY_SHOCKS,
         .natDexNum = NATIONAL_DEX_SANDY_SHOCKS,
-        .categoryName = _("Paradox"),
+        .categoryName = _("PARADOX"),
         .height = 23,
         .weight = 600,
         .description = COMPOUND_STRING(
-            "It slightly resembles a Magneton\n"
+            "It slightly resembles a MAGNETON\n"
             "that lived for 10,000 years and was\n"
             "featured in an article in a\n"
             "paranormal magazine."),
@@ -4693,14 +4693,14 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
         .abilities = { ABILITY_QUARK_DRIVE, ABILITY_NONE, ABILITY_NONE },
         .bodyColor = BODY_COLOR_GRAY,
-        .speciesName = _("IronTreads"),
+        .speciesName = _("IRONTREADS"),
         .cryId = CRY_IRON_TREADS,
         .natDexNum = NATIONAL_DEX_IRON_TREADS,
-        .categoryName = _("Paradox"),
+        .categoryName = _("PARADOX"),
         .height = 9,
         .weight = 2400,
         .description = COMPOUND_STRING(
-            "Sightings of this Pokémon have\n"
+            "Sightings of this POKÉMON have\n"
             "occurred in recent years. It resembles\n"
             "a mysterious object described in an\n"
             "old expedition journal."),
@@ -4748,10 +4748,10 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
         .abilities = { ABILITY_QUARK_DRIVE, ABILITY_NONE, ABILITY_NONE },
         .bodyColor = BODY_COLOR_RED,
-        .speciesName = _("IronBundle"),
+        .speciesName = _("IRONBUNDLE"),
         .cryId = CRY_IRON_BUNDLE,
         .natDexNum = NATIONAL_DEX_IRON_BUNDLE,
-        .categoryName = _("Paradox"),
+        .categoryName = _("PARADOX"),
         .height = 6,
         .weight = 110,
         .description = COMPOUND_STRING(
@@ -4803,10 +4803,10 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
         .abilities = { ABILITY_QUARK_DRIVE, ABILITY_NONE, ABILITY_NONE },
         .bodyColor = BODY_COLOR_GRAY,
-        .speciesName = _("Iron Hands"),
+        .speciesName = _("IRON HANDS"),
         .cryId = CRY_IRON_HANDS,
         .natDexNum = NATIONAL_DEX_IRON_HANDS,
-        .categoryName = _("Paradox"),
+        .categoryName = _("PARADOX"),
         .height = 18,
         .weight = 3807,
         .description = COMPOUND_STRING(
@@ -4970,16 +4970,16 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
         .abilities = { ABILITY_QUARK_DRIVE, ABILITY_NONE, ABILITY_NONE },
         .bodyColor = BODY_COLOR_GREEN,
-        .speciesName = _("IronThorns"),
+        .speciesName = _("IRONTHORNS"),
         .cryId = CRY_IRON_THORNS,
         .natDexNum = NATIONAL_DEX_IRON_THORNS,
-        .categoryName = _("Paradox"),
+        .categoryName = _("PARADOX"),
         .height = 16,
         .weight = 3030,
         .description = COMPOUND_STRING(
             "It has some similarities to a\n"
-            "Pokémon introduced in a dubious magazine\n"
-            "as a Tyranitar from one billion\n"
+            "POKÉMON introduced in a dubious magazine\n"
+            "as a TYRANITAR from one billion\n"
             "years into the future."),
         .pokemonScale = 356,
         .pokemonOffset = 17,
@@ -5568,15 +5568,15 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
         .abilities = { ABILITY_PROTOSYNTHESIS, ABILITY_NONE, ABILITY_NONE },
         .bodyColor = BODY_COLOR_BLUE,
-        .speciesName = _("RoarngMoon"),
+        .speciesName = _("ROARNGMOON"),
         .cryId = CRY_ROARING_MOON,
         .natDexNum = NATIONAL_DEX_ROARING_MOON,
-        .categoryName = _("Paradox"),
+        .categoryName = _("PARADOX"),
         .height = 20,
         .weight = 3800,
         .description = COMPOUND_STRING(
             "According to an article in a\n"
-            "dubious magazine, this Pokémon has some\n"
+            "dubious magazine, this POKÉMON has some\n"
             "connection to Mega Evolution that\n"
             "occurs in Hoenn."),
         .pokemonScale = 356,
@@ -5624,10 +5624,10 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
         .abilities = { ABILITY_QUARK_DRIVE, ABILITY_NONE, ABILITY_NONE },
         .bodyColor = BODY_COLOR_WHITE,
-        .speciesName = _("IronVliant"),
+        .speciesName = _("IRONVLIANT"),
         .cryId = CRY_IRON_VALIANT,
         .natDexNum = NATIONAL_DEX_IRON_VALIANT,
-        .categoryName = _("Paradox"),
+        .categoryName = _("PARADOX"),
         .height = 14,
         .weight = 350,
         .description = COMPOUND_STRING(
@@ -5790,10 +5790,10 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
         .abilities = { ABILITY_PROTOSYNTHESIS, ABILITY_NONE, ABILITY_NONE },
         .bodyColor = BODY_COLOR_BLUE,
-        .speciesName = _("WalkngWake"),
+        .speciesName = _("WALKNGWAKE"),
         .cryId = CRY_WALKING_WAKE,
         .natDexNum = NATIONAL_DEX_WALKING_WAKE,
-        .categoryName = _("Paradox"),
+        .categoryName = _("PARADOX"),
         .height = 35,
         .weight = 2800,
         .description = COMPOUND_STRING(
@@ -5844,7 +5844,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
         .abilities = { ABILITY_QUARK_DRIVE, ABILITY_NONE, ABILITY_NONE },
         .bodyColor = BODY_COLOR_GREEN,
-        .speciesName = _("IronLeaves"),
+        .speciesName = _("IRONLEAVES"),
         .cryId = CRY_IRON_LEAVES,
         .natDexNum = NATIONAL_DEX_IRON_LEAVES,
         .categoryName = _("Paradox"),
@@ -6342,10 +6342,10 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
         .abilities = { ABILITY_PROTOSYNTHESIS, ABILITY_NONE, ABILITY_NONE },
         .bodyColor = BODY_COLOR_BROWN,
-        .speciesName = _("GouginFire"),
+        .speciesName = _("GOUGINFIRE"),
         .cryId = CRY_GOUGING_FIRE,
         .natDexNum = NATIONAL_DEX_GOUGING_FIRE,
-        .categoryName = _("Paradox"),
+        .categoryName = _("PARADOX"),
         .height = 35,
         .weight = 5900,
         .description = COMPOUND_STRING(
@@ -6397,17 +6397,17 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
         .abilities = { ABILITY_PROTOSYNTHESIS, ABILITY_NONE, ABILITY_NONE },
         .bodyColor = BODY_COLOR_YELLOW,
-        .speciesName = _("RagingBolt"),
+        .speciesName = _("RAGINGBOLT"),
         .cryId = CRY_RAGING_BOLT,
         .natDexNum = NATIONAL_DEX_RAGING_BOLT,
-        .categoryName = _("Paradox"),
+        .categoryName = _("PARADOX"),
         .height = 52,
         .weight = 4800,
         .description = COMPOUND_STRING(
-            "It bears resemblance to a Pokémon\n"
+            "It bears resemblance to a POKÉMON\n"
             "that became a hot topic for a short\n"
             "while after a paranomal magazine\n"
-            "touted it as Raikou's ancestor."),
+            "touted it as RAIKOU's ancestor."),
         .pokemonScale = 256,
         .pokemonOffset = 0,
         .trainerScale = 345,
