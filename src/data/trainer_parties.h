@@ -820,7 +820,7 @@ static const struct TrainerMon sParty_Ricky1[] = {
     .lvl = 12,
     .species = SPECIES_MIME_JR,
     .ability = ABILITY_SLOT_1,
-    .moves = {MOVE_CONFUSION, MOVE_DOUBLE_SLAP, MOVE_BARRIER, MOVE_COPYCAT}
+    .moves = {MOVE_CONFUSION, MOVE_DOUBLE_SLAP, MOVE_BARRIER, MOVE_MIMIC}
     },
     {
     .iv = 10,
@@ -6547,21 +6547,21 @@ static const struct TrainerMon sParty_AmyAndLiv6[] = {
 static const struct TrainerMon sParty_Huey[] = {
     {
     .iv = 10,
-    .lvl = 13,
+    .lvl = 15,
     .species = SPECIES_WINGULL,
     .ability = ABILITY_SLOT_1,
     .moves = {MOVE_WING_ATTACK, MOVE_WATER_GUN, MOVE_SUPERSONIC, MOVE_GROWL},
     },
     {
     .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
-    .lvl = 12,
+    .lvl = 14,
     .species = SPECIES_MAKUHITA,
     .ability = ABILITY_SLOT_1,
     .moves = {MOVE_ARM_THRUST, MOVE_FOCUS_ENERGY, MOVE_TACKLE, MOVE_SAND_ATTACK}
     },
     {
     .iv = 10,
-    .lvl = 13,
+    .lvl = 15,
     .species = SPECIES_DIGLETT_ALOLAN,
     .ability = ABILITY_SLOT_1,
     .moves = {MOVE_SAND_ATTACK, MOVE_METAL_CLAW, MOVE_SCRATCH, MOVE_GROWL}
@@ -6570,14 +6570,14 @@ static const struct TrainerMon sParty_Huey[] = {
 
 static const struct TrainerMon sParty_Edmond[] = {
     {
-    .lvl = 13,
+    .lvl = 15,
     .species = SPECIES_WINGULL,
     .ability = ABILITY_SLOT_1,
     .moves = {MOVE_TOXIC, MOVE_PROTECT, MOVE_SUPERSONIC, MOVE_WING_ATTACK},
     },
     {
     .iv = 0,
-    .lvl = 13,
+    .lvl = 15,
     .species = SPECIES_SQUIRTLE,
     .ability = ABILITY_SLOT_1,
     .moves = {MOVE_WATER_GUN, MOVE_MUD_SLAP, MOVE_SUBSTITUTE, MOVE_TACKLE},
@@ -12911,14 +12911,14 @@ static const struct TrainerMon sParty_MayLinkPlaceholder[] = {
 static const struct TrainerMon sParty_Kailani[] = {
     {
     .iv = 0,
-    .lvl = 13,
+    .lvl = 15,
     .species = SPECIES_SANDSHREW_ALOLAN,
     .ability = ABILITY_SLOT_1,
     .moves = {MOVE_POWDER_SNOW, MOVE_DEFENSE_CURL, MOVE_CRUSH_CLAW, MOVE_SAND_ATTACK}
     },
     {
     .iv = 0,
-    .lvl = 13,
+    .lvl = 15,
     .species = SPECIES_VULPIX_ALOLAN,
     .ability = ABILITY_SLOT_1,
     .moves = {MOVE_POWDER_SNOW, MOVE_QUICK_ATTACK, MOVE_TAIL_WHIP, MOVE_DISABLE}

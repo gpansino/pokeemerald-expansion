@@ -65,6 +65,12 @@ Route109_EventScript_DoSailToDewford::
 	release
 	end
 
+SlateportCity_EventScript_Kailani::
+	trainerbattle_single TRAINER_KAILANI, SlateportCity_Text_KailaniIntro, SlateportCity_Text_KailaniDefeat
+	msgbox SlateportCity_Text_KailaniPostBattle, MSGBOX_DEFAULT
+	releaseall
+	end
+
 Route109_Movement_SailToDewford:
 	walk_in_place_faster_down
 	walk_down
@@ -562,3 +568,19 @@ Route109_Text_TrainerTipsSign:
 	.string "always have identical stats.\p"
 	.string "POKéMON raised by TRAINERS are said\n"
 	.string "to grow stronger than wild POKéMON.$"
+
+
+SlateportCity_Text_KailaniIntro:
+	.string "Alola!\n"
+	.string "Let's see whose region is better!$"
+
+SlateportCity_Text_KailaniDefeat:	
+	.string "This doesn't mean anything. My \n"
+	.string "POKéMON were just tired from the\l"
+	.string "trip!$"
+
+SlateportCity_Text_KailaniPostBattle:	
+	.string "I love seeing all the cool POKéMON\n"
+	.string "from HOENN!\p"
+	.string "I hope one day you'll be able to\n"
+	.string "visit ALOLA!$"

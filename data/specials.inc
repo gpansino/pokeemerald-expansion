@@ -540,6 +540,7 @@ gSpecials::
 	def_special GetWaterInPail
 	def_special FillPail
 	def_special DecrementWaterPail
+	def_special CreateInGameTradeRegional
 	
 	def_special GetNumberSprayStrength
 	def_special GetSprayId

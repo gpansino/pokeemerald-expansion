@@ -1,6 +1,7 @@
 .set LOCALID_FAT_MAN, 1
-.set LOCALID_MAN_1, 2
-.set LOCALID_RICH_BOY, 3
+.set LOCALID_ALOLAN, 2
+.set LOCALID_MAN_1, 3
+.set LOCALID_RICH_BOY, 4
 .set LOCALID_GRUNT_1, 5
 .set LOCALID_COOK, 6
 .set LOCALID_OLD_WOMAN, 7
@@ -18,7 +19,7 @@
 .set LOCALID_GRUNT_9, 31
 .set LOCALID_GRUNT_11, 33
 .set LOCALID_SCOTT, 35
-.set LOCALID_ALOLAN, 36
+
 
 @ Note: LOCALID_SLATEPORT_ENERGY_GURU is a local id for this map used elsewhere. It's defined in event_objects.h
 
@@ -251,10 +252,13 @@ SlateportCity_EventScript_FatMan::
 	end
 
 SlateportCity_EventScript_AlolanGirl::
-	lock
 	faceplayer
-	msgbox SlateportCity_Text_AlolanGirl, MSGBOX_NPC
-	multichoice 0, 0, MULTI_ALOLAN, TRUE
+	lockall
+	msgbox SlateportCity_Text_AlolanGirlIntro, MSGBOX_NPC
+	setvar VAR_0x8009, 0
+	setvar VAR_0x8004, SCROLL_MULTI_ALOLAN_TRADE
+	special ShowScrollableMultichoice
+	waitstate
 	switch VAR_RESULT
 	case 0, SlateportCity_EventScript_TradeRattata
 	case 1, SlateportCity_EventScript_TradeSandshrew
@@ -265,7 +269,14 @@ SlateportCity_EventScript_AlolanGirl::
 	case 6, SlateportCity_EventScript_TradeGrimer
 	case 7, SlateportCity_EventScript_TradeRaichu
 	case 8, SlateportCity_EventScript_TradeExeggutor
-	goto SlateportCity_EventScript_TradeMarowak
+	case 9, SlateportCity_EventScript_TradeMarowak
+	case 10, SlateportCity_EventScript_CancelAlolanTrade
+	case MULTI_B_PRESSED, SlateportCity_EventScript_CancelAlolanTrade
+	end
+
+SlateportCity_EventScript_CancelAlolanTrade::
+	msgbox SlateportCity_Text_YouDontWantToThatsOkay, MSGBOX_DEFAULT
+	releaseall
 	end
 
 SlateportCity_EventScript_TradeRattata::
@@ -319,6 +330,7 @@ SlateportCity_EventScript_TradeMarowak::
 	goto SlateportCity_EventScript_Trader
 
 SlateportCity_EventScript_Trader::
+	faceplayer
 	copyvar VAR_0x8004, VAR_0x8008
 	specialvar VAR_RESULT, GetInGameTradeSpeciesInfo
 	copyvar VAR_0x8009, VAR_RESULT
@@ -335,9 +347,10 @@ SlateportCity_EventScript_Trader::
 	goto_if_ne VAR_RESULT, VAR_0x8009, SlateportCity_EventScript_NotRequestedMon
 	copyvar VAR_0x8004, VAR_0x8008
 	copyvar VAR_0x8005, VAR_0x800A
-	special CreateInGameTradePokemon
+	special CreateInGameTradeRegional
 	special DoInGameTradeScene
 	waitstate
+	faceplayer
 	msgbox SlateportCity_Text_PleaseBeGoodToMyPokemon, MSGBOX_DEFAULT
 	release
 	end
@@ -349,7 +362,7 @@ SlateportCity_EventScript_DeclineTrade::
 
 SlateportCity_EventScript_NotRequestedMon::
 	bufferspeciesname STR_VAR_1, VAR_0x8009
-	msgbox RustboroCity_House1_Text_DoesntLookLikeMonToMe, MSGBOX_DEFAULT
+	msgbox SlateportCity_Text_DoesntLookLikeMonToMe, MSGBOX_DEFAULT
 	release
 	end
 
@@ -1054,12 +1067,6 @@ SlateportCity_EventScript_BerryCrushRankingsSign::
 	releaseall
 	end
 
-SlateportCity_EventScript_Kailani::
-	trainerbattle_single TRAINER_KAILANI, SlateportCity_Text_KailaniIntro, SlateportCity_Text_KailaniDefeat
-	msgbox SlateportCity_Text_KailaniPostBattle, MSGBOX_DEFAULT
-	releaseall
-	end
-
 SlateportCity_Text_EnergyGuruSellWhatYouNeed:
 	.string "I'm the ENERGY GURU! I'll go for it and\n"
 	.string "sell you what you need!$"
@@ -1494,50 +1501,37 @@ SlateportCity_Text_TakingBattleTentChallenge:
 	.string "the perfect fit for the BATTLE TENT!\p"
 	.string "Give it your best effort!$"
 
-SlateportCity_Text_AlolanGirl:
-	.string "Alola!\p"
-	.string "? Oh, sorry! That's the traditional\n"
-	.string "greeting from my home region the \l"
-	.string "ALOLA region!\p"
+SlateportCity_Text_AlolanGirlIntro:
+	.string "ALOLA!\p"
+	.string "? Oh, sorry!\n" 
+	.string "That's the traditional greeting\l"
+	.string "from my home region the ALOLA\l"
+	.string "region!\p"
 	.string "I've come from far away to complete my\n"
-	.string "POKéDEX in the HOENN region\p"
+	.string "POKéDEX in the HOENN region.\p"
 	.string "If you have the HOENN forms of any of\n"
 	.string "the following POKéMON, I'd be happy to\l"
 	.string "trade ALOLA variants for them:\p"
 	.string "RATTATA, SANDSHREW, VULPIX, DIGLETT,\n"
 	.string "MEOWTH, GEODUDE, GRIMER, RAICHU, \l"
-	.string "EXEGGUTOR, or MAROWAK\p$"
+	.string "EXEGGUTOR, or MAROWAK\p"
 	.string "Do you have one of those POKéMON to\n"
 	.string "trade?$"
 
 SlateportCity_Text_IllTradeIfYouWant:
 	.string "Are you sure you'd like to trade your\n"
-	.string "{STR_VAR_1} for my {STR_VAR_2}?$"
+	.string "{STR_VAR_1} for my ALOLAN {STR_VAR_2}?$"
 
 SlateportCity_Text_PleaseBeGoodToMyPokemon:
-	.string "Nice! I appreciate the help! Please \n"
-	.string "take good care of my {STR_VAR_2}$"
+	.string "Thanks! I appreciate the help! Please\n"
+	.string "take good care of my {STR_VAR_2}!!$"
 
 SlateportCity_Text_YouDontWantToThatsOkay:
 	.string "You don't want to trade?\n"
 	.string "Kinda lame....$"
 
 SlateportCity_Text_DoesntLookLikeMonToMe:
-	.string "What?? This isn't a {STR_VAR_1}?\n"
+	.string "What?? This isn't a KANTO {STR_VAR_1}?\n"
 	.string "If you don't have one, then no deal!$"
 
-SlateportCity_Text_KailaniIntro:
-	.string "Alola!\n"
-	.string "Let's see which region is better!$"
-
-SlateportCity_Text_KailaniDefeat:	
-	.string "This doesn't mean anything. My \n"
-	.string "POKéMON were just tired from the\l"
-	.string "trip.$"
-
-SlateportCity_Text_KailaniPostBattle:	
-	.string "I love seeing all the cool POKéMON\n"
-	.string "from HOENN!/p"
-	.string "I hope one day you'll be able to\n"
-	.string "visit ALOLA!$"
 

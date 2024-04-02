@@ -2395,6 +2395,16 @@ void ShowScrollableMultichoice(void)
         task->tKeepOpenAfterSelect = FALSE;
         task->tTaskId = taskId;
         break;
+    case SCROLL_MULTI_ALOLAN_TRADE:
+        task->tMaxItemsOnScreen = MAX_SCROLL_MULTI_ON_SCREEN;
+        task->tNumItems = 11;
+        task->tLeft = 1;
+        task->tTop = 1;
+        task->tWidth = 9;
+        task->tHeight = 13;
+        task->tKeepOpenAfterSelect = FALSE;
+        task->tTaskId = taskId;
+        break;
     default:
         gSpecialVar_Result = MULTI_B_PRESSED;
         DestroyTask(taskId);
@@ -2554,6 +2564,20 @@ static const u8 *const sScrollableMultichoiceOptions[][MAX_SCROLL_MULTI_LENGTH] 
         gText_PokemonMoves,
         gText_Underpowered,
         gText_WhenInDanger,
+        gText_Exit
+    },
+    [SCROLL_MULTI_ALOLAN_TRADE] = 
+    {
+        gText_AlolanRattata,
+        gText_AlolanSandshrew,
+        gText_AlolanVulpix,
+        gText_AlolanDiglett,
+        gText_AlolanMeowth,
+        gText_AlolanGeodude,
+        gText_AlolanGrimer,
+        gText_AlolanRaichu,
+        gText_AlolanExeggutor,
+        gText_AlolanMarowak,
         gText_Exit
     }
 };

@@ -4577,6 +4577,85 @@ static void CreateInGameTradePokemonInternal(u8 whichPlayerMon, u8 whichInGameTr
     CalculateMonStats(&gEnemyParty[0]);
 }
 
+void CreateInGameTradeRegional()
+{
+    u8 whichPlayerMon = gSpecialVar_0x8005;
+    u8 whichInGameTrade = gSpecialVar_0x8004;
+
+    struct Pokemon *mon = &gPlayerParty[whichPlayerMon];
+
+    const struct InGameTrade *inGameTrade = &sIngameTrades[whichInGameTrade];
+    u8 level = GetMonData(mon, MON_DATA_LEVEL, NULL);
+    u8 ivs = GetMonData(mon, MON_DATA_IVS, NULL);
+    u8 abilityNum = GetMonData(mon, MON_DATA_ABILITY_NUM, NULL);
+    u8 hpEV = GetMonData(mon, MON_DATA_HP_EV, NULL);
+    u8 atkEV = GetMonData(mon, MON_DATA_ATK_EV, NULL);
+    u8 defEV = GetMonData(mon, MON_DATA_DEF_EV, NULL);
+    u8 speedEV = GetMonData(mon, MON_DATA_SPEED_EV, NULL);
+    u8 spatkEV = GetMonData(mon, MON_DATA_SPATK_EV, NULL);
+    u8 spdefEV = GetMonData(mon, MON_DATA_SPDEF_EV, NULL);
+    u8 beauty = GetMonData(mon, MON_DATA_BEAUTY, NULL);
+    u8 cute = GetMonData(mon, MON_DATA_CUTE, NULL);
+    u8 cool = GetMonData(mon, MON_DATA_COOL, NULL);
+    u8 smart = GetMonData(mon, MON_DATA_SMART, NULL);
+    u8 tough = GetMonData(mon, MON_DATA_TOUGH, NULL);
+    u8 sheen = GetMonData(mon, MON_DATA_SHEEN, NULL);
+    u8 gender = GetMonData(mon, MON_DATA_OT_GENDER, NULL);
+
+    struct Mail mail;
+    u8 metLocation = METLOC_IN_GAME_TRADE;
+    u8 mailNum;
+    struct Pokemon *pokemon = &gEnemyParty[0];
+
+    u8 personalityTrade;
+
+    do{//bro just give me same nature pls i have put partyMon->personality into createmon->personality and it dont work
+        personalityTrade = Random32();
+    }
+    while(GetNatureFromPersonality(personalityTrade) != GetNature(mon));
+
+    CreateMon(pokemon, inGameTrade->species, level, ivs, TRUE, personalityTrade, OT_ID_PRESET, inGameTrade->otId);
+
+        SetMonData(pokemon, MON_DATA_HP_EV, &hpEV);
+        SetMonData(pokemon, MON_DATA_ATK_EV, &atkEV);
+        SetMonData(pokemon, MON_DATA_DEF_EV, &defEV);
+        SetMonData(pokemon, MON_DATA_SPEED_EV, &speedEV);
+        SetMonData(pokemon, MON_DATA_SPATK_EV, &spatkEV);
+        SetMonData(pokemon, MON_DATA_SPDEF_EV, &spdefEV);
+
+    SetMonData(pokemon, MON_DATA_NICKNAME, inGameTrade->nickname);
+    SetMonData(pokemon, MON_DATA_OT_NAME, inGameTrade->otName);
+    SetMonData(pokemon, MON_DATA_OT_GENDER, &gender);
+
+        SetMonData(pokemon, MON_DATA_ABILITY_NUM, &abilityNum);
+
+    SetMonData(pokemon, MON_DATA_BEAUTY, &beauty);
+    SetMonData(pokemon, MON_DATA_CUTE, &cute);
+    SetMonData(pokemon, MON_DATA_COOL, &cool);
+    SetMonData(pokemon, MON_DATA_SMART, &smart);
+    SetMonData(pokemon, MON_DATA_TOUGH, &tough);
+    SetMonData(pokemon, MON_DATA_SHEEN, &sheen);
+    SetMonData(pokemon, MON_DATA_MET_LOCATION, &metLocation);
+
+
+    mailNum = 0;
+    if (inGameTrade->heldItem != ITEM_NONE)
+    {
+        if (ItemIsMail(inGameTrade->heldItem))
+        {
+            GetInGameTradeMail(&mail, inGameTrade);
+            gTradeMail[0] = mail;
+            SetMonData(pokemon, MON_DATA_MAIL, &mailNum);
+            SetMonData(pokemon, MON_DATA_HELD_ITEM, &inGameTrade->heldItem);
+        }
+        else
+        {
+            SetMonData(pokemon, MON_DATA_HELD_ITEM, &inGameTrade->heldItem);
+        }
+    }
+    CalculateMonStats(&gEnemyParty[0]);
+}
+
 static void GetInGameTradeMail(struct Mail *mail, const struct InGameTrade *trade)
 {
     s32 i;
