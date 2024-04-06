@@ -23,6 +23,18 @@ SlateportCity_OceanicMuseum_1F_EventScript_PayEntranceFeeRight::
 
 SlateportCity_OceanicMuseum_1F_EventScript_PayEntranceFee::
 	showmoneybox 0, 0
+	goto_if_unset FLAG_HIDE_SLATEPORT_CITY_OCEANIC_MUSEUM_AQUA_GRUNTS, SlateportCity_OceanicMuseum_1F_EventScript_TeamAqua_Receptionist
+	msgbox SlateportCity_OceanicMuseum_1F_Text_WouldYouLikeToEnter, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, SlateportCity_OceanicMuseum_1F_EventScript_CheckMoneyForFee
+	closemessage
+	hidemoneybox
+	applymovement OBJ_EVENT_ID_PLAYER, SlateportCity_OceanicMuseum_1F_Movement_PushPlayerBackFromCounter
+	waitmovement 0
+	releaseall
+	end
+
+SlateportCity_OceanicMuseum_1F_EventScript_TeamAqua_Receptionist::
+	msgbox SlateportCity_OceanicMuseum_1F_Text_TeamAquaForcing, MSGBOX_DEFAULT
 	msgbox SlateportCity_OceanicMuseum_1F_Text_WouldYouLikeToEnter, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, SlateportCity_OceanicMuseum_1F_EventScript_CheckMoneyForFee
 	closemessage
@@ -378,3 +390,12 @@ SlateportCity_OceanicMuseum_1F_Text_DepthMeasuringMachine:
 	.string "Maybe it's for measuring the depth\n"
 	.string "of something…$"
 
+SlateportCity_OceanicMuseum_1F_Text_TeamAquaForcing:
+	.string "Hey kid! This place is crawling with\n"
+	.string "TEAM AQUA baddies! You should get\l"
+	.string "out of here while you still can.\p"
+	.string "Unfortunately, I'm being held here\n"
+	.string "and forced to pretend like everything\l"
+	.string "is normal! Its crazy!\p"
+	.string "I hate these hooligans..\p"
+	.string "Oh I think one saw me! I mean...$"
