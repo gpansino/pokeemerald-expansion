@@ -91,9 +91,9 @@
 #define DEFAULT_STAT_STAGE 6
 #define MAX_STAT_STAGE    12
 
-#define ABILITY_SLOT_1 3
-#define ABILITY_SLOT_2 1
-#define ABILITY_HIDDEN 2
+#define ABILITY_SLOT_1 1
+#define ABILITY_SLOT_2 2
+#define ABILITY_HIDDEN 3
 
 // Shiny odds
 #define SHINY_ODDS 8 // Actual probability is SHINY_ODDS/65536
