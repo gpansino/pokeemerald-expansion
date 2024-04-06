@@ -141,6 +141,8 @@ Route119_EventScript_RivalExitScottArrive::
 	call_if_eq VAR_TEMP_1, 1, Route119_EventScript_SetRivalPos1
 	call_if_eq VAR_TEMP_1, 2, Route119_EventScript_SetRivalPos2
 	removeobject LOCALID_RIVAL
+	setvar VAR_0x8004, 8
+	special SetCap
 	addobject LOCALID_RIVAL_ON_BIKE
 	delay 30
 	call_if_eq VAR_TEMP_1, 1, Route119_EventScript_RivalExit1

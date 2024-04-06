@@ -101,6 +101,8 @@ Route103_EventScript_AfterBrendanBattle::
 	end
 
 Route103_EventScript_RivalExit::
+	setvar VAR_0x8004, 1
+	special SetCap
 	closemessage
 	switch VAR_FACING
 	case DIR_SOUTH, Route103_EventScript_RivalExitFacingSouth

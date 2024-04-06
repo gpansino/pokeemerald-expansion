@@ -14,6 +14,8 @@
 #endif
 #endif
 
+void SetCap(void);
+int GetAce(struct Trainer capTrainer);
 u32 GetCurrentLevelCap(void);
 u32 GetSoftLevelCapExpValue(u32 level, u32 expValue);
 

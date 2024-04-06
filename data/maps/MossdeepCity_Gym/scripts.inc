@@ -61,6 +61,8 @@ MossdeepCity_Gym_EventScript_TateAndLizaDefeated::
 	message MossdeepCity_Gym_Text_ReceivedMindBadge
 	waitmessage
 	call Common_EventScript_PlayGymBadgeFanfare
+	setvar VAR_0x8004, 11
+	special SetCap
 	msgbox MossdeepCity_Gym_Text_ExplainMindBadgeTakeThis, MSGBOX_DEFAULT
 	setflag FLAG_DEFEATED_MOSSDEEP_GYM
 	setflag FLAG_BADGE07_GET

@@ -474,6 +474,8 @@ Route110_EventScript_RivalExit::
 	setobjectmovementtype LOCALID_RIVAL, MOVEMENT_TYPE_FACE_RIGHT
 	setobjectmovementtype LOCALID_RIVAL_ON_BIKE, MOVEMENT_TYPE_FACE_RIGHT
 	removeobject LOCALID_RIVAL
+	setvar VAR_0x8004, 4
+	special SetCap
 	addobject LOCALID_RIVAL_ON_BIKE
 	delay 45
 	call_if_eq VAR_0x8008, 1, Route110_EventScript_RivalExit1

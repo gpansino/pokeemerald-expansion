@@ -19,6 +19,8 @@ EverGrandeCity_HallOfFame_OnFrame:
 
 EverGrandeCity_HallOfFame_EventScript_EnterHallOfFame::
 	lockall
+	setvar VAR_0x8004, 14
+	special SetCap
 	applymovement LOCALID_WALLACE, EverGrandeCity_HallOfFame_Movement_WalkIntoHallOfFame1
 	applymovement OBJ_EVENT_ID_PLAYER, EverGrandeCity_HallOfFame_Movement_WalkIntoHallOfFame1
 	waitmovement 0
