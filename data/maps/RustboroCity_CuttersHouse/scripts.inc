@@ -7,6 +7,8 @@ RustboroCity_CuttersHouse_EventScript_Cutter::
 	goto_if_set FLAG_RECEIVED_HM_CUT, RustboroCity_CuttersHouse_EventScript_ExplainCut
 	msgbox RustboroCity_CuttersHouse_Text_YouCanPutThisHMToGoodUse, MSGBOX_DEFAULT
 	giveitem ITEM_HM_CUT
+	msgbox RustboroCity_CuttersHouse_Text_ClippersToo, MSGBOX_DEFAULT
+	giveitem ITEM_CLIPPERS
 	setflag FLAG_RECEIVED_HM_CUT
 	msgbox RustboroCity_CuttersHouse_Text_ExplainCut, MSGBOX_DEFAULT
 	release
@@ -50,3 +52,9 @@ RustboroCity_CuttersHouse_Text_DadHelpedClearLandOfTrees:
 	.string "He made his POKéMON use CUT to clear\n"
 	.string "the land of trees.$"
 
+RustboroCity_CuttersHouse_Text_ClippersToo:
+	.string "Oh! And what's this...\p"
+	.string "You're so skilled you don't even\n"
+	.string "want POKéMON to get around??\p"
+	.string "Then, by all means, take this,\n"
+	.string "you living legend.$"

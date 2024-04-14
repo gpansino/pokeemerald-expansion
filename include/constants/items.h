@@ -998,10 +998,19 @@
 #define ITEM_TWICE_SPICED_RADISH 826
 #define ITEM_POKESHI_DOLL 827
 
+#define ITEM_CLIPPERS 828
+#define ITEM_FLASHLIGHT 829
+#define ITEM_PICKAXE 830
+#define ITEM_FORCE_PALMS 831
+#define ITEM_SURFBOARD 832
+#define ITEM_JETPACK 833
+#define ITEM_SCUBA_GEAR 834
+#define ITEM_BIG_BALLOON 835
+
 // HOPO BERRY
 // LEGEND PLATE
 
-#define ITEMS_COUNT 828
+#define ITEMS_COUNT 836
 #define ITEM_FIELD_ARROW ITEMS_COUNT
 
 // A special item id associated with "Cancel"/"Exit" etc. in a list of items or decorations

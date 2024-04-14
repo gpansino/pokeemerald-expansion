@@ -1647,6 +1647,16 @@ bool32 IsEventIslandMapSecId(u8 mapSecId)
     return FALSE;
 }
 
+void CB2_OpenFlyMap_Mon(void){
+    gFieldEffectArguments[4] = 0;//is not an item calling this
+    CB2_OpenFlyMap();
+}
+
+void CB2_OpenFlyMap_Item(void){
+    gFieldEffectArguments[4] = 1;//is item calling this
+    CB2_OpenFlyMap();
+}
+
 void CB2_OpenFlyMap(void)
 {
     switch (gMain.state)
@@ -2020,7 +2030,10 @@ static void CB_ExitFlyMap(void)
             }
             else
             {
-                SetMainCallback2(CB2_ReturnToPartyMenuFromFlyMap);
+                if(gFieldEffectArguments[4]==0)
+                    SetMainCallback2(CB2_ReturnToPartyMenuFromFlyMap);
+                else
+                    SetMainCallback2(CB2_ReturnToFieldWithOpenMenu);
             }
             TRY_FREE_AND_SET_NULL(sFlyMap);
             FreeAllWindowBuffers();

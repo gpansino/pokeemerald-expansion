@@ -1882,7 +1882,7 @@ static void DebugAction_Util_BerryFunctions(u8 taskId)
 static void DebugAction_Util_Fly(u8 taskId)
 {
     Debug_DestroyMenu_Full(taskId);
-    SetMainCallback2(CB2_OpenFlyMap);
+    SetMainCallback2(CB2_OpenFlyMap_Item);
 }
 
 #define tMapGroup  data[5]

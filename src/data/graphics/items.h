@@ -1867,6 +1867,30 @@ const u32 gItemIconPalette_FameChecker[] = INCBIN_U32("graphics/items/icon_palet
 const u32 gItemIcon_TeachyTV[] = INCBIN_U32("graphics/items/icons/teachy_tv.4bpp.lz");
 const u32 gItemIconPalette_TeachyTV[] = INCBIN_U32("graphics/items/icon_palettes/teachy_tv.gbapal.lz");
 
+const u32 gItemIcon_Clippers[] = INCBIN_U32("graphics/items/icons/clippers.4bpp.lz");
+const u32 gItemIconPalette_Clippers[] = INCBIN_U32("graphics/items/icon_palettes/clippers.gbapal.lz");
+
+const u32 gItemIcon_Flashlight[] = INCBIN_U32("graphics/items/icons/flashlight.4bpp.lz");
+const u32 gItemIconPalette_Flashlight[] = INCBIN_U32("graphics/items/icon_palettes/flashlight.gbapal.lz");
+
+const u32 gItemIcon_Pickaxe[] = INCBIN_U32("graphics/items/icons/pickaxe.4bpp.lz");
+const u32 gItemIconPalette_Pickaxe[] = INCBIN_U32("graphics/items/icon_palettes/pickaxe.gbapal.lz");
+
+const u32 gItemIcon_ForcePalms[] = INCBIN_U32("graphics/items/icons/forcepalms.4bpp.lz");
+const u32 gItemIconPalette_ForcePalms[] = INCBIN_U32("graphics/items/icon_palettes/forcepalms.gbapal.lz");
+
+const u32 gItemIcon_Surfboard[] = INCBIN_U32("graphics/items/icons/surfboard.4bpp.lz");
+const u32 gItemIconPalette_Surfboard[] = INCBIN_U32("graphics/items/icon_palettes/surfboard.gbapal.lz");
+
+const u32 gItemIcon_Jetpack[] = INCBIN_U32("graphics/items/icons/jetpack.4bpp.lz");
+const u32 gItemIconPalette_Jetpack[] = INCBIN_U32("graphics/items/icon_palettes/jetpack.gbapal.lz");
+
+const u32 gItemIcon_ScubaGear[] = INCBIN_U32("graphics/items/icons/scubagear.4bpp.lz");
+const u32 gItemIconPalette_ScubaGear[] = INCBIN_U32("graphics/items/icon_palettes/scubagear.gbapal.lz");
+
+const u32 gItemIcon_BigBalloon[] = INCBIN_U32("graphics/items/icons/bigballoon.4bpp.lz");
+const u32 gItemIconPalette_BigBalloon[] = INCBIN_U32("graphics/items/icon_palettes/bigballoon.gbapal.lz");
+
 // Story Key Items
 
 const u32 gItemIcon_SSTicket[] = INCBIN_U32("graphics/items/icons/ss_ticket.4bpp.lz");

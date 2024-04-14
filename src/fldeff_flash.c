@@ -82,18 +82,35 @@ bool8 SetUpFieldMove_Flash(void)
     }
     else if (gMapHeader.cave == TRUE && !FlagGet(FLAG_SYS_USE_FLASH))
     {
-        gFieldCallback2 = FieldCallback_PrepareFadeInFromMenu;
-        gPostMenuFieldCallback = FieldCallback_Flash;
+        if(gFieldEffectArguments[4]==0){
+            gFieldCallback2 = FieldCallback_PrepareFadeInFromMenu;
+            gPostMenuFieldCallback = FieldCallback_Flash;
+        }
+        else    
+            FieldCallback_Flash();
         return TRUE;
     }
 
     return FALSE;
 }
 
+bool8 FieldMove_Flash_Mon(void){
+    gFieldEffectArguments[4] = 0;
+    return SetUpFieldMove_Flash();
+}
+
+bool8 FieldMove_Flash_Item(void){
+    gFieldEffectArguments[4] = 1;
+    return SetUpFieldMove_Flash();
+}
+
 static void FieldCallback_Flash(void)
 {
     u8 taskId = CreateFieldMoveTask();
-    gFieldEffectArguments[0] = GetCursorSelectionMonId();
+    if(gFieldEffectArguments[4] == 0)
+        gFieldEffectArguments[0] = GetCursorSelectionMonId(); // reference mon sprite
+    else
+        gFieldEffectArguments[0] = 7;//reference flashlight sprite
     gTasks[taskId].data[8] = (uintptr_t)FldEff_UseFlash >> 16;
     gTasks[taskId].data[9] = (uintptr_t)FldEff_UseFlash;
 }

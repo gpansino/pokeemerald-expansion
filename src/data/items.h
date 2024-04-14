@@ -12616,4 +12616,109 @@ const struct Item gItemsInfo[] =
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
+// Added Key Items
+    [ITEM_CLIPPERS] =
+    {
+        .name = _("CLIPPERS"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "Sharp clippers used\n"
+            "to cut small trees.\n"
+            "Very durable."),
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_FIELD,
+        .fieldUseFunc = ItemUseOutOfBattle_Clippers,
+    },
+    [ITEM_FLASHLIGHT] =
+    {
+        .name = _("FLASHLIGHT"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "Bright light useful\n"
+            "for dark caves.\n"
+            "Extremely bright."),
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_FIELD,
+        .fieldUseFunc = ItemUseOutOfBattle_Flashlight,
+    },
+    [ITEM_PICKAXE] =
+    {
+        .name = _("PICKAXE"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "Sharp pickaxe used\n"
+            "to break small,\n"
+            "fragile rocks."),
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_FIELD,
+        .fieldUseFunc = ItemUseOutOfBattle_Pickaxe,
+    },
+    [ITEM_FORCE_PALMS] =
+    {
+        .name = _("FORCE PALMS"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "Aura-rich gloves\n"
+            "harness energy\n"
+            "to move stones."),
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_FIELD,
+        .fieldUseFunc = ItemUseOutOfBattle_ForcePalms,
+    },
+    [ITEM_SURFBOARD] =
+    {
+        .name = _("SURFBOARD"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "Stylish Surfboard\n"
+            "used to ride on \n"
+            "water currents."),
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_FIELD,
+        .fieldUseFunc = ItemUseOutOfBattle_Surfboard,
+    },
+    [ITEM_JETPACK] =
+    {
+        .name = _("JETPACK"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "Device used to\n"
+            "fly to previously\n"
+            "visited towns."),
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_FIELD,
+        .fieldUseFunc = ItemUseOutOfBattle_Jetpack,
+    },
+    [ITEM_SCUBA_GEAR] =
+    {
+        .name = _("SCUBA GEAR"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "Allows the user to\n"
+            "traverse deep\n"
+            "areas of the ocean."),
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_FIELD,
+        .fieldUseFunc = ItemUseOutOfBattle_ScubaGear,
+    },
+    [ITEM_BIG_BALLOON] =
+    {
+        .name = _("BIG BALLOON"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "Big balloon that\n"
+            "can carry holders\n"
+            "into the air."),
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_FIELD,
+        .fieldUseFunc = ItemUseOutOfBattle_BigBalloon,
+    },
 };

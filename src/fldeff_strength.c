@@ -19,17 +19,36 @@ bool8 SetUpFieldMove_Strength(void)
 {
     if (CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_PUSHABLE_BOULDER) == TRUE)
     {
-        gSpecialVar_Result = GetCursorSelectionMonId();
-        gFieldCallback2 = FieldCallback_PrepareFadeInFromMenu;
-        gPostMenuFieldCallback = FieldCallback_Strength;
+        if(gFieldEffectArguments[4] == 0){
+            gSpecialVar_Result = GetCursorSelectionMonId();
+            gFieldCallback2 = FieldCallback_PrepareFadeInFromMenu;
+            gPostMenuFieldCallback = FieldCallback_Strength;
+        }
+        else { 
+            gSpecialVar_Result = 9;
+            FieldCallback_Strength();
+        }
         return TRUE;
     }
     return FALSE;
 }
 
+bool8 FieldMove_Strength_Mon(void){
+    gFieldEffectArguments[4] = 0;
+    return SetUpFieldMove_Strength();
+}
+
+bool8 FieldMove_Strength_Item(void){
+    gFieldEffectArguments[4] = 1;
+    return SetUpFieldMove_Strength();
+}
+
 static void FieldCallback_Strength(void)
 {
-    gFieldEffectArguments[0] = GetCursorSelectionMonId();
+    if(gFieldEffectArguments[4] == 0)
+        gFieldEffectArguments[0] = GetCursorSelectionMonId();//reference mon sprite
+    else    
+        gFieldEffectArguments[0] = 9;//reference force palms
     ScriptContext_SetupScript(EventScript_UseStrength);
 }
 

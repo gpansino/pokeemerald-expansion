@@ -34,7 +34,12 @@
 #include "constants/songs.h"
 #include "constants/map_types.h"
 
+#include "graphics.h"
+#include "item_icon.h"
+
 #define subsprite_table(ptr) {.subsprites = ptr, .subspriteCount = (sizeof ptr) / (sizeof(struct Subsprite))}
+
+#define TAG_ITEM_ICON    5110
 
 EWRAM_DATA s32 gFieldEffectArguments[8] = {0};
 
@@ -183,8 +188,9 @@ static void AnimateIndoorShowMonBg(struct Task *);
 static bool8 SlideIndoorBannerOnscreen(struct Task *);
 static bool8 SlideIndoorBannerOffscreen(struct Task *);
 
-static u8 InitFieldMoveMonSprite(u32, bool8, u32);
+static u8 InitFieldMoveMonSprite(u32, bool8, u32, bool8);
 static void SpriteCB_FieldMoveMonSlideOnscreen(struct Sprite *);
+static void SpriteCB_FieldMoveItemSlideOnscreen(struct Sprite *);
 static void SpriteCB_FieldMoveMonWaitAfterCry(struct Sprite *);
 static void SpriteCB_FieldMoveMonSlideOffscreen(struct Sprite *);
 
@@ -238,6 +244,8 @@ static void UseVsSeeker_StopPlayerMovement(struct Task *task);
 static void UseVsSeeker_DoPlayerAnimation(struct Task *task);
 static void UseVsSeeker_ResetPlayerGraphics(struct Task *task);
 static void UseVsSeeker_CleanUpFieldEffect(struct Task *task);
+
+u16 CreateItemIconSprite(u16 species, s16 x, s16 y, u8 subpriority);
 
 // Static RAM declarations
 
@@ -330,6 +338,12 @@ static const struct OamData sOam_16x16 =
     .paletteNum = 0,
 };
 
+static const struct OamData sOamData_32x32 =
+{
+    .shape = SPRITE_SHAPE(32x32),
+    .size = SPRITE_SIZE(32x32)
+};
+
 static const struct SpriteFrameImage sPicTable_NewGameBirch[] =
 {
     obj_frame_tiles(sNewGameBirch_Gfx)
@@ -408,6 +422,11 @@ static const struct SpriteFrameImage sPicTable_HofMonitorBig[] =
 static const struct SpriteFrameImage sPicTable_HofMonitorSmall[] =
 {
     {.data = sHofMonitorSmall_Gfx, .size = 0x200} // the macro breaks down here
+};
+
+static const struct SpriteFrameImage sPicTable_Clippers[] =
+{
+   {.data = gItemIcon_Clippers, .size = 0x200}
 };
 
 /*
@@ -927,14 +946,56 @@ u8 CreateMonSprite_PicBox(u16 species, s16 x, s16 y, u8 subpriority)
         return spriteId;
 }
 
-u8 CreateMonSprite_FieldMove(u16 species, bool8 isShiny, u32 personality, s16 x, s16 y, u8 subpriority)
+u8 CreateMonSprite_FieldMove(u16 species, bool8 isShiny, u32 personality, s16 x, s16 y, u8 subpriority, bool8 isItem)
 {
-    u16 spriteId = CreateMonPicSprite(species, isShiny, personality, TRUE, x, y, 0, species);
+    u16 spriteId;
+    if(isItem)
+        spriteId = CreateItemIconSprite(species, x, y, subpriority);
+    else
+        spriteId = CreateMonPicSprite(species, isShiny, personality, TRUE, x, y, 0, species);
     PreservePaletteInWeather(gSprites[spriteId].oam.paletteNum + 0x10);
     if (spriteId == 0xFFFF)
         return MAX_SPRITES;
     else
         return spriteId;
+}
+
+u16 CreateItemIconSprite(u16 species, s16 x, s16 y, u8 subpriority){
+    u16 spriteId;
+    u16 itemId = 0;
+    FreeSpriteTilesByTag(TAG_ITEM_ICON);
+    FreeSpritePaletteByTag(TAG_ITEM_ICON);
+    switch(species){
+        case 6:
+            itemId = 828;
+            break;
+        case 7:
+            itemId = 829;
+            break;
+        case 8:
+            itemId = 830;
+            break;
+        case 9:
+            itemId = 831;
+            break;
+        case 10:
+            itemId = 832;
+            break;        
+        case 11:
+            itemId = 833;
+            break;        
+        case 12:
+            itemId = 834;
+            break;        
+        case 13:
+            itemId = 835;
+            break;
+    }
+    spriteId = AddItemIconSprite(TAG_ITEM_ICON, TAG_ITEM_ICON, itemId);
+    gSprites[spriteId].x = x;
+    gSprites[spriteId].y = y;
+    gSprites[spriteId].subpriority = subpriority;
+    return spriteId;
 }
 
 void FreeResourcesAndDestroySprite(struct Sprite *sprite, u8 spriteId)
@@ -1363,10 +1424,13 @@ static void Task_UseFly(u8 taskId)
         if (!IsWeatherNotFadingIn())
             return;
 
-        gFieldEffectArguments[0] = GetCursorSelectionMonId();
-        if ((int)gFieldEffectArguments[0] > PARTY_SIZE - 1)
-            gFieldEffectArguments[0] = 0;
-
+        if(gFieldEffectArguments[4] == 0){
+            gFieldEffectArguments[0] = GetCursorSelectionMonId();
+            if ((int)gFieldEffectArguments[0] > PARTY_SIZE - 1)
+                gFieldEffectArguments[0] = 0;
+        }
+        else
+            gFieldEffectArguments[0] = 11;//reference jetpack
         FieldEffectStart(FLDEFF_USE_FLY);
         task->data[0]++;
     }
@@ -1827,12 +1891,15 @@ static bool8 EscalatorWarpIn_End(struct Task *task)
 
 #define tState data[0]
 #define tMonId data[1]
+#define tIsItem data[15]
 
 bool8 FldEff_UseWaterfall(void)
 {
     u8 taskId;
     taskId = CreateTask(Task_UseWaterfall, 0xff);
     gTasks[taskId].tMonId = gFieldEffectArguments[0];
+    gTasks[taskId].tIsItem = gFieldEffectArguments[4];
+    gObjectEvents[gPlayerAvatar.objectEventId].heldMovementActive = 0;
     Task_UseWaterfall(taskId);
     return FALSE;
 }
@@ -1857,6 +1924,7 @@ static bool8 WaterfallFieldEffect_ShowMon(struct Task *task, struct ObjectEvent 
     {
         ObjectEventClearHeldMovementIfFinished(objectEvent);
         gFieldEffectArguments[0] = task->tMonId;
+        gFieldEffectArguments[4] = task->tIsItem;
         FieldEffectStart(FLDEFF_FIELD_MOVE_SHOW_MON_INIT);
         task->tState++;
     }
@@ -1901,6 +1969,7 @@ static bool8 WaterfallFieldEffect_ContinueRideOrEnd(struct Task *task, struct Ob
 
 #undef tState
 #undef tMonId
+#undef tIsItem
 
 bool8 FldEff_UseDive(void)
 {
@@ -1908,6 +1977,7 @@ bool8 FldEff_UseDive(void)
     taskId = CreateTask(Task_UseDive, 0xff);
     gTasks[taskId].data[15] = gFieldEffectArguments[0];
     gTasks[taskId].data[14] = gFieldEffectArguments[1];
+    gTasks[taskId].data[13] = gFieldEffectArguments[4];
     Task_UseDive(taskId);
     return FALSE;
 }
@@ -1928,6 +1998,7 @@ static bool8 DiveFieldEffect_ShowMon(struct Task *task)
 {
     LockPlayerFieldControls();
     gFieldEffectArguments[0] = task->data[15];
+    gFieldEffectArguments[4] = task->data[13]; 
     FieldEffectStart(FLDEFF_FIELD_MOVE_SHOW_MON_INIT);
     task->data[0]++;
     return FALSE;
@@ -2574,7 +2645,7 @@ bool8 FldEff_FieldMoveShowMon(void)
     else
         taskId = CreateTask(Task_FieldMoveShowMonIndoors, 0xff);
 
-    gTasks[taskId].tMonSpriteId = InitFieldMoveMonSprite(gFieldEffectArguments[0], gFieldEffectArguments[1], gFieldEffectArguments[2]);
+    gTasks[taskId].tMonSpriteId = InitFieldMoveMonSprite(gFieldEffectArguments[0], gFieldEffectArguments[1], gFieldEffectArguments[2], gFieldEffectArguments[4]);
     return FALSE;
 }
 
@@ -2583,12 +2654,14 @@ bool8 FldEff_FieldMoveShowMon(void)
 bool8 FldEff_FieldMoveShowMonInit(void)
 {
     struct Pokemon *pokemon;
-    bool32 noDucking = gFieldEffectArguments[0] & SHOW_MON_CRY_NO_DUCKING;
-    pokemon = &gPlayerParty[(u8)gFieldEffectArguments[0]];
-    gFieldEffectArguments[0] = GetMonData(pokemon, MON_DATA_SPECIES);
-    gFieldEffectArguments[1] = GetMonData(pokemon, MON_DATA_IS_SHINY);
-    gFieldEffectArguments[2] = GetMonData(pokemon, MON_DATA_PERSONALITY);
-    gFieldEffectArguments[0] |= noDucking;
+    if(gFieldEffectArguments[4] == 0){
+        bool32 noDucking = gFieldEffectArguments[0] & SHOW_MON_CRY_NO_DUCKING;
+        pokemon = &gPlayerParty[(u8)gFieldEffectArguments[0]];
+        gFieldEffectArguments[0] = GetMonData(pokemon, MON_DATA_SPECIES);
+        gFieldEffectArguments[1] = GetMonData(pokemon, MON_DATA_IS_SHINY);
+        gFieldEffectArguments[2] = GetMonData(pokemon, MON_DATA_PERSONALITY);
+        gFieldEffectArguments[0] |= noDucking;
+    }
     FieldEffectStart(FLDEFF_FIELD_MOVE_SHOW_MON);
     FieldEffectActiveListRemove(FLDEFF_FIELD_MOVE_SHOW_MON_INIT);
     return FALSE;
@@ -2649,6 +2722,7 @@ static void FieldMoveShowMonOutdoorsEffect_CreateBanner(struct Task *task)
     horiz -= 16;
     vertHi -= 2;
     vertLo += 2;
+    bool8 isItem = gFieldEffectArguments[4];
 
     if (horiz < 0)
         horiz = 0;
@@ -2663,7 +2737,10 @@ static void FieldMoveShowMonOutdoorsEffect_CreateBanner(struct Task *task)
     task->tWinVert = (vertHi << 8) | vertLo;
     if (horiz == 0 && vertHi == DISPLAY_HEIGHT / 4 && vertLo == DISPLAY_WIDTH / 2)
     {
-        gSprites[task->tMonSpriteId].callback = SpriteCB_FieldMoveMonSlideOnscreen;
+        if(isItem)
+            gSprites[task->tMonSpriteId].callback = SpriteCB_FieldMoveItemSlideOnscreen;
+        else
+            gSprites[task->tMonSpriteId].callback = SpriteCB_FieldMoveMonSlideOnscreen;
         task->tState++;
     }
 }
@@ -2692,10 +2769,12 @@ static void FieldMoveShowMonOutdoorsEffect_ShrinkBanner(struct Task *task)
     if (vertLo < DISPLAY_HEIGHT / 2 + 1)
         vertLo = DISPLAY_HEIGHT / 2 + 1;
 
+
     task->tWinVert = (vertHi << 8) | vertLo;
 
     if (vertHi == DISPLAY_HEIGHT / 2 && vertLo == DISPLAY_HEIGHT / 2 + 1)
         task->tState++;
+
 }
 
 static void FieldMoveShowMonOutdoorsEffect_RestoreBg(struct Task *task)
@@ -2805,7 +2884,10 @@ static void FieldMoveShowMonIndoorsEffect_SlideBannerOn(struct Task *task)
     {
         SetGpuReg(REG_OFFSET_WIN1H, WIN_RANGE(0, DISPLAY_WIDTH));
         SetGpuReg(REG_OFFSET_WIN1V, WIN_RANGE(DISPLAY_HEIGHT / 4, DISPLAY_HEIGHT - DISPLAY_HEIGHT / 4));
-        gSprites[task->tMonSpriteId].callback = SpriteCB_FieldMoveMonSlideOnscreen;
+        if(gFieldEffectArguments[4] == 1)
+            gSprites[task->tMonSpriteId].callback = SpriteCB_FieldMoveItemSlideOnscreen;
+        else
+            gSprites[task->tMonSpriteId].callback = SpriteCB_FieldMoveMonSlideOnscreen;
         task->tState++;
     }
     AnimateIndoorShowMonBg(task);
@@ -2926,14 +3008,15 @@ static bool8 SlideIndoorBannerOffscreen(struct Task *task)
 #undef tBgOffset
 #undef tMonSpriteId
 
-static u8 InitFieldMoveMonSprite(u32 species, bool8 isShiny, u32 personality)
+static u8 InitFieldMoveMonSprite(u32 species, bool8 isShiny, u32 personality, bool8 isItem)
 {
     bool16 noDucking;
     u8 monSprite;
     struct Sprite *sprite;
     noDucking = (species & SHOW_MON_CRY_NO_DUCKING) >> 16;
-    species &= ~SHOW_MON_CRY_NO_DUCKING;
-    monSprite = CreateMonSprite_FieldMove(species, isShiny, personality, 320, 80, 0);
+    if(!isItem)
+        species &= ~SHOW_MON_CRY_NO_DUCKING;
+    monSprite = CreateMonSprite_FieldMove(species, isShiny, personality, 320, 80, 0, isItem);
     sprite = &gSprites[monSprite];
     sprite->callback = SpriteCallbackDummy;
     sprite->oam.priority = 0;
@@ -2956,9 +3039,20 @@ static void SpriteCB_FieldMoveMonSlideOnscreen(struct Sprite *sprite)
     }
 }
 
+static void SpriteCB_FieldMoveItemSlideOnscreen(struct Sprite *sprite)
+{
+    
+    if ((sprite->x -= 20) <= DISPLAY_WIDTH / 2)
+    {
+        sprite->x = DISPLAY_WIDTH / 2;
+        sprite->sOnscreenTimer = 30;
+        sprite->callback = SpriteCB_FieldMoveMonWaitAfterCry;
+    }
+}
+
 static void SpriteCB_FieldMoveMonWaitAfterCry(struct Sprite *sprite)
 {
-    if ((--sprite->sOnscreenTimer) == 0)
+    if ((--sprite->sOnscreenTimer) <= 0)
         sprite->callback = SpriteCB_FieldMoveMonSlideOffscreen;
 }
 
@@ -2980,11 +3074,13 @@ static void SpriteCB_FieldMoveMonSlideOffscreen(struct Sprite *sprite)
 #define tDestX data[1]
 #define tDestY data[2]
 #define tMonId data[15]
+#define tIsItem data[3]
 
 u8 FldEff_UseSurf(void)
 {
     u8 taskId = CreateTask(Task_SurfFieldEffect, 0xff);
     gTasks[taskId].tMonId = gFieldEffectArguments[0];
+    gTasks[taskId].tIsItem = gFieldEffectArguments[4];
     Overworld_ClearSavedMusic();
     Overworld_ChangeMusicTo(MUS_SURF);
     return FALSE;
@@ -3032,7 +3128,9 @@ static void SurfFieldEffect_ShowMon(struct Task *task)
     objectEvent = &gObjectEvents[gPlayerAvatar.objectEventId];
     if (ObjectEventCheckHeldMovementStatus(objectEvent))
     {
-        gFieldEffectArguments[0] = task->tMonId | SHOW_MON_CRY_NO_DUCKING;
+        if(!task->tIsItem)
+            gFieldEffectArguments[0] = task->tMonId | SHOW_MON_CRY_NO_DUCKING;
+        gFieldEffectArguments[4] = task->tIsItem;
         FieldEffectStart(FLDEFF_FIELD_MOVE_SHOW_MON_INIT);
         task->tState++;
     }
@@ -3076,6 +3174,7 @@ static void SurfFieldEffect_End(struct Task *task)
 #undef tDestX
 #undef tDestY
 #undef tMonId
+#undef tIsItem
 
 u8 FldEff_RayquazaSpotlight(void)
 {

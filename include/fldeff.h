@@ -3,6 +3,8 @@
 
 // cut
 bool8 SetUpFieldMove_Cut(void);
+bool8 FieldMove_Cut_Mon(void);
+bool8 FieldMove_Cut_Item(void);
 bool8 FldEff_UseCutOnGrass(void);
 bool8 FldEff_UseCutOnTree(void);
 bool8 FldEff_CutGrass(void);
@@ -24,6 +26,8 @@ void ChooseMonForSoftboiled(u8 taskId);
 
 // flash
 bool8 SetUpFieldMove_Flash(void);
+bool8 FieldMove_Flash_Mon(void);
+bool8 FieldMove_Flash_Item(void);
 void CB2_DoChangeMap(void);
 bool8 GetMapPairFadeToType(u8 _fromType, u8 _toType);
 bool8 GetMapPairFadeFromType(u8 _fromType, u8 _toType);
@@ -31,6 +35,8 @@ bool8 GetMapPairFadeFromType(u8 _fromType, u8 _toType);
 // strength
 bool8 SetUpFieldMove_Strength(void);
 bool8 FldEff_UseStrength(void);
+bool8 FieldMove_Strength_Mon(void);
+bool8 FieldMove_Strength_Item(void);
 
 // sweet scent
 bool8 SetUpFieldMove_SweetScent(void);
@@ -50,5 +56,7 @@ bool8 CheckObjectGraphicsInFrontOfPlayer(u8 graphicsId);
 u8 CreateFieldMoveTask(void);
 bool8 SetUpFieldMove_RockSmash(void);
 bool8 FldEff_UseRockSmash(void);
+bool8 FieldMove_RockSmash_Mon(void);
+bool8 FieldMove_RockSmash_Item(void);
 
 #endif // GUARD_FLDEFF_H

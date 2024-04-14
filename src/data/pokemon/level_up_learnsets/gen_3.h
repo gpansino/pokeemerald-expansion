@@ -3457,7 +3457,7 @@ static const struct LevelUpMove sZapdosLevelUpLearnset[] = {
 static const struct LevelUpMove sZapdosGalarianLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_PECK),
     LEVEL_UP_MOVE( 1, MOVE_FOCUS_ENERGY),
-    LEVEL_UP_MOVE( 5, MOVE_ROCK_SMASH),
+    LEVEL_UP_MOVE( 5, MOVE_KARATE_CHOP),
     LEVEL_UP_MOVE(10, MOVE_LIGHT_SCREEN),
     LEVEL_UP_MOVE(15, MOVE_PLUCK),
     LEVEL_UP_MOVE(20, MOVE_AGILITY),
@@ -4702,7 +4702,7 @@ static const struct LevelUpMove sWeavileLevelUpLearnset[] = {
 #if P_HISUIAN_FORMS
 static const struct LevelUpMove sSneaselHisuianLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_QUICK_ATTACK),
-    LEVEL_UP_MOVE( 6, MOVE_ROCK_SMASH),
+    LEVEL_UP_MOVE( 6, MOVE_KARATE_CHOP),
     LEVEL_UP_MOVE(11, MOVE_SWIFT),
     LEVEL_UP_MOVE(18, MOVE_SLASH),
     LEVEL_UP_MOVE(25, MOVE_POISON_JAB),
@@ -4713,7 +4713,7 @@ static const struct LevelUpMove sSneaselHisuianLevelUpLearnset[] = {
 
 static const struct LevelUpMove sSneaslerLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_QUICK_ATTACK),
-    LEVEL_UP_MOVE( 6, MOVE_ROCK_SMASH),
+    LEVEL_UP_MOVE( 6, MOVE_KARATE_CHOP),
     LEVEL_UP_MOVE(11, MOVE_DIRE_CLAW),
     LEVEL_UP_MOVE(11, MOVE_SWIFT),
     LEVEL_UP_MOVE(18, MOVE_SLASH),
@@ -9025,9 +9025,9 @@ static const struct LevelUpMove sPhioneLevelUpLearnset[] = {
 
 static const struct LevelUpMove sManaphyLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_TAIL_GLOW),
-    LEVEL_UP_MOVE( 1, MOVE_BUBBLE),
-    LEVEL_UP_MOVE( 1, MOVE_WATER_SPORT),
-    LEVEL_UP_MOVE( 9, MOVE_CHARM),
+    LEVEL_UP_MOVE( 1, MOVE_BUBBLE),//require dive hm to have been gotten to
+    LEVEL_UP_MOVE( 1, MOVE_WATER_SPORT),//obtain manaphy + phione
+    LEVEL_UP_MOVE( 9, MOVE_CHARM),// or remove dive from learnset lol
     LEVEL_UP_MOVE(16, MOVE_SUPERSONIC),
     LEVEL_UP_MOVE(24, MOVE_BUBBLE_BEAM),
     LEVEL_UP_MOVE(31, MOVE_ACID_ARMOR),

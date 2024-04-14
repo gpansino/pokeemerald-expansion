@@ -45,6 +45,10 @@
 #include "constants/items.h"
 #include "constants/songs.h"
 #include "constants/map_types.h"
+#include "party_menu.h"
+#include "field_control_avatar.h"
+#include "region_map.h"
+#include "constants/rgb.h"
 
 static void SetUpItemUseCallback(u8);
 static void FieldCB_UseItemOnField(void);
@@ -81,6 +85,16 @@ static void ItemUseOnFieldCB_Honey(u8 taskId);
 static void ItemUseOnFieldCB_FillWater(u8 taskId);
 void DisplayFilledPailMessage(u8 taskId);
 static bool32 IsValidLocationForVsSeeker(void);
+
+static void ItemUseOnFieldCB_UseClippers(u8 taskId);
+static void ItemUseOnFieldCB_UseFlashlight(u8 taskId);
+static void ItemUseOnFieldCB_UsePickaxe(u8 taskId);
+static void ItemUseOnFieldCB_UseForcePalms(u8 taskId);
+static void ItemUseOnFieldCB_UseSurfboard(u8 taskId);
+static void ItemUseOnFieldCB_UseJetpack(u8 taskId);
+static void ItemUseOnFieldCB_UseScubaGear(u8 taskId);
+static void ItemUseOnFieldCB_UseBigBalloon(u8 taskId);
+static bool8 CheckNearGrass(void);
 
 // EWRAM variables
 EWRAM_DATA static void(*sItemUseOnFieldCB)(u8 taskId) = NULL;
@@ -1511,9 +1525,6 @@ void Task_ItemUse_CloseMessageBoxAndReturnToField_VsSeeker(u8 taskId)
     Task_CloseCantUseKeyItemMessage(taskId);
 }
 
-#undef tUsingRegisteredKeyItem
-
-
 void ItemUseOnFieldCB_FillWater(u8 taskId)
 {
     LockPlayerFieldControls();
@@ -1522,3 +1533,168 @@ void ItemUseOnFieldCB_FillWater(u8 taskId)
     UnlockPlayerFieldControls();
     DestroyTask(taskId);
 }
+
+void ItemUseOutOfBattle_Clippers(u8 taskId){
+    sItemUseOnFieldCB = ItemUseOnFieldCB_UseClippers;
+    if(FlagGet(FLAG_BADGE01_GET)){
+        if(CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_CUTTABLE_TREE) == TRUE || CheckNearGrass())
+            SetUpItemUseOnFieldCallback(taskId);
+        else 
+            DisplayCannotUseItemMessage(taskId, gTasks[taskId].tUsingRegisteredKeyItem, gText_NothingToCut);
+    }
+    else 
+        DisplayCannotUseItemMessage(taskId, gTasks[taskId].tUsingRegisteredKeyItem, gText_CantUseUntilNewBadge);
+}
+
+void ItemUseOutOfBattle_Flashlight(u8 taskId){
+    sItemUseOnFieldCB = ItemUseOnFieldCB_UseFlashlight;
+    if(FlagGet(FLAG_BADGE02_GET)){
+        if(gMapHeader.cave == TRUE){
+            if(FlagGet(FLAG_SYS_USE_FLASH) == TRUE)
+                DisplayCannotUseItemMessage(taskId, gTasks[taskId].tUsingRegisteredKeyItem, gText_InUseAlready_PM);
+            else
+                SetUpItemUseOnFieldCallback(taskId);
+        }
+        else
+            DisplayCannotUseItemMessage(taskId, gTasks[taskId].tUsingRegisteredKeyItem, gText_CantUseHere);
+    }
+    else
+        DisplayCannotUseItemMessage(taskId, gTasks[taskId].tUsingRegisteredKeyItem, gText_CantUseUntilNewBadge);
+}
+void ItemUseOutOfBattle_Pickaxe(u8 taskId){
+    sItemUseOnFieldCB = ItemUseOnFieldCB_UsePickaxe;
+    if(FlagGet(FLAG_BADGE03_GET)){
+        if(CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_BREAKABLE_ROCK) == TRUE){
+            SetUpItemUseOnFieldCallback(taskId);
+        }
+        else
+            DisplayCannotUseItemMessage(taskId, gTasks[taskId].tUsingRegisteredKeyItem, gText_CantUseHere);
+    }
+    else
+        DisplayCannotUseItemMessage(taskId, gTasks[taskId].tUsingRegisteredKeyItem, gText_CantUseUntilNewBadge);
+}
+void ItemUseOutOfBattle_ForcePalms(u8 taskId){
+    sItemUseOnFieldCB = ItemUseOnFieldCB_UseForcePalms;
+    if(FlagGet(FLAG_BADGE04_GET)){
+        if(CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_PUSHABLE_BOULDER) == TRUE){
+            SetUpItemUseOnFieldCallback(taskId);
+        }
+        else
+        DisplayCannotUseItemMessage(taskId, gTasks[taskId].tUsingRegisteredKeyItem, gText_CantUseHere);
+    }
+    else
+                DisplayCannotUseItemMessage(taskId, gTasks[taskId].tUsingRegisteredKeyItem, gText_CantUseUntilNewBadge);
+}
+void ItemUseOutOfBattle_Surfboard(u8 taskId){
+    sItemUseOnFieldCB = ItemUseOnFieldCB_UseSurfboard;
+    if(FlagGet(FLAG_BADGE05_GET)){
+        if(TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_SURFING))
+            DisplayCannotUseItemMessage(taskId, gTasks[taskId].tUsingRegisteredKeyItem, gText_AlreadySurfing);
+        else if(IsPlayerFacingSurfableFishableWater() == TRUE){
+            SetUpItemUseOnFieldCallback(taskId);
+        }
+        else    
+            DisplayCannotUseItemMessage(taskId, gTasks[taskId].tUsingRegisteredKeyItem, gText_CantUseHere);
+    }
+    else        
+        DisplayCannotUseItemMessage(taskId, gTasks[taskId].tUsingRegisteredKeyItem, gText_CantUseUntilNewBadge);
+}
+void ItemUseOutOfBattle_Jetpack(u8 taskId){
+    sItemUseOnFieldCB = ItemUseOnFieldCB_UseJetpack;
+    if(FlagGet(FLAG_BADGE06_GET)){
+        if(SetUpFieldMove_Fly())
+            SetUpItemUseOnFieldCallback(taskId);
+        else
+            DisplayCannotUseItemMessage(taskId, gTasks[taskId].tUsingRegisteredKeyItem, gText_CantUseHere);
+    }
+    else
+        DisplayCannotUseItemMessage(taskId, gTasks[taskId].tUsingRegisteredKeyItem, gText_CantUseUntilNewBadge);
+}
+void ItemUseOutOfBattle_ScubaGear(u8 taskId){
+    sItemUseOnFieldCB = ItemUseOnFieldCB_UseScubaGear;
+    if(FlagGet(FLAG_BADGE07_GET)){
+        if(TrySetDiveWarp() != 0)
+            SetUpItemUseOnFieldCallback(taskId);
+        else   
+            DisplayCannotUseItemMessage(taskId, gTasks[taskId].tUsingRegisteredKeyItem, gText_CantUseHere);
+    }
+    else
+        DisplayCannotUseItemMessage(taskId, gTasks[taskId].tUsingRegisteredKeyItem, gText_CantUseUntilNewBadge);
+}
+void ItemUseOutOfBattle_BigBalloon(u8 taskId){
+    s16 x, y;
+    GetXYCoordsOneStepInFrontOfPlayer(&x, &y);
+
+    sItemUseOnFieldCB = ItemUseOnFieldCB_UseBigBalloon;
+    if(FlagGet(FLAG_BADGE08_GET)){
+        if(MetatileBehavior_IsWaterfall(MapGridGetMetatileBehaviorAt(x, y)) == TRUE 
+        && IsPlayerSurfingNorth() == TRUE)
+            SetUpItemUseOnFieldCallback(taskId);
+        else 
+            DisplayCannotUseItemMessage(taskId, gTasks[taskId].tUsingRegisteredKeyItem, gText_CantUseHere);
+    }
+    else    
+        DisplayCannotUseItemMessage(taskId, gTasks[taskId].tUsingRegisteredKeyItem, gText_CantUseUntilNewBadge);
+}
+
+static void ItemUseOnFieldCB_UseClippers(u8 taskId){
+    LockPlayerFieldControls();
+    FieldMove_Cut_Item();
+    DestroyTask(taskId);
+}
+static void ItemUseOnFieldCB_UseFlashlight(u8 taskId){
+    LockPlayerFieldControls();
+    FieldMove_Flash_Item();
+    DestroyTask(taskId);
+}
+static void ItemUseOnFieldCB_UsePickaxe(u8 taskId){
+    LockPlayerFieldControls();
+    FieldMove_RockSmash_Item();
+    DestroyTask(taskId);
+}
+static void ItemUseOnFieldCB_UseForcePalms(u8 taskId){
+    LockPlayerFieldControls();
+    FieldMove_Strength_Item();
+    DestroyTask(taskId);
+}
+static void ItemUseOnFieldCB_UseSurfboard(u8 taskId){
+    LockPlayerFieldControls();
+    FieldMove_Surf_Item();
+    DestroyTask(taskId);
+}
+static void ItemUseOnFieldCB_UseJetpack(u8 taskId){
+    LockPlayerFieldControls();
+    BeginNormalPaletteFade(PALETTES_ALL, -2, 0, 16, RGB_BLACK);
+    SetMainCallback2(CB2_OpenFlyMap_Item);
+    DestroyTask(taskId);
+}
+static void ItemUseOnFieldCB_UseScubaGear(u8 taskId){
+    LockPlayerFieldControls();
+    FieldMove_Dive_Item();
+    DestroyTask(taskId);
+}
+static void ItemUseOnFieldCB_UseBigBalloon(u8 taskId){
+    LockPlayerFieldControls();
+    FieldMove_Waterfall_Item();
+    DestroyTask(taskId);
+}
+
+static bool8 CheckNearGrass(void){
+    s16 x, y;
+    u8 i, j;
+    u8 tileBehavior;
+    for(i = 0; i < 3; i++){
+        for(j = 0; j < 3; j++){
+            x = gObjectEvents[gPlayerAvatar.objectEventId].currentCoords.x - 1 + j;
+            y = gObjectEvents[gPlayerAvatar.objectEventId].currentCoords.y - 1 + i;
+            tileBehavior = MapGridGetMetatileBehaviorAt(x, y);
+            if ((MetatileBehavior_IsPokeGrass(tileBehavior) == TRUE
+                    || MetatileBehavior_IsAshGrass(tileBehavior) == TRUE)
+                    && MapGridGetElevationAt(x, y) == gObjectEvents[gPlayerAvatar.objectEventId].currentElevation)
+                return TRUE;
+        }
+    }
+    return FALSE;
+}
+
+#undef tUsingRegisteredKeyItem

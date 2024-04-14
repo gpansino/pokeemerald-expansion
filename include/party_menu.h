@@ -27,6 +27,9 @@ extern MainCallback gPostMenuFieldCallback;
 extern u8 gSelectedOrderFromParty[MAX_FRONTIER_PARTY_SIZE];
 extern u8 gBattlePartyCurrentOrder[PARTY_SIZE / 2];
 
+extern void DisplayCantUseFlashMessage(void);
+extern void DisplayCantUseSurfMessage(void);
+
 extern void (*gItemUseCB)(u8, TaskFunc);
 extern const struct SpriteTemplate gSpriteTemplate_StatusIcons;
 
@@ -101,5 +104,10 @@ void MoveDeleterForgetMove(void);
 void BufferMoveDeleterNicknameAndMove(void);
 void GetNumMovesSelectedMonHas(void);
 void MoveDeleterChooseMoveToForget(void);
+
+extern bool8 SetUpFieldMove_Fly(void);
+extern bool8 FieldMove_Surf_Item(void);
+extern bool8 FieldMove_Dive_Item(void);
+extern bool8 FieldMove_Waterfall_Item(void);
 
 #endif // GUARD_PARTY_MENU_H

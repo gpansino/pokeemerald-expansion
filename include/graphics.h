@@ -1569,6 +1569,24 @@ extern const u32 gItemIcon_FameChecker[];
 extern const u32 gItemIconPalette_FameChecker[];
 extern const u32 gItemIcon_TeachyTV[];
 extern const u32 gItemIconPalette_TeachyTV[];
+
+extern const u32 gItemIcon_Clippers[];
+extern const u32 gItemIconPalette_Clippers[];
+extern const u32 gItemIcon_Flashlight[];
+extern const u32 gItemIconPalette_Flashlight[];
+extern const u32 gItemIcon_Pickaxe[];
+extern const u32 gItemIconPalette_Pickaxe[];
+extern const u32 gItemIcon_ForcePalms[];
+extern const u32 gItemIconPalette_ForcePalms[];
+extern const u32 gItemIcon_Surfboard[];
+extern const u32 gItemIconPalette_Surfboard[];
+extern const u32 gItemIcon_Jetpack[];
+extern const u32 gItemIconPalette_Jetpack[];
+extern const u32 gItemIcon_ScubaGear[];
+extern const u32 gItemIconPalette_ScubaGear[];
+extern const u32 gItemIcon_BigBalloon[];
+extern const u32 gItemIconPalette_BigBalloon[];
+
 // Story Key Items
 extern const u32 gItemIcon_SSTicket[];
 extern const u32 gItemIconPalette_SSTicket[];

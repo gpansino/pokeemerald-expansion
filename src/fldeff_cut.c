@@ -140,21 +140,26 @@ bool8 SetUpFieldMove_Cut(void)
     s16 x, y;
     u8 i, j;
     u8 tileBehavior;
-    u16 userAbility;
+    u16 userAbility = ABILITY_NONE;
     bool8 cutTiles[CUT_NORMAL_AREA];
     bool8 ret;
 
     if (CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_CUTTABLE_TREE) == TRUE)
     {
         // Standing in front of cuttable tree.
-        gFieldCallback2 = FieldCallback_PrepareFadeInFromMenu;
-        gPostMenuFieldCallback = FieldCallback_CutTree;
+        if(gFieldEffectArguments[4]==0){
+            gFieldCallback2 = FieldCallback_PrepareFadeInFromMenu;
+            gPostMenuFieldCallback = FieldCallback_CutTree;
+        }
+        else
+            FieldCallback_CutTree();
         return TRUE;
     }
     else
     {
         PlayerGetDestCoords(&gPlayerFacingPosition.x, &gPlayerFacingPosition.y);
-        userAbility = GetMonAbility(&gPlayerParty[GetCursorSelectionMonId()]);
+        if(gFieldEffectArguments[4] == 0)
+            userAbility = GetMonAbility(&gPlayerParty[GetCursorSelectionMonId()]);
         if (userAbility == ABILITY_HYPER_CUTTER)
         {
             sCutSquareSide = CUT_HYPER_SIDE;
@@ -218,8 +223,12 @@ bool8 SetUpFieldMove_Cut(void)
         {
             if (ret == TRUE)
             {
-                gFieldCallback2 = FieldCallback_PrepareFadeInFromMenu;
-                gPostMenuFieldCallback = FieldCallback_CutGrass;
+                if(gFieldEffectArguments[4]==0){
+                    gFieldCallback2 = FieldCallback_PrepareFadeInFromMenu;
+                    gPostMenuFieldCallback = FieldCallback_CutGrass;
+                }
+                else    
+                    FieldCallback_CutGrass();
             }
         }
         else
@@ -270,15 +279,28 @@ bool8 SetUpFieldMove_Cut(void)
                 gPostMenuFieldCallback = FieldCallback_CutGrass;
             }
         }
-
         return ret;
     }
 }
 
+bool8 FieldMove_Cut_Mon(void){
+    gFieldEffectArguments[4] = 0;
+    return SetUpFieldMove_Cut();
+}
+
+bool8 FieldMove_Cut_Item(void){
+    gFieldEffectArguments[4] = 1;
+    return SetUpFieldMove_Cut();
+}
+
 static void FieldCallback_CutGrass(void)
 {
+    if(gFieldEffectArguments[4] == 0)
+        gFieldEffectArguments[0] = GetCursorSelectionMonId();//reference mon sprite
+    else 
+        gFieldEffectArguments[0] = 6;//reference clippers 
+
     FieldEffectStart(FLDEFF_USE_CUT_ON_GRASS);
-    gFieldEffectArguments[0] = GetCursorSelectionMonId();
 }
 
 bool8 FldEff_UseCutOnGrass(void)
@@ -293,7 +315,10 @@ bool8 FldEff_UseCutOnGrass(void)
 
 static void FieldCallback_CutTree(void)
 {
-    gFieldEffectArguments[0] = GetCursorSelectionMonId();
+    if(gFieldEffectArguments[4]==0)
+        gFieldEffectArguments[0] = GetCursorSelectionMonId();
+    else    
+        gFieldEffectArguments[0] = 6;//reference clippers
     ScriptContext_SetupScript(EventScript_UseCut);
 }
 

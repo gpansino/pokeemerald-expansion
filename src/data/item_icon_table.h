@@ -873,6 +873,16 @@ const u32 *const gItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_SWAP_SNACK] = {gItemIcon_SwapSnack, gItemIconPalette_SwapSnack},
     [ITEM_TWICE_SPICED_RADISH] = {gItemIcon_TwiceSpicedRadish, gItemIconPalette_TwiceSpicedRadish},
     [ITEM_POKESHI_DOLL] = {gItemIcon_PokeshiDoll, gItemIconPalette_PokeshiDoll},
+    
+    [ITEM_CLIPPERS] = {gItemIcon_Clippers, gItemIconPalette_Clippers},
+    [ITEM_FLASHLIGHT] = {gItemIcon_Flashlight, gItemIconPalette_Flashlight},
+    [ITEM_PICKAXE] = {gItemIcon_Pickaxe, gItemIconPalette_Pickaxe},
+    [ITEM_FORCE_PALMS] = {gItemIcon_ForcePalms, gItemIconPalette_ForcePalms},
+    [ITEM_SURFBOARD] = {gItemIcon_Surfboard, gItemIconPalette_Surfboard},
+    [ITEM_JETPACK] = {gItemIcon_Jetpack, gItemIconPalette_Jetpack},
+    [ITEM_SCUBA_GEAR] = {gItemIcon_ScubaGear, gItemIconPalette_ScubaGear},
+    [ITEM_BIG_BALLOON] = {gItemIcon_BigBalloon, gItemIconPalette_BigBalloon},
+
     // Return to field arrow
     [ITEMS_COUNT] = {gItemIcon_ReturnToFieldArrow, gItemIconPalette_ReturnToFieldArrow},
 };

@@ -806,14 +806,14 @@ struct
     u8 msgId;
 } static const sFieldMoveCursorCallbacks[FIELD_MOVES_COUNT] =
 {
-    [FIELD_MOVE_CUT]          = {SetUpFieldMove_Cut,         PARTY_MSG_NOTHING_TO_CUT},
-    [FIELD_MOVE_FLASH]        = {SetUpFieldMove_Flash,       PARTY_MSG_CANT_USE_HERE},
-    [FIELD_MOVE_ROCK_SMASH]   = {SetUpFieldMove_RockSmash,   PARTY_MSG_CANT_USE_HERE},
-    [FIELD_MOVE_STRENGTH]     = {SetUpFieldMove_Strength,    PARTY_MSG_CANT_USE_HERE},
-    [FIELD_MOVE_SURF]         = {SetUpFieldMove_Surf,        PARTY_MSG_CANT_SURF_HERE},
+    [FIELD_MOVE_CUT]          = {FieldMove_Cut_Mon,          PARTY_MSG_NOTHING_TO_CUT},
+    [FIELD_MOVE_FLASH]        = {FieldMove_Flash_Mon,        PARTY_MSG_CANT_USE_HERE},
+    [FIELD_MOVE_ROCK_SMASH]   = {FieldMove_RockSmash_Mon,    PARTY_MSG_CANT_USE_HERE},
+    [FIELD_MOVE_STRENGTH]     = {FieldMove_Strength_Mon,     PARTY_MSG_CANT_USE_HERE},
+    [FIELD_MOVE_SURF]         = {FieldMove_Surf_Mon,         PARTY_MSG_CANT_SURF_HERE},
     [FIELD_MOVE_FLY]          = {SetUpFieldMove_Fly,         PARTY_MSG_CANT_USE_HERE},
-    [FIELD_MOVE_DIVE]         = {SetUpFieldMove_Dive,        PARTY_MSG_CANT_USE_HERE},
-    [FIELD_MOVE_WATERFALL]    = {SetUpFieldMove_Waterfall,   PARTY_MSG_CANT_USE_HERE},
+    [FIELD_MOVE_DIVE]         = {FieldMove_Dive_Mon,         PARTY_MSG_CANT_USE_HERE},
+    [FIELD_MOVE_WATERFALL]    = {FieldMove_Waterfall_Mon,    PARTY_MSG_CANT_USE_HERE},
     [FIELD_MOVE_TELEPORT]     = {SetUpFieldMove_Teleport,    PARTY_MSG_CANT_USE_HERE},
     [FIELD_MOVE_DIG]          = {SetUpFieldMove_Dig,         PARTY_MSG_CANT_USE_HERE},
     [FIELD_MOVE_SECRET_POWER] = {SetUpFieldMove_SecretPower, PARTY_MSG_CANT_USE_HERE},
@@ -1148,3 +1148,4 @@ static const u16 sRotomFormChangeMoves[5] =
     MOVE_AIR_SLASH,
     MOVE_LEAF_STORM,
 };
+

@@ -651,7 +651,7 @@ static const struct TrainerMon sParty_GabbyAndTy1[] = {
     .ability = ABILITY_SLOT_1,
     //hp ghost
     .moves = {MOVE_UPROAR, MOVE_HOWL, MOVE_SUPERSONIC, MOVE_HIDDEN_POWER}
-    }
+    },
     {
     .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
     .lvl = 24,
@@ -659,7 +659,7 @@ static const struct TrainerMon sParty_GabbyAndTy1[] = {
     .ability = ABILITY_SLOT_1,
     .heldItem = ITEM_CHESTO_BERRY,
     .moves = {MOVE_SING, MOVE_REST, MOVE_POUND, MOVE_ROLLOUT}
-    }
+    },
     {
     .iv = TRAINER_PARTY_IVS(7, 6, 6, 7, 6, 7),
     .lvl = 24,
@@ -10088,7 +10088,7 @@ static const struct TrainerMon sParty_Celina[] = {
     .species = SPECIES_LOMBRE,
     .ability = ABILITY_SLOT_1,
     .moves = {MOVE_ABSORB, MOVE_NATURE_POWER, MOVE_WATER_GUN, MOVE_SYNTHESIS}
-    }
+    },
     {
     .lvl = 20,
     .species = SPECIES_HOPPIP,

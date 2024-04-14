@@ -390,8 +390,7 @@ static void Task_SpinTradeYesNo(u8);
 static void Task_HandleSpinTradeYesNoInput(u8);
 static void Task_CancelAfterAorBPress(u8);
 static void DisplayFieldMoveExitAreaMessage(u8);
-static void DisplayCantUseFlashMessage(void);
-static void DisplayCantUseSurfMessage(void);
+
 static void Task_FieldMoveExitAreaYesNo(u8);
 static void Task_HandleFieldMoveExitAreaYesNoInput(u8);
 static void Task_FieldMoveWaitForFade(u8);
@@ -505,9 +504,11 @@ static void CursorCb_CatalogMower(u8);
 static void CursorCb_ChangeForm(u8);
 static void CursorCb_ChangeAbility(u8);
 static bool8 SetUpFieldMove_Surf(void);
-static bool8 SetUpFieldMove_Fly(void);
 static bool8 SetUpFieldMove_Waterfall(void);
 static bool8 SetUpFieldMove_Dive(void);
+static bool8 FieldMove_Surf_Mon(void);
+static bool8 FieldMove_Waterfall_Mon(void);
+static bool8 FieldMove_Dive_Mon(void);
 void TryItemHoldFormChange(struct Pokemon *mon);
 static void ShowMoveSelectWindow(u8 slot);
 static void Task_HandleWhichMoveInput(u8 taskId);
@@ -3947,7 +3948,7 @@ static void CursorCb_FieldMove(u8 taskId)
                 sPartyMenuInternal->data[0] = fieldMove;
                 break;
             case FIELD_MOVE_FLY:
-                gPartyMenu.exitCallback = CB2_OpenFlyMap;
+                gPartyMenu.exitCallback = CB2_OpenFlyMap_Mon;
                 Task_ClosePartyMenu(taskId);
                 break;
             default:
@@ -4038,7 +4039,7 @@ static void Task_CancelAfterAorBPress(u8 taskId)
         CursorCb_Cancel1(taskId);
 }
 
-static void DisplayCantUseFlashMessage(void)
+extern void DisplayCantUseFlashMessage(void)
 {
     if (FlagGet(FLAG_SYS_USE_FLASH) == TRUE)
         DisplayPartyMenuStdMessage(PARTY_MSG_ALREADY_IN_USE);
@@ -4048,22 +4049,39 @@ static void DisplayCantUseFlashMessage(void)
 
 static void FieldCallback_Surf(void)
 {
-    gFieldEffectArguments[0] = GetCursorSelectionMonId();
+    if(gFieldEffectArguments[4]==0)
+        gFieldEffectArguments[0] = GetCursorSelectionMonId();
+    else    
+        gFieldEffectArguments[0] = 10;
     FieldEffectStart(FLDEFF_USE_SURF);
 }
 
 static bool8 SetUpFieldMove_Surf(void)
 {
-    if (PartyHasMonWithSurf() == TRUE && IsPlayerFacingSurfableFishableWater() == TRUE)
+    if (FlagGet(FLAG_BADGE05_GET) && IsPlayerFacingSurfableFishableWater() == TRUE)
     {
-        gFieldCallback2 = FieldCallback_PrepareFadeInFromMenu;
-        gPostMenuFieldCallback = FieldCallback_Surf;
+        if(gFieldEffectArguments[4]==0){
+            gFieldCallback2 = FieldCallback_PrepareFadeInFromMenu;
+            gPostMenuFieldCallback = FieldCallback_Surf;
+        }
+        else    
+            FieldCallback_Surf();
         return TRUE;
     }
     return FALSE;
 }
 
-static void DisplayCantUseSurfMessage(void)
+static bool8 FieldMove_Surf_Mon(void){
+    gFieldEffectArguments[4] = 0;
+    return SetUpFieldMove_Surf();
+}
+
+bool8 FieldMove_Surf_Item(void){
+    gFieldEffectArguments[4] = 1;
+    return SetUpFieldMove_Surf();
+}
+
+extern void DisplayCantUseSurfMessage(void)
 {
     if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_SURFING))
         DisplayPartyMenuStdMessage(PARTY_MSG_ALREADY_SURFING);
@@ -4071,7 +4089,7 @@ static void DisplayCantUseSurfMessage(void)
         DisplayPartyMenuStdMessage(PARTY_MSG_CANT_SURF_HERE);
 }
 
-static bool8 SetUpFieldMove_Fly(void)
+bool8 SetUpFieldMove_Fly(void)
 {
     if (Overworld_MapTypeAllowsTeleportAndFly(gMapHeader.mapType) == TRUE)
         return TRUE;
@@ -4086,7 +4104,11 @@ void CB2_ReturnToPartyMenuFromFlyMap(void)
 
 static void FieldCallback_Waterfall(void)
 {
-    gFieldEffectArguments[0] = GetCursorSelectionMonId();
+    if(gFieldEffectArguments[4]==0)
+        gFieldEffectArguments[0] = GetCursorSelectionMonId();
+    else{
+        gFieldEffectArguments[0] = 13;
+    }
     FieldEffectStart(FLDEFF_USE_WATERFALL);
 }
 
@@ -4097,16 +4119,33 @@ static bool8 SetUpFieldMove_Waterfall(void)
     GetXYCoordsOneStepInFrontOfPlayer(&x, &y);
     if (MetatileBehavior_IsWaterfall(MapGridGetMetatileBehaviorAt(x, y)) == TRUE && IsPlayerSurfingNorth() == TRUE)
     {
-        gFieldCallback2 = FieldCallback_PrepareFadeInFromMenu;
-        gPostMenuFieldCallback = FieldCallback_Waterfall;
+        if(gFieldEffectArguments[4]==0){
+            gFieldCallback2 = FieldCallback_PrepareFadeInFromMenu;
+            gPostMenuFieldCallback = FieldCallback_Waterfall;
+        }
+        else    
+            FieldCallback_Waterfall();
         return TRUE;
     }
     return FALSE;
 }
 
+static bool8 FieldMove_Waterfall_Mon(void){
+    gFieldEffectArguments[4] = 0;
+    return SetUpFieldMove_Waterfall();
+}
+
+bool8 FieldMove_Waterfall_Item(void){
+    gFieldEffectArguments[4] = 1;
+    return SetUpFieldMove_Waterfall();
+}
+
 static void FieldCallback_Dive(void)
 {
-    gFieldEffectArguments[0] = GetCursorSelectionMonId();
+    if(gFieldEffectArguments[4] == 0)
+        gFieldEffectArguments[0] = GetCursorSelectionMonId();
+    else
+        gFieldEffectArguments[0] = 12;
     FieldEffectStart(FLDEFF_USE_DIVE);
 }
 
@@ -4115,11 +4154,25 @@ static bool8 SetUpFieldMove_Dive(void)
     gFieldEffectArguments[1] = TrySetDiveWarp();
     if (gFieldEffectArguments[1] != 0)
     {
-        gFieldCallback2 = FieldCallback_PrepareFadeInFromMenu;
-        gPostMenuFieldCallback = FieldCallback_Dive;
+        if(gFieldEffectArguments[4]==0){
+            gFieldCallback2 = FieldCallback_PrepareFadeInFromMenu;
+            gPostMenuFieldCallback = FieldCallback_Dive;
+        }
+        else 
+            FieldCallback_Dive();
         return TRUE;
     }
     return FALSE;
+}
+
+static bool8 FieldMove_Dive_Mon(void){
+    gFieldEffectArguments[4] = 0;
+    return SetUpFieldMove_Dive();
+}
+
+bool8 FieldMove_Dive_Item(void){
+    gFieldEffectArguments[4] = 1;
+    return SetUpFieldMove_Dive();
 }
 
 static void CreatePartyMonIconSprite(struct Pokemon *mon, struct PartyMenuBox *menuBox, u32 slot)

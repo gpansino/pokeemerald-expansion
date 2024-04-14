@@ -27,6 +27,7 @@ static void Task_DoFieldMove_RunFunc(u8 taskId);
 static void FieldCallback_RockSmash(void);
 static void FieldMove_RockSmash(void);
 
+
 bool8 CheckObjectGraphicsInFrontOfPlayer(u8 graphicsId)
 {
     u8 objEventId;
@@ -124,15 +125,24 @@ bool8 SetUpFieldMove_RockSmash(void)
     // it is opened by using Rock Smash.
     if (ShouldDoBrailleRegirockEffect())
     {
-        gSpecialVar_Result = GetCursorSelectionMonId();
-        gFieldCallback2 = FieldCallback_PrepareFadeInFromMenu;
-        gPostMenuFieldCallback = SetUpPuzzleEffectRegirock;
+        if(gFieldEffectArguments[4]==0){
+            gSpecialVar_Result = GetCursorSelectionMonId();
+            gFieldCallback2 = FieldCallback_PrepareFadeInFromMenu;
+            gPostMenuFieldCallback = SetUpPuzzleEffectRegirock;
+        }
+        else
+            gSpecialVar_Result = 8;
+            SetUpPuzzleEffectRegirock();
         return TRUE;
     }
     else if (CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_BREAKABLE_ROCK) == TRUE)
     {
-        gFieldCallback2 = FieldCallback_PrepareFadeInFromMenu;
-        gPostMenuFieldCallback = FieldCallback_RockSmash;
+        if(gFieldEffectArguments[4]==0){
+            gFieldCallback2 = FieldCallback_PrepareFadeInFromMenu;
+            gPostMenuFieldCallback = FieldCallback_RockSmash;
+        }
+        else    
+            FieldCallback_RockSmash();
         return TRUE;
     }
     else
@@ -141,9 +151,22 @@ bool8 SetUpFieldMove_RockSmash(void)
     }
 }
 
+bool8 FieldMove_RockSmash_Mon(void){
+    gFieldEffectArguments[4] = 0;
+    return SetUpFieldMove_RockSmash();
+}
+
+bool8 FieldMove_RockSmash_Item(void){
+    gFieldEffectArguments[4] = 1;
+    return SetUpFieldMove_RockSmash();
+}
+
 static void FieldCallback_RockSmash(void)
 {
-    gFieldEffectArguments[0] = GetCursorSelectionMonId();
+    if(gFieldEffectArguments[4]==0)
+        gFieldEffectArguments[0] = GetCursorSelectionMonId();//reference mon sprite
+    else
+        gFieldEffectArguments[0] = 8;//reference pickaxe
     ScriptContext_SetupScript(EventScript_UseRockSmash);
 }
 

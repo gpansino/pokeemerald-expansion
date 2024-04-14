@@ -109,6 +109,8 @@ u8 *GetMapNameHandleAquaHideout(u8 *dest, u16 mapSecId);
 u16 CorrectSpecialMapSecId(u16 mapSecId);
 void ShowRegionMapForPokedexAreaScreen(struct RegionMap *regionMap);
 void PokedexAreaScreen_UpdateRegionMapVariablesAndVideoRegs(s16 x, s16 y);
+extern void CB2_OpenFlyMap_Mon(void);
+extern void CB2_OpenFlyMap_Item(void);
 void CB2_OpenFlyMap(void);
 bool8 IsRegionMapZoomed(void);
 void TrySetPlayerIconBlink(void);
