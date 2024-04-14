@@ -1310,7 +1310,10 @@ SootopolisCity_EventScript_GiveWaterfall::
 	msgbox SootopolisCity_Text_ThankYouForHelpAcceptThis, MSGBOX_DEFAULT
 	giveitem ITEM_HM_WATERFALL
 	setflag FLAG_RECEIVED_HM_WATERFALL
+	msgbox SootopolisCity_Text_BigBalloonToo, MSGBOX_DEFAULT
+	giveitem ITEM_BIG_BALLOON
 	msgbox SootopolisCity_Text_ExplainWaterfallGoToGym, MSGBOX_DEFAULT
+	msgbox SootopolisCity_Text_ExplainBigBalloon, MSGBOX_DEFAULT
 	closemessage
 	call_if_eq VAR_FACING, DIR_NORTH, SootopolisCity_EventScript_WallaceMoveFromGym
 	call_if_eq VAR_FACING, DIR_EAST, SootopolisCity_EventScript_WallaceMoveFromGym
@@ -1724,3 +1727,25 @@ SootopolisCity_Text_DazzledByMentor:
 	.string "WALLACE: I'm sure that you will be\n"
 	.string "dazzled by my mentor's breathtakingly\l"
 	.string "elegant battle style.$"
+
+SootopolisCity_Text_BigBalloonToo:
+	.string "Take this, too!\p"
+	.string "It may not look like much, but\n"
+	.string "it'll help you just as much as the\l"
+	.string "HM I just gave you!$"
+
+SootopolisCity_Text_ExplainBigBalloon:
+	.string "As you've probably figured out,\n"
+	.string "the BIG BALLOON does the exact\l"
+	.string "same thing as WATERFALL.\p"
+	.string "It also doesn't work without the\n"
+	.string "RAIN BADGE.\p"
+	.string "The BADGES you've been collecting\n"
+	.string "are not just symbols of strength, but\l"
+	.string "they're also sources of power that\l"
+	.string "enable these HM devices to go beyond\l"
+	.string "the ordinary power of common\l"
+	.string "household items.\p"
+	.string "I hope you will be able to prove\n"
+	.string "yourself as worthy of such power.$"
+

@@ -98,6 +98,7 @@ Route119_EventScript_DefeatedMay::
 	msgbox Route119_Text_MayPresentForYou, MSGBOX_DEFAULT
 	call Route119_EventScript_GiveFlyHM
 	msgbox Route119_Text_MayExplainFly, MSGBOX_DEFAULT
+	msgbox Route119_Text_MayExplainJetpack, MSGBOX_DEFAULT
 	goto Route119_EventScript_RivalExitScottArrive
 	end
 
@@ -128,12 +129,15 @@ Route119_EventScript_DefeatedBrendan::
 	msgbox Route119_Text_BrendanIllGiveYouThis, MSGBOX_DEFAULT
 	call Route119_EventScript_GiveFlyHM
 	msgbox Route119_Text_BrendanExplainFly, MSGBOX_DEFAULT
+	msgbox Route119_Text_BrendanExplainJetpack, MSGBOX_DEFAULT
 	goto Route119_EventScript_RivalExitScottArrive
 	end
 
 Route119_EventScript_GiveFlyHM::
 	giveitem ITEM_HM_FLY
 	setflag FLAG_RECEIVED_HM_FLY
+	msgbox Route119_Text_JetpackToo, MSGBOX_DEFAULT
+	giveitem ITEM_JETPACK
 	return
 
 Route119_EventScript_RivalExitScottArrive::
@@ -614,3 +618,31 @@ Route119_Text_TrainerTipsDecoration:
 	.string "Pick your favorite items and create\n"
 	.string "your very own SECRET BASE exactly the\l"
 	.string "way you want.$"
+
+Route119_Text_JetpackToo:
+	.string "Take this, too!\p"
+	.string "I got one of these from MR.STONE\n"
+	.string "of the DEVON CORPORATION, and\l"
+	.string "he wanted to make sure you got\l"
+	.string "one as well.$"
+
+Route119_Text_BrendanExplainJetpack:
+	.string "Oh, before I forget, the JETPACK\n"
+	.string "can be used in a similar way to\l"
+	.string "FLY.\p"
+	.string "But for some reason, you also need\n"
+	.string "the FORTREE GYM BADGE to use it,\l"
+	.string "as well..\p"
+	.string "Kind of annoying, right?\p"
+	.string "Anyways, I'll see you later!$"
+
+Route119_Text_MayExplainJetpack:
+	.string "Oh, before I go, you can use\n"
+	.string "the JETPACK for the same purpose\l"
+	.string "as FLY.\p"
+	.string "But you need the FORTREE GYM\n"
+	.string "BADGE to use it, too!\p"
+	.string "That's so strange.. Oh, well!\n"
+	.string "I guess that's one of the great\l"
+	.string "mysteries of our world!\p"
+	.string "Anyways, see ya!$"

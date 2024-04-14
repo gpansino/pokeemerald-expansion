@@ -23,7 +23,10 @@ PetalburgCity_WallysHouse_EventScript_GiveHMSurf::
 	msgbox PetalburgCity_WallysHouse_Text_PleaseExcuseUs, MSGBOX_DEFAULT
 	giveitem ITEM_HM_SURF
 	setflag FLAG_RECEIVED_HM_SURF
+	msgbox PetalburgCity_WallysHouse_Text_SurfboardToo, MSGBOX_DEFAULT
+	giveitem ITEM_SURFBOARD
 	msgbox PetalburgCity_WallysHouse_Text_SurfGoAllSortsOfPlaces, MSGBOX_DEFAULT
+	msgbox PetalburgCity_WallysHouse_Text_ExplainSurfboard, MSGBOX_DEFAULT
 	setvar VAR_PETALBURG_CITY_STATE, 5
 	releaseall
 	end
@@ -135,3 +138,18 @@ PetalburgCity_WallysHouse_Text_WallyLeftWithoutTelling:
 	.string "I'm sure that he'll come back safe\n"
 	.string "and sound one day!$"
 
+PetalburgCity_WallysHouse_Text_SurfboardToo:
+	.string "Oh, and take this as well!\p"
+	.string "Its a relic of my younger days,\n"
+	.string "and something quite useful for\l"
+	.string "your journey!\p"
+	.string "Go ahead, take it! I can't use\n"
+	.string "it at my age anyways.$"
+
+PetalburgCity_WallysHouse_Text_ExplainSurfboard:
+	.string "So feel free to teach your POKéMON\n"
+	.string "SURF or use the SURFBOARD to get\l"
+	.string "across bodies of water!\p"
+	.string "You can find new varieties of\n"
+	.string "POKéMON along the surface of the\l"
+	.string "water, too!$"

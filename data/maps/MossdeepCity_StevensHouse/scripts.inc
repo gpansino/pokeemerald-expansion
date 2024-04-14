@@ -43,7 +43,10 @@ MossdeepCity_StevensHouse_EventScript_StevenGivesDive::
 	giveitem ITEM_HM_DIVE
 	setflag FLAG_RECEIVED_HM_DIVE
 	setflag FLAG_OMIT_DIVE_FROM_STEVEN_LETTER
+	msgbox MossdeepCity_Stevens_House_Text_ScubaGearToo, MSGBOX_DEFAULT
+	giveitem ITEM_SCUBA_GEAR
 	msgbox MossdeepCity_StevensHouse_Text_ExplainDive, MSGBOX_DEFAULT
+	msgbox MossdeepCity_Stevens_House_Text_ExplainScubaGear, MSGBOX_DEFAULT
 	closemessage
 	delay 20
 	applymovement LOCALID_STEVEN, MossdeepCity_StevensHouse_Movement_StevenReturn
@@ -214,4 +217,21 @@ MossdeepCity_StevensHouse_Text_LetterFromSteven:
 MossdeepCity_StevensHouse_Text_CollectionOfRareRocks:
 	.string "It's a collection of rare rocks and\n"
 	.string "stones assembled by STEVEN.$"
+
+MossdeepCity_Stevens_House_Text_ScubaGearToo:
+	.string "And as an extra thanks, please\n"
+	.string "take this too!$"
+
+MossdeepCity_Stevens_House_Text_ExplainScubaGear:
+	.string "You can use the SCUBA GEAR instead\n"
+	.string "to DIVE to deep areas of the ocean.\p"
+	.string "I've also experienced less POKéMON\n"
+	.string "really deep in the ocean than on\l"
+	.string "the surface of the water.\p"
+	.string "Maybe most POKéMON aren't adept\n"
+	.string "at moving in waters at pressures\l"
+	.string "that deep..\p"
+	.string "Either way, if you get tired of\n"
+	.string "POKéMON on the surface, consider\l"
+	.string "traveling deep using DIVE.$"
 

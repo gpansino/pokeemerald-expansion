@@ -8,7 +8,10 @@ GraniteCave_1F_EventScript_Hiker::
 	msgbox GraniteCave_1F_Text_GetsDarkAheadHereYouGo, MSGBOX_DEFAULT
 	giveitem ITEM_HM_FLASH
 	setflag FLAG_RECEIVED_HM_FLASH
+	msgbox GraniteCave_1F_Text_FlashlightToo, MSGBOX_DEFAULT
+	giveitem ITEM_FLASHLIGHT
 	msgbox GraniteCave_1F_Text_ExplainFlash, MSGBOX_DEFAULT
+	msgbox GraniteCave_1F_Text_ExplainFlashlight, MSGBOX_DEFAULT
 	release
 	end
 
@@ -37,3 +40,17 @@ GraniteCave_1F_Text_ExplainFlash:
 	.string "But, to use it, you need the GYM BADGE\n"
 	.string "from DEWFORD's POKéMON GYM.$"
 
+GraniteCave_1F_Text_FlashlightToo:
+	.string "Here take this too!\p"
+	.string "With this, you won't need a specific\n"
+	.string "POKéMON to light up dark areas!$"
+
+GraniteCave_1F_Text_ExplainFlashlight:
+	.string "Alternatively, you can use the\n"
+	.string "FLASHLIGHT to see in dark areas.\p"
+	.string "Just use it from the KEY ITEMS\n"
+	.string "pocket or register it to use it\l"
+	.string "anytime!\p"
+	.string "I couldn't get it to work before\n"
+	.string "I defeated BRAWLY of DEWFORD GYM,\l"
+	.string "though. Not sure what that's about..$"

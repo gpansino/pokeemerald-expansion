@@ -64,7 +64,10 @@ RusturfTunnel_EventScript_ClearTunnelScene::
 	call_if_eq VAR_TEMP_1, 3, RusturfTunnel_EventScript_WandasBoyfriendApproachPlayer
 	giveitem ITEM_HM_STRENGTH
 	setflag FLAG_RECEIVED_HM_STRENGTH
+	msgbox RusturfTunnel_Text_ForcePalmsToo, MSGBOX_DEFAULT
+	giveitem ITEM_FORCE_PALMS
 	msgbox RusturfTunnel_Text_ExplainStrength, MSGBOX_DEFAULT
+	msgbox RusturfTunnel_Text_ExplainForcePalms, MSGBOX_DEFAULT
 	closemessage
 	call_if_eq VAR_TEMP_1, 1, RusturfTunnel_EventScript_BoyfriendApproachWanda1
 	call_if_eq VAR_TEMP_1, 2, RusturfTunnel_EventScript_BoyfriendApproachWanda2
@@ -530,3 +533,16 @@ RusturfTunnel_Text_MikePostBattle:
 	.string "protect POKéMON, right?\l"
 	.string "There's a feel-good story!$"
 
+RusturfTunnel_Text_ForcePalmsToo:
+	.string "Take these too! I encountered\n"
+	.string "a mysterious POKéMON that gave\l"
+	.string "me these.$"
+
+RusturfTunnel_Text_ExplainForcePalms:
+	.string "The FORCE PALMS, on the other\n"
+	.string "hand, should harness your inner\l"
+	.string "power to easily move boulders\l"
+	.string "around, as well.\p"
+	.string "That is to say, if you have great\n"
+	.string "internal strength.. Luckily, it\l"
+	.string "looks like you do!$"

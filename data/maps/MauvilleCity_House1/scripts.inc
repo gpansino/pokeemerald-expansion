@@ -8,8 +8,10 @@ MauvilleCity_House1_EventScript_RockSmashDude::
 	msgbox MauvilleCity_House1_Text_ImRockSmashDudeTakeThis, MSGBOX_DEFAULT
 	giveitem ITEM_HM_ROCK_SMASH
 	setflag FLAG_RECEIVED_HM_ROCK_SMASH
+	msgbox MauvilleCity_House1_Text_PickaxeToo, MSGBOX_DEFAULT
 	setflag FLAG_HIDE_ROUTE_111_ROCK_SMASH_TIP_GUY
 	msgbox MauvilleCity_House1_Text_ExplainRockSmash, MSGBOX_DEFAULT
+	msgbox MauvilleCity_House1_Text_ExplainPickaxe, MSGBOX_DEFAULT
 	release
 	end
 
@@ -44,3 +46,14 @@ MauvilleCity_House1_Text_MonCanFlyOutOfSmashedRock:
 	.string "could come flying out of hiding.\p"
 	.string "Woohoo!$"
 
+MauvilleCity_House1_Text_PickaxeToo:
+	.string "Oh, yeah, HOENN leadership is also\n"
+	.string "requiring I give you this too..\p"
+	.string "Woohoo...$"
+
+ MauvilleCity_House1_Text_ExplainPickaxe:
+	.string "You can also use the PICKAXE to\n"
+	.string "break these rocks..\p"
+	.string "But you should definitely teach your\n"
+	.string "POKéMON ROCK SMASH instead! It's the\l"
+	.string "radical way to break rocks! WOOHOO!!$"
