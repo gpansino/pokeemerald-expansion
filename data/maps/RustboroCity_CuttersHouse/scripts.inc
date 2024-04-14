@@ -45,15 +45,15 @@ RustboroCity_CuttersHouse_Text_ExplainCut:
 	.string "chop down thin trees if the TRAINER\l"
 	.string "has earned the STONE BADGE.\p"
 	.string "And, unlike a TM, an HM can be used\n"
-	.string "more than once.\p"
+	.string "more than once.$"
 
 RustboroCity_CuttersHouse_Text_ExplainClippers:
 	.string "The CLIPPERS can also be used to\n"
 	.string "cut down trees in your path if\l"
-	.string "you don't have a POKéMON\p"
+	.string "you don't have a POKéMON with CUT.\p"
 	.string "For some reason, they also only\n"
 	.string "work if you have the STONE BADGE..\p"
-	.string "Try using CUT or the CLIPPERS near\n
+	.string "Try using CUT or the CLIPPERS near\n"
 	.string "tall grass!$"
 
 RustboroCity_CuttersHouse_Text_DadHelpedClearLandOfTrees:

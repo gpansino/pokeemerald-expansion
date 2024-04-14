@@ -542,7 +542,7 @@ RusturfTunnel_Text_ExplainForcePalms:
 	.string "The FORCE PALMS, on the other\n"
 	.string "hand, should harness your inner\l"
 	.string "power to easily move boulders\l"
-	.string "around, as well.\p"
+	.string "around.\p"
 	.string "That is to say, if you have great\n"
 	.string "internal strength.. Luckily, it\l"
 	.string "looks like you do!$"

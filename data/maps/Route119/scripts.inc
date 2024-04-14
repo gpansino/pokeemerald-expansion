@@ -98,6 +98,7 @@ Route119_EventScript_DefeatedMay::
 	msgbox Route119_Text_MayPresentForYou, MSGBOX_DEFAULT
 	call Route119_EventScript_GiveFlyHM
 	msgbox Route119_Text_MayExplainFly, MSGBOX_DEFAULT
+	closemessage
 	msgbox Route119_Text_MayExplainJetpack, MSGBOX_DEFAULT
 	goto Route119_EventScript_RivalExitScottArrive
 	end
