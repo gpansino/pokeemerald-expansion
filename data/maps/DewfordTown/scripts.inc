@@ -639,6 +639,34 @@ DewfordTown_EventScript_PhraseNotTrendyEnough::
 	release
 	end
 
+DewfordTown_EventScript_ShopLady::
+	lock
+	faceplayer
+	msgbox DewfordTown_Text_NoSunscreen, MSGBOX_DEFAULT
+	closemessage
+	message gText_HowMayIServeYou
+	waitmessage
+	pokemart DewfordTown_Mart_Pokemart
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+DewfordTown_EventScript_ShopSign::
+	msgbox DewfordTown_Text_ShopSign, MSGBOX_SIGN
+	end
+
+	.align 2
+DewfordTown_Mart_Pokemart:
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_POTION
+	.2byte ITEM_ANTIDOTE
+	.2byte ITEM_PARALYZE_HEAL
+	.2byte ITEM_ESCAPE_ROPE
+	.2byte ITEM_REPEL
+	.2byte ITEM_NONE
+	release
+	end
+
 DewfordTown_Text_TinyIslandCommunity:
 	.string "DEWFORD is a tiny island community.\n"
 	.string "If something gets trendy here,\l"
@@ -801,3 +829,12 @@ DewfordTown_Text_YeahDefinitionOfInRightNow:
 	.string "Yeah, absolutely right!\p"
 	.string "“{STR_VAR_1}” is the\n"
 	.string "definition of “in” right now.$"
+
+DewfordTown_Text_ShopSign:
+	.string "Now Open! New and outdoor!\n"
+	.string "DEWFORD TOWN's general store!$"
+
+DewfordTown_Text_NoSunscreen:
+	.string "Can you believe they don't give\n"
+	.string "me sunscreen while I work here?\p"
+	.string "Oh! I mean..$"
