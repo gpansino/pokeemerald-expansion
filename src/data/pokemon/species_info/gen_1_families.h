@@ -2133,10 +2133,10 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
     [SPECIES_PICHU] =
     {
         .baseHP        = 20,
-        .baseAttack    = 40,
+        .baseAttack    = 50,
         .baseDefense   = 15,
-        .baseSpeed     = 60,
-        .baseSpAttack  = 35,
+        .baseSpeed     = 70,
+        .baseSpAttack  = 50,
         .baseSpDefense = 35,
         .types = MON_TYPES(TYPE_ELECTRIC),
         .catchRate = 190,
@@ -3851,10 +3851,10 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
 #if P_GEN_2_CROSS_EVOS
     [SPECIES_CLEFFA] =
     {
-        .baseHP        = 50,
+        .baseHP        = 55,
         .baseAttack    = 25,
-        .baseDefense   = 28,
-        .baseSpeed     = 15,
+        .baseDefense   = 30,
+        .baseSpeed     = 20,
         .baseSpAttack  = 45,
         .baseSpDefense = 55,
         .types = CLEFAIRY_FAMILY_TYPES,
@@ -4255,9 +4255,9 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
 #if P_GEN_2_CROSS_EVOS
     [SPECIES_IGGLYBUFF] =
     {
-        .baseHP        = 90,
-        .baseAttack    = 30,
-        .baseDefense   = 15,
+        .baseHP        = 95,
+        .baseAttack    = 40,
+        .baseDefense   = 20,
         .baseSpeed     = 15,
         .baseSpAttack  = 40,
         .baseSpDefense = 20,
@@ -10714,7 +10714,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         FOOTPRINT(Lickitung)
         .levelUpLearnset = sLickitungLevelUpLearnset,
         .teachableLearnset = sLickitungTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_MOVE, MOVE_ROLLOUT, SPECIES_LICKILICKY}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 33, SPECIES_LICKILICKY}),
     },
 
 #if P_GEN_4_CROSS_EVOS
@@ -11147,7 +11147,6 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .catchRate = 130,
         .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 110 : 255,
         .evYield_HP = 1,
-        .itemCommon = ITEM_OVAL_STONE,
         .genderRatio = MON_FEMALE,
         .eggCycles = 40,
         .friendship = 140,
@@ -11186,7 +11185,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         FOOTPRINT(Happiny)
         .levelUpLearnset = sHappinyLevelUpLearnset,
         .teachableLearnset = sHappinyTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_ITEM_HOLD_DAY, ITEM_OVAL_STONE, SPECIES_CHANSEY},
+        .evolutions = EVOLUTION({EVO_FRIENDSHIP, 0, SPECIES_CHANSEY},
                                 {EVO_ITEM_DAY, ITEM_OVAL_STONE, SPECIES_CHANSEY}),
     },
 #endif //P_GEN_4_CROSS_EVOS
@@ -11936,9 +11935,9 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .baseHP        = 20,
         .baseAttack    = 25,
         .baseDefense   = 45,
-        .baseSpeed     = 60,
-        .baseSpAttack  = 70,
-        .baseSpDefense = 90,
+        .baseSpeed     = 55,
+        .baseSpAttack  = 65,
+        .baseSpDefense = 80,
     #if P_UPDATED_TYPES >= GEN_6
         .types = MON_TYPES(TYPE_PSYCHIC, TYPE_FAIRY),
     #else
@@ -11954,7 +11953,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
         .abilities = { ABILITY_SOUNDPROOF, ABILITY_NONE, ABILITY_TECHNICIAN },
         .bodyColor = BODY_COLOR_PINK,
-        .speciesName = _("MIME JR."),
+        .speciesName = _("MIME JR"),
         .cryId = CRY_MIME_JR,
         .natDexNum = NATIONAL_DEX_MIME_JR,
         .categoryName = _("MIME"),
@@ -11985,7 +11984,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         FOOTPRINT(MimeJr)
         .levelUpLearnset = sMimeJrLevelUpLearnset,
         .teachableLearnset = sMimeJrTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_MOVE, MOVE_MIMIC, SPECIES_MR_MIME},
+        .evolutions = EVOLUTION({EVO_LEVEL, 30, SPECIES_MR_MIME},
                                 {EVO_NONE, 0, SPECIES_MR_MIME_GALARIAN}),
     },
 #endif //P_GEN_4_CROSS_EVOS
@@ -12384,11 +12383,11 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
 #if P_GEN_2_CROSS_EVOS
     [SPECIES_SMOOCHUM] =
     {
-        .baseHP        = 45,
+        .baseHP        = 40,
         .baseAttack    = 30,
         .baseDefense   = 15,
         .baseSpeed     = 65,
-        .baseSpAttack  = 85,
+        .baseSpAttack  = 75,
         .baseSpDefense = 65,
         .types = MON_TYPES(TYPE_ICE, TYPE_PSYCHIC),
         .catchRate = 45,
@@ -12494,12 +12493,12 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
 #if P_GEN_2_CROSS_EVOS
     [SPECIES_ELEKID] =
     {
-        .baseHP        = 45,
+        .baseHP        = 35,
         .baseAttack    = 63,
-        .baseDefense   = 37,
-        .baseSpeed     = 95,
+        .baseDefense   = 27,
+        .baseSpeed     = 65,
         .baseSpAttack  = 65,
-        .baseSpDefense = 55,
+        .baseSpDefense = 35,
         .types = MON_TYPES(TYPE_ELECTRIC),
         .catchRate = 45,
         .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 72 : 106,
@@ -12670,12 +12669,12 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
 #if P_GEN_2_CROSS_EVOS
     [SPECIES_MAGBY] =
     {
-        .baseHP        = 45,
-        .baseAttack    = 75,
-        .baseDefense   = 37,
-        .baseSpeed     = 83,
+        .baseHP        = 35,
+        .baseAttack    = 70,
+        .baseDefense   = 27,
+        .baseSpeed     = 53,
         .baseSpAttack  = 70,
-        .baseSpDefense = 55,
+        .baseSpDefense = 35,
         .types = MON_TYPES(TYPE_FIRE),
         .catchRate = 45,
         .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 73 : 117,
@@ -14650,12 +14649,12 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
 #if P_GEN_4_CROSS_EVOS
     [SPECIES_MUNCHLAX] =
     {
-        .baseHP        = 135,
-        .baseAttack    = 85,
-        .baseDefense   = 40,
+        .baseHP        = 85,
+        .baseAttack    = 65,
+        .baseDefense   = 30,
         .baseSpeed     = 5,
-        .baseSpAttack  = 40,
-        .baseSpDefense = 85,
+        .baseSpAttack  = 30,
+        .baseSpDefense = 75,
         .types = MON_TYPES(TYPE_NORMAL),
         .catchRate = 50,
         .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 78 : 94,
@@ -14700,7 +14699,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         FOOTPRINT(Munchlax)
         .levelUpLearnset = sMunchlaxLevelUpLearnset,
         .teachableLearnset = sMunchlaxTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_FRIENDSHIP, 0, SPECIES_SNORLAX}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 30, SPECIES_SNORLAX}),
     },
 #endif //P_GEN_4_CROSS_EVOS
 

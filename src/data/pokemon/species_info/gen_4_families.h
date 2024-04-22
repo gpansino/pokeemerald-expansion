@@ -3334,10 +3334,10 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
     [SPECIES_RIOLU] =
     {
         .baseHP        = 40,
-        .baseAttack    = 70,
+        .baseAttack    = 65,
         .baseDefense   = 40,
         .baseSpeed     = 60,
-        .baseSpAttack  = 35,
+        .baseSpAttack  = 45,
         .baseSpDefense = 40,
         .types = MON_TYPES(TYPE_FIGHTING),
         .catchRate = 75,
@@ -3381,7 +3381,7 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
         FOOTPRINT(Riolu)
         .levelUpLearnset = sRioluLevelUpLearnset,
         .teachableLearnset = sRioluTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_FRIENDSHIP_DAY, 0, SPECIES_LUCARIO}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 30, SPECIES_LUCARIO}),
     },
 
     [SPECIES_LUCARIO] =

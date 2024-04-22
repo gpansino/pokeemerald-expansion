@@ -1138,10 +1138,10 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
     {
         .baseHP        = 35,
         .baseAttack    = 20,
-        .baseDefense   = 65,
+        .baseDefense   = 55,
         .baseSpeed     = 20,
         .baseSpAttack  = 40,
-        .baseSpDefense = 65,
+        .baseSpDefense = 60,
         .types = MON_TYPES(TOGEPI_FAMILY_TYPE),
         .catchRate = 190,
         .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 49 : 74,
@@ -1651,11 +1651,11 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
     [SPECIES_AZURILL] =
     {
         .baseHP        = 50,
-        .baseAttack    = 20,
-        .baseDefense   = 40,
+        .baseAttack    = 25,
+        .baseDefense   = 50,
         .baseSpeed     = 20,
-        .baseSpAttack  = 20,
-        .baseSpDefense = 40,
+        .baseSpAttack  = 25,
+        .baseSpDefense = 50,
     #if P_UPDATED_TYPES >= GEN_6
         .types = MON_TYPES(TYPE_NORMAL, TYPE_FAIRY),
     #else
@@ -1833,8 +1833,8 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
     [SPECIES_BONSLY] =
     {
         .baseHP        = 50,
-        .baseAttack    = 80,
-        .baseDefense   = 95,
+        .baseAttack    = 70,
+        .baseDefense   = 85,
         .baseSpeed     = 10,
         .baseSpAttack  = 10,
         .baseSpDefense = 45,
@@ -1880,7 +1880,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         FOOTPRINT(Bonsly)
         .levelUpLearnset = sBonslyLevelUpLearnset,
         .teachableLearnset = sBonslyTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_MOVE, MOVE_MIMIC, SPECIES_SUDOWOODO}),
+        .evolutions = EVOLUTION({EVO_FRIENDSHIP, 0, SPECIES_SUDOWOODO}),
     },
 #endif //P_GEN_4_CROSS_EVOS
 
@@ -2167,7 +2167,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         FOOTPRINT(Aipom)
         .levelUpLearnset = sAipomLevelUpLearnset,
         .teachableLearnset = sAipomTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_MOVE, MOVE_DOUBLE_HIT, SPECIES_AMBIPOM}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 32, SPECIES_AMBIPOM}),
     },
 
 #if P_GEN_4_CROSS_EVOS
@@ -2389,7 +2389,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         FOOTPRINT(Yanma)
         .levelUpLearnset = sYanmaLevelUpLearnset,
         .teachableLearnset = sYanmaTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_MOVE, MOVE_ANCIENT_POWER, SPECIES_YANMEGA}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 33, SPECIES_YANMEGA}),
     },
 
 #if P_GEN_4_CROSS_EVOS
@@ -2989,12 +2989,12 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
 #if P_GEN_3_CROSS_EVOS
     [SPECIES_WYNAUT] =
     {
-        .baseHP        = 95,
+        .baseHP        = 85,
         .baseAttack    = 23,
-        .baseDefense   = 48,
+        .baseDefense   = 43,
         .baseSpeed     = 23,
         .baseSpAttack  = 23,
-        .baseSpDefense = 48,
+        .baseSpDefense = 43,
         .types = MON_TYPES(TYPE_PSYCHIC),
         .catchRate = 125,
         .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 52 : 44,
@@ -3552,8 +3552,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         FOOTPRINT(Gligar)
         .levelUpLearnset = sGligarLevelUpLearnset,
         .teachableLearnset = sGligarTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_ITEM_HOLD_NIGHT, ITEM_RAZOR_FANG, SPECIES_GLISCOR},
-                                {EVO_ITEM_NIGHT, ITEM_RAZOR_FANG, SPECIES_GLISCOR}),
+        .evolutions = EVOLUTION({EVO_ITEM, ITEM_DUSK_STONE, SPECIES_GLISCOR}),
     },
 
 #if P_GEN_4_CROSS_EVOS
@@ -4136,8 +4135,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .levelUpLearnset = sSneaselLevelUpLearnset,
         .teachableLearnset = sSneaselTeachableLearnset,
         .formSpeciesIdTable = sSneaselFormSpeciesIdTable,
-        .evolutions = EVOLUTION({EVO_ITEM_HOLD_NIGHT, ITEM_RAZOR_CLAW, SPECIES_WEAVILE},
-                                {EVO_ITEM_NIGHT, ITEM_RAZOR_CLAW, SPECIES_WEAVILE}),
+        .evolutions = EVOLUTION({EVO_ITEM, ITEM_DUSK_STONE, SPECIES_WEAVILE}),
     },
 
 #if P_GEN_4_CROSS_EVOS
@@ -4761,7 +4759,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         FOOTPRINT(Piloswine)
         .levelUpLearnset = sPiloswineLevelUpLearnset,
         .teachableLearnset = sPiloswineTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_MOVE, MOVE_ANCIENT_POWER, SPECIES_MAMOSWINE}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 41, SPECIES_MAMOSWINE}),
     },
 
 #if P_GEN_4_CROSS_EVOS
@@ -5174,10 +5172,10 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
     {
         .baseHP        = 45,
         .baseAttack    = 20,
-        .baseDefense   = 50,
-        .baseSpeed     = 50,
-        .baseSpAttack  = 60,
-        .baseSpDefense = 120,
+        .baseDefense   = 30,
+        .baseSpeed     = 35,
+        .baseSpAttack  = 50,
+        .baseSpDefense = 90,
         .types = MON_TYPES(TYPE_WATER, TYPE_FLYING),
         .catchRate = 25,
         .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 69 : 108,
@@ -5220,7 +5218,8 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         FOOTPRINT(Mantyke)
         .levelUpLearnset = sMantykeLevelUpLearnset,
         .teachableLearnset = sMantykeTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_SPECIFIC_MON_IN_PARTY, SPECIES_REMORAID, SPECIES_MANTINE}),
+        .evolutions = EVOLUTION({EVO_SPECIFIC_MON_IN_PARTY, SPECIES_REMORAID, SPECIES_MANTINE},
+                                {EVO_FRIENDSHIP, 0, SPECIES_MANTINE}),
     },
 #endif //P_GEN_4_CROSS_EVOS
 
