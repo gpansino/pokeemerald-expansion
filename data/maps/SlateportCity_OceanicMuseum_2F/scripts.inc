@@ -337,8 +337,8 @@ SlateportCity_OceanicMuseum_2F_Text_ArchieWarning:
 	.string "the sea. It is what gives us life!\p"
 	.string "So, TEAM AQUA is dedicated to\n"
 	.string "the expansion of the sea.\p"
-	.string "More water means more beatiful POKéMON\n"
-	.string "swimming in and enjoying that lifeblood.\p"
+	.string "More water means more beautiful POKéMON\n"
+	.string "swimming in and enjoying that life.\p"
 	.string "Don'tcha agree? What we're doing\n"
 	.string "is a magnificent undertaking.\p"
 	.string "...\p"
@@ -349,7 +349,7 @@ SlateportCity_OceanicMuseum_2F_Text_ArchieWarning:
 	.string "interfering with our plans again.\p"
 	.string "The consequences will cost ya\n"
 	.string "dearly!\p"
-	.string "And don't ya forget it!$"
+	.string "And don't you forget it!$"
 
 SlateportCity_OceanicMuseum_2F_Text_SternThankYouForSavingUs:
 	.string "CAPT. STERN: You're…\n"

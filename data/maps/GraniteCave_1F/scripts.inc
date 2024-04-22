@@ -46,7 +46,7 @@ GraniteCave_1F_Text_FlashlightToo:
 	.string "POKéMON to light up dark areas!$"
 
 GraniteCave_1F_Text_ExplainFlashlight:
-	.string "Alternatively, you can use the\n"
+	.string "OR.. you can use the\n"
 	.string "FLASHLIGHT to see in dark areas.\p"
 	.string "Just use it from the KEY ITEMS\n"
 	.string "pocket or register it to use it\l"
