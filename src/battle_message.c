@@ -2912,12 +2912,17 @@ void BufferStringBattle(u16 stringID, u32 battler)
         }
         break;
     case STRINGID_USEDMOVE: // Pokémon used a move msg
+        const u8 space[] = _(" ");
         if (gBattleMsgDataPtr->currentMove >= MOVES_COUNT
          && !IsZMove(gBattleMsgDataPtr->currentMove)
          && !IsMaxMove(gBattleMsgDataPtr->currentMove))
             StringCopy(gBattleTextBuff3, gTypesInfo[*(&gBattleStruct->stringMoveType)].generic);
         else
             StringCopy(gBattleTextBuff3, GetMoveName(gBattleMsgDataPtr->currentMove));
+            if(gBattleMsgDataPtr->currentMove == 237){//checks if move is = hidden power and appends type (eg. "hidden power grass")
+                StringAppend(gBattleTextBuff3, space);
+                StringAppend(gBattleTextBuff3, gTypesInfo[*(&gBattleStruct->stringMoveType)].name);
+            }
         stringPtr = sText_AttackerUsedX;
         break;
     case STRINGID_BATTLEEND: // battle end

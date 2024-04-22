@@ -1096,6 +1096,7 @@ void BtlController_EmitPrintString(u32 battler, u32 bufferId, u16 stringID)
 {
     s32 i;
     struct BattleMsgData *stringInfo;
+    u8 typeBits;
 
     gBattleResources->transferBuffer[0] = CONTROLLER_PRINTSTRING;
     gBattleResources->transferBuffer[1] = gBattleOutcome;
@@ -1111,7 +1112,23 @@ void BtlController_EmitPrintString(u32 battler, u32 bufferId, u16 stringID)
     stringInfo->bakScriptPartyIdx = gBattleStruct->scriptPartyIdx;
     stringInfo->hpScale = gBattleStruct->hpScale;
     stringInfo->itemEffectBattler = gPotentialItemEffectBattler;
-    stringInfo->moveType = gMovesInfo[gCurrentMove].type;
+    if(gCurrentMove != 237)
+        stringInfo->moveType = gMovesInfo[gCurrentMove].type;
+    else {// automatically determines hidden power
+        typeBits  = ((gBattleMons[battler].hpIV & 1) << 0)
+                     | ((gBattleMons[battler].attackIV & 1) << 1)
+                     | ((gBattleMons[battler].defenseIV & 1) << 2)
+                     | ((gBattleMons[battler].speedIV & 1) << 3)
+                     | ((gBattleMons[battler].spAttackIV & 1) << 4)
+                     | ((gBattleMons[battler].spDefenseIV & 1) << 5);
+
+        // Subtract 4 instead of 1 below because 3 types are excluded (TYPE_NORMAL and TYPE_MYSTERY and TYPE_FAIRY)
+        // The final + 1 skips past Normal, and the following conditional skips TYPE_MYSTERY
+        stringInfo->moveType = ((NUMBER_OF_MON_TYPES - 4) * typeBits) / 63 + 1;
+        if (stringInfo->moveType >= TYPE_MYSTERY)
+            stringInfo->moveType++;
+
+    }
 
     for (i = 0; i < MAX_BATTLERS_COUNT; i++)
         stringInfo->abilities[i] = gBattleMons[i].ability;
