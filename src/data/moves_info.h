@@ -3471,7 +3471,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
             "An attack that steals half\n"
             "the damage inflicted."),
         .effect = EFFECT_ABSORB,
-        .power = B_UPDATED_MOVE_DATA >= GEN_7 ? 80 : 20,
+        .power = B_UPDATED_MOVE_DATA >= GEN_7 ? 80 : 40,//buffed 20->40
         .type = TYPE_BUG,
         .accuracy = 100,
         .pp = B_UPDATED_MOVE_DATA >= GEN_7 ? 10 : 15,
@@ -5773,7 +5773,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .description = COMPOUND_STRING(
             "The effectiveness varies\n"
             "with the user."),
-        .power = B_HIDDEN_POWER_DMG >= GEN_6 ? 60 : 1,
+        .power = B_HIDDEN_POWER_DMG >= GEN_6 ? 70 : 1,
         .effect = EFFECT_HIDDEN_POWER,
         .type = TYPE_NORMAL,
         .accuracy = 100,
@@ -14507,7 +14507,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
 
     [MOVE_BABY_DOLL_EYES] =
     {
-        .name = HANDLE_EXPANDED_MOVE_NAME("BabyDollEyes", "Baby-Doll Eyes"),
+        .name = HANDLE_EXPANDED_MOVE_NAME("BABYDOLLEYES", "Baby-Doll Eyes"),
         .description = COMPOUND_STRING(
             "Lowers the foe's Attack\n"
             "before it can move."),
