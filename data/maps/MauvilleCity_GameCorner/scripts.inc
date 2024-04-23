@@ -12,8 +12,8 @@ MauvilleCity_GameCorner_MapScripts::
 	.set COINS_PRICE_50,  1000
 	.set COINS_PRICE_500, 10000
 
-	.set EEVEE_COINS, 5000
-	.set PORYGON_COINS, 10000 
+	.set EEVEE_COINS, 1000
+	.set PORYGON_COINS, 5000
 
 MauvilleCity_GameCorner_EventScript_CoinsClerk::
 	lock
@@ -452,6 +452,7 @@ MauvilleCity_GameCorner_EventScript_ReceiveEeveeParty::
 	removecoins EEVEE_COINS
 	call MauvilleCity_GameCorner_EventScript_ReceivedFanfare
 	updatecoinsbox 1, 1
+	bufferspeciesname STR_VAR_1, SPECIES_EEVEE
 	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
 	playse SE_SHOP
 	goto_if_eq VAR_RESULT, NO, MauvilleCity_GameCorner_EventScript_TakeCare
@@ -464,6 +465,7 @@ MauvilleCity_GameCorner_EventScript_ReceivePorygonParty::
 	removecoins PORYGON_COINS
 	call MauvilleCity_GameCorner_EventScript_ReceivedFanfare
 	updatecoinsbox 1, 1
+	bufferspeciesname STR_VAR_1, SPECIES_PORYGON
 	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
 	playse SE_SHOP
 	goto_if_eq VAR_RESULT, NO, MauvilleCity_GameCorner_EventScript_TakeCare
@@ -476,6 +478,7 @@ MauvilleCity_GameCorner_EventScript_ReceiveEeveePC::
 	removecoins EEVEE_COINS
 	call MauvilleCity_GameCorner_EventScript_ReceivedFanfare
 	updatecoinsbox 1, 1
+	bufferspeciesname STR_VAR_1, SPECIES_EEVEE
 	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, MauvilleCity_GameCorner_EventScript_SendToPC
 	call Common_EventScript_NameReceivedBoxMon
@@ -486,6 +489,7 @@ MauvilleCity_GameCorner_EventScript_ReceivePorygonPC::
 	removecoins PORYGON_COINS
 	call MauvilleCity_GameCorner_EventScript_ReceivedFanfare
 	updatecoinsbox 1, 1
+	bufferspeciesname STR_VAR_1, SPECIES_PORYGON
 	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, MauvilleCity_GameCorner_EventScript_SendToPC
 	call Common_EventScript_NameReceivedBoxMon
@@ -811,7 +815,7 @@ MauvilleCity_GameCorner_Text_SoYourChoiceIsTheTMX:
 
 MauvilleCity_GameCorner_Text_SoYourChoiceIsThePokemonX:
 	.string "So your choice is\n"
-	.string "the {STR_VAR_1} {STR_VAR_2}?$"
+	.string "{STR_VAR_1}?$"
 
 MauvilleCity_GameCorner_Text_SendToYourHomePC:
 	.string "Thank you!\n"
