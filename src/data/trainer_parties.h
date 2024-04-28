@@ -5056,6 +5056,7 @@ static const struct TrainerMon sParty_Jacob[] = {
     .heldItem = ITEM_SITRUS_BERRY,
     .moves = {MOVE_SLUDGE, MOVE_POISON_GAS, MOVE_PROTECT, MOVE_PAIN_SPLIT}
     },
+};
 
 static const struct TrainerMon sParty_Anthony[] = {
     {
