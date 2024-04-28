@@ -2275,7 +2275,11 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer 
                 SetMonData(&party[i], MON_DATA_SPDEF_EV, &(partyData[i].ev[4]));
                 SetMonData(&party[i], MON_DATA_SPEED_EV, &(partyData[i].ev[5]));
             }
-            if (partyData[i].ability != ABILITY_NONE)
+            if(partyData[i].ability == ABILITY_SLOT_1 || partyData[i].ability == ABILITY_SLOT_2 || partyData[i].ability == ABILITY_HIDDEN)
+            {
+                ability = partyData[i].ability;
+            }
+            else if (partyData[i].ability != ABILITY_NONE)
             {
                 const struct SpeciesInfo *speciesInfo = &gSpeciesInfo[partyData[i].species];
                 u32 maxAbilities = ARRAY_COUNT(speciesInfo->abilities);
