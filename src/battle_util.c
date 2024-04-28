@@ -61,6 +61,7 @@ static u32 GetFlingPowerFromItemId(u32 itemId);
 static void SetRandomMultiHitCounter();
 static u32 GetBattlerItemHoldEffectParam(u32 battler, u32 item);
 static bool32 CanBeInfinitelyConfused(u32 battler);
+u32 FindBattlePickupItem(struct BattlePokemon mon);
 
 extern const u8 *const gBattlescriptsForRunningByItem[];
 extern const u8 *const gBattlescriptsForUsingItem[];
@@ -4758,6 +4759,16 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
             gBattlerAttacker = battler;
             switch (gLastUsedAbility)
             {
+            case ABILITY_PICKUP:
+                if(gBattleMons[battler].item == ITEM_NONE 
+                 && gBattleStruct->changedItems[battler] == ITEM_NONE
+                 && Random() % 5 == 0){
+                    gLastUsedItem = FindBattlePickupItem(gBattleMons[battler]);
+                    gBattleStruct->usedHeldItems[gBattlerPartyIndexes[battler]][GetBattlerSide(battler)] = gLastUsedItem;
+                    BattleScriptPushCursorAndCallback(BattleScript_PickupActivates);
+                    effect++;
+                }
+                break;
             case ABILITY_HARVEST:
                 if ((IsBattlerWeatherAffected(battler, B_WEATHER_SUN) || Random() % 2 == 0)
                  && gBattleMons[battler].item == ITEM_NONE
@@ -6188,6 +6199,8 @@ u32 IsAbilityPreventingEscape(u32 battler)
     u32 id;
     if (B_GHOSTS_ESCAPE >= GEN_6 && IS_BATTLER_OF_TYPE(battler, TYPE_GHOST))
         return 0;
+    if  (GetBattlerAbility(battler) == ABILITY_RUN_AWAY)
+        return 0;
     if ((id = IsAbilityOnOpposingSide(battler, ABILITY_SHADOW_TAG))
         && (B_SHADOW_TAG_ESCAPE >= GEN_4 && GetBattlerAbility(battler) != ABILITY_SHADOW_TAG))
         return id;
@@ -6202,6 +6215,8 @@ u32 IsAbilityPreventingEscape(u32 battler)
 bool32 CanBattlerEscape(u32 battler) // no ability check
 {
     if (GetBattlerHoldEffect(battler, TRUE) == HOLD_EFFECT_SHED_SHELL)
+        return TRUE;
+    else if (GetBattlerAbility(battler) == ABILITY_RUN_AWAY)
         return TRUE;
     else if (B_GHOSTS_ESCAPE >= GEN_6 && IS_BATTLER_OF_TYPE(battler, TYPE_GHOST))
         return TRUE;
@@ -11232,4 +11247,128 @@ void RemoveBattlerType(u32 battler, u8 type)
         if (*(u8 *)(&gBattleMons[battler].type1 + i) == type)
             *(u8 *)(&gBattleMons[battler].type1 + i) = TYPE_MYSTERY;
     }
+}
+
+u32 FindBattlePickupItem(struct BattlePokemon mon){
+    u32 item = ITEM_NONE;
+    switch (mon.level)
+    {
+        case 0 ... 25:
+            switch(Random() % 100)
+            {
+                case 0 ... 39:
+                    item = ITEM_ORAN_BERRY;
+                    break;
+                case 40 ... 49:
+                    item = ITEM_PECHA_BERRY;
+                    break;
+                case 50 ... 59:
+                    item = ITEM_CHERI_BERRY;
+                    break;
+                case 60 ... 69:
+                    item = ITEM_CHESTO_BERRY;
+                    break;
+                case 70 ... 79:
+                    item = ITEM_RAWST_BERRY;
+                    break;
+                case 80 ... 89:
+                    item = ITEM_ASPEAR_BERRY;
+                    break;
+                case 90 ... 97:
+                    item = ITEM_LEPPA_BERRY;
+                    break;
+                case 98 ... 99:
+                    item = ITEM_WHITE_HERB;
+                    break;
+            }
+            break;
+        case 26 ... 50:
+            switch(Random() % 100)
+            {
+                case 0 ... 39:
+                    item = ITEM_LUM_BERRY;
+                    break;
+                case 40 ... 49:
+                    item = ITEM_AGUAV_BERRY;
+                    break;
+                case 50 ... 59:
+                    item = ITEM_IAPAPA_BERRY;
+                    break;
+                case 60 ... 69:
+                    item = ITEM_MAGO_BERRY;
+                    break;
+                case 70 ... 79:
+                    item = ITEM_WIKI_BERRY;
+                    break;
+                case 80 ... 89:
+                    item = ITEM_FIGY_BERRY;
+                    break;
+                case 90 ... 97:
+                    item = ITEM_MENTAL_HERB;
+                    break;
+                case 98 ... 99:
+                    item = ITEM_FOCUS_BAND;
+                    break;
+            }
+            break;
+        case 51 ... 75:
+            switch(Random() % 100)
+            {
+                case 0 ... 39:
+                    item = ITEM_LEPPA_BERRY;
+                    break;
+                case 40 ... 49:
+                    item = ITEM_GANLON_BERRY;
+                    break;
+                case 50 ... 59:
+                    item = ITEM_PETAYA_BERRY;
+                    break;
+                case 60 ... 69:
+                    item = ITEM_LIECHI_BERRY;
+                    break;
+                case 70 ... 79:
+                    item = ITEM_APICOT_BERRY;
+                    break;
+                case 80 ... 89:
+                    item = ITEM_LANSAT_BERRY;
+                    break;
+                case 90 ... 97:
+                    item = ITEM_BRIGHT_POWDER;
+                    break;
+                case 98 ... 99:
+                    item = ITEM_CHOICE_SCARF;
+                    break;
+            }
+            break;
+        case 76 ... 100:
+            switch(Random() % 100)
+            {
+                case 0 ... 39:
+                    item = ITEM_SITRUS_BERRY;
+                    break;
+                case 40 ... 49:
+                    item = ITEM_GANLON_BERRY;
+                    break;
+                case 50 ... 59:
+                    item = ITEM_PETAYA_BERRY;
+                    break;
+                case 60 ... 69:
+                    item = ITEM_LIECHI_BERRY;
+                    break;
+                case 70 ... 79:
+                    item = ITEM_APICOT_BERRY;
+                    break;
+                case 80 ... 89:
+                    item = ITEM_SALAC_BERRY;
+                    break;
+                case 90 ... 97:
+                    item = ITEM_STARF_BERRY;
+                    break;
+                case 98 ... 99:
+                    item = ITEM_LEFTOVERS;
+                    break;
+            }
+            break;
+    }
+    return item;
 }

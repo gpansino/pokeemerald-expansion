@@ -4142,6 +4142,7 @@ BattleScript_EffectMeanLook::
 	accuracycheck BattleScript_ButItFailed, NO_ACC_CALC_CHECK_LOCK_ON
 	jumpifstatus2 BS_TARGET, STATUS2_ESCAPE_PREVENTION, BattleScript_ButItFailed
 	jumpifsubstituteblocks BattleScript_ButItFailed
+	jumpifability BS_TARGET, ABILITY_RUN_AWAY, BattleScript_ButItFailed
 .if B_GHOSTS_ESCAPE >= GEN_6
 	jumpiftype BS_TARGET, TYPE_GHOST, BattleScript_ButItFailed
 .endif
@@ -7685,6 +7686,16 @@ BattleScript_HarvestActivates::
 	printstring STRINGID_HARVESTBERRY
 	waitmessage B_WAIT_TIME_MED
 BattleScript_HarvestActivatesEnd:
+	end3
+
+BattleScript_PickupActivates::
+	pause 5
+	tryrecycleitem BattleScript_PickupActivatesEnds
+	call BattleScript_AbilityPopUp
+	copyarray gBattleTextBuff1, sMULTIHIT_STRING, 6
+	printstring STRINGID_PICKEDITEMUP
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_PickupActivatesEnds::
 	end3
 
 BattleScript_SolarPowerActivates::

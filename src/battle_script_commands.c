@@ -1626,6 +1626,8 @@ u32 GetTotalAccuracy(u32 battlerAtk, u32 battlerDef, u32 move, u32 atkAbility, u
     u32 defParam = GetBattlerHoldEffectParam(battlerDef);
     u32 atkAlly = BATTLE_PARTNER(battlerAtk);
     u32 atkAllyAbility = GetBattlerAbility(atkAlly);
+    u32 defAlly = BATTLE_PARTNER(battlerDef);
+    u32 defAllyAbility = GetBattlerAbility(defAlly);
 
     gPotentialItemEffectBattler = battlerDef;
     accStage = gBattleMons[battlerAtk].statStages[STAT_ACC];
@@ -1665,6 +1667,9 @@ u32 GetTotalAccuracy(u32 battlerAtk, u32 battlerDef, u32 move, u32 atkAbility, u
     case ABILITY_COMPOUND_EYES:
         calc = (calc * 130) / 100; // 1.3 compound eyes boost
         break;
+    case ABILITY_ILLUMINATE:
+        calc = (calc *110) / 100;
+        break;
     case ABILITY_VICTORY_STAR:
         calc = (calc * 110) / 100; // 1.1 victory star boost
         break;
@@ -1677,6 +1682,9 @@ u32 GetTotalAccuracy(u32 battlerAtk, u32 battlerDef, u32 move, u32 atkAbility, u
     // Target's ability
     switch (defAbility)
     {
+    case ABILITY_ILLUMINATE:
+        calc = (calc * 110)/100;
+        break;
     case ABILITY_SAND_VEIL:
         if (WEATHER_HAS_EFFECT && gBattleWeather & B_WEATHER_SANDSTORM)
             calc = (calc * 80) / 100; // 1.2 sand veil loss
@@ -1691,9 +1699,21 @@ u32 GetTotalAccuracy(u32 battlerAtk, u32 battlerDef, u32 move, u32 atkAbility, u
         break;
     }
 
+    // Target's ally's ability
+    switch(defAllyAbility)
+    {
+        case ABILITY_ILLUMINATE:
+            calc = (calc * 110)/100;
+        break;
+    }
+
     // Attacker's ally's ability
     switch (atkAllyAbility)
     {
+    case ABILITY_ILLUMINATE:
+        if(IsBattlerAlive(atkAlly))
+            calc = (calc * 110)/100;
+        break;
     case ABILITY_VICTORY_STAR:
         if (IsBattlerAlive(atkAlly))
             calc = (calc * 110) / 100; // 1.1 ally's victory star boost
