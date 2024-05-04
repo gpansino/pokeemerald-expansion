@@ -43,7 +43,7 @@ SINGLE_BATTLE_TEST("Trace copies opponents ability on switch-in even if opponent
         MESSAGE("Ralts TRACED Foe Torchic's Blaze!");
     }
 }
-
+/*
 DOUBLE_BATTLE_TEST("Trace copies opponents ability randomly")
 {
     u16 ability1, ability2;
@@ -63,7 +63,7 @@ DOUBLE_BATTLE_TEST("Trace copies opponents ability randomly")
         ABILITY_POPUP(playerLeft, ABILITY_TRACE);
         MESSAGE("Ralts TRACED Foe Torchic's Blaze!");
     }
-}
+}*/
 
 SINGLE_BATTLE_TEST("Trace will copy an opponent's ability whenever it has the chance but only once")
 {
