@@ -523,7 +523,7 @@ $(MID_SUBDIR)/mus_rg_game_freak.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G181 -V075
 
 $(MID_SUBDIR)/mus_rg_teachy_tv_menu.s: %.s: %.mid
-	$(MID) $< $@ -E -R$(STD_REVERB) -G186 -V059
+	$(MID) $< $@ -E -R$(STD_REVERB) -G157 -V059
 
 $(MID_SUBDIR)/mus_rg_union_room.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G132 -V090
@@ -1262,3 +1262,6 @@ $(MID_SUBDIR)/se_m_leer.s: %.s: %.mid
 
 $(MID_SUBDIR)/se_dex_search.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G127 -v100 -P5
+
+$(MID_SUBDIR)/thissideofparadise.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G191 -v100 -P5
