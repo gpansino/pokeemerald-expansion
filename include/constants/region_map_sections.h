@@ -89,12 +89,12 @@
 #define MAPSEC_SKY_PILLAR                   0x55
 #define MAPSEC_SECRET_BASE                  0x56
 #define MAPSEC_DYNAMIC                      0x57
-#define MAPSEC_PALLET_TOWN                  0x58
-#define MAPSEC_VIRIDIAN_CITY                0x59
-#define MAPSEC_PEWTER_CITY                  0x5A
-#define MAPSEC_CERULEAN_CITY                0x5B
+#define MAPSEC_WISHING_ROAD                 0x58
+#define MAPSEC_STAR_CAVE                    0x59
+#define MAPSEC_MILLENIUM_FESTIVAL           0x5A
+#define MAPSEC_FORINA                       0x5B
 #define MAPSEC_LAVENDER_TOWN                0x5C
-#define MAPSEC_VERMILION_CITY               0x5D
+#define MAPSEC_LAROUSSE_CITY               0x5D
 #define MAPSEC_CELADON_CITY                 0x5E
 #define MAPSEC_FUCHSIA_CITY                 0x5F
 #define MAPSEC_CINNABAR_ISLAND              0x60
@@ -220,7 +220,7 @@
 #define METLOC_IN_GAME_TRADE                0xFE
 #define METLOC_FATEFUL_ENCOUNTER            0xFF
 
-#define KANTO_MAPSEC_START  MAPSEC_PALLET_TOWN
+#define KANTO_MAPSEC_START  MAPSEC_LAVENDER_TOWN
 #define KANTO_MAPSEC_END    MAPSEC_SPECIAL_AREA
 #define KANTO_MAPSEC_COUNT (KANTO_MAPSEC_END - KANTO_MAPSEC_START + 1)
 

@@ -1071,3 +1071,27 @@ EventScript_VsSeekerChargingDone::
 	.include "data/text/frontier_brain.inc"
 	.include "data/text/save.inc"
 	.include "data/text/birch_speech.inc"
+
+	.include "data/maps/WishingRoad/scripts.inc"
+
+	.include "data/maps/LaRousseCity/scripts.inc"
+
+	.include "data/maps/WishingRoad_2/scripts.inc"
+
+	.include "data/maps/MilleniumFestival/scripts.inc"
+
+	.include "data/maps/StarCave1FA/scripts.inc"
+
+	.include "data/maps/StarCave1FB/scripts.inc"
+
+	.include "data/maps/StarCave1FC/scripts.inc"
+
+	.include "data/maps/StarCaveLake/scripts.inc"
+
+	.include "data/maps/StarCave2FA/scripts.inc"
+
+	.include "data/maps/StarCave2FB/scripts.inc"
+
+	.include "data/maps/StarCave2FC/scripts.inc"
+
+	.include "data/maps/StarCaveDeadEnd/scripts.inc"

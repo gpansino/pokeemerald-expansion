@@ -786,5 +786,6 @@
 #define METATILE_RSMossdeepGym_RedArrow_Up     0x20D
 #define METATILE_RSMossdeepGym_Switch_Down     0x239
 #define METATILE_RSMossdeepGym_Switch_Up       0x238
+#define METATILE_WishingRoad                   0x200
 
 #endif // GUARD_METATILE_LABELS_H

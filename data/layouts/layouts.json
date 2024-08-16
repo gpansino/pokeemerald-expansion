@@ -4410,6 +4410,126 @@
       "secondary_tileset": "gTileset_MysteryEventsHouse",
       "border_filepath": "data/layouts/SootopolisCity_MysteryEventsHouse_1F_StairsUnblocked/border.bin",
       "blockdata_filepath": "data/layouts/SootopolisCity_MysteryEventsHouse_1F_StairsUnblocked/map.bin"
+    },
+    {
+      "id": "LAYOUT_WISHING_ROAD",
+      "name": "WishingRoad_Layout",
+      "width": 30,
+      "height": 110,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_WishingRoad",
+      "border_filepath": "data/layouts/WishingRoad/border.bin",
+      "blockdata_filepath": "data/layouts/WishingRoad/map.bin"
+    },
+    {
+      "id": "LAYOUT_LA_ROUSSE_CITY",
+      "name": "LaRousseCity_Layout",
+      "width": 50,
+      "height": 50,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_BattleFrontier",
+      "border_filepath": "data/layouts/LaRousseCity/border.bin",
+      "blockdata_filepath": "data/layouts/LaRousseCity/map.bin"
+    },
+    {
+      "id": "LAYOUT_WISHING_ROAD_2",
+      "name": "WishingRoad_2_Layout",
+      "width": 30,
+      "height": 80,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_WishingRoad",
+      "border_filepath": "data/layouts/WishingRoad_2/border.bin",
+      "blockdata_filepath": "data/layouts/WishingRoad_2/map.bin"
+    },
+    {
+      "id": "LAYOUT_MILLENIUM_FESTIVAL",
+      "name": "MilleniumFestival_Layout",
+      "width": 40,
+      "height": 50,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_WishingRoad",
+      "border_filepath": "data/layouts/MilleniumFestival/border.bin",
+      "blockdata_filepath": "data/layouts/MilleniumFestival/map.bin"
+    },
+    {
+      "id": "LAYOUT_STAR_CAVE1FA",
+      "name": "StarCave1FA_Layout",
+      "width": 60,
+      "height": 80,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_StarCave",
+      "border_filepath": "data/layouts/StarCave1FA/border.bin",
+      "blockdata_filepath": "data/layouts/StarCave1FA/map.bin"
+    },
+    {
+      "id": "LAYOUT_STAR_CAVE1FB",
+      "name": "StarCave1FB_Layout",
+      "width": 60,
+      "height": 80,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_StarCave",
+      "border_filepath": "data/layouts/StarCave1FB/border.bin",
+      "blockdata_filepath": "data/layouts/StarCave1FB/map.bin"
+    },
+    {
+      "id": "LAYOUT_STAR_CAVE1FC",
+      "name": "StarCave1FC_Layout",
+      "width": 60,
+      "height": 80,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_StarCave",
+      "border_filepath": "data/layouts/StarCave1FC/border.bin",
+      "blockdata_filepath": "data/layouts/StarCave1FC/map.bin"
+    },
+    {
+      "id": "LAYOUT_STAR_CAVE_LAKE",
+      "name": "StarCaveLake_Layout",
+      "width": 40,
+      "height": 60,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_StarCave",
+      "border_filepath": "data/layouts/StarCaveLake/border.bin",
+      "blockdata_filepath": "data/layouts/StarCaveLake/map.bin"
+    },
+    {
+      "id": "LAYOUT_STAR_CAVE2FA",
+      "name": "StarCave2FA_Layout",
+      "width": 30,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_StarCave",
+      "border_filepath": "data/layouts/StarCave2FA/border.bin",
+      "blockdata_filepath": "data/layouts/StarCave2FA/map.bin"
+    },
+    {
+      "id": "LAYOUT_STAR_CAVE2FB",
+      "name": "StarCave2FB_Layout",
+      "width": 30,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_StarCave",
+      "border_filepath": "data/layouts/StarCave2FB/border.bin",
+      "blockdata_filepath": "data/layouts/StarCave2FB/map.bin"
+    },
+    {
+      "id": "LAYOUT_STAR_CAVE2FC",
+      "name": "StarCave2FC_Layout",
+      "width": 30,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_StarCave",
+      "border_filepath": "data/layouts/StarCave2FC/border.bin",
+      "blockdata_filepath": "data/layouts/StarCave2FC/map.bin"
+    },
+    {
+      "id": "LAYOUT_STAR_CAVE_DEAD_END",
+      "name": "StarCaveDeadEnd_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_StarCave",
+      "border_filepath": "data/layouts/StarCaveDeadEnd/border.bin",
+      "blockdata_filepath": "data/layouts/StarCaveDeadEnd/map.bin"
     }
   ]
 }

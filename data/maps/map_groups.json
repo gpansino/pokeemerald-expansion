@@ -92,7 +92,12 @@
     "Underwater_Route128",
     "Underwater_Route129",
     "Underwater_Route105",
-    "Underwater_Route125"
+    "Underwater_Route125",
+    "WishingRoad",
+    "LaRousseCity",
+    "WishingRoad_2",
+    "MilleniumFestival",
+    "StarCaveDeadEnd"
   ],
   "gMapGroup_IndoorLittleroot": [
     "LittlerootTown_BrendansHouse_1F",
@@ -429,7 +434,14 @@
     "TerraCave_Entrance",
     "TerraCave_End",
     "AlteringCave",
-    "MeteorFalls_StevensCave"
+    "MeteorFalls_StevensCave",
+    "StarCave1FA",
+    "StarCave1FB",
+    "StarCave1FC",
+    "StarCaveLake",
+    "StarCave2FA",
+    "StarCave2FB",
+    "StarCave2FC"
   ],
   "gMapGroup_IndoorDynamic": [
     "SecretBase_RedCave1",

@@ -63,6 +63,11 @@
 #define MAP_UNDERWATER_ROUTE129 (54 | (0 << 8))
 #define MAP_UNDERWATER_ROUTE105 (55 | (0 << 8))
 #define MAP_UNDERWATER_ROUTE125 (56 | (0 << 8))
+#define MAP_WISHING_ROAD        (57 | (0 << 8))
+#define MAP_LA_ROUSSE_CITY      (58 | (0 << 8))
+#define MAP_WISHING_ROAD_2      (59 | (0 << 8))
+#define MAP_MILLENIUM_FESTIVAL  (60 | (0 << 8))
+#define MAP_STAR_CAVE_DEAD_END  (61 | (0 << 8))
 
 // gMapGroup_IndoorLittleroot
 #define MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F    (0 | (1 << 8))
@@ -400,6 +405,13 @@
 #define MAP_TERRA_CAVE_END                           (105 | (24 << 8))
 #define MAP_ALTERING_CAVE                            (106 | (24 << 8))
 #define MAP_METEOR_FALLS_STEVENS_CAVE                (107 | (24 << 8))
+#define MAP_STAR_CAVE1FA                             (108 | (24 << 8))
+#define MAP_STAR_CAVE1FB                             (109 | (24 << 8))
+#define MAP_STAR_CAVE1FC                             (110 | (24 << 8))
+#define MAP_STAR_CAVE_LAKE                           (111 | (24 << 8))
+#define MAP_STAR_CAVE2FA                             (112 | (24 << 8))
+#define MAP_STAR_CAVE2FB                             (113 | (24 << 8))
+#define MAP_STAR_CAVE2FC                             (114 | (24 << 8))
 
 // gMapGroup_IndoorDynamic
 #define MAP_SECRET_BASE_RED_CAVE1    (0 | (25 << 8))

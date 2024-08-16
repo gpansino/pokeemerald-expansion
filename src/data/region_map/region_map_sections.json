@@ -706,32 +706,32 @@
       "height": 1
     },
     {
-      "map_section": "MAPSEC_PALLET_TOWN",
-      "name": "PALLET TOWN",
+      "map_section": "MAPSEC_WISHING_ROAD",
+      "name": "WISHING ROAD",
       "x": 0,
       "y": 0,
       "width": 1,
       "height": 1
     },
     {
-      "map_section": "MAPSEC_VIRIDIAN_CITY",
-      "name": "VIRIDIAN CITY",
+      "map_section": "MAPSEC_STAR_CAVE",
+      "name": "STAR CAVE",
       "x": 0,
       "y": 0,
       "width": 1,
       "height": 1
     },
     {
-      "map_section": "MAPSEC_PEWTER_CITY",
-      "name": "PEWTER CITY",
+      "map_section": "MAPSEC_MILLENIUM_FESTIVAL",
+      "name": "MILLENIUM FESTIVAL",
       "x": 0,
       "y": 0,
       "width": 1,
       "height": 1
     },
     {
-      "map_section": "MAPSEC_CERULEAN_CITY",
-      "name": "CERULEAN CITY",
+      "map_section": "MAPSEC_FORINA",
+      "name": "FORINA",
       "x": 0,
       "y": 0,
       "width": 1,
@@ -740,14 +740,6 @@
     {
       "map_section": "MAPSEC_LAVENDER_TOWN",
       "name": "LAVENDER TOWN",
-      "x": 0,
-      "y": 0,
-      "width": 1,
-      "height": 1
-    },
-    {
-      "map_section": "MAPSEC_VERMILION_CITY",
-      "name": "VERMILION CITY",
       "x": 0,
       "y": 0,
       "width": 1,
@@ -1708,6 +1700,14 @@
       "name": "TRAINER HILL",
       "x": 8,
       "y": 4,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_LAROUSSE_CITY",
+      "name": "LAROUSSE CITY",
+      "x": 0,
+      "y": 0,
       "width": 1,
       "height": 1
     }
