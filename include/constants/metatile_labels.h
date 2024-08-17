@@ -730,6 +730,11 @@
 #define METATILE_SootopolisGym_Ice_Cracked  0x20E
 #define METATILE_SootopolisGym_Stairs       0x207
 
+// gTileset_StarCave
+#define METATILE_StarCave_STARCAVE1FA_Warp  0x254
+#define METATILE_StarCave_STARCAVE1FC_Warp  0x283
+#define METATILE_StarCave_StarCave1FB_Warp  0x284
+
 // gTileset_TrainerHill
 #define METATILE_TrainerHill_CounterDoor          0x334
 #define METATILE_TrainerHill_Door_Elevator_Lobby  0x32C

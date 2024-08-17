@@ -11804,7 +11804,7 @@
           "map": "MAP_STAR_CAVE2FA",
           "base_label": "gStarCave2FA0",
           "land_mons": {
-            "encounter_rate": 10,
+            "encounter_rate": 8,
             "mons": [
               {
                 "min_level": 14,
@@ -11873,7 +11873,7 @@
           "map": "MAP_STAR_CAVE2FB",
           "base_label": "gStarCave2FB0",
           "land_mons": {
-            "encounter_rate": 10,
+            "encounter_rate": 8,
             "mons": [
               {
                 "min_level": 14,
@@ -11942,7 +11942,7 @@
           "map": "MAP_STAR_CAVE2FC",
           "base_label": "gStarCave2FC0",
           "land_mons": {
-            "encounter_rate": 10,
+            "encounter_rate": 8,
             "mons": [
               {
                 "min_level": 14,
@@ -12011,7 +12011,7 @@
           "map": "MAP_STAR_CAVE1FA",
           "base_label": "gStarCave1FA0",
           "land_mons": {
-            "encounter_rate": 10,
+            "encounter_rate": 5,
             "mons": [
               {
                 "min_level": 14,
@@ -12080,7 +12080,7 @@
           "map": "MAP_STAR_CAVE1FB",
           "base_label": "gStarCave1FB0",
           "land_mons": {
-            "encounter_rate": 10,
+            "encounter_rate": 5,
             "mons": [
               {
                 "min_level": 14,
@@ -12149,7 +12149,7 @@
           "map": "MAP_STAR_CAVE1FC",
           "base_label": "gStarCave1FC0",
           "land_mons": {
-            "encounter_rate": 10,
+            "encounter_rate": 5,
             "mons": [
               {
                 "min_level": 14,

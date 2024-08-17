@@ -1,7 +1,9 @@
 StarCave1FB_MapScripts::
 	.byte 0
 
-StarCave1FB_Teleport::
+StarCave1FB_TeleportB::
 	lock
-	setvar VAR_0x8006, 2
-	special TeleportStoneWarp
+	getplayerxy VAR_0x8005, VAR_0x8006
+	setmetatile VAR_0x8005, VAR_0x8006, METATILE_StarCave_StarCave1FB_Warp, FALSE
+	warpteleport MAP_STAR_CAVE1FC, VAR_0x8005, VAR_0x8006
+	waitstate

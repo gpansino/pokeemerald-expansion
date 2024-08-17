@@ -4524,8 +4524,8 @@
     {
       "id": "LAYOUT_STAR_CAVE_DEAD_END",
       "name": "StarCaveDeadEnd_Layout",
-      "width": 20,
-      "height": 20,
+      "width": 21,
+      "height": 21,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_StarCave",
       "border_filepath": "data/layouts/StarCaveDeadEnd/border.bin",
