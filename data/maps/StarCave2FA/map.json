@@ -21,7 +21,7 @@
       "x": 5,
       "y": 36,
       "elevation": 0,
-      "dest_map": "MAP_STAR_CAVE1FA",
+      "dest_map": "MAP_STAR_CAVE_DEAD_END",
       "dest_warp_id": "1"
     },
     {
