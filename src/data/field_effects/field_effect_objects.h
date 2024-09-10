@@ -28,6 +28,17 @@ static const struct SpriteFrameImage sPicTable_ShadowExtraLarge[] = {
     obj_frame_tiles(gFieldEffectObjectPic_ShadowExtraLarge),
 };
 
+static const struct SpriteFrameImage sPicTable_InvisFloor[] = {
+    overworld_frame(gFieldEffectPic_InvisFloor, 2, 2, 0),
+    overworld_frame(gFieldEffectPic_InvisFloor, 2, 2, 1),
+    overworld_frame(gFieldEffectPic_InvisFloor, 2, 2, 2),
+    overworld_frame(gFieldEffectPic_InvisFloor, 2, 2, 3),
+    overworld_frame(gFieldEffectPic_InvisFloor, 2, 2, 4),
+    overworld_frame(gFieldEffectPic_InvisFloor, 2, 2, 5),
+    overworld_frame(gFieldEffectPic_InvisFloor, 2, 2, 6),
+    overworld_frame(gFieldEffectPic_InvisFloor, 2, 2, 7)
+};
+
 const struct SpriteTemplate gFieldEffectObjectTemplate_ShadowSmall = {
     .tileTag = TAG_NONE,
     .paletteTag = TAG_NONE,
@@ -91,6 +102,51 @@ static const union AnimCmd *const sAnimTable_TallGrass[] =
     sAnim_TallGrass,
 };
 
+static const union AnimCmd sAnim_InvisFloor[] =
+{
+    ANIMCMD_FRAME(0, 10),
+    ANIMCMD_FRAME(1, 10),
+    ANIMCMD_FRAME(2, 10),
+    ANIMCMD_FRAME(3, 10),
+    ANIMCMD_FRAME(4, 10),
+    ANIMCMD_FRAME(5, 10),
+    ANIMCMD_FRAME(6, 10),
+    ANIMCMD_FRAME(7, 10),
+    ANIMCMD_FRAME(7, 10),
+    ANIMCMD_FRAME(7, 10),
+    ANIMCMD_FRAME(6, 10),
+    ANIMCMD_FRAME(5, 10),
+    ANIMCMD_FRAME(4, 10),
+    ANIMCMD_FRAME(3, 10),
+    ANIMCMD_FRAME(2, 10),
+    ANIMCMD_FRAME(1, 10),
+    ANIMCMD_FRAME(0, 10),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sAnimTable_InvisFloor[] =
+{
+    sAnim_InvisFloor,
+};
+
+static const union AnimCmd sAnim_InvisFloorLeave[] =
+{
+    ANIMCMD_FRAME(7, 10),
+    ANIMCMD_FRAME(6, 10),
+    ANIMCMD_FRAME(5, 10),
+    ANIMCMD_FRAME(4, 10),
+    ANIMCMD_FRAME(3, 10),
+    ANIMCMD_FRAME(2, 10),
+    ANIMCMD_FRAME(1, 10),
+    ANIMCMD_FRAME(0, 10),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sAnimTable_InvisFloorLeave[] =
+{
+    sAnim_InvisFloorLeave,
+};
+
 const struct SpriteTemplate gFieldEffectObjectTemplate_TallGrass = {
     .tileTag = TAG_NONE,
     .paletteTag = FLDEFF_PAL_TAG_GENERAL_1,
@@ -100,6 +156,28 @@ const struct SpriteTemplate gFieldEffectObjectTemplate_TallGrass = {
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = UpdateTallGrassFieldEffect,
 };
+
+const struct SpriteTemplate gFieldEffectObjectTemplate_InvisFloor = {
+    .tileTag = TAG_NONE,
+    .paletteTag = FLDEFF_PAL_TAG_INVIS_FLOOR,
+    .oam = &gObjectEventBaseOam_16x16,
+    .anims = sAnimTable_InvisFloor,
+    .images = sPicTable_InvisFloor,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = WaitFieldEffectSpriteAnim,
+};
+
+const struct SpriteTemplate gFieldEffectObjectTemplate_InvisFloorLeave = {
+    .tileTag = TAG_NONE,
+    .paletteTag = FLDEFF_PAL_TAG_INVIS_FLOOR,
+    .oam = &gObjectEventBaseOam_16x16,
+    .anims = sAnimTable_InvisFloorLeave,
+    .images = sPicTable_InvisFloor,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = WaitFieldEffectSpriteAnim,
+};
+
+const struct SpritePalette gSpritePalette_InvisFloor = {gFieldEffectPal_InvisFloor, FLDEFF_PAL_TAG_INVIS_FLOOR};
 
 static const struct SpriteFrameImage sPicTable_Ripple[] = {
     overworld_frame(gFieldEffectObjectPic_Ripple, 2, 2, 0),
