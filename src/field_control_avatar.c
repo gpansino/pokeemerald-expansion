@@ -737,8 +737,14 @@ static bool8 TryStartWarpEventScript(struct MapPosition *position, u16 metatileB
 {
     s8 warpEventId = GetWarpEventAtMapPosition(&gMapHeader, position);
 
+    if (MetatileBehavior_IsStarCaveHole(metatileBehavior) == TRUE)
+    {
+        ScriptContext_SetupScript(EventScript_FallDownHoleStarCave);
+        return TRUE;
+    }
     if (warpEventId != WARP_ID_NONE && IsWarpMetatileBehavior(metatileBehavior) == TRUE)
     {
+
         StoreInitialPlayerAvatarState();
         SetupWarp(&gMapHeader, warpEventId, position);
         if (MetatileBehavior_IsEscalator(metatileBehavior) == TRUE)

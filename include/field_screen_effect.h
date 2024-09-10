@@ -41,5 +41,6 @@ void DoOrbEffect(void);
 void FadeOutOrbEffect(void);
 void WriteFlashScanlineEffectBuffer(u8 flashLevel);
 bool8 IsPlayerStandingStill(void);
+extern void DoStarCaveHoleWarp(void);
 
 #endif // GUARD_FIELD_SCREEN_EFFECT_H

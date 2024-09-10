@@ -556,6 +556,14 @@ void DoTeleportTileWarp(void)
     gFieldCallback = FieldCB_SpinEnterWarp;
 }
 
+extern void DoStarCaveHoleWarp(void)
+{
+    LockPlayerFieldControls();
+    WarpFadeOutScreen();
+    CreateTask(Task_WarpAndLoadMap, 10);
+    gFieldCallback = FieldCB_SpinEnterWarp;
+}
+
 void DoMossdeepGymWarp(void)
 {
     SetObjectEventLoadFlag(SKIP_OBJECT_EVENT_LOAD);

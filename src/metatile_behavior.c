@@ -66,8 +66,8 @@ static const u8 sTileBitAttributes[NUM_METATILE_BEHAVIORS] =
     [MB_SLIDE_NORTH]                     = TILE_FLAG_UNUSED,
     [MB_SLIDE_SOUTH]                     = TILE_FLAG_UNUSED,
     [MB_TRICK_HOUSE_PUZZLE_8_FLOOR]      = TILE_FLAG_UNUSED,
-    [MB_UNUSED_49]                       = TILE_FLAG_UNUSED,
-    [MB_UNUSED_4A]                       = TILE_FLAG_UNUSED,
+    [MB_STAR_CAVE_HOLE]                  = TILE_FLAG_UNUSED,
+    [MB_INVIS_FLOOR]                     = TILE_FLAG_UNUSED,
     [MB_EASTWARD_CURRENT]                = TILE_FLAG_UNUSED | TILE_FLAG_SURFABLE,
     [MB_WESTWARD_CURRENT]                = TILE_FLAG_UNUSED | TILE_FLAG_SURFABLE,
     [MB_NORTHWARD_CURRENT]               = TILE_FLAG_UNUSED | TILE_FLAG_SURFABLE,
@@ -1178,6 +1178,22 @@ bool8 MetatileBehavior_IsSurfableFishableWater(u8 metatileBehavior)
 bool8 MetatileBehavior_IsMtPyreHole(u8 metatileBehavior)
 {
     if (metatileBehavior == MB_MT_PYRE_HOLE)
+        return TRUE;
+    else
+        return FALSE;
+}
+
+bool8 MetatileBehavior_IsStarCaveHole(u8 metatileBehavior)
+{    
+    if(metatileBehavior == MB_STAR_CAVE_HOLE)
+        return TRUE;
+    else
+        return FALSE;
+}
+
+bool8 MetatileBehavior_IsInvisFloor(u8 metatileBehavior)
+{    
+    if(metatileBehavior == MB_INVIS_FLOOR)
         return TRUE;
     else
         return FALSE;

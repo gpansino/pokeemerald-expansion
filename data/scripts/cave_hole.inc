@@ -28,6 +28,16 @@ EventScript_FallDownHoleMtPyre::
 	waitstate
 	end
 
+EventScript_FallDownHoleStarCave::
+	lockall
+	delay 20
+	applymovement OBJ_EVENT_ID_PLAYER, Movement_SetInvisible
+	playse SE_FALL
+	delay 60
+	special FallWarpStarCave
+	waitstate
+	end
+
 Movement_SetInvisible:
 	set_invisible
 	step_end
