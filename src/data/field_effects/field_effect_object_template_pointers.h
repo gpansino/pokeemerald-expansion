@@ -35,6 +35,8 @@ extern const struct SpriteTemplate gFieldEffectObjectTemplate_AshLaunch;
 extern const struct SpriteTemplate gFieldEffectObjectTemplate_Bubbles;
 extern const struct SpriteTemplate gFieldEffectObjectTemplate_SmallSparkle;
 extern const struct SpriteTemplate gFieldEffectObjectTemplate_Rayquaza;
+extern const struct SpriteTemplate gFieldEffectObjectTemplate_InvisFloor;
+extern const struct SpriteTemplate gFieldEffectObjectTemplate_InvisFloorLeave;
 
 const struct SpriteTemplate *const gFieldEffectObjectTemplatePointers[] = {
     [FLDEFFOBJ_SHADOW_S]              = &gFieldEffectObjectTemplate_ShadowSmall,
@@ -74,4 +76,6 @@ const struct SpriteTemplate *const gFieldEffectObjectTemplatePointers[] = {
     [FLDEFFOBJ_BUBBLES]               = &gFieldEffectObjectTemplate_Bubbles,
     [FLDEFFOBJ_SMALL_SPARKLE]         = &gFieldEffectObjectTemplate_SmallSparkle,
     [FLDEFFOBJ_RAYQUAZA]              = &gFieldEffectObjectTemplate_Rayquaza,
-};
+    [FLDEFFOBJ_INVIS_FLOOR]           = &gFieldEffectObjectTemplate_InvisFloor,
+    [FLDEFFOBJ_INVIS_FLOOR_LEAVE]     = &gFieldEffectObjectTemplate_InvisFloorLeave,
+};  

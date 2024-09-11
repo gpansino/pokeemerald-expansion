@@ -1,14 +1,18 @@
 #include "global.h"
+#include "data.h"
 #include "event_object_movement.h"
 #include "field_camera.h"
 #include "field_effect.h"
 #include "field_effect_helpers.h"
+#include "field_player_avatar.h"
 #include "field_weather.h"
 #include "fieldmap.h"
 #include "gpu_regs.h"
 #include "metatile_behavior.h"
+#include "constants/metatile_labels.h"
 #include "sound.h"
 #include "sprite.h"
+#include "task.h"
 #include "trig.h"
 #include "constants/field_effects.h"
 #include "constants/songs.h"
@@ -312,6 +316,29 @@ u32 FldEff_TallGrass(void)
     }
     return 0;
 }
+
+u32 FldEff_Invis_Floor(void)
+{
+    u8 spriteId;
+    s16 x = gFieldEffectArguments[0];
+    s16 y = gFieldEffectArguments[1];
+    SetSpritePosToOffsetMapCoords(&x, &y, 8, 8);
+    spriteId = CreateSpriteAtEnd(gFieldEffectObjectTemplatePointers[FLDEFFOBJ_INVIS_FLOOR], x, y, 0);
+    if (spriteId != MAX_SPRITES)
+    {
+        struct Sprite *sprite = &gSprites[spriteId];
+        sprite->coordOffsetEnabled = TRUE;
+        sprite->oam.priority = gFieldEffectArguments[3];
+        sprite->data[0] = gFieldEffectArguments[2];
+        sprite->sX = gFieldEffectArguments[0];
+        sprite->sY = gFieldEffectArguments[1];
+        sprite->sMapNum = gFieldEffectArguments[4]; // Also sLocalId
+        sprite->sMapGroup = gFieldEffectArguments[5];
+        sprite->sCurrentMap = gFieldEffectArguments[6];
+    }
+    return 0;
+}
+
 
 void UpdateTallGrassFieldEffect(struct Sprite *sprite)
 {
