@@ -111,13 +111,13 @@ WishingRoad_Text_LeahPostBattle:
 WishingRoad_Text_PyroIntro:
 	.string "Oh, so when my GROWLITHE uses \n"
 	.string "FLAMETHROWER they're a “great\p"
-	.string "special attacker”, but when I do it,\l"
+	.string "special attacker”, but when I do it,\n"
 	.string "I'm “an arsonist” and “not allowed\l"
-	.string "in the park anymore?”$"
+	.string "in the park anymore”?$"
 
 WishingRoad_Text_PyroDefeated:
 	.string "And apparently it's 'illegal' to use\n"
-	.string "homemade napalm on citizens.\p"
+	.string "homemade napalm on citizens.\l"
 	.string "This country, man...$"
 
 WishingRoad_Text_PyroPostBattle:
