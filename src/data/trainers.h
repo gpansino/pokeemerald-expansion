@@ -10293,6 +10293,450 @@ const struct Trainer gTrainers[] = {
         .aiFlags = 0,
         .party = TRAINER_PARTY(sParty_StevenGranite),
     },
+
+    [TRAINER_WISHROAD1_1] =
+    {
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_COOLTRAINER_M,
+        .trainerName = _("DUMMY"),
+        .items = {ITEM_POTION},
+        .doubleBattle = FALSE,
+        .aiFlags = 0,
+        .party = TRAINER_PARTY(sParty_StevenGranite),
+    },
+    
+    [TRAINER_WISHROAD1_2] =
+    {
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_COOLTRAINER_M,
+        .trainerName = _("DUMMY"),
+        .items = {ITEM_POTION},
+        .doubleBattle = FALSE,
+        .aiFlags = 0,
+        .party = TRAINER_PARTY(sParty_StevenGranite),
+    },
+
+    [TRAINER_WISHROAD1_3] =
+    {
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_COOLTRAINER_M,
+        .trainerName = _("DUMMY"),
+        .items = {ITEM_POTION},
+        .doubleBattle = FALSE,
+        .aiFlags = 0,
+        .party = TRAINER_PARTY(sParty_StevenGranite),
+    },
+
+    [TRAINER_LEAH2] =
+    {
+        .trainerClass = TRAINER_CLASS_BUG_CATCHER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE,
+        .trainerPic = TRAINER_PIC_BUG_CATCHER,
+        .trainerName = _("LEAH"),
+        .items = {ITEM_POTION},
+        .doubleBattle = FALSE,
+        .aiFlags = 0,
+        .party = TRAINER_PARTY(sParty_Leah2),
+    },
+
+    [TRAINER_WISHROAD1_5] =
+    {
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_COOLTRAINER_M,
+        .trainerName = _("DUMMY"),
+        .items = {ITEM_POTION},
+        .doubleBattle = FALSE,
+        .aiFlags = 0,
+        .party = TRAINER_PARTY(sParty_StevenGranite),
+    },
+
+    [TRAINER_WISHROAD1_6] =
+    {
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_COOLTRAINER_M,
+        .trainerName = _("DUMMY"),
+        .items = {ITEM_POTION},
+        .doubleBattle = FALSE,
+        .aiFlags = 0,
+        .party = TRAINER_PARTY(sParty_StevenGranite),
+    },
+
+    [TRAINER_WISHROAD1_7] =
+    {
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_COOLTRAINER_M,
+        .trainerName = _("DUMMY"),
+        .items = {ITEM_POTION},
+        .doubleBattle = FALSE,
+        .aiFlags = 0,
+        .party = TRAINER_PARTY(sParty_StevenGranite),
+    },
+
+    [TRAINER_WISHROAD1_8] =
+    {
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_COOLTRAINER_M,
+        .trainerName = _("DUMMY"),
+        .items = {ITEM_POTION},
+        .doubleBattle = FALSE,
+        .aiFlags = 0,
+        .party = TRAINER_PARTY(sParty_StevenGranite),
+    },
+
+    [TRAINER_WISHROAD1_9] =
+    {
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_COOLTRAINER_M,
+        .trainerName = _("DUMMY"),
+        .items = {ITEM_POTION},
+        .doubleBattle = FALSE,
+        .aiFlags = 0,
+        .party = TRAINER_PARTY(sParty_StevenGranite),
+    },
+
+    [TRAINER_PYRO] =
+    {
+        .trainerClass = TRAINER_CLASS_KINDLER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_KINDLER,
+        .trainerName = _("PYRO"),
+        .items = {ITEM_POTION},
+        .doubleBattle = FALSE,
+        .aiFlags = 0,
+        .party = TRAINER_PARTY(sParty_Pyro),
+    },
+
+    [TRAINER_WISHROAD1_11] =
+    {
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_COOLTRAINER_M,
+        .trainerName = _("DUMMY"),
+        .items = {ITEM_POTION},
+        .doubleBattle = FALSE,
+        .aiFlags = 0,
+        .party = TRAINER_PARTY(sParty_StevenGranite),
+    },
+
+    [TRAINER_MARCUS] =
+    {
+        .trainerClass = TRAINER_CLASS_SWIMMER_M,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SWIMMER,
+        .trainerPic = TRAINER_PIC_SWIMMER_M,
+        .trainerName = _("MARCUS"),
+        .items = {ITEM_POTION},
+        .doubleBattle = FALSE,
+        .aiFlags = 0,
+        .party = TRAINER_PARTY(sParty_Marcus),
+    },
+
+    [TRAINER_WISHROAD1_13] =
+    {
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_COOLTRAINER_M,
+        .trainerName = _("DUMMY"),
+        .items = {ITEM_POTION},
+        .doubleBattle = FALSE,
+        .aiFlags = 0,
+        .party = TRAINER_PARTY(sParty_StevenGranite),
+    },
+
+    [TRAINER_JT] =
+    {
+        .trainerClass = TRAINER_CLASS_POKEMANIAC,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_INTENSE,
+        .trainerPic = TRAINER_PIC_POKEMANIAC,
+        .trainerName = _("JT"),
+        .items = {ITEM_POTION},
+        .doubleBattle = FALSE,
+        .aiFlags = 0,
+        .party = TRAINER_PARTY(sParty_JT),
+    },
+
+    [TRAINER_WISHROAD2_1] =
+    {
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_COOLTRAINER_M,
+        .trainerName = _("DUMMY"),
+        .items = {ITEM_POTION},
+        .doubleBattle = FALSE,
+        .aiFlags = 0,
+        .party = TRAINER_PARTY(sParty_StevenGranite),
+    },
+
+    [TRAINER_WISHROAD2_2] =
+    {
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_COOLTRAINER_M,
+        .trainerName = _("DUMMY"),
+        .items = {ITEM_POTION},
+        .doubleBattle = FALSE,
+        .aiFlags = 0,
+        .party = TRAINER_PARTY(sParty_StevenGranite),
+    },
+
+    [TRAINER_WISHROAD2_3] =
+    {
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_COOLTRAINER_M,
+        .trainerName = _("DUMMY"),
+        .items = {ITEM_POTION},
+        .doubleBattle = FALSE,
+        .aiFlags = 0,
+        .party = TRAINER_PARTY(sParty_StevenGranite),
+    },
+
+    [TRAINER_WISHROAD2_4] =
+    {
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_COOLTRAINER_M,
+        .trainerName = _("DUMMY"),
+        .items = {ITEM_POTION},
+        .doubleBattle = FALSE,
+        .aiFlags = 0,
+        .party = TRAINER_PARTY(sParty_StevenGranite),
+    },
+
+    [TRAINER_WISHROAD2_5] =
+    {
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_COOLTRAINER_M,
+        .trainerName = _("DUMMY"),
+        .items = {ITEM_POTION},
+        .doubleBattle = FALSE,
+        .aiFlags = 0,
+        .party = TRAINER_PARTY(sParty_StevenGranite),
+    },
+
+    [TRAINER_WISHROAD2_6] =
+    {
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_COOLTRAINER_M,
+        .trainerName = _("DUMMY"),
+        .items = {ITEM_POTION},
+        .doubleBattle = FALSE,
+        .aiFlags = 0,
+        .party = TRAINER_PARTY(sParty_StevenGranite),
+    },
+
+    [TRAINER_WISHROAD2_7] =
+    {
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_COOLTRAINER_M,
+        .trainerName = _("DUMMY"),
+        .items = {ITEM_POTION},
+        .doubleBattle = FALSE,
+        .aiFlags = 0,
+        .party = TRAINER_PARTY(sParty_StevenGranite),
+    },
+
+    [TRAINER_WISHROAD2_8] =
+    {
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_COOLTRAINER_M,
+        .trainerName = _("DUMMY"),
+        .items = {ITEM_POTION},
+        .doubleBattle = FALSE,
+        .aiFlags = 0,
+        .party = TRAINER_PARTY(sParty_StevenGranite),
+    },
+
+    [TRAINER_WISHROAD2_9] =
+    {
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_COOLTRAINER_M,
+        .trainerName = _("DUMMY"),
+        .items = {ITEM_POTION},
+        .doubleBattle = FALSE,
+        .aiFlags = 0,
+        .party = TRAINER_PARTY(sParty_StevenGranite),
+    },
+
+    [TRAINER_WISHROAD2_10] =
+    {
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_COOLTRAINER_M,
+        .trainerName = _("DUMMY"),
+        .items = {ITEM_POTION},
+        .doubleBattle = FALSE,
+        .aiFlags = 0,
+        .party = TRAINER_PARTY(sParty_StevenGranite),
+    },
+
+    [TRAINER_WISHROAD2_11] =
+    {
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_COOLTRAINER_M,
+        .trainerName = _("DUMMY"),
+        .items = {ITEM_POTION},
+        .doubleBattle = FALSE,
+        .aiFlags = 0,
+        .party = TRAINER_PARTY(sParty_StevenGranite),
+    },
+
+    [TRAINER_STARCAVEA_1] =
+    {
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_COOLTRAINER_M,
+        .trainerName = _("DUMMY"),
+        .items = {ITEM_POTION},
+        .doubleBattle = FALSE,
+        .aiFlags = 0,
+        .party = TRAINER_PARTY(sParty_StevenGranite),
+    },
+
+    [TRAINER_STARCAVEA_2] =
+    {
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_COOLTRAINER_M,
+        .trainerName = _("DUMMY"),
+        .items = {ITEM_POTION},
+        .doubleBattle = FALSE,
+        .aiFlags = 0,
+        .party = TRAINER_PARTY(sParty_StevenGranite),
+    },
+
+    [TRAINER_STARCAVEB_1] =
+    {
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_COOLTRAINER_M,
+        .trainerName = _("DUMMY"),
+        .items = {ITEM_POTION},
+        .doubleBattle = FALSE,
+        .aiFlags = 0,
+        .party = TRAINER_PARTY(sParty_StevenGranite),
+    },
+
+    [TRAINER_STARCAVEB_2] =
+    {
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_COOLTRAINER_M,
+        .trainerName = _("DUMMY"),
+        .items = {ITEM_POTION},
+        .doubleBattle = FALSE,
+        .aiFlags = 0,
+        .party = TRAINER_PARTY(sParty_StevenGranite),
+    },
+
+    [TRAINER_STARCAVEB_3] =
+    {
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_COOLTRAINER_M,
+        .trainerName = _("DUMMY"),
+        .items = {ITEM_POTION},
+        .doubleBattle = FALSE,
+        .aiFlags = 0,
+        .party = TRAINER_PARTY(sParty_StevenGranite),
+    },
+
+    [TRAINER_STARCAVEB_4] =
+    {
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_COOLTRAINER_M,
+        .trainerName = _("DUMMY"),
+        .items = {ITEM_POTION},
+        .doubleBattle = FALSE,
+        .aiFlags = 0,
+        .party = TRAINER_PARTY(sParty_StevenGranite),
+    },
+
+    [TRAINER_STARCAVEB_5] =
+    {
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_COOLTRAINER_M,
+        .trainerName = _("DUMMY"),
+        .items = {ITEM_POTION},
+        .doubleBattle = FALSE,
+        .aiFlags = 0,
+        .party = TRAINER_PARTY(sParty_StevenGranite),
+    },
+
+    [TRAINER_STARCAVEC_1] =
+    {
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_COOLTRAINER_M,
+        .trainerName = _("DUMMY"),
+        .items = {ITEM_POTION},
+        .doubleBattle = FALSE,
+        .aiFlags = 0,
+        .party = TRAINER_PARTY(sParty_StevenGranite),
+    },
+
+    [TRAINER_STARCAVEC_2] =
+    {
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_COOLTRAINER_M,
+        .trainerName = _("DUMMY"),
+        .items = {ITEM_POTION},
+        .doubleBattle = FALSE,
+        .aiFlags = 0,
+        .party = TRAINER_PARTY(sParty_StevenGranite),
+    },
+
+    [TRAINER_STARCAVEC_3] =
+    {
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_COOLTRAINER_M,
+        .trainerName = _("DUMMY"),
+        .items = {ITEM_POTION},
+        .doubleBattle = FALSE,
+        .aiFlags = 0,
+        .party = TRAINER_PARTY(sParty_StevenGranite),
+    },
+
+    [TRAINER_STARCAVEC_4] =
+    {
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_COOLTRAINER_M,
+        .trainerName = _("DUMMY"),
+        .items = {ITEM_POTION},
+        .doubleBattle = FALSE,
+        .aiFlags = 0,
+        .party = TRAINER_PARTY(sParty_StevenGranite),
+    },
+
+    [TRAINER_STARCAVEC_5] =
+    {
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_COOLTRAINER_M,
+        .trainerName = _("DUMMY"),
+        .items = {ITEM_POTION},
+        .doubleBattle = FALSE,
+        .aiFlags = 0,
+        .party = TRAINER_PARTY(sParty_StevenGranite),
+    },
 };
 
 

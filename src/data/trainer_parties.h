@@ -13145,3 +13145,84 @@ static const struct TrainerMon sParty_StevenGranite[] = {
     .moves = {MOVE_TAKE_DOWN, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 };
+
+static const struct TrainerMon sParty_Pyro[] = {
+    {
+        .lvl = 16,
+        .species = SPECIES_GROWLITHE,
+        .ability = ABILITY_SLOT_2,
+        .moves = {MOVE_FLAMETHROWER, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .lvl = 16,
+        .species = SPECIES_SWABLU,
+        .ability = ABILITY_SLOT_1,
+        .moves = {MOVE_SING, MOVE_PECK, MOVE_GROWL, MOVE_SUNNY_DAY}
+    },
+    {
+        .lvl = 12,
+        .species = SPECIES_ABSOL,
+        .ability = ABILITY_SLOT_1,
+        .moves = {MOVE_FLAMETHROWER, MOVE_SCRATCH, MOVE_LEER, MOVE_TAUNT}
+    },
+};
+
+static const struct TrainerMon sParty_Leah2[] = {
+    {
+        .lvl = 13,
+        .species = SPECIES_MAGNEZONE,
+        .ability = ABILITY_SLOT_2,
+        .moves = {MOVE_TACKLE, MOVE_THUNDER_SHOCK, MOVE_METAL_SOUND, MOVE_SONIC_BOOM}
+    },
+};
+
+static const struct TrainerMon sParty_Marcus[] = {
+    {
+        .lvl = 17,
+        .species = SPECIES_SEEL,
+        .ability = ABILITY_SLOT_1,
+        .moves = {MOVE_ICY_WIND, MOVE_GROWL, MOVE_HEADBUTT, MOVE_DISABLE}
+    },
+    {
+        .lvl = 17,
+        .species = SPECIES_SPHEAL,
+        .ability = ABILITY_SLOT_1,
+        .moves = {MOVE_ENCORE, MOVE_ICE_BALL, MOVE_WATER_GUN, MOVE_YAWN}
+    },
+    {   
+        .lvl = 17,
+        .species = SPECIES_PSYDUCK,
+        .ability = ABILITY_SLOT_1,
+        .moves = {MOVE_CONFUSION, MOVE_SWAGGER, MOVE_DYNAMIC_PUNCH, MOVE_NONE
+        }
+    },
+};
+
+static const struct TrainerMon sParty_JT[] = {
+    {
+        .lvl = 16,
+        .species = SPECIES_IVYSAUR,
+        .ability = ABILITY_SLOT_1,
+        .iv = TRAINER_PARTY_IVS(7, 8, 8, 8, 8, 7),
+        .moves = {MOVE_HIDDEN_POWER, MOVE_CURSE, MOVE_LEECH_SEED, MOVE_MUD_SLAP}
+    },
+    {
+        .lvl = 1,
+        .species = SPECIES_VAPOREON,
+        .ability = ABILITY_SLOT_1,
+        .moves = {MOVE_ATTRACT, MOVE_TAIL_WHIP, MOVE_CHARM, MOVE_BODY_SLAM}
+    },
+    {
+        .lvl = 1,
+        .species = SPECIES_VAPOREON,
+        .ability = ABILITY_SLOT_1,
+        .moves = {MOVE_ATTRACT, MOVE_TAIL_WHIP, MOVE_CHARM, MOVE_ENDURE}
+    },
+        {
+        .lvl = 1,
+        .species = SPECIES_VAPOREON,
+        .ability = ABILITY_SLOT_1,
+        .moves = {MOVE_ATTRACT, MOVE_TAIL_WHIP, MOVE_CHARM, MOVE_BITE}
+    },
+
+};

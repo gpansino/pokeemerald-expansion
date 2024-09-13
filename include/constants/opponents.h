@@ -861,13 +861,50 @@
 
 #define TRAINER_KAILANI                     855
 #define TRAINER_STEVEN_GRANITECAVE          856
+#define TRAINER_WISHROAD1_1                 857
+#define TRAINER_WISHROAD1_2                 858
+#define TRAINER_WISHROAD1_3                 859
+#define TRAINER_LEAH2                       860
+#define TRAINER_WISHROAD1_5                 861
+#define TRAINER_WISHROAD1_6                 862
+#define TRAINER_WISHROAD1_7                 863
+#define TRAINER_WISHROAD1_8                 864
+#define TRAINER_WISHROAD1_9                 865
+#define TRAINER_PYRO                        866
+#define TRAINER_WISHROAD1_11                867
+#define TRAINER_MARCUS                      868
+#define TRAINER_WISHROAD1_13                869
+#define TRAINER_JT                          870
+#define TRAINER_WISHROAD2_1                 871
+#define TRAINER_WISHROAD2_2                 872
+#define TRAINER_WISHROAD2_3                 873
+#define TRAINER_WISHROAD2_4                 874
+#define TRAINER_WISHROAD2_5                 875
+#define TRAINER_WISHROAD2_6                 876
+#define TRAINER_WISHROAD2_7                 877
+#define TRAINER_WISHROAD2_8                 878
+#define TRAINER_WISHROAD2_9                 879
+#define TRAINER_WISHROAD2_10                880
+#define TRAINER_WISHROAD2_11                881
+#define TRAINER_STARCAVEA_1                 882
+#define TRAINER_STARCAVEA_2                 883
+#define TRAINER_STARCAVEB_1                 884
+#define TRAINER_STARCAVEB_2                 885
+#define TRAINER_STARCAVEB_3                 886
+#define TRAINER_STARCAVEB_4                 887
+#define TRAINER_STARCAVEB_5                 888
+#define TRAINER_STARCAVEC_1                 889
+#define TRAINER_STARCAVEC_2                 890
+#define TRAINER_STARCAVEC_3                 891
+#define TRAINER_STARCAVEC_4                 892
+#define TRAINER_STARCAVEC_5                 893
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is only space for 9 additional trainers before trainer flag space overflows
 //       More space can be made by shifting flags around in constants/flags.h or changing how trainer flags are handled
 //       MAX_TRAINERS_COUNT can be increased but will take up additional saveblock space
 
-#define TRAINERS_COUNT                      857
-#define MAX_TRAINERS_COUNT                  864
+#define TRAINERS_COUNT                      894
+#define MAX_TRAINERS_COUNT                  900
 #define TRAINER_PARTNER(partner)           (MAX_TRAINERS_COUNT + partner)
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_H
