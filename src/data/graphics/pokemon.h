@@ -5549,6 +5549,8 @@ const u8 gMonFootprint_QuestionMark[] = INCBIN_U8("graphics/pokemon/question_mar
     const u32 gMonShinyPalette_GroudonPrimal[] = INCBIN_U32("graphics/pokemon/groudon/primal/shiny.gbapal.lz");
     const u8 gMonIcon_GroudonPrimal[] = INCBIN_U8("graphics/pokemon/groudon/primal/icon.4bpp");
 #endif //P_PRIMAL_REVERSIONS
+    const u32 gMonFrontPic_MetaGroudon[] = INCBIN_U32("graphics/pokemon/meta_groudon/meta_groudon_proto.4bpp.lz");
+    const u32 gMonPalette_MetaGroudon[] = INCBIN_U32("graphics/pokemon/meta_groudon/normal.gbapal.lz");
 #endif //P_FAMILY_GROUDON
 
 #if P_FAMILY_RAYQUAZA

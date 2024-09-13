@@ -7506,6 +7506,21 @@ static const struct LevelUpMove sGroudonLevelUpLearnset[] = {
 };
 #endif //P_FAMILY_GROUDON
 
+static const struct LevelUpMove sMetaGroudonLevelUpLearnset[] = {
+    LEVEL_UP_MOVE( 1, MOVE_WATER_GUN),
+    LEVEL_UP_MOVE( 5, MOVE_SCARY_FACE),
+    LEVEL_UP_MOVE(15, MOVE_ACID),
+    LEVEL_UP_MOVE(20, MOVE_PARASTRIKE),
+    LEVEL_UP_MOVE(30, MOVE_BULK_UP),
+    LEVEL_UP_MOVE(35, MOVE_EARTHQUAKE),
+    LEVEL_UP_MOVE(45, MOVE_FIRE_BLAST),
+    LEVEL_UP_MOVE(50, MOVE_REST),
+    LEVEL_UP_MOVE(60, MOVE_FISSURE),
+    LEVEL_UP_MOVE(65, MOVE_SOLAR_BEAM),
+    LEVEL_UP_MOVE(75, MOVE_ERUPTION),
+    LEVEL_UP_END
+};
+
 #if P_FAMILY_RAYQUAZA
 static const struct LevelUpMove sRayquazaLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_TWISTER),

@@ -598,6 +598,7 @@ void BattleSetup_StartLegendaryBattle(void)
     default:
     case SPECIES_GROUDON:
     case SPECIES_GROUDON_PRIMAL:
+    case SPECIES_GROUDON_META:
         CreateBattleStartTask(B_TRANSITION_GROUDON, MUS_VS_KYOGRE_GROUDON);
         break;
     case SPECIES_KYOGRE:

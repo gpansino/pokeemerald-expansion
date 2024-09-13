@@ -9518,7 +9518,65 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .formChangeTable = sGroudonFormChangeTable,
     },
 #endif //P_PRIMAL_REVERSIONS
+
+    
 #endif //P_FAMILY_GROUDON
+
+    [SPECIES_GROUDON_META] =
+    {
+        .baseHP        = 100,
+        .baseAttack    = 110, 
+        .baseDefense   = 130,
+        .baseSpeed     = 40,
+        .baseSpAttack  = 110,
+        .baseSpDefense = 160,
+        .types = MON_TYPES(TYPE_POISON, TYPE_WATER),
+        .catchRate = 3,
+        .expYield = 218,
+        .evYield_Attack = 3,
+        .genderRatio = MON_GENDERLESS,
+        .eggCycles = 120,
+        .friendship = 0,
+        .growthRate = GROWTH_SLOW,
+        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
+        .abilities = { ABILITY_DESOLATE_LAND, ABILITY_DESOLATE_LAND },
+        .bodyColor = BODY_COLOR_RED,
+        .speciesName = _("GROUDON"),
+        .cryId = CRY_GROUDON,
+        .natDexNum = NATIONAL_DEX_GROUDON,
+        .categoryName = _("CONTINENT"),
+        .height = 50,
+        .weight = 9997,
+        .description = COMPOUND_STRING(
+            "When GROUDON howled, the earth swelled and\n"
+            "the land grew wide. The sun blazed atop\n"
+            "and all the world around the creature\n"
+            "was enveloped in incandescent heat."),
+        .pokemonScale = 256,
+        .pokemonOffset = 0,
+        .trainerScale = 515,
+        .trainerOffset = 14,
+        .frontPic = gMonFrontPic_MetaGroudon,
+        .frontPicSize = MON_COORDS_SIZE(64, 64),
+        .frontPicYOffset = 0,
+        .frontAnimFrames = sAnims_Groudon,
+        .frontAnimId = ANIM_GROW_VIBRATE,
+        .backPic = gMonBackPic_GroudonPrimal,
+        .backPicSize = MON_COORDS_SIZE(64, 48),
+        .backPicYOffset = 8,
+        .backAnimId = BACK_ANIM_SHAKE_GLOW_RED,
+        .palette = gMonPalette_MetaGroudon,
+        .shinyPalette = gMonShinyPalette_GroudonPrimal,
+        .iconSprite = gMonIcon_GroudonPrimal,
+        .iconPalIndex = 0,
+        FOOTPRINT(Groudon)
+        .isLegendary = TRUE,
+        .isPrimalReversion = FALSE,
+        .levelUpLearnset = sMetaGroudonLevelUpLearnset,
+        .teachableLearnset = sGroudonTeachableLearnset,
+        .formSpeciesIdTable = sGroudonFormSpeciesIdTable,
+        .formChangeTable = sGroudonFormChangeTable,
+    },
 
 #if P_FAMILY_RAYQUAZA
     [SPECIES_RAYQUAZA] =

@@ -5171,6 +5171,16 @@ static const union AnimCmd sAnim_Groudon_1[] =
 #if P_PRIMAL_REVERSIONS
 PLACEHOLDER_ANIM_SINGLE_FRAME(GroudonPrimal);
 #endif //P_PRIMAL_REVERSIONS
+
+static const union AnimCmd sAnim_GroudonMeta_1[] = 
+{
+    ANIMCMD_FRAME(0, 11),
+    ANIMCMD_FRAME(1, 10),
+    ANIMCMD_FRAME(0, 10),
+    ANIMCMD_FRAME(1, 20),
+    ANIMCMD_FRAME(0, 10),
+    ANIMCMD_END,
+};
 #endif //P_FAMILY_GROUDON
 
 #if P_FAMILY_RAYQUAZA

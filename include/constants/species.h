@@ -527,6 +527,8 @@
 #define SPECIES_KYOGRE_PRIMAL                FORMS_START + 49
 #define SPECIES_GROUDON_PRIMAL               FORMS_START + 50
 
+#define SPECIES_GROUDON_META                 FORMS_START + 51
+
 // Alolan Forms
 
 // Galarian Forms
