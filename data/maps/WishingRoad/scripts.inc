@@ -110,9 +110,9 @@ WishingRoad_Text_LeahPostBattle:
 
 WishingRoad_Text_PyroIntro:
 	.string "Oh, so when my GROWLITHE uses \n"
-	.string "FLAMETHROWER they're a “great\l"
+	.string "FLAMETHROWER they're a “great\p"
 	.string "special attacker”, but when I do it,\l"
-	.string "I'm “an arsonist” and “not allowed "
+	.string "I'm “an arsonist” and “not allowed\l"
 	.string "in the park anymore?”$"
 
 WishingRoad_Text_PyroDefeated:
@@ -140,7 +140,7 @@ WishingRoad_Text_MarcusPostBattle:
 WishingRoad_Text_JTIntro:
 	.string "CLAMPERL, MACHOKE, AIPOMs?\l"
 	.string "You want it?\p"
-	.string "It's yours, my friend.\l"
+	.string "It's yours, my friend.\n"
 	.string "As long as you have enough EEVEEs.$"
 
 WishingRoad_Text_JTDefeated:
