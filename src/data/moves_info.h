@@ -19800,6 +19800,24 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         }),
     },
 
+    [MOVE_PARASTRIKE] =
+    {
+        .name = HANDLE_EXPANDED_MOVE_NAME("PARASTRIKE", "PARASTRIKE"),
+        .description = COMPOUND_STRING(
+            "A savage parasitic attack\n"
+            "that drains health."),
+        .effect = EFFECT_ABSORB,
+        .power = 120,
+        .type = TYPE_POISON,
+        .accuracy = 100,
+        .pp = 3,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_PHYSICAL,
+        .ignoresKingsRock = (B_UPDATED_MOVE_FLAGS == GEN_3 || B_UPDATED_MOVE_FLAGS == GEN_4),
+        .healingMove = B_HEAL_BLOCKING >= GEN_6,
+    },
+
     // Z-Moves
     [MOVE_BREAKNECK_BLITZ] =
     {
