@@ -13174,12 +13174,6 @@ static const struct TrainerMon sParty_Leah2[] = {
         .ability = ABILITY_SLOT_2,
         .moves = {MOVE_TACKLE, MOVE_THUNDER_SHOCK, MOVE_METAL_SOUND, MOVE_SONIC_BOOM}
     },
-    {
-        .lvl = 13,
-        .species = SPECIES_GROUDON_META,
-        .ability = ABILITY_SLOT_2,
-        .moves = {MOVE_PARASTRIKE, MOVE_THUNDER_SHOCK, MOVE_METAL_SOUND, MOVE_SONIC_BOOM}
-    },
 };
 
 static const struct TrainerMon sParty_Marcus[] = {
