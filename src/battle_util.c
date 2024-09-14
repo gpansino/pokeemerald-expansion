@@ -5723,6 +5723,23 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 effect++;
             }
             break;
+        
+        case ABILITY_PARASITIC:
+            if(!(gStatuses3[gBattlerAttacker] & STATUS3_HEAL_BLOCK) 
+                && TARGET_TURN_DAMAGED
+                && gBattleMons[gBattlerAttacker].hp != gBattleMons[gBattlerAttacker].maxHP
+                && gBattleMons[gBattlerAttacker].hp != 0)
+            {
+                gBattleScripting.battler = gBattlerAttacker;
+                gBattleMoveDamage = (gSpecialStatuses[gBattlerTarget].shellBellDmg) * -1;
+                if (gBattleMoveDamage == 0)
+                    gBattleMoveDamage = -1;
+                gSpecialStatuses[gBattlerTarget].shellBellDmg = 0;
+                BattleScriptPushCursor();
+                gBattlescriptCurrInstr = BattleScript_AbilityDrain;
+                effect++;
+            }
+            break;
         }
         break;
     case ABILITYEFFECT_MOVE_END_OTHER: // Abilities that activate on *another* battler's moveend: Dancer, Soul-Heart, Receiver, Symbiosis
@@ -7662,7 +7679,7 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
                 gLastUsedItem = atkItem;
                 gPotentialItemEffectBattler = gBattlerAttacker;
                 gBattleScripting.battler = gBattlerAttacker;
-                gBattleMoveDamage = (gSpecialStatuses[gBattlerTarget].shellBellDmg / atkHoldEffectParam) * -1;
+                gBattleMoveDamage = (gSpecialStatuses[gBattlerTarget].shellBellDmg / GetBattlerHoldEffectParam(gBattlerAttacker)) * -1;
                 if (gBattleMoveDamage == 0)
                     gBattleMoveDamage = -1;
                 gSpecialStatuses[gBattlerTarget].shellBellDmg = 0;

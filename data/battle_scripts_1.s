@@ -8659,6 +8659,14 @@ BattleScript_AbilityCuredStatus::
 	updatestatusicon BS_SCRIPTING
 	return
 
+BattleScript_AbilityDrain::
+	call BattleScript_AbilityPopUp
+	printstring STRINGID_PKMNENERGYDRAINED
+	waitmessage B_WAIT_TIME_MED
+	healthbarupdate BS_ATTACKER
+	datahpupdate BS_ATTACKER
+	return
+
 BattleScript_BattlerShookOffTaunt::
 	call BattleScript_AbilityPopUp
 	printstring STRINGID_PKMNSHOOKOFFTHETAUNT

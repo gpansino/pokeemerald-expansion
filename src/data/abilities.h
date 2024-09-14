@@ -2606,4 +2606,11 @@ const struct Ability gAbilitiesInfo[ABILITIES_COUNT] =
         .description = COMPOUND_STRING("Boosts on electricity."),
         .aiRating = 7,
     },
+
+    [ABILITY_PARASITIC] = 
+    {
+        .name = _("PARASITIC"),
+        .description = COMPOUND_STRING("All attacks drain HP."),
+        .aiRating = 9,
+    },
 };
