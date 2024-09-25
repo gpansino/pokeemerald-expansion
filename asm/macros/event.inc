@@ -986,7 +986,7 @@
 
 	@ Gives the player a Pokémon of the specified species and level, and allows to customize extra parameters.
 	@ VAR_RESULT will be set to MON_GIVEN_TO_PARTY, MON_GIVEN_TO_PC, or MON_CANT_GIVE depending on the outcome.
-	.macro givemon species:req, level:req, item, ball, nature, abilityNum, gender, hpEv, atkEv, defEv, speedEv, spAtkEv, spDefEv, hpIv, atkIv, defIv, speedIv, spAtkIv, spDefIv, move1, move2, move3, move4, isShiny, ggMaxFactor, teraType
+	.macro givemon species:req, level:req, item, ball, nature, abilityNum, gender, hpEv, atkEv, defEv, speedEv, spAtkEv, spDefEv, hpIv, atkIv, defIv, speedIv, spAtkIv, spDefIv, move1, move2, move3, move4, isShiny, ggMaxFactor, teraType, isGuest
 	callnative ScrCmd_givemon
 	.set givemon_flags, 0
 	.2byte \species
@@ -1015,6 +1015,7 @@
 	.ifnb \isShiny; .set givemon_flags, givemon_flags | (1 << 21); .endif
 	.ifnb \ggMaxFactor; .set givemon_flags, givemon_flags | (1 << 22); .endif
 	.ifnb \teraType; .set givemon_flags, givemon_flags | (1 << 23); .endif
+	.ifnb \isGuest; .set givemon_flags, givemon_flags | (1 << 24); .endif
 	.4byte givemon_flags
 	.ifnb \item; .2byte \item; .endif
 	.ifnb \ball; .2byte \ball; .endif
@@ -1040,6 +1041,7 @@
 	.ifnb \isShiny; .2byte \isShiny; .endif
 	.ifnb \ggMaxFactor; .2byte \ggMaxFactor; .endif
 	.ifnb \teraType; .2byte \teraType; .endif
+	.ifnb \isGuest; .2byte \isGuest; .endif
 	.endm
 
 	@ Gives the player an Egg of the specified species.

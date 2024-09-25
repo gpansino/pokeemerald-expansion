@@ -2514,6 +2514,9 @@ u32 GetBoxMonData3(struct BoxPokemon *boxMon, s32 field, u8 *data)
             }
             break;
         }
+        case MON_DATA_IS_GUEST:
+            retVal = substruct1->guest;
+            break;
         case MON_DATA_EVOLUTION_TRACKER:
             evoTracker.asField.a = substruct1->evolutionTracker1;
             evoTracker.asField.b = substruct1->evolutionTracker2;
@@ -2934,6 +2937,9 @@ void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
             substruct0->teraType = 1 + teraType;
             break;
         }
+        case MON_DATA_IS_GUEST:
+            SET8(substruct1->guest);
+            break;
         case MON_DATA_EVOLUTION_TRACKER:
         {
             union EvolutionTracker evoTracker;

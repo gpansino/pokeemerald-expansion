@@ -289,7 +289,7 @@ void ToggleGigantamaxFactor(struct ScriptContext *ctx)
     }
 }
 
-u32 ScriptGiveMonParameterized(u16 species, u8 level, u16 item, u8 ball, u8 nature, u8 abilityNum, u8 gender, u8 *evs, u8 *ivs, u16 *moves, bool8 isShiny, bool8 ggMaxFactor, u8 teraType)
+u32 ScriptGiveMonParameterized(u16 species, u8 level, u16 item, u8 ball, u8 nature, u8 abilityNum, u8 gender, u8 *evs, u8 *ivs, u16 *moves, bool8 isShiny, bool8 ggMaxFactor, u8 teraType, bool8 isGuest)
 {
     u16 nationalDexNum;
     int sentToPc;
@@ -330,6 +330,9 @@ u32 ScriptGiveMonParameterized(u16 species, u8 level, u16 item, u8 ball, u8 natu
     if (teraType >= NUMBER_OF_MON_TYPES)
         teraType = gSpeciesInfo[species].types[0];
     SetMonData(&mon, MON_DATA_TERA_TYPE, &teraType);
+
+    // guest status 
+    SetMonData(&mon, MON_DATA_IS_GUEST, &isGuest);
 
     // EV and IV
     for (i = 0; i < NUM_STATS; i++)
@@ -422,7 +425,7 @@ u32 ScriptGiveMon(u16 species, u8 level, u16 item)
                                 MAX_PER_STAT_IVS + 1, MAX_PER_STAT_IVS + 1, MAX_PER_STAT_IVS + 1};  // ScriptGiveMonParameterized won't touch the stats' IV.
     u16 moves[MAX_MON_MOVES] = {MOVE_NONE, MOVE_NONE, MOVE_NONE, MOVE_NONE};
 
-    return ScriptGiveMonParameterized(species, level, item, ITEM_POKE_BALL, NUM_NATURES, NUM_ABILITY_PERSONALITY, MON_GENDERLESS, evs, ivs, moves, FALSE, FALSE, NUMBER_OF_MON_TYPES);
+    return ScriptGiveMonParameterized(species, level, item, ITEM_POKE_BALL, NUM_NATURES, NUM_ABILITY_PERSONALITY, MON_GENDERLESS, evs, ivs, moves, FALSE, FALSE, NUMBER_OF_MON_TYPES, FALSE);
 }
 
 #define PARSE_FLAG(n, default_) (flags & (1 << (n))) ? VarGet(ScriptReadHalfword(ctx)) : (default_)
@@ -457,12 +460,13 @@ void ScrCmd_givemon(struct ScriptContext *ctx)
     bool8 isShiny     = PARSE_FLAG(21, FALSE);
     bool8 ggMaxFactor = PARSE_FLAG(22, FALSE);
     u8 teraType       = PARSE_FLAG(23, NUMBER_OF_MON_TYPES);
+    bool8 isGuest     = PARSE_FLAG(24, FALSE);
 
     u8 evs[NUM_STATS]        = {hpEv, atkEv, defEv, speedEv, spAtkEv, spDefEv};
     u8 ivs[NUM_STATS]        = {hpIv, atkIv, defIv, speedIv, spAtkIv, spDefIv};
     u16 moves[MAX_MON_MOVES] = {move1, move2, move3, move4};
 
-    gSpecialVar_Result = ScriptGiveMonParameterized(species, level, item, ball, nature, abilityNum, gender, evs, ivs, moves, isShiny, ggMaxFactor, teraType);
+    gSpecialVar_Result = ScriptGiveMonParameterized(species, level, item, ball, nature, abilityNum, gender, evs, ivs, moves, isShiny, ggMaxFactor, teraType, isGuest);
 }
 
 #undef PARSE_FLAG
