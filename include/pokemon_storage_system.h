@@ -76,4 +76,6 @@ bool32 IsWaldaPhraseEmpty(void);
 
 void EnterPokeStorage(u8 boxOption);
 
+void SendMonToPC(void);
+
 #endif // GUARD_POKEMON_STORAGE_SYSTEM_H

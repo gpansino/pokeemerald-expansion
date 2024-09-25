@@ -27,6 +27,7 @@
 #include "pokemon_icon.h"
 #include "pokemon_summary_screen.h"
 #include "pokemon_storage_system.h"
+#include "constants/pokemon_storage_system.h"
 #include "script.h"
 #include "sound.h"
 #include "string_util.h"
@@ -2355,7 +2356,7 @@ static void Task_PokeStorageMain(u8 taskId)
             }
             break;
         case INPUT_DEPOSIT:
-            if (!IsRemovingLastPartyMon())
+            if (!IsRemovingLastPartyMon() || GetMonData(&gPlayerParty[sCursorPosition], MON_DATA_IS_GUEST))
             {
                 if (ItemIsMail(sStorage->displayMonItemId))
                 {
@@ -2615,7 +2616,7 @@ static void Task_OnSelectedMon(u8 taskId)
             SetPokeStorageTask(Task_PokeStorageMain);
             break;
         case MENU_MOVE:
-            if (IsRemovingLastPartyMon())
+            if (IsRemovingLastPartyMon() || GetMonData(&gPlayerParty[sCursorPosition], MON_DATA_IS_GUEST))
             {
                 sStorage->state = 3;
             }
@@ -2649,7 +2650,7 @@ static void Task_OnSelectedMon(u8 taskId)
             SetPokeStorageTask(Task_WithdrawMon);
             break;
         case MENU_STORE:
-            if (IsRemovingLastPartyMon())
+            if (IsRemovingLastPartyMon() || GetMonData(&gPlayerParty[sCursorPosition], MON_DATA_IS_GUEST))
             {
                 sStorage->state = 3;
             }
@@ -2665,7 +2666,7 @@ static void Task_OnSelectedMon(u8 taskId)
             }
             break;
         case MENU_RELEASE:
-            if (IsRemovingLastPartyMon())
+            if (IsRemovingLastPartyMon() || GetMonData(&gPlayerParty[sCursorPosition], MON_DATA_IS_GUEST))
             {
                 sStorage->state = 3;
             }
@@ -6215,6 +6216,7 @@ static bool8 DoMonPlaceChange(void)
 
 static bool8 MonPlaceChange_Grab(void)
 {
+    
     switch (sStorage->monPlaceChangeState)
     {
     case 0:
@@ -6452,6 +6454,8 @@ static bool8 TryStorePartyMonInBox(u8 boxId)
 {
     s16 boxPosition = GetFirstFreeBoxSpot(boxId);
     if (boxPosition == -1)
+        return FALSE;
+    if(GetMonData(&gPlayerParty[sCursorPosition], MON_DATA_IS_GUEST))
         return FALSE;
 
     if (sIsMonBeingMoved)
@@ -10178,4 +10182,40 @@ void UpdateSpeciesSpritePSS(struct BoxPokemon *boxMon)
         }
     }
     sJustOpenedBag = FALSE;
+}
+
+void SendMonToPC(void){
+    
+    u8 boxId = -1;
+    s16 boxPosition = -1; 
+    s16 partyPosition = gSpecialVar_0x8004;
+    
+  
+    for(int i = 0; i <= TOTAL_BOXES_COUNT; i++){
+        boxPosition = GetFirstFreeBoxSpot(i);
+        if(boxPosition > -1){
+            boxId = i;
+            i = TOTAL_BOXES_COUNT;
+        }
+    }
+    if (boxPosition == -1 || partyPosition >= 6 || boxId == -1){
+        return;
+    }
+
+    if(GetMonData(&gPlayerParty[partyPosition], MON_DATA_IS_GUEST)){
+        gSpecialVar_0x8004 = PARTY_IS_GUEST;
+        return;
+    }
+
+    if (OW_PC_HEAL <= GEN_7)
+        HealPokemon(&gPlayerParty[partyPosition]);
+
+    SetBoxMonAt(boxId, boxPosition, &gPlayerParty[partyPosition].box);
+
+    ZeroMonData(&gPlayerParty[partyPosition]);
+    return;
+    //if finds room in any box takes mon at party position
+    //and copies it to the first available slot
+    //then deletes the mon from the party, returns true
+    //if no room in any box can be found, returns false
 }

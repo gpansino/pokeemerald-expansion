@@ -30,7 +30,7 @@
 #define PARTY_MENU_TYPE_MOVE_RELEARNER            7
 #define PARTY_MENU_TYPE_UNION_ROOM_REGISTER       8  // trading board
 #define PARTY_MENU_TYPE_UNION_ROOM_TRADE          9  // trading board
-#define PARTY_MENU_TYPE_SPIN_TRADE                10 // Unused beta for Gen IV's Spin Trade
+#define PARTY_MENU_TYPE_GUEST                     10
 #define PARTY_MENU_TYPE_MINIGAME                  11
 #define PARTY_MENU_TYPE_STORE_PYRAMID_HELD_ITEMS  12
 
@@ -40,7 +40,7 @@
 #define PARTY_ACTION_USE_ITEM           3
 #define PARTY_ACTION_ABILITY_PREVENTS   4
 #define PARTY_ACTION_GIVE_ITEM          5
-#define PARTY_ACTION_GIVE_PC_ITEM       6   // Unused. Not possible to give non-mail items directly from PC
+#define PARTY_ACTION_SEND_TO_PC         6   
 #define PARTY_ACTION_GIVE_MAILBOX_MAIL  7
 #define PARTY_ACTION_SWITCH             8
 #define PARTY_ACTION_SWITCHING          9
@@ -81,6 +81,7 @@
 #define PARTY_MSG_ALREADY_HOLDING_ONE       26
 #define PARTY_MSG_WHICH_APPLIANCE           27
 #define PARTY_MSG_CHOOSE_SECOND_FUSION      28
+#define PARTY_MSG_CHOOSE_MON_TO_STORE       29
 #define PARTY_MSG_NONE                      127
 
 // IDs for DisplayPartyPokemonDescriptionText, to display a message in the party pokemon's box

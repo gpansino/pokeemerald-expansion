@@ -545,6 +545,8 @@ gSpecials::
 	def_special FallWarpStarCave
 	def_special DisplayMap
 	def_special DestroyMap
+	def_special ChooseMonSendToPC
+	def_special SendMonToPC
 	
 	def_special GetNumberSprayStrength
 	def_special GetSprayId

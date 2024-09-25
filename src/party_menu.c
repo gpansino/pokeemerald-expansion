@@ -513,6 +513,9 @@ void TryItemHoldFormChange(struct Pokemon *mon);
 static void ShowMoveSelectWindow(u8 slot);
 static void Task_HandleWhichMoveInput(u8 taskId);
 
+void Task_CreateSendToPCWindow(u8 taskId);
+void Task_HandleSendtoPCMenuInput(u8 taskId);
+
 // static const data
 #include "data/party_menu.h"
 
@@ -1487,7 +1490,6 @@ static void HandleChooseMonSelection(u8 taskId, s8 *slotPtr)
             }
             break;
         case PARTY_ACTION_GIVE_ITEM:
-        case PARTY_ACTION_GIVE_PC_ITEM:
             if (IsSelectedMonNotEgg((u8 *)slotPtr))
             {
                 PlaySE(SE_SELECT);
@@ -1527,6 +1529,10 @@ static void HandleChooseMonSelection(u8 taskId, s8 *slotPtr)
             }
             break;
         }
+        case PARTY_ACTION_SEND_TO_PC:
+            PlaySE(SE_SELECT);
+            Task_CreateSendToPCWindow(taskId);
+            break;
         default:
         case PARTY_ACTION_ABILITY_PREVENTS:
         case PARTY_ACTION_SWITCHING:
@@ -2277,17 +2283,8 @@ static void CreateCancelConfirmWindows(bool8 chooseHalf)
         }
         FillWindowPixelBuffer(cancelWindowId, PIXEL_FILL(0));
 
-        // Branches are functionally identical. Second branch is never reached, Spin Trade wasnt fully implemented
-        if (gPartyMenu.menuType != PARTY_MENU_TYPE_SPIN_TRADE)
-        {
             mainOffset = GetStringCenterAlignXOffset(FONT_SMALL, gText_Cancel, 48);
             AddTextPrinterParameterized3(cancelWindowId, FONT_SMALL, mainOffset + offset, 1, sFontColorTable[0], TEXT_SKIP_DRAW, gText_Cancel);
-        }
-        else
-        {
-            mainOffset = GetStringCenterAlignXOffset(FONT_SMALL, gText_Cancel2, 48);
-            AddTextPrinterParameterized3(cancelWindowId, FONT_SMALL, mainOffset + offset, 1, sFontColorTable[0], TEXT_SKIP_DRAW, gText_Cancel2);
-        }
         PutWindowTilemap(cancelWindowId);
         CopyWindowToVram(cancelWindowId, COPYWIN_GFX);
         ScheduleBgCopyTilemapToVram(0);
@@ -2857,14 +2854,14 @@ static u8 GetPartyMenuActionsType(struct Pokemon *mon)
     case PARTY_MENU_TYPE_DAYCARE:
         actionType = (GetMonData(mon, MON_DATA_IS_EGG)) ? ACTIONS_SUMMARY_ONLY : ACTIONS_STORE;
         break;
+    case PARTY_MENU_TYPE_GUEST:
+        actionType = ACTIONS_STORE;
+        break;
     case PARTY_MENU_TYPE_UNION_ROOM_REGISTER:
         actionType = ACTIONS_REGISTER;
         break;
     case PARTY_MENU_TYPE_UNION_ROOM_TRADE:
         actionType = ACTIONS_TRADE;
-        break;
-    case PARTY_MENU_TYPE_SPIN_TRADE:
-        actionType = ACTIONS_SPIN_TRADE;
         break;
     case PARTY_MENU_TYPE_STORE_PYRAMID_HELD_ITEMS:
         actionType = ACTIONS_TAKEITEM_TOSS;
@@ -3261,6 +3258,8 @@ static void CursorCb_Cancel1(u8 taskId)
     PartyMenuRemoveWindow(&sPartyMenuInternal->windowId[1]);
     if (gPartyMenu.menuType == PARTY_MENU_TYPE_DAYCARE)
         DisplayPartyMenuStdMessage(PARTY_MSG_CHOOSE_MON_2);
+    else if(gPartyMenu.menuType == PARTY_MENU_TYPE_GUEST)
+        DisplayPartyMenuStdMessage(PARTY_MSG_CHOOSE_MON_TO_STORE);
     else
         DisplayPartyMenuStdMessage(PARTY_MSG_CHOOSE_MON);
     gTasks[taskId].func = Task_HandleChooseMonInput;
@@ -6893,9 +6892,6 @@ static void DisplayItemMustBeRemovedFirstMessage(u8 taskId)
 
 static void RemoveItemToGiveFromBag(u16 item)
 {
-    if (gPartyMenu.action == PARTY_ACTION_GIVE_PC_ITEM) // Unused, never occurs
-        RemovePCItem(item, 1);
-    else
         RemoveBagItem(item, 1);
 }
 
@@ -7798,5 +7794,47 @@ void IsLastMonThatKnowsSurf(void)
         }
         if (AnyStorageMonWithMove(move) != TRUE)
             gSpecialVar_Result = TRUE;
+    }
+}
+
+
+void ChooseMonSendToPC(void){
+    InitPartyMenu(PARTY_MENU_TYPE_GUEST, PARTY_LAYOUT_SINGLE, PARTY_ACTION_SEND_TO_PC, FALSE, PARTY_MSG_CHOOSE_MON_TO_STORE, Task_HandleChooseMonInput, BufferMonSelection);
+}
+
+
+void Task_CreateSendToPCWindow(u8 taskId){
+    if (CreateSelectionWindow(taskId))
+    {
+        gTasks[taskId].data[0] = 0xFF;
+        gTasks[taskId].func = Task_HandleSendtoPCMenuInput;
+    }
+}
+
+void Task_HandleSendtoPCMenuInput(u8 taskId){
+    if (!gPaletteFade.active && MenuHelpers_ShouldWaitForLinkRecv() != TRUE)
+    {
+        s8 input;
+        s16 *data = gTasks[taskId].data;
+
+        input = Menu_ProcessInputNoWrapAround_other();
+
+        data[0] = Menu_GetCursorPos();
+        switch (input)
+        {
+        case MENU_NOTHING_CHOSEN:
+            break;
+        case MENU_B_PRESSED:
+            PlaySE(SE_SELECT);
+            PartyMenuRemoveWindow(&sPartyMenuInternal->windowId[2]);
+            break;
+        default:
+            PartyMenuRemoveWindow(&sPartyMenuInternal->windowId[2]);
+            if (sPartyMenuInternal->actions[input] >= MENU_FIELD_MOVES)
+                CursorCb_FieldMove(taskId);
+            else
+                sCursorOptions[sPartyMenuInternal->actions[input]].func(taskId);
+            break;
+        }
     }
 }

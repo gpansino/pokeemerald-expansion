@@ -659,6 +659,7 @@ static const u8 *const sActionStringTable[] =
     [PARTY_MSG_ALREADY_HOLDING_ONE]    = gText_AlreadyHoldingOne,
     [PARTY_MSG_WHICH_APPLIANCE]        = gText_WhichAppliance,
     [PARTY_MSG_CHOOSE_SECOND_FUSION]   = gText_NextFusionMon,
+    [PARTY_MSG_CHOOSE_MON_TO_STORE]    = gText_ChooseStore,
 };
 
 static const u8 *const sDescriptionStringTable[] =
@@ -1149,3 +1150,4 @@ static const u16 sRotomFormChangeMoves[5] =
     MOVE_LEAF_STORM,
 };
 
+void ChooseMonSendToPC(void);

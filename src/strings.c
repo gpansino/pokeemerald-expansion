@@ -453,6 +453,7 @@ const u8 gText_BoostPp[] = _("Boost PP of which move?");
 const u8 gText_DoWhatWithItem[] = _("Do what with an item?");
 const u8 gText_NoPokemonForBattle[] = _("No POKéMON for battle!");
 const u8 gText_ChoosePokemon2[] = _("Choose a POKéMON.");
+const u8 gText_ChooseStore[] = _("Choose a POKéMON to move to PC.");
 const u8 gText_NotEnoughHp[] = _("Not enough HP…");
 const u8 gText_PokemonAreNeeded[] = _("{STR_VAR_1} POKéMON are needed.");
 const u8 gText_PokemonCantBeSame[] = _("POKéMON can't be the same.");
