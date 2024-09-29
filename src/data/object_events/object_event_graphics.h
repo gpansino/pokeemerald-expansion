@@ -376,3 +376,14 @@ const u16 gObjectEventPal_HoOh[] = INCBIN_U16("graphics/object_events/palettes/h
 
 const u32 gFieldEffectPic_InvisFloor[] = INCBIN_U32("graphics/field_effects/pics/invisible_floor.4bpp");
 const u16 gFieldEffectPal_InvisFloor[] = INCBIN_U16("graphics/field_effects/palettes/invisible_floor.gbapal");
+const u32 gObjectEventPic_Absol[] = INCBIN_U32("graphics/object_events/pics/pokemon/absol.4bpp");
+const u16 gObjectEventPal_Absol[] = INCBIN_U16("graphics/object_events/palettes/absol.gbapal");
+const u32 gObjectEventPic_Flygon[] = INCBIN_U32("graphics/object_events/pics/pokemon/flygon.4bpp");
+const u16 gObjectEventPal_Flygon[] = INCBIN_U16("graphics/object_events/palettes/flygon.gbapal");
+const u32 gObjectEventPic_Jirachi[] = INCBIN_U32("graphics/object_events/pics/pokemon/jirachi.4bpp");
+const u16 gObjectEventPal_Jirachi[] = INCBIN_U16("graphics/object_events/palettes/jirachi.gbapal");
+const u32 gObjectEventPic_Butler[] = INCBIN_U32("graphics/object_events/pics/people/butler.4bpp");
+const u16 gObjectEventPal_Butler[] = INCBIN_U16("graphics/object_events/palettes/butler.gbapal");
+const u32 gObjectEventPic_Diane[] = INCBIN_U32("graphics/object_events/pics/people/diane.4bpp");
+const u16 gObjectEventPal_Diane[] = INCBIN_U16("graphics/object_events/palettes/diane.gbapal");
+

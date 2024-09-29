@@ -287,6 +287,7 @@ static void (*const sMovementTypeCallbacks[])(struct Sprite *) =
     [MOVEMENT_TYPE_WALK_SLOWLY_IN_PLACE_UP] = MovementType_WalkSlowlyInPlace,
     [MOVEMENT_TYPE_WALK_SLOWLY_IN_PLACE_LEFT] = MovementType_WalkSlowlyInPlace,
     [MOVEMENT_TYPE_WALK_SLOWLY_IN_PLACE_RIGHT] = MovementType_WalkSlowlyInPlace,
+    [MOVEMENT_TYPE_IDLE_SOUTH] = MovementType_IdleDirection, 
 };
 
 static const bool8 sMovementTypeHasRange[NUM_MOVEMENT_TYPES] = {
@@ -453,6 +454,11 @@ const u8 gInitialMovementTypeFacingDirections[] = {
 #define OBJ_EVENT_PAL_TAG_LUGIA                   0x1121
 #define OBJ_EVENT_PAL_TAG_RS_BRENDAN              0x1122
 #define OBJ_EVENT_PAL_TAG_RS_MAY                  0x1123
+#define OBJ_EVENT_PAL_TAG_ABSOL                   0x1124
+#define OBJ_EVENT_PAL_TAG_FLYGON                  0x1125
+#define OBJ_EVENT_PAL_TAG_JIRACHI                 0x1126
+#define OBJ_EVENT_PAL_TAG_BUTLER                  0x1127
+#define OBJ_EVENT_PAL_TAG_DIANE                   0x1128
 #define OBJ_EVENT_PAL_TAG_NONE                    0x11FF
 
 #include "data/object_events/object_event_graphics_info_pointers.h"
@@ -497,6 +503,11 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_BirthIslandStone,      OBJ_EVENT_PAL_TAG_BIRTH_ISLAND_STONE},
     {gObjectEventPal_HoOh,                  OBJ_EVENT_PAL_TAG_HO_OH},
     {gObjectEventPal_Lugia,                 OBJ_EVENT_PAL_TAG_LUGIA},
+    {gObjectEventPal_Absol,                 OBJ_EVENT_PAL_TAG_ABSOL},
+    {gObjectEventPal_Flygon,                OBJ_EVENT_PAL_TAG_FLYGON},
+    {gObjectEventPal_Jirachi,               OBJ_EVENT_PAL_TAG_JIRACHI},
+    {gObjectEventPal_Butler,                OBJ_EVENT_PAL_TAG_BUTLER},
+    {gObjectEventPal_Diane,                 OBJ_EVENT_PAL_TAG_DIANE},
     {gObjectEventPal_RubySapphireBrendan,   OBJ_EVENT_PAL_TAG_RS_BRENDAN},
     {gObjectEventPal_RubySapphireMay,       OBJ_EVENT_PAL_TAG_RS_MAY},
 #ifdef BUGFIX
@@ -708,6 +719,17 @@ static const u8 sFaceDirectionAnimNums[] = {
     [DIR_NORTHWEST] = ANIM_STD_FACE_NORTH,
     [DIR_NORTHEAST] = ANIM_STD_FACE_NORTH,
 };
+static const u8 sIdleDirectionAnimNums[] = {
+    [DIR_NONE] = ANIM_STD_IDLE_SOUTH,
+    [DIR_SOUTH] = ANIM_STD_IDLE_SOUTH,
+    [DIR_NORTH] = ANIM_STD_IDLE_SOUTH,
+    [DIR_WEST] = ANIM_STD_IDLE_SOUTH,
+    [DIR_EAST] = ANIM_STD_IDLE_SOUTH,
+    [DIR_SOUTHWEST] = ANIM_STD_IDLE_SOUTH,
+    [DIR_SOUTHEAST] = ANIM_STD_IDLE_SOUTH,
+    [DIR_NORTHWEST] = ANIM_STD_IDLE_SOUTH,
+    [DIR_NORTHEAST] = ANIM_STD_IDLE_SOUTH,
+};
 static const u8 sMoveDirectionAnimNums[] = {
     [DIR_NONE] = ANIM_STD_GO_SOUTH,
     [DIR_SOUTH] = ANIM_STD_GO_SOUTH,
@@ -907,6 +929,9 @@ const u8 gFaceDirectionMovementActions[] = {
     MOVEMENT_ACTION_FACE_UP,
     MOVEMENT_ACTION_FACE_LEFT,
     MOVEMENT_ACTION_FACE_RIGHT,
+};
+const u8 gIdleDirectionMovementActions[] = {
+    MOVEMENT_ACTION_IDLE_SOUTH,
 };
 const u8 gWalkSlowMovementActions[] = {
     MOVEMENT_ACTION_WALK_SLOW_DOWN,
@@ -1428,6 +1453,9 @@ static u8 TrySetupObjectEventSprite(const struct ObjectEventTemplate *objectEven
     {
         paletteSlot -= 16;
         _PatchObjectPalette(graphicsInfo->paletteTag, paletteSlot);
+    }
+    else{
+        LoadSpecialObjectReflectionPalette(graphicsInfo->paletteTag, paletteSlot);
     }
 
     if (objectEvent->movementType == MOVEMENT_TYPE_INVISIBLE)
@@ -3045,6 +3073,32 @@ bool8 MovementType_FaceDirection_Step2(struct ObjectEvent *objectEvent, struct S
     return FALSE;
 }
 
+movement_type_def(MovementType_IdleDirection, gMovementTypeFuncs_IdleDirection)
+
+bool8 MovementType_IdleDirection_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    ClearObjectEventMovement(objectEvent, sprite);
+    ObjectEventSetSingleMovement(objectEvent, sprite, GetFaceDirectionMovementAction(objectEvent->facingDirection));
+    sprite->sTypeFuncId = 1;
+    return TRUE;
+}
+
+bool8 MovementType_IdleDirection_Step1(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    if (ObjectEventExecSingleMovementAction(objectEvent, sprite))
+    {
+        sprite->sTypeFuncId = 2;
+        return TRUE;
+    }
+    return FALSE;
+}
+
+bool8 MovementType_IdleDirection_Step2(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    objectEvent->singleMovementActive = FALSE;
+    return FALSE;
+}
+
 static bool8 ObjectEventCB2_BerryTree(struct ObjectEvent *objectEvent, struct Sprite *sprite);
 extern bool8 (*const gMovementTypeFuncs_BerryTreeGrowth[])(struct ObjectEvent *objectEvent, struct Sprite *sprite);
 
@@ -4488,6 +4542,10 @@ u8 GetFaceDirectionAnimNum(u8 direction)
     return sFaceDirectionAnimNums[direction];
 }
 
+u8 GetIdleDirectionAnimNum(u8 direction){
+    return sIdleDirectionAnimNums[direction];
+}
+
 u8 GetMoveDirectionAnimNum(u8 direction)
 {
     return sMoveDirectionAnimNums[direction];
@@ -4952,6 +5010,7 @@ u8 name(u32 idx)\
 }
 
 dirn_to_anim(GetFaceDirectionMovementAction, gFaceDirectionMovementActions);
+dirn_to_anim(GetIdleDirectionMovementAction, gIdleDirectionMovementActions);
 dirn_to_anim(GetWalkSlowMovementAction, gWalkSlowMovementActions);
 dirn_to_anim(GetWalkNormalMovementAction, gWalkNormalMovementActions);
 dirn_to_anim(GetWalkFastMovementAction, gWalkFastMovementActions);
