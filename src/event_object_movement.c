@@ -287,7 +287,6 @@ static void (*const sMovementTypeCallbacks[])(struct Sprite *) =
     [MOVEMENT_TYPE_WALK_SLOWLY_IN_PLACE_UP] = MovementType_WalkSlowlyInPlace,
     [MOVEMENT_TYPE_WALK_SLOWLY_IN_PLACE_LEFT] = MovementType_WalkSlowlyInPlace,
     [MOVEMENT_TYPE_WALK_SLOWLY_IN_PLACE_RIGHT] = MovementType_WalkSlowlyInPlace,
-    [MOVEMENT_TYPE_IDLE_SOUTH] = MovementType_IdleDirection, 
 };
 
 static const bool8 sMovementTypeHasRange[NUM_MOVEMENT_TYPES] = {
@@ -719,17 +718,6 @@ static const u8 sFaceDirectionAnimNums[] = {
     [DIR_NORTHWEST] = ANIM_STD_FACE_NORTH,
     [DIR_NORTHEAST] = ANIM_STD_FACE_NORTH,
 };
-static const u8 sIdleDirectionAnimNums[] = {
-    [DIR_NONE] = ANIM_STD_IDLE_SOUTH,
-    [DIR_SOUTH] = ANIM_STD_IDLE_SOUTH,
-    [DIR_NORTH] = ANIM_STD_IDLE_SOUTH,
-    [DIR_WEST] = ANIM_STD_IDLE_SOUTH,
-    [DIR_EAST] = ANIM_STD_IDLE_SOUTH,
-    [DIR_SOUTHWEST] = ANIM_STD_IDLE_SOUTH,
-    [DIR_SOUTHEAST] = ANIM_STD_IDLE_SOUTH,
-    [DIR_NORTHWEST] = ANIM_STD_IDLE_SOUTH,
-    [DIR_NORTHEAST] = ANIM_STD_IDLE_SOUTH,
-};
 static const u8 sMoveDirectionAnimNums[] = {
     [DIR_NONE] = ANIM_STD_GO_SOUTH,
     [DIR_SOUTH] = ANIM_STD_GO_SOUTH,
@@ -929,9 +917,6 @@ const u8 gFaceDirectionMovementActions[] = {
     MOVEMENT_ACTION_FACE_UP,
     MOVEMENT_ACTION_FACE_LEFT,
     MOVEMENT_ACTION_FACE_RIGHT,
-};
-const u8 gIdleDirectionMovementActions[] = {
-    MOVEMENT_ACTION_IDLE_SOUTH,
 };
 const u8 gWalkSlowMovementActions[] = {
     MOVEMENT_ACTION_WALK_SLOW_DOWN,
@@ -3073,31 +3058,6 @@ bool8 MovementType_FaceDirection_Step2(struct ObjectEvent *objectEvent, struct S
     return FALSE;
 }
 
-movement_type_def(MovementType_IdleDirection, gMovementTypeFuncs_IdleDirection)
-
-bool8 MovementType_IdleDirection_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
-{
-    ClearObjectEventMovement(objectEvent, sprite);
-    ObjectEventSetSingleMovement(objectEvent, sprite, GetFaceDirectionMovementAction(objectEvent->facingDirection));
-    sprite->sTypeFuncId = 1;
-    return TRUE;
-}
-
-bool8 MovementType_IdleDirection_Step1(struct ObjectEvent *objectEvent, struct Sprite *sprite)
-{
-    if (ObjectEventExecSingleMovementAction(objectEvent, sprite))
-    {
-        sprite->sTypeFuncId = 2;
-        return TRUE;
-    }
-    return FALSE;
-}
-
-bool8 MovementType_IdleDirection_Step2(struct ObjectEvent *objectEvent, struct Sprite *sprite)
-{
-    objectEvent->singleMovementActive = FALSE;
-    return FALSE;
-}
 
 static bool8 ObjectEventCB2_BerryTree(struct ObjectEvent *objectEvent, struct Sprite *sprite);
 extern bool8 (*const gMovementTypeFuncs_BerryTreeGrowth[])(struct ObjectEvent *objectEvent, struct Sprite *sprite);
@@ -4542,9 +4502,6 @@ u8 GetFaceDirectionAnimNum(u8 direction)
     return sFaceDirectionAnimNums[direction];
 }
 
-u8 GetIdleDirectionAnimNum(u8 direction){
-    return sIdleDirectionAnimNums[direction];
-}
 
 u8 GetMoveDirectionAnimNum(u8 direction)
 {
@@ -5010,7 +4967,6 @@ u8 name(u32 idx)\
 }
 
 dirn_to_anim(GetFaceDirectionMovementAction, gFaceDirectionMovementActions);
-dirn_to_anim(GetIdleDirectionMovementAction, gIdleDirectionMovementActions);
 dirn_to_anim(GetWalkSlowMovementAction, gWalkSlowMovementActions);
 dirn_to_anim(GetWalkNormalMovementAction, gWalkNormalMovementActions);
 dirn_to_anim(GetWalkFastMovementAction, gWalkFastMovementActions);
