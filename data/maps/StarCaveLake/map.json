@@ -42,8 +42,8 @@
       "x": 34,
       "y": 3,
       "elevation": 0,
-      "dest_map": "MAP_STAR_CAVE1FB",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_STAR_CAVE_END",
+      "dest_warp_id": "1"
     }
   ],
   "coord_events": [

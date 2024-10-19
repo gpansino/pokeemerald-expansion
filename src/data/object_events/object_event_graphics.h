@@ -386,4 +386,4 @@ const u32 gObjectEventPic_Butler[] = INCBIN_U32("graphics/object_events/pics/peo
 const u16 gObjectEventPal_Butler[] = INCBIN_U16("graphics/object_events/palettes/butler.gbapal");
 const u32 gObjectEventPic_Diane[] = INCBIN_U32("graphics/object_events/pics/people/diane.4bpp");
 const u16 gObjectEventPal_Diane[] = INCBIN_U16("graphics/object_events/palettes/diane.gbapal");
-
+const u32 gObjectEventPic_WishStone[] = INCBIN_U32("graphics/object_events/pics/misc/wish_stone.4bpp");

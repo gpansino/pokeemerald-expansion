@@ -249,6 +249,7 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Flygon;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Jirachi;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Butler;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Diane;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_WishStone;
 
 
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
@@ -496,6 +497,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_JIRACHI] =                  &gObjectEventGraphicsInfo_Jirachi,
     [OBJ_EVENT_GFX_BUTLER] =                   &gObjectEventGraphicsInfo_Butler,
     [OBJ_EVENT_GFX_DIANE] =                    &gObjectEventGraphicsInfo_Diane,
+    [OBJ_EVENT_GFX_WISH_STONE] =               &gObjectEventGraphicsInfo_WishStone,
 };
 
 const struct ObjectEventGraphicsInfo *const gMauvilleOldManGraphicsInfoPointers[] = {

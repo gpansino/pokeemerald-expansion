@@ -41,7 +41,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_FOSSIL",
+      "graphics_id": "OBJ_EVENT_GFX_WISH_STONE",
       "x": 29,
       "y": 67,
       "elevation": 0,
@@ -54,7 +54,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_FOSSIL",
+      "graphics_id": "OBJ_EVENT_GFX_WISH_STONE",
       "x": 33,
       "y": 50,
       "elevation": 0,
@@ -67,7 +67,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_FOSSIL",
+      "graphics_id": "OBJ_EVENT_GFX_WISH_STONE",
       "x": 55,
       "y": 43,
       "elevation": 0,
@@ -80,7 +80,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_FOSSIL",
+      "graphics_id": "OBJ_EVENT_GFX_WISH_STONE",
       "x": 46,
       "y": 19,
       "elevation": 0,
@@ -93,7 +93,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_FOSSIL",
+      "graphics_id": "OBJ_EVENT_GFX_WISH_STONE",
       "x": 14,
       "y": 26,
       "elevation": 0,
@@ -106,7 +106,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_FOSSIL",
+      "graphics_id": "OBJ_EVENT_GFX_WISH_STONE",
       "x": 7,
       "y": 10,
       "elevation": 0,
@@ -119,7 +119,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_FOSSIL",
+      "graphics_id": "OBJ_EVENT_GFX_WISH_STONE",
       "x": 10,
       "y": 57,
       "elevation": 0,
@@ -132,7 +132,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_FOSSIL",
+      "graphics_id": "OBJ_EVENT_GFX_WISH_STONE",
       "x": 34,
       "y": 5,
       "elevation": 0,
@@ -148,7 +148,7 @@
   "warp_events": [
     {
       "x": 29,
-      "y": 75,
+      "y": 74,
       "elevation": 0,
       "dest_map": "MAP_WISHING_ROAD_2",
       "dest_warp_id": "0"

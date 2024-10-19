@@ -31,7 +31,7 @@
   "warp_events": [
     {
       "x": 14,
-      "y": 37,
+      "y": 36,
       "elevation": 0,
       "dest_map": "MAP_STAR_CAVE2FB",
       "dest_warp_id": "1"
@@ -40,7 +40,7 @@
       "x": 18,
       "y": 2,
       "elevation": 0,
-      "dest_map": "MAP_STAR_CAVE2FC",
+      "dest_map": "MAP_STAR_CAVE_END",
       "dest_warp_id": "0"
     }
   ],
