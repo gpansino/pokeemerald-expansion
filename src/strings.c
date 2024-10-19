@@ -1573,7 +1573,7 @@ const u8 gText_ItGotAway[] = _("It got away…{PAUSE_UNTIL_PRESS}");
 const u8 gText_XWillBeSentToY[] = _("{STR_VAR_2} will be\nsent to {STR_VAR_1}.");
 const u8 gText_ByeByeVar1[] = _("Bye-bye, {STR_VAR_2}!");
 const u8 gText_XSentOverY[] = _("{STR_VAR_1} sent over {STR_VAR_3}.");
-const u8 gText_TakeGoodCareOfX[] = _("Take good care of {STR_VAR_3}!");
+const u8 gText_TakeGoodCareOfX[] = _("Take good care of it!");
 
 // Easy chat group names
 const u8 gEasyChatGroupName_Pokemon[] = _("POKéMON");
@@ -1899,3 +1899,13 @@ const u8 gText_ExpShareOff[] = _("The Exp. Share has been turned off.{PAUSE_UNTI
 const u8 gText_BasePointsResetToZero[] = _("{STR_VAR_1}'s base points\nwere all reset to zero!{PAUSE_UNTIL_PRESS}");
 const u8 gText_Fertilize[] = _("FERTILIZE");
 const u8 gText_PlantBerry[] = _("PLANT BERRY");
+const u8 gText_DefenseCurl1000[] = _("DEFENSE CURL{CLEAR_TO 0x4E}1000");
+const u8 gText_Snore1000[] = _("SNORE{CLEAR_TO 0x4E}1000");
+const u8 gText_MudSlap4000[] = _("MUD SLAP{CLEAR_TO 0x4E}4000");
+const u8 gText_Swift4000[] = _("SWIFT{CLEAR_TO 0x4E}4000");
+const u8 gText_Supersonic4000[] = _("SUPERSONIC{CLEAR_TO 0x4E}4000");
+const u8 gText_HelpingHand2000[] = _("HELPING HAND{CLEAR_TO 0x4E}2000");
+const u8 gText_Refresh2000[] = _("REFRESH{CLEAR_TO 0x4E}2000");
+const u8 gText_Disable4000[] = _("DISABLE{CLEAR_TO 0x4E}4000");
+const u8 gText_SmellingSalt4000[] = _("SMELLINGSALT{CLEAR_TO 0x4E}4000");
+const u8 gText_QuickAttack8000[] = _("QUICK ATTACK{CLEAR_TO 0x4E}8000");

@@ -440,3 +440,4 @@ void DestroyMap(void){
 
     UnlockPlayerFieldControls();
 }
+

@@ -547,6 +547,7 @@ gSpecials::
 	def_special DestroyMap
 	def_special ChooseMonSendToPC
 	def_special SendMonToPC
+	def_special GetTradeRandom
 	
 	def_special GetNumberSprayStrength
 	def_special GetSprayId

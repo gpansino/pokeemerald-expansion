@@ -133,6 +133,8 @@
 #define MULTI_BABY_QUIZ_9                  122
 #define MULTI_GAME_CORNER_POKEMON          123
 #define MULTI_ALOLAN                       124
+#define MULTI_MF_MOVE_TUTOR_1              125
+#define MULTI_MF_MOVE_TUTOR_2              126
 
 // Lilycove SS Tidal Multichoice Selections
 #define SSTIDAL_SELECTION_SLATEPORT        0

@@ -829,6 +829,26 @@ static const struct MenuAction MultichoiceList_GameCornerPokemon[] = {
     {gText_GameCornerPorygonAndPrice}
 };
 
+static const struct MenuAction MultichoiceList_MF_MoveTutor1[] = 
+{
+    {gText_DefenseCurl1000},
+    {gText_Snore1000},
+    {gText_MudSlap4000},
+    {gText_Swift4000},
+    {gText_Supersonic4000},
+    {gText_Exit}
+};
+
+static const struct MenuAction MultichoiceList_MF_MoveTutor2[] = 
+{
+    {gText_HelpingHand2000},
+    {gText_Refresh2000},
+    {gText_Disable4000},
+    {gText_SmellingSalt4000},
+    {gText_QuickAttack8000},
+    {gText_Exit}
+};
+
 static const struct MenuAction MultichoiceList_Exit[] =
 {
     {gText_Exit},
@@ -966,6 +986,8 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_BABY_QUIZ_8]                = MULTICHOICE(MultichoiceList_BabyQuiz8),
     [MULTI_BABY_QUIZ_9]                = MULTICHOICE(MultichoiceList_BabyQuiz9),
     [MULTI_GAME_CORNER_POKEMON]        = MULTICHOICE(MultichoiceList_GameCornerPokemon),
+    [MULTI_MF_MOVE_TUTOR_1]            = MULTICHOICE(MultichoiceList_MF_MoveTutor1),
+    [MULTI_MF_MOVE_TUTOR_2]            = MULTICHOICE(MultichoiceList_MF_MoveTutor2),
 };
 
 const u8 *const gStdStrings[] =

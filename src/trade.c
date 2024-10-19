@@ -5160,3 +5160,57 @@ static void CB2_SaveAndEndWirelessTrade(void)
     BuildOamBuffer();
     UpdatePaletteFade();
 }
+
+#define ARR_SIZE(arr) ( sizeof((arr)) / sizeof((arr[0])) )
+
+
+void GetTradeRandom(void){
+    struct Pokemon *pokemon = &gEnemyParty[0];
+    u16 species;
+    u16 speciesPool[40] = {
+        SPECIES_WURMPLE,
+        SPECIES_WURMPLE,
+        SPECIES_WURMPLE,
+        SPECIES_CATERPIE,
+        SPECIES_WEEDLE,
+        SPECIES_LEDYBA,
+        SPECIES_SPINARAK,
+        SPECIES_ZIGZAGOON,
+        SPECIES_ZIGZAGOON,
+        SPECIES_ZIGZAGOON,
+        SPECIES_RATTATA,
+        SPECIES_SENTRET,
+        SPECIES_WHISMUR,
+        SPECIES_WINGULL,
+        SPECIES_PIDGEY,
+        SPECIES_TAILLOW,
+        SPECIES_HOOTHOOT,
+        SPECIES_ZUBAT,
+        SPECIES_HOPPIP,
+        SPECIES_ODDISH,
+        SPECIES_BELLSPROUT,
+        SPECIES_LOTAD,
+        SPECIES_SEEDOT,
+        SPECIES_POLIWAG,
+        SPECIES_GOLDEEN,
+        SPECIES_REMORAID,
+        SPECIES_MAGIKARP,
+        SPECIES_PHANPY,
+        SPECIES_GEODUDE,
+        SPECIES_ZUBAT,
+        SPECIES_MAKUHITA,
+        SPECIES_ARON,
+        SPECIES_ELECTRIKE,
+        SPECIES_GROWLITHE,
+        SPECIES_JIGGLYPUFF,
+        SPECIES_PIKACHU,
+        SPECIES_VULPIX,
+        SPECIES_POOCHYENA,
+        SPECIES_DROWZEE,
+        SPECIES_GULPIN,
+    };
+
+    species = speciesPool[Random() % 40];
+
+    CreateMon(pokemon, species, 5, USE_RANDOM_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
+}

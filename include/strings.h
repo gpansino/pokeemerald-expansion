@@ -3094,6 +3094,16 @@ extern const u8 gText_AlolanExeggutor[];
 extern const u8 gText_AlolanMarowak[];
 extern const u8 gText_FillPail[];
 extern const u8 gText_PokenavMute[];
+extern const u8 gText_DefenseCurl1000[];
+extern const u8 gText_Snore1000[];
+extern const u8 gText_MudSlap4000[];
+extern const u8 gText_Swift4000[];
+extern const u8 gText_Supersonic4000[];
+extern const u8 gText_HelpingHand2000[];
+extern const u8 gText_Refresh2000[];
+extern const u8 gText_Disable4000[];
+extern const u8 gText_SmellingSalt4000[];
+extern const u8 gText_QuickAttack8000[];
 // Exp. Share
 extern const u8 gText_ExpShareOn[];
 extern const u8 gText_ExpShareOff[];

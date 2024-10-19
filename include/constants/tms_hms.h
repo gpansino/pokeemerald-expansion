@@ -51,7 +51,17 @@
     F(STEEL_WING) \
     F(SKILL_SWAP) \
     F(SNATCH) \
-    F(OVERHEAT)
+    F(OVERHEAT) \
+    F(CHARM) \
+    F(SCREECH) \
+    F(EERIE_IMPULSE) \
+    F(METAL_SOUND) \
+    F(SCARY_FACE) \
+    F(WISH) \
+    F(RECYCLE) \
+    F(LEECH_SEED) \
+    F(COUNTER) \
+    F(MIRROR_COAT) \
 
 #define FOREACH_HM(F) \
     F(CUT) \
