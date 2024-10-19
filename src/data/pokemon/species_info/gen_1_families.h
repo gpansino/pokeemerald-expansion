@@ -2298,7 +2298,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .formSpeciesIdTable = sPikachuFormSpeciesIdTable,
         .formChangeTable = sPikachuFormChangeTable,
         .evolutions = EVOLUTION({EVO_ITEM, ITEM_THUNDER_STONE, SPECIES_RAICHU},
-                                {EVO_TRADE, 0, SPECIES_RAICHU_ALOLAN}),
+                                {EVO_NONE, 0, SPECIES_RAICHU_ALOLAN}),
     },
 
 #if P_COSPLAY_PIKACHU_FORMS
