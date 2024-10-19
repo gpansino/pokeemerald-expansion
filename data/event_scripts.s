@@ -1096,3 +1096,25 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/StarCave2FC/scripts.inc"
 
 	.include "data/maps/StarCaveDeadEnd/scripts.inc"
+
+	.include "data/maps/Forina2/scripts.inc"
+
+	.include "data/maps/StarCaveEnd/scripts.inc"
+
+	.include "data/maps/Forina1/scripts.inc"
+
+	.include "data/maps/Forina3/scripts.inc"
+
+	.include "data/maps/MilleniumFestival_CircusTent/scripts.inc"
+
+	.include "data/maps/MilleniumFestival_HealTent/scripts.inc"
+
+	.include "data/maps/MilleniumFestival_LotteryTent/scripts.inc"
+
+	.include "data/maps/MilleniumFestival_HomeTent/scripts.inc"
+
+	.include "data/maps/MilleniumFestival_TeachTent/scripts.inc"
+
+	.include "data/maps/MilleniumFestival_GlassTent/scripts.inc"
+
+	.include "data/maps/MilleniumFestival_CircusBackroom/scripts.inc"

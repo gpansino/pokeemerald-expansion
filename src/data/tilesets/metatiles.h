@@ -216,3 +216,9 @@ const u16 gMetatileAttributes_wishing_road[] = INCBIN_U16("data/tilesets/seconda
 
 const u16 gMetatiles_StarCave[] = INCBIN_U16("data/tilesets/secondary/star_cave/metatiles.bin");
 const u16 gMetatileAttributes_StarCave[] = INCBIN_U16("data/tilesets/secondary/star_cave/metatile_attributes.bin");
+
+const u16 gMetatiles_Forina[] = INCBIN_U16("data/tilesets/secondary/forina/metatiles.bin");
+const u16 gMetatileAttributes_Forina[] = INCBIN_U16("data/tilesets/secondary/forina/metatile_attributes.bin");
+
+const u16 gMetatiles_Circus[] = INCBIN_U16("data/tilesets/secondary/circus/metatiles.bin");
+const u16 gMetatileAttributes_Circus[] = INCBIN_U16("data/tilesets/secondary/circus/metatile_attributes.bin");

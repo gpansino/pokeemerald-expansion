@@ -1,0 +1,41 @@
+{
+  "id": "MAP_FORINA3",
+  "name": "Forina3",
+  "layout": "LAYOUT_FORINA3",
+  "music": "MUS_PARADISE",
+  "region_map_section": "MAPSEC_FORINA",
+  "requires_flash": false,
+  "weather": "WEATHER_FOG_DIAGONAL",
+  "map_type": "MAP_TYPE_ROUTE",
+  "allow_cycling": true,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": false,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": 0,
+  "object_events": [
+
+  ],
+  "warp_events": [
+    {
+      "x": 18,
+      "y": 57,
+      "elevation": 0,
+      "dest_map": "MAP_FORINA2",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 19,
+      "y": 57,
+      "elevation": 0,
+      "dest_map": "MAP_FORINA2",
+      "dest_warp_id": "2"
+    }
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
+}

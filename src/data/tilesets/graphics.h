@@ -1694,3 +1694,41 @@ const u16 gTilesetPalettes_StarCave[][16] =
 };
 
 const u32 gTilesetTiles_StarCave[] = INCBIN_U32("data/tilesets/secondary/star_cave/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_Forina[][16] =
+{
+    INCBIN_U16("data/tilesets/secondary/forina/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/forina/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/forina/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/forina/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/forina/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/forina/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/forina/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/forina/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/forina/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/forina/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/forina/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/forina/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/forina/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_Forina[] = INCBIN_U32("data/tilesets/secondary/forina/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_Circus[][16] =
+{
+    INCBIN_U16("data/tilesets/secondary/circus/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/circus/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/circus/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/circus/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/circus/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/circus/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/circus/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/circus/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/circus/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/circus/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/circus/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/circus/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/circus/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_Circus[] = INCBIN_U32("data/tilesets/secondary/circus/tiles.4bpp.lz");

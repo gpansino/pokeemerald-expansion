@@ -858,3 +858,27 @@ const struct Tileset gTileset_StarCave =
     .metatileAttributes = gMetatileAttributes_StarCave,
     .callback = NULL,
 };
+
+
+
+const struct Tileset gTileset_Forina =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Forina,
+    .palettes = gTilesetPalettes_Forina,
+    .metatiles = gMetatiles_Forina,
+    .metatileAttributes = gMetatileAttributes_Forina,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_Circus =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Circus,
+    .palettes = gTilesetPalettes_Circus,
+    .metatiles = gMetatiles_Circus,
+    .metatileAttributes = gMetatileAttributes_Circus,
+    .callback = NULL,
+};

@@ -33,7 +33,8 @@
     "gMapGroup_IndoorRoute113",
     "gMapGroup_IndoorRoute123",
     "gMapGroup_IndoorRoute119",
-    "gMapGroup_IndoorRoute124"
+    "gMapGroup_IndoorRoute124",
+    "gMapGroup_IndoorMFestival"
   ],
   "gMapGroup_TownsAndRoutes": [
     "PetalburgCity",
@@ -97,7 +98,10 @@
     "LaRousseCity",
     "WishingRoad_2",
     "MilleniumFestival",
-    "StarCaveDeadEnd"
+    "StarCaveDeadEnd",
+    "Forina2",
+    "Forina1",
+    "Forina3"
   ],
   "gMapGroup_IndoorLittleroot": [
     "LittlerootTown_BrendansHouse_1F",
@@ -441,7 +445,8 @@
     "StarCaveLake",
     "StarCave2FA",
     "StarCave2FB",
-    "StarCave2FC"
+    "StarCave2FC",
+    "StarCaveEnd"
   ],
   "gMapGroup_IndoorDynamic": [
     "SecretBase_RedCave1",
@@ -632,5 +637,14 @@
   ],
   "gMapGroup_IndoorRoute124": [
     "Route124_DivingTreasureHuntersHouse"
+  ],
+  "gMapGroup_IndoorMFestival": [
+    "MilleniumFestival_CircusTent",
+    "MilleniumFestival_HomeTent",
+    "MilleniumFestival_TeachTent",
+    "MilleniumFestival_GlassTent",
+    "MilleniumFestival_CircusBackroom",
+    "MilleniumFestival_HealTent",
+    "MilleniumFestival_LotteryTent"
   ]
 }

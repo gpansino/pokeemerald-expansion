@@ -4530,6 +4530,116 @@
       "secondary_tileset": "gTileset_StarCave",
       "border_filepath": "data/layouts/StarCaveDeadEnd/border.bin",
       "blockdata_filepath": "data/layouts/StarCaveDeadEnd/map.bin"
+    },
+    {
+      "id": "LAYOUT_FORINA2",
+      "name": "Forina2_Layout",
+      "width": 40,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Rustboro",
+      "border_filepath": "data/layouts/Forina2/border.bin",
+      "blockdata_filepath": "data/layouts/Forina2/map.bin"
+    },
+    {
+      "id": "LAYOUT_STAR_CAVE_END",
+      "name": "StarCaveEnd_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_StarCave",
+      "border_filepath": "data/layouts/StarCaveEnd/border.bin",
+      "blockdata_filepath": "data/layouts/StarCaveEnd/map.bin"
+    },
+    {
+      "id": "LAYOUT_FORINA1",
+      "name": "Forina1_Layout",
+      "width": 40,
+      "height": 16,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Forina",
+      "border_filepath": "data/layouts/Forina1/border.bin",
+      "blockdata_filepath": "data/layouts/Forina1/map.bin"
+    },
+    {
+      "id": "LAYOUT_FORINA3",
+      "name": "Forina3_Layout",
+      "width": 50,
+      "height": 60,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Forina",
+      "border_filepath": "data/layouts/Forina3/border.bin",
+      "blockdata_filepath": "data/layouts/Forina3/map.bin"
+    },
+    {
+      "id": "LAYOUT_MILLENIUM_FESTIVAL_CIRCUS_TENT",
+      "name": "MilleniumFestival_CircusTent_Layout",
+      "width": 30,
+      "height": 30,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Circus",
+      "border_filepath": "data/layouts/MilleniumFestival_CircusTent/border.bin",
+      "blockdata_filepath": "data/layouts/MilleniumFestival_CircusTent/map.bin"
+    },
+    {
+      "id": "LAYOUT_MILLENIUM_FESTIVAL_HEAL_TENT",
+      "name": "MilleniumFestival_HealTent_Layout",
+      "width": 24,
+      "height": 16,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Circus",
+      "border_filepath": "data/layouts/MilleniumFestival_HealTent/border.bin",
+      "blockdata_filepath": "data/layouts/MilleniumFestival_HealTent/map.bin"
+    },
+    {
+      "id": "LAYOUT_MILLENIUM_FESTIVAL_LOTTERY_TENT",
+      "name": "MilleniumFestival_LotteryTent_Layout",
+      "width": 15,
+      "height": 15,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Circus",
+      "border_filepath": "data/layouts/MilleniumFestival_LotteryTent/border.bin",
+      "blockdata_filepath": "data/layouts/MilleniumFestival_LotteryTent/map.bin"
+    },
+    {
+      "id": "LAYOUT_MILLENIUM_FESTIVAL_HOME_TENT",
+      "name": "MilleniumFestival_HomeTent_Layout",
+      "width": 12,
+      "height": 12,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Circus",
+      "border_filepath": "data/layouts/MilleniumFestival_HomeTent/border.bin",
+      "blockdata_filepath": "data/layouts/MilleniumFestival_HomeTent/map.bin"
+    },
+    {
+      "id": "LAYOUT_MILLENIUM_FESTIVAL_TEACH_TENT",
+      "name": "MilleniumFestival_TeachTent_Layout",
+      "width": 18,
+      "height": 18,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Circus",
+      "border_filepath": "data/layouts/MilleniumFestival_TeachTent/border.bin",
+      "blockdata_filepath": "data/layouts/MilleniumFestival_TeachTent/map.bin"
+    },
+    {
+      "id": "LAYOUT_MILLENIUM_FESTIVAL_GLASS_TENT",
+      "name": "MilleniumFestival_GlassTent_Layout",
+      "width": 30,
+      "height": 30,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Circus",
+      "border_filepath": "data/layouts/MilleniumFestival_GlassTent/border.bin",
+      "blockdata_filepath": "data/layouts/MilleniumFestival_GlassTent/map.bin"
+    },
+    {
+      "id": "LAYOUT_MILLENIUM_FESTIVAL_CIRCUS_BACKROOM",
+      "name": "MilleniumFestival_CircusBackroom_Layout",
+      "width": 30,
+      "height": 12,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Circus",
+      "border_filepath": "data/layouts/MilleniumFestival_CircusBackroom/border.bin",
+      "blockdata_filepath": "data/layouts/MilleniumFestival_CircusBackroom/map.bin"
     }
   ]
 }

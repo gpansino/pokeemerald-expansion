@@ -68,6 +68,9 @@
 #define MAP_WISHING_ROAD_2      (59 | (0 << 8))
 #define MAP_MILLENIUM_FESTIVAL  (60 | (0 << 8))
 #define MAP_STAR_CAVE_DEAD_END  (61 | (0 << 8))
+#define MAP_FORINA2             (62 | (0 << 8))
+#define MAP_FORINA1             (63 | (0 << 8))
+#define MAP_FORINA3             (64 | (0 << 8))
 
 // gMapGroup_IndoorLittleroot
 #define MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F    (0 | (1 << 8))
@@ -412,6 +415,7 @@
 #define MAP_STAR_CAVE2FA                             (112 | (24 << 8))
 #define MAP_STAR_CAVE2FB                             (113 | (24 << 8))
 #define MAP_STAR_CAVE2FC                             (114 | (24 << 8))
+#define MAP_STAR_CAVE_END                            (115 | (24 << 8))
 
 // gMapGroup_IndoorDynamic
 #define MAP_SECRET_BASE_RED_CAVE1    (0 | (25 << 8))
@@ -603,6 +607,15 @@
 // gMapGroup_IndoorRoute124
 #define MAP_ROUTE124_DIVING_TREASURE_HUNTERS_HOUSE (0 | (33 << 8))
 
-#define MAP_GROUPS_COUNT 34
+// gMapGroup_IndoorMFestival
+#define MAP_MILLENIUM_FESTIVAL_CIRCUS_TENT     (0 | (34 << 8))
+#define MAP_MILLENIUM_FESTIVAL_HOME_TENT       (1 | (34 << 8))
+#define MAP_MILLENIUM_FESTIVAL_TEACH_TENT      (2 | (34 << 8))
+#define MAP_MILLENIUM_FESTIVAL_GLASS_TENT      (3 | (34 << 8))
+#define MAP_MILLENIUM_FESTIVAL_CIRCUS_BACKROOM (4 | (34 << 8))
+#define MAP_MILLENIUM_FESTIVAL_HEAL_TENT       (5 | (34 << 8))
+#define MAP_MILLENIUM_FESTIVAL_LOTTERY_TENT    (6 | (34 << 8))
+
+#define MAP_GROUPS_COUNT 35
 
 #endif // GUARD_CONSTANTS_MAP_GROUPS_H
