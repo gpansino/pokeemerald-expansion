@@ -9636,9 +9636,9 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
 
     [MOVE_NIGHT_SLASH] =
     {
-        .name = COMPOUND_STRING("Night Slash"),
+        .name = COMPOUND_STRING("NIGHT SLASH"),
         .description = COMPOUND_STRING(
-            "Hits as soon as possible.\n"
+            "Sudden PHYSICAL strike.\n"
             "High critical-hit ratio."),
         .effect = EFFECT_HIT,
         .power = 70,
@@ -10340,7 +10340,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
 
     [MOVE_FLASH_CANNON] =
     {
-        .name = COMPOUND_STRING("Flash Cannon"),
+        .name = COMPOUND_STRING("FLASH CANNON"),
         .description = COMPOUND_STRING(
             "Releases a blast of light\n"
             "that may lower Sp. Def."),
@@ -13768,7 +13768,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
 
     [MOVE_DRAINING_KISS] =
     {
-        .name = HANDLE_EXPANDED_MOVE_NAME("DrainingKiss", "Draining Kiss"),
+        .name = HANDLE_EXPANDED_MOVE_NAME("DRAININGKISS", "DRAINING KISS"),
         .description = sDrainingKissDescription,
         .effect = EFFECT_ABSORB,
         .power = 50,
@@ -13906,7 +13906,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
 
     [MOVE_PLAY_ROUGH] =
     {
-        .name = COMPOUND_STRING("Play Rough"),
+        .name = COMPOUND_STRING("PLAY ROUGH"),
         .description = COMPOUND_STRING(
             "Plays rough with the foe.\n"
             "May lower Attack."),
@@ -13931,7 +13931,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
 
     [MOVE_FAIRY_WIND] =
     {
-        .name = COMPOUND_STRING("Fairy Wind"),
+        .name = COMPOUND_STRING("FAIRY WIND"),
         .description = COMPOUND_STRING(
             "Stirs up a fairy wind to\n"
             "strike the foe."),
@@ -14265,7 +14265,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
 
     [MOVE_EERIE_IMPULSE] =
     {
-        .name = HANDLE_EXPANDED_MOVE_NAME("EerieImpulse", "Eerie Impulse"),
+        .name = HANDLE_EXPANDED_MOVE_NAME("EERIEIMPULSE", "Eerie Impulse"),
         .description = COMPOUND_STRING(
             "Exposes the foe to a pulse\n"
             "that sharply cuts Sp. Atk."),
@@ -14429,7 +14429,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
 
     [MOVE_DAZZLING_GLEAM] =
     {
-        .name = HANDLE_EXPANDED_MOVE_NAME("DazzlngGleam", "Dazzling Gleam"),
+        .name = HANDLE_EXPANDED_MOVE_NAME("DAZZLINGGLEAM", "Dazzling Gleam"),
         .description = COMPOUND_STRING(
             "Damages foes by emitting\n"
             "a bright flash."),

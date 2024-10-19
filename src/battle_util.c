@@ -10633,6 +10633,8 @@ u8 GetBattleMoveCategory(u32 moveId)
 
     if (IS_MOVE_STATUS(moveId))
         return DAMAGE_CATEGORY_STATUS;
+    else if (moveId == MOVE_NIGHT_SLASH)
+        return DAMAGE_CATEGORY_PHYSICAL;
     else if (gMovesInfo[moveId].type < TYPE_MYSTERY)
         return DAMAGE_CATEGORY_PHYSICAL;
     else
