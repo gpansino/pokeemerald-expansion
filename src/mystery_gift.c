@@ -184,7 +184,6 @@ void ClearSavedWonderCardAndRelated(void)
     ClearSavedTrainerIds();
     ClearRamScript();
     ClearMysteryGiftFlags();
-    ClearMysteryGiftVars();
 #endif //FREE_MYSTERY_GIFT
 #if FREE_BATTLE_TOWER_E_READER == FALSE
     ClearEReaderTrainer(&gSaveBlock2Ptr->frontier.ereaderTrainer);

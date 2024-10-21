@@ -14,7 +14,6 @@ void DisableMysteryGift(void);
 void EnableMysteryGift(void);
 bool32 IsMysteryGiftEnabled(void);
 void ClearMysteryGiftFlags(void);
-void ClearMysteryGiftVars(void);
 void DisableResetRTC(void);
 void EnableResetRTC(void);
 bool32 CanResetRTC(void);

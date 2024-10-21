@@ -1,12 +1,56 @@
+.set LOCALID_WALLY, 1
+.set LOCALID_UNCLE, 3
+.set LOCALID_RIVAL, 6
+
 VerdanturfTown_WandasHouse_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, VerdanturfTown_WandasHouse_OnTransition
 	.byte 0
+
+VerdanturfTown_WandasHouse_OnTransition:
+	call Common_EventScript_SetupRivalGfxId
+	end
 
 VerdanturfTown_WandasHouse_EventScript_Wally::
 	lock
 	faceplayer
-	goto_if_set FLAG_WALLY_SPEECH, VerdanturfTown_WandasHouse_EventScript_WallyShortSpeech
-	msgbox VerdanturfTown_WandasHouse_Text_StrongerSpeech, MSGBOX_DEFAULT
-	setflag FLAG_WALLY_SPEECH
+	goto_if_set FLAG_WISHEVENT_COMPLETE, VerdanturfTown_WandasHouse_EventScript_WallyShortSpeech
+	msgbox VerdanturfTown_WandasHouse_Text_WishEventTrigger, MSGBOX_YESNO
+	switch VAR_RESULT
+	case YES, VerdanturfTown_WandasHouse_EventScript_ExitToWishEvent
+	msgbox VerdanturfTown_WandasHouse_Text_WallyDeclineWish, MSGBOX_DEFAULT
+	release
+	end
+
+VerdanturfTown_WandasHouse_EventScript_Rival::
+	lock
+	faceplayer
+	msgbox VerdanturfTown_WandasHouse_Text_RivalPreWish, MSGBOX_DEFAULT
+	release
+	end
+
+VerdanturfTown_WandasHouse_EventScript_ExitToWishEvent:
+	msgbox VerdanturfTown_WandasHouse_Text_WallyBeginWishEvent, MSGBOX_DEFAULT
+	waitmessage
+	applymovement LOCALID_RIVAL, Common_Movement_FaceOriginalDirection
+	waitmovement 0
+	playse SE_PIN
+	applymovement LOCALID_RIVAL, Common_Movement_ExclamationMark
+	waitse
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp
+	msgbox VerdanturfTown_WandasHouse_Text_RivalWishEvent, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_UNCLE, VerdanturfTown_WandasHouse_Movement_UncleBeginWish
+	waitmovement 0
+	applymovement LOCALID_RIVAL, Common_Movement_FaceLeft
+	applymovement LOCALID_WALLY, Common_Movement_FaceLeft
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft
+	waitmovement 0
+	msgbox VerdanturfTown_WandasHouse_Text_UncleWishEvent, MSGBOX_DEFAULT
+	playse SE_TRUCK_MOVE
+	@fadescreen FADE_TO_BLACK
+	@delay 40
+	warp MAP_MILLENIUM_FESTIVAL, 34, 39
+	waitstate
 	release
 	end
 
@@ -81,6 +125,17 @@ VerdanturfTown_WandasHouse_EventScript_WallysAuntEverGrande::
 	msgbox VerdanturfTown_WandasHouse_Text_WallyWasInEverGrande, MSGBOX_DEFAULT
 	release
 	end
+
+VerdanturfTown_WandasHouse_Movement_UncleBeginWish:
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	step_end
 
 VerdanturfTown_WandasHouse_Text_StrongerSpeech:
 	.string "WALLY: I lost to you, {PLAYER}, but I'm\n"
@@ -166,3 +221,55 @@ VerdanturfTown_WandasHouse_Text_WallyWasInEverGrande:
 	.string "His parents in PETALBURG would be\n"
 	.string "astonished to hear that!$"
 
+VerdanturfTown_WandasHouse_Text_WishEventTrigger:
+	.string "WALLY: Hey, {PLAYER}!\p"
+	.string "My cousin DIANE invited us to visit\n"
+	.string "her at the MILLENIUM FESTIVAL.\p"
+	.string "We're leaving soon!\n"
+	.string "Are you ready?$"
+
+VerdanturfTown_WandasHouse_Text_WallyDeclineWish:
+	.string "Oh, ok.\p"
+	.string "Don't take too long though.\n"
+	.string "The MILLENIUM COMET is only around\l"
+	.string "for so long!$"
+
+VerdanturfTown_WandasHouse_Text_RivalPreWish:
+	.string "WOOOOOOOO!!!!\p"
+	.string "{PLAYER}, are you as excited as me\n"
+	.string "to see the MILLENIUM COMET?!\p"
+	.string "All of our wishes will come true!\p"
+	.string "Actually, I think its just one wish.\p"
+	.string "MAN! I gotta think long and hard\n"
+	.string "about what my one wish will be!$"
+
+VerdanturfTown_WandasHouse_Text_WallyBeginWishEvent:
+	.string "WALLY: Awesome! We can get going!\p"
+	.string "Y'know, {PLAYER}, I was pretty\n"
+	.string "bummed when you beat me.\p"
+	.string "It really highlighted just how much\n"
+	.string "stronger you were than me..\p"
+	.string "And it just looked impossible; how\n"
+	.string "could I get as strong as you?\p"
+	.string "I think that's what my wish will\n"
+	.string "be on the MILLENIUM COMET.\p"
+	.string "Then, I'll be the strongest trainer\n"
+	.string "in the world!$"
+
+VerdanturfTown_WandasHouse_Text_RivalWishEvent:
+	.string "{RIVAL}: OH! Are we talking about\n"
+	.string "wishes over here, eh?\p"
+	.string "{PLAYER}, what are you gonna wish\n"
+	.string "for on the MILLENIUM COMET?\p"
+	.string "Better yet, what am I gonna\n"
+	.string "wish for? Heheheh....\p"
+	.string "I just can't wait! If you're both\n"
+	.string "ready, let's go right now!$"
+
+VerdanturfTown_WandasHouse_Text_UncleWishEvent:
+	.string "Sounds like we've got a lot of\n"
+	.string "commotion over here!\p"
+	.string "You kids ready to go the\n"
+	.string "MILLENIUM FESTIVAL?\p"
+	.string "We'll take my truck!\n"
+	.string "Hop in everyone!$"

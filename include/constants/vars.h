@@ -106,7 +106,7 @@
 #define VAR_PACIFIDLOG_TOWN_STATE                        0x4056 // Unused Var
 #define VAR_PETALBURG_CITY_STATE                         0x4057
 #define VAR_SLATEPORT_CITY_STATE                         0x4058
-#define VAR_MAUVILLE_CITY_STATE                          0x4059 // Unused Var
+#define VAR_MAUVILLE_CITY_STATE                          0x4059 
 #define VAR_RUSTBORO_CITY_STATE                          0x405A
 #define VAR_FORTREE_CITY_STATE                           0x405B // Unused Var
 #define VAR_LILYCOVE_CITY_STATE                          0x405C // Unused Var
@@ -239,7 +239,7 @@
 #define VAR_UNUSED_0x40DB                                0x40DB // Unused Var
 #define VAR_UNUSED_0x40DC                                0x40DC // Unused Var
 #define VAR_GIFT_PICHU_SLOT                              0x40DD
-#define VAR_GIFT_UNUSED_1                                0x40DE // Var is written to, but never read
+#define VAR_MILLENIUM_FESTIVAL_STATE                     0x40DE 
 #define VAR_GIFT_UNUSED_2                                0x40DF // Var is written to, but never read
 #define VAR_GIFT_UNUSED_3                                0x40E0 // Var is written to, but never read
 #define VAR_GIFT_UNUSED_4                                0x40E1 // Var is written to, but never read

@@ -1,9 +1,12 @@
 .set LOCALID_WALLY, 6
 .set LOCALID_WALLYS_UNCLE, 7
 .set LOCALID_SCOTT, 11
+.set LOCALID_MAY, 12
+.set LOCALID_BRENDAN, 13
 
 MauvilleCity_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, MauvilleCity_OnTransition
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, MauvilleCity_OnFrame
 	.byte 0
 
 MauvilleCity_OnTransition:
@@ -15,6 +18,45 @@ MauvilleCity_OnTransition:
 	setvar VAR_MAUVILLE_GYM_STATE, 0
 	call_if_set FLAG_GOT_TM_THUNDERBOLT_FROM_WATTSON, MauvilleCity_EventScript_MoveWattsonBackToGym
 	end
+
+MauvilleCity_OnFrame:
+	map_script_2 VAR_MAUVILLE_CITY_STATE, 1, MauvilleCity_EventScript_RivalWishEvent
+	.2byte 0
+
+MauvilleCity_EventScript_RivalWishEvent::
+	lockall
+	checkplayergender
+	call_if_eq VAR_RESULT, MALE, MauvilleCity_EventScript_MayEvent
+	call_if_eq VAR_RESULT, FEMALE, MauvilleCity_EventScript_BrendanEvent
+	setflag FLAG_HIDE_MAUVILLE_CITY_RIVAL
+	clearflag FLAG_HIDE_VERDANTURF_TOWN_RIVAL
+	setvar VAR_MAUVILLE_CITY_STATE, 0
+	releaseall
+	end
+	
+MauvilleCity_EventScript_BrendanEvent::	
+	msgbox MauvilleCity_Text_WaitRival, MSGBOX_DEFAULT
+	applymovement LOCALID_BRENDAN, MauvilleCity_Movement_RivalEnter
+	waitmovement 0
+	delay 30
+	msgbox MauvilleCity_Text_RivalWishEvent, MSGBOX_DEFAULT
+	applymovement LOCALID_BRENDAN, MauvilleCity_Movement_RivalWalkAway
+	waitmovement 0
+	delay 30
+	removeobject LOCALID_BRENDAN
+	return
+
+MauvilleCity_EventScript_MayEvent::	
+	msgbox MauvilleCity_Text_WaitRival, MSGBOX_DEFAULT
+	applymovement LOCALID_MAY, MauvilleCity_Movement_RivalEnter
+	waitmovement 0
+	delay 30
+	msgbox MauvilleCity_Text_RivalWishEvent, MSGBOX_DEFAULT
+	applymovement LOCALID_MAY, MauvilleCity_Movement_RivalWalkAway
+	waitmovement 0
+	delay 30
+	removeobject LOCALID_MAY
+	return
 
 MauvilleCity_EventScript_MoveWattsonBackToGym::
 	clearflag FLAG_HIDE_MAUVILLE_GYM_WATTSON
@@ -226,6 +268,32 @@ MauvilleCity_EventScript_WallyRequestBattleAgain::
 	msgbox MauvilleCity_Text_WallyPleaseBattleMe, MSGBOX_YESNO
 	goto MauvilleCity_EventScript_BattleWallyPrompt
 	end
+
+MauvilleCity_Movement_RivalEnter:
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_up
+	step_end
+
+MauvilleCity_Movement_RivalWalkAway:
+	walk_down
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	step_end
 
 MauvilleCity_Movement_WallyExitNorth1:
 	walk_left
@@ -666,3 +734,28 @@ MauvilleCity_Text_ExplainTV:
 
 MauvilleCity_Text_BeenCheckingOutTV:
 	.string "Hi, have you been checking out TVs?$"
+
+MauvilleCity_Text_RivalWishEvent:
+	.string "Hey, {PLAYER}!\n"
+	.string "Did you hear?\p"
+	.string "WALLY got a call from his cousin\n"
+	.string "to go on a big vacation!\p"
+	.string "His cousin does shows at\n"
+	.string "this big travelling circus.\p"
+	.string "And they're going to be around for the\n"
+	.string "MILLENIUM FESTIVAL!\p"
+	.string "HUH? What is the MILLENIUM FESTIVAL?\p"
+	.string "Well, there's this comet that comes\n"
+	.string "once every 1000 years!\p"
+	.string "The comet is told to make wonderful\n"
+	.string "things happen! It's said that it can\l"
+	.string "make your deepest desires come true...\p"
+	.string "So theyre holding a festival to\n"
+	.string "celebrate the arrival of the comet!\p"
+	.string "And GUESS WHAT, {PLAYER}! WALLY is\n"
+	.string "inviting us to go with him!\p"
+	.string "Meet us over at his UNCLE's house\n"
+	.string "in VERDANTURF when you're ready!$"
+
+MauvilleCity_Text_WaitRival:
+	.string "{PLAYER}! WAAAAAAIIIIIIT!$"

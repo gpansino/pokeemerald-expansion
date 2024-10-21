@@ -211,7 +211,7 @@
 #define FLAG_DEFEATED_WALLY_MAUVILLE         0xBE
 #define FLAG_DEFEATED_GRUNT_SPACE_CENTER_1F  0xBF
 #define FLAG_RECEIVED_SUN_STONE_MOSSDEEP     0xC0
-#define FLAG_WALLY_SPEECH                    0xC1
+#define FLAG_WALLY_SPEECH                    0xC1 // may be unused due to wish event
 #define FLAG_TRICK_HOUSE_PUZZLE_7_SWITCH_1   0xC2 // Leftover from the RS version of Puzzle Room 7, functionally unused
 #define FLAG_TRICK_HOUSE_PUZZLE_7_SWITCH_2   0xC3 //
 #define FLAG_TRICK_HOUSE_PUZZLE_7_SWITCH_3   0xC4 //
@@ -1222,11 +1222,11 @@
 #define FLAG_RECEIVED_BABY                                          0x493 
 #define FLAG_RECEIVED_EEVEE                                         0x494 
 #define FLAG_MATCH_CALL_MUTE                                        0x495 
+#define FLAG_HIDE_MAUVILLE_CITY_RIVAL                               0x496 
+#define FLAG_WISHEVENT_COMPLETE                                     0x497 
+#define FLAG_HIDE_VERDANTURF_TOWN_RIVAL                             0x498 
+#define FLAG_HIDE_FESTIVAL_MAGICSHOWCROWD                           0x499 
 
-#define FLAG_UNUSED_0x496                                           0x496 // Unused Flag
-#define FLAG_UNUSED_0x497                                           0x497 // Unused Flag
-#define FLAG_UNUSED_0x498                                           0x498 // Unused Flag
-#define FLAG_UNUSED_0x499                                           0x499 // Unused Flag
 #define FLAG_UNUSED_0x49A                                           0x49A // Unused Flag
 #define FLAG_UNUSED_0x49B                                           0x49B // Unused Flag
 #define FLAG_UNUSED_0x49C                                           0x49C // Unused Flag

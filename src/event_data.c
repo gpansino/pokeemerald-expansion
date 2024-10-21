@@ -129,18 +129,6 @@ void ClearMysteryGiftFlags(void)
     FlagClear(FLAG_MYSTERY_GIFT_15);
 }
 
-void ClearMysteryGiftVars(void)
-{
-    VarSet(VAR_GIFT_PICHU_SLOT, 0);
-    VarSet(VAR_GIFT_UNUSED_1, 0);
-    VarSet(VAR_GIFT_UNUSED_2, 0);
-    VarSet(VAR_GIFT_UNUSED_3, 0);
-    VarSet(VAR_GIFT_UNUSED_4, 0);
-    VarSet(VAR_GIFT_UNUSED_5, 0);
-    VarSet(VAR_GIFT_UNUSED_6, 0);
-    VarSet(VAR_GIFT_UNUSED_7, 0);
-}
-
 void DisableResetRTC(void)
 {
     VarSet(VAR_RESET_RTC_ENABLE, 0);
